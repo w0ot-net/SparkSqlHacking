@@ -1,0 +1,26 @@
+package org.apache.spark.api.python;
+
+import java.util.List;
+import java.util.Map;
+import org.apache.spark.util.CollectionAccumulator;
+import scala.collection.immutable.Seq;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005M4\u0001\u0002D\u0007\u0011\u0002G\u0005\u0011c\u0006\u0005\u0006=\u00011\t\u0001\t\u0005\u0006a\u00011\t!\r\u0005\u0006\u0005\u00021\ta\u0011\u0005\u0006\u000f\u00021\t\u0001\u0013\u0005\u0006\u0013\u00021\t\u0001\u0013\u0005\u0006\u0015\u00021\ta\u0013\u0005\u0006/\u00021\t\u0001W\u0004\u0007K6A\t!\u00054\u0007\r1i\u0001\u0012A\th\u0011\u0015A\u0017\u0002\"\u0001j\u000b\u0011Q\u0017\u0002A6\u0003\u001dAKH\u000f[8o\rVt7\r^5p]*\u0011abD\u0001\u0007af$\bn\u001c8\u000b\u0005A\t\u0012aA1qS*\u0011!cE\u0001\u0006gB\f'o\u001b\u0006\u0003)U\ta!\u00199bG\",'\"\u0001\f\u0002\u0007=\u0014xm\u0005\u0002\u00011A\u0011\u0011\u0004H\u0007\u00025)\t1$A\u0003tG\u0006d\u0017-\u0003\u0002\u001e5\t1\u0011I\\=SK\u001a\fqaY8n[\u0006tGm\u0001\u0001\u0016\u0003\u0005\u00022A\t\u0016.\u001d\t\u0019\u0003F\u0004\u0002%O5\tQE\u0003\u0002'?\u00051AH]8pizJ\u0011aG\u0005\u0003Si\tq\u0001]1dW\u0006<W-\u0003\u0002,Y\t\u00191+Z9\u000b\u0005%R\u0002CA\r/\u0013\ty#D\u0001\u0003CsR,\u0017aB3omZ\u000b'o]\u000b\u0002eA!1\u0007\u000f\u001e;\u001b\u0005!$BA\u001b7\u0003\u0011)H/\u001b7\u000b\u0003]\nAA[1wC&\u0011\u0011\b\u000e\u0002\u0004\u001b\u0006\u0004\bCA\u001e@\u001d\taT\b\u0005\u0002%5%\u0011aHG\u0001\u0007!J,G-\u001a4\n\u0005\u0001\u000b%AB*ue&twM\u0003\u0002?5\u0005q\u0001/\u001f;i_:Len\u00197vI\u0016\u001cX#\u0001#\u0011\u0007M*%(\u0003\u0002Gi\t!A*[:u\u0003)\u0001\u0018\u0010\u001e5p]\u0016CXmY\u000b\u0002u\u0005I\u0001/\u001f;i_:4VM]\u0001\u000eEJ|\u0017\rZ2bgR4\u0016M]:\u0016\u00031\u00032aM#N!\rq\u0015kU\u0007\u0002\u001f*\u0011\u0001+E\u0001\nEJ|\u0017\rZ2bgRL!AU(\u0003\u0013\t\u0013x.\u00193dCN$\bC\u0001+V\u001b\u0005i\u0011B\u0001,\u000e\u0005=\u0001\u0016\u0010\u001e5p]\n\u0013x.\u00193dCN$\u0018aC1dGVlW\u000f\\1u_J,\u0012!\u0017\t\u00035.q!a\u0017\u0005\u000f\u0005q#gBA/d\u001d\tq&M\u0004\u0002`C:\u0011A\u0005Y\u0005\u0002-%\u0011A#F\u0005\u0003%MI!\u0001E\t\n\u00059y\u0011A\u0004)zi\"|gNR;oGRLwN\u001c\t\u0003)&\u0019\"!\u0003\r\u0002\rqJg.\u001b;?)\u00051'!\u0005)zi\"|g.Q2dk6,H.\u0019;peB\u0019AN\u001c9\u000e\u00035T!!N\t\n\u0005=l'!F\"pY2,7\r^5p]\u0006\u001b7-^7vY\u0006$xN\u001d\t\u00043El\u0013B\u0001:\u001b\u0005\u0015\t%O]1z\u0001"
+)
+public interface PythonFunction {
+   Seq command();
+
+   Map envVars();
+
+   List pythonIncludes();
+
+   String pythonExec();
+
+   String pythonVer();
+
+   List broadcastVars();
+
+   CollectionAccumulator accumulator();
+}

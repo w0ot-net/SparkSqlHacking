@@ -1,0 +1,11 @@
+package org.apache.hadoop.hive.serde2.dynamic_type;
+
+public class DynamicSerDeNamespace extends SimpleNode {
+   public DynamicSerDeNamespace(int id) {
+      super(id);
+   }
+
+   public DynamicSerDeNamespace(thrift_grammar p, int id) {
+      super(p, id);
+   }
+}

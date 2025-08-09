@@ -1,0 +1,152 @@
+package scala.reflect.internal;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\teb\u0001\u0002'N\u0001QCQ!\u0017\u0001\u0005\u0002iCq!\u0018\u0001C\u0002\u0013\u0015a\f\u0003\u0004b\u0001\u0001\u0006ia\u0018\u0005\bE\u0002\u0011\r\u0011\"\u0002d\u0011\u00191\u0007\u0001)A\u0007I\"9q\r\u0001b\u0001\n\u000bA\u0007BB6\u0001A\u00035\u0011\u000eC\u0004m\u0001\t\u0007IQA7\t\rA\u0004\u0001\u0015!\u0004o\u0011\u001d\t\bA1A\u0005\u0006IDa!\u001e\u0001!\u0002\u001b\u0019\bb\u0002<\u0001\u0005\u0004%)a\u001e\u0005\u0007u\u0002\u0001\u000bQ\u0002=\t\u000fm\u0004!\u0019!C\u0003y\"1q\u0010\u0001Q\u0001\u000euD\u0011\"!\u0001\u0001\u0005\u0004%)!a\u0001\t\u0011\u0005%\u0001\u0001)A\u0007\u0003\u000bA\u0011\"a\u0003\u0001\u0005\u0004%)!!\u0004\t\u0011\u0005M\u0001\u0001)A\u0007\u0003\u001fA\u0011\"!\u0006\u0001\u0005\u0004%)!a\u0006\t\u0011\u0005u\u0001\u0001)A\u0007\u00033A\u0011\"a\b\u0001\u0005\u0004%)!!\t\t\u0011\u0005\u001d\u0002\u0001)A\u0007\u0003GA\u0011\"!\u000b\u0001\u0005\u0004%)!a\u000b\t\u0011\u0005E\u0002\u0001)A\u0007\u0003[A\u0011\"a\r\u0001\u0005\u0004%)!!\u000e\t\u0011\u0005m\u0002\u0001)A\u0007\u0003oA\u0011\"!\u0010\u0001\u0005\u0004%)!a\u0010\t\u0011\u0005\u0015\u0003\u0001)A\u0007\u0003\u0003B\u0011\"a\u0012\u0001\u0005\u0004%)!a\u0010\t\u0011\u0005%\u0003\u0001)A\u0007\u0003\u0003B\u0011\"a\u0013\u0001\u0005\u0004%)!!\u0014\t\u0011\u0005M\u0003\u0001)A\u0007\u0003\u001fB\u0011\"!\u0016\u0001\u0005\u0004%)!a\u0016\t\u0011\u0005u\u0003\u0001)A\u0007\u00033B\u0011\"a\u0018\u0001\u0005\u0004%)!!\u0019\t\u0011\u0005\u001d\u0004\u0001)A\u0007\u0003GB\u0011\"!\u001b\u0001\u0005\u0004%)!a\u001b\t\u0011\u0005E\u0004\u0001)A\u0007\u0003[B\u0011\"a\u001d\u0001\u0005\u0004%)!!\u001e\t\u0011\u0005m\u0004\u0001)A\u0007\u0003oB\u0011\"! \u0001\u0005\u0004%)!a \t\u0011\u0005\u0015\u0005\u0001)A\u0007\u0003\u0003C\u0011\"a\"\u0001\u0005\u0004%)!!#\t\u0011\u0005=\u0005\u0001)A\u0007\u0003\u0017C\u0011\"!%\u0001\u0005\u0004%)!a%\t\u0011\u0005e\u0005\u0001)A\u0007\u0003+C\u0011\"a'\u0001\u0005\u0004%)!a%\t\u0011\u0005u\u0005\u0001)A\u0007\u0003+C\u0011\"a(\u0001\u0005\u0004%)!!)\t\u0011\u0005\u001d\u0006\u0001)A\u0007\u0003GC\u0011\"!+\u0001\u0005\u0004%)!a+\t\u0011\u0005E\u0006\u0001)A\u0007\u0003[C\u0011\"a-\u0001\u0005\u0004%)!!.\t\u0011\u0005m\u0006\u0001)A\u0007\u0003oC\u0011\"!0\u0001\u0005\u0004%)!a0\t\u0011\u0005\u0015\u0007\u0001)A\u0007\u0003\u0003D\u0011\"a2\u0001\u0005\u0004%)!!3\t\u0011\u0005=\u0007\u0001)A\u0007\u0003\u0017D\u0011\"!5\u0001\u0005\u0004%)!a5\t\u0011\u0005e\u0007\u0001)A\u0007\u0003+D\u0011\"a7\u0001\u0005\u0004%)!!8\t\u0011\u0005\r\b\u0001)A\u0007\u0003?D\u0011\"!:\u0001\u0005\u0004%)!a:\t\u0011\u00055\b\u0001)A\u0007\u0003SDq!a<\u0001\t\u0003\t\t\u0010C\u0005\u0003\u0014\u0001\u0011\r\u0011\"\u0002\u0003\u0016!A!1\u0004\u0001!\u0002\u001b\u00119\u0002C\u0005\u0003\u001e\u0001\u0011\r\u0011\"\u0002\u0003 !A!Q\u0005\u0001!\u0002\u001b\u0011\t\u0003C\u0005\u0003(\u0001\u0011\r\u0011\"\u0002\u0003*!A!q\u0006\u0001!\u0002\u001b\u0011YcB\u0004\u000325C\tAa\r\u0007\r1k\u0005\u0012\u0001B\u001b\u0011\u0019I&\n\"\u0001\u00038\tiQj\u001c3jM&,'O\u00127bONT!AT(\u0002\u0011%tG/\u001a:oC2T!\u0001U)\u0002\u000fI,g\r\\3di*\t!+A\u0003tG\u0006d\u0017m\u0001\u0001\u0014\u0005\u0001)\u0006C\u0001,X\u001b\u0005\t\u0016B\u0001-R\u0005\u0019\te.\u001f*fM\u00061A(\u001b8jiz\"\u0012a\u0017\t\u00039\u0002i\u0011!T\u0001\t\u00136\u0003F*S\"J)V\tqlD\u0001a=\t\u0011\u0001!A\u0005J\u001bBc\u0015jQ%UA\u0005)a)\u0013(B\u0019V\tAmD\u0001f=\u0005\u0001\u0013A\u0002$J\u001d\u0006c\u0005%A\u0004Q%&3\u0016\tV#\u0016\u0003%|\u0011A\u001b\u0010\u0002\t\u0005A\u0001KU%W\u0003R+\u0005%A\u0005Q%>#Vi\u0011+F\tV\tanD\u0001p=\u0005\t\u0011A\u0003)S\u001fR+5\tV#EA\u000511+R!M\u000b\u0012+\u0012a]\b\u0002iz\u0011A\u0001A\u0001\b'\u0016\u000bE*\u0012#!\u0003!ye+\u0012*S\u0013\u0012+U#\u0001=\u0010\u0003et\u0012AA\u0001\n\u001fZ+%KU%E\u000b\u0002\nAaQ!T\u000bV\tQpD\u0001\u007f=\tA\u0001!A\u0003D\u0003N+\u0005%\u0001\u0005B\u0005N#&+Q\"U+\t\t)a\u0004\u0002\u0002\by\t\u0001\"A\u0005B\u0005N#&+Q\"UA\u0005AA)\u0012$F%J+E)\u0006\u0002\u0002\u0010=\u0011\u0011\u0011\u0003\u0010\u0002!\u0005IA)\u0012$F%J+E\tI\u0001\n\u0013:#VI\u0015$B\u0007\u0016+\"!!\u0007\u0010\u0005\u0005maD\u0001\u0001\u0001\u0004)Ie\nV#S\r\u0006\u001bU\tI\u0001\b\u001bV#\u0016I\u0011'F+\t\t\u0019c\u0004\u0002\u0002&y\u0011\u0001\u0003A\u0001\t\u001bV#\u0016I\u0011'FA\u0005)\u0001+\u0011*B\u001bV\u0011\u0011QF\b\u0003\u0003_q\"\u0001\t\u0001\u0002\rA\u000b%+Q'!\u0003\u0015i\u0015i\u0011*P+\t\t9d\u0004\u0002\u0002:y\u0019\u0001\u0001!\u0001\u0002\r5\u000b5IU(!\u0003%\u0019uJV!S\u0013\u0006sE+\u0006\u0002\u0002B=\u0011\u00111\t\u0010\u0004\u0003\u0001\u0001\u0011AC\"P-\u0006\u0013\u0016*\u0011(UA\u0005Y!)\u0017(B\u001b\u0016\u0003\u0016IU!N\u00031\u0011\u0015LT!N\u000bB\u000b%+Q'!\u00035\u0019uJ\u0014+S\u0003Z\u000b%+S!O)V\u0011\u0011qJ\b\u0003\u0003#r2A\u0001\u0001\u0001\u00039\u0019uJ\u0014+S\u0003Z\u000b%+S!O)\u0002\n1\"\u0011\"T\u001fZ+%KU%E\u000bV\u0011\u0011\u0011L\b\u0003\u00037r2\u0001\u0002\u0001\u0001\u00031\t%iU(W\u000bJ\u0013\u0016\nR#!\u0003\u0015aujQ!M+\t\t\u0019g\u0004\u0002\u0002fy\u0019\u0001\u0002\u0001\u0001\u0002\r1{5)\u0011'!\u0003\u0011Q\u0015IV!\u0016\u0005\u00055tBAA8=\r\u0001\u0002\u0001A\u0001\u0006\u0015\u00063\u0016\tI\u0001\b'\u000e\u000bE*Q\u001aY+\t\t9h\u0004\u0002\u0002zyA\u0001\u0003\u0001\u0001\u0001\u0001\u0001\u0001\u0001!\u0001\u0005T\u0007\u0006c\u0015i\r-!\u0003\u0019\u0019F+\u0011+J\u0007V\u0011\u0011\u0011Q\b\u0003\u0003\u0007sB\u0001\u0001A\u0001\u0001\u000591\u000bV!U\u0013\u000e\u0003\u0013\u0001D\"B'\u0016\u000b5iQ#T'>\u0013VCAAF\u001f\t\tiI\b\u0003\u0002\u0001\u0001\u0001\u0011!D\"B'\u0016\u000b5iQ#T'>\u0013\u0006%A\u0003U%\u0006KE+\u0006\u0002\u0002\u0016>\u0011\u0011q\u0013\u0010\u0005\u0005\u0001\u0001\u0001!\u0001\u0004U%\u0006KE\u000bI\u0001\r\t\u00163\u0015)\u0016'U!\u0006\u0013\u0016)T\u0001\u000e\t\u00163\u0015)\u0016'U!\u0006\u0013\u0016)\u0014\u0011\u0002\u001bA\u000b%+Q'B\u0007\u000e+5kU(S+\t\t\u0019k\u0004\u0002\u0002&z!\u0001\u0005\u0001\u0001\u0001\u00039\u0001\u0016IU!N\u0003\u000e\u001bUiU*P%\u0002\nA\u0001T![3V\u0011\u0011QV\b\u0003\u0003_sR\u0001\u0001A\u0001\u0001\u0001\tQ\u0001T![3\u0002\n\u0001\u0002\u0015*F'V\u0003VIU\u000b\u0003\u0003o{!!!/\u001f\u000b\u0001\u0002\u0001\u0001\u0001\u0001\u0002\u0013A\u0013ViU+Q\u000bJ\u0003\u0013a\u0003#F\r\u0006+F\nV%O\u0013R+\"!!1\u0010\u0005\u0005\rgD\u0002\u0002\u0001\u0001\u0001\u0001\u0001!\u0001\u0007E\u000b\u001a\u000bU\u000b\u0014+J\u001d&#\u0006%\u0001\u0005B%RKe)Q\"U+\t\tYm\u0004\u0002\u0002Nz1\u0001\t\u0001\u0001\u0001\u0001\u0001\t\u0011\"\u0011*U\u0013\u001a\u000b5\t\u0016\u0011\u0002%)\u000be+Q0E\u000b\u001a\u000bU\u000b\u0014+N\u000bRCu\nR\u000b\u0003\u0003+|!!a6\u001f\u000f\u0001\u0001\t\u0001\u0001\u0001\u0001\u0001\u0005\u0019\"*\u0011,B?\u0012+e)Q+M)6+E\u000bS(EA\u0005I!*\u0011,B?\u0016sU+T\u000b\u0003\u0003?|!!!9\u001f\u000f\u0005\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005Q!*\u0011,B?\u0016sU+\u0014\u0011\u0002\u001f)\u000be+Q0B\u001d:{E+\u0011+J\u001f:+\"!!;\u0010\u0005\u0005-hd\u0002\u0002\u0001\u0001\u0001\u0001\u0001\u0001A\u0001\u0011\u0015\u00063\u0016iX!O\u001d>#\u0016\tV%P\u001d\u0002\nAB\u001a7bOR{7\u000b\u001e:j]\u001e$B!a=\u0003\nA!\u0011Q\u001fB\u0002\u001d\u0011\t90a@\u0011\u0007\u0005e\u0018+\u0004\u0002\u0002|*\u0019\u0011Q`*\u0002\rq\u0012xn\u001c;?\u0013\r\u0011\t!U\u0001\u0007!J,G-\u001a4\n\t\t\u0015!q\u0001\u0002\u0007'R\u0014\u0018N\\4\u000b\u0007\t\u0005\u0011\u000bC\u0004\u0003\f\t\u0003\rA!\u0004\u0002\t\u0019d\u0017m\u001a\t\u0004-\n=\u0011b\u0001B\t#\n!Aj\u001c8h\u00031\u0001&/\u001b<bi\u0016dunY1m+\t\u00119b\u0004\u0002\u0003\u001ay\u0019\u0001\u0002\u0001\u0003\u0002\u001bA\u0013\u0018N^1uK2{7-\u00197!\u00039\u0001&o\u001c;fGR,G\rT8dC2,\"A!\t\u0010\u0005\t\rbd\u0001\u0005\u0001\u0003\u0005y\u0001K]8uK\u000e$X\r\u001a'pG\u0006d\u0007%A\u0006BG\u000e,7o\u001d$mC\u001e\u001cXC\u0001B\u0016\u001f\t\u0011iCH\u0002\t\u0001\u0015\tA\"Q2dKN\u001ch\t\\1hg\u0002\nQ\"T8eS\u001aLWM\u001d$mC\u001e\u001c\bC\u0001/K'\tQ5\f\u0006\u0002\u00034\u0001"
+)
+public class ModifierFlags {
+   public final long IMPLICIT() {
+      return 512L;
+   }
+
+   public final long FINAL() {
+      return 32L;
+   }
+
+   public final long PRIVATE() {
+      return 4L;
+   }
+
+   public final long PROTECTED() {
+      return 1L;
+   }
+
+   public final long SEALED() {
+      return 1024L;
+   }
+
+   public final long OVERRIDE() {
+      return 2L;
+   }
+
+   public final long CASE() {
+      return 2048L;
+   }
+
+   public final long ABSTRACT() {
+      return 8L;
+   }
+
+   public final long DEFERRED() {
+      return 16L;
+   }
+
+   public final long INTERFACE() {
+      return 128L;
+   }
+
+   public final long MUTABLE() {
+      return 4096L;
+   }
+
+   public final long PARAM() {
+      return 8192L;
+   }
+
+   public final long MACRO() {
+      return 32768L;
+   }
+
+   public final long COVARIANT() {
+      return 65536L;
+   }
+
+   public final long BYNAMEPARAM() {
+      return 65536L;
+   }
+
+   public final long CONTRAVARIANT() {
+      return 131072L;
+   }
+
+   public final long ABSOVERRIDE() {
+      return 262144L;
+   }
+
+   public final long LOCAL() {
+      return 524288L;
+   }
+
+   public final long JAVA() {
+      return 1048576L;
+   }
+
+   public final long SCALA3X() {
+      return 1152921504606846976L;
+   }
+
+   public final long STATIC() {
+      return 8388608L;
+   }
+
+   public final long CASEACCESSOR() {
+      return 16777216L;
+   }
+
+   public final long TRAIT() {
+      return 33554432L;
+   }
+
+   public final long DEFAULTPARAM() {
+      return 33554432L;
+   }
+
+   public final long PARAMACCESSOR() {
+      return 536870912L;
+   }
+
+   public final long LAZY() {
+      return 2147483648L;
+   }
+
+   public final long PRESUPER() {
+      return 137438953472L;
+   }
+
+   public final long DEFAULTINIT() {
+      return 2199023255552L;
+   }
+
+   public final long ARTIFACT() {
+      return 70368744177664L;
+   }
+
+   public final long JAVA_DEFAULTMETHOD() {
+      return 140737488355328L;
+   }
+
+   public final long JAVA_ENUM() {
+      return 281474976710656L;
+   }
+
+   public final long JAVA_ANNOTATION() {
+      return 562949953421312L;
+   }
+
+   public String flagToString(final long flag) {
+      return "";
+   }
+
+   public final long PrivateLocal() {
+      return 524292L;
+   }
+
+   public final long ProtectedLocal() {
+      return 524289L;
+   }
+
+   public final long AccessFlags() {
+      return 524293L;
+   }
+}

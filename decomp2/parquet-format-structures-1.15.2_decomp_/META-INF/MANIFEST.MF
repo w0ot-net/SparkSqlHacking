@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Apache Parquet Format Structures
+git-SHA-1: 859eac165b08f927fa14590c33bc5f476405fb68
+Implementation-Version: 1.15.2
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: Apache Parquet Format Structures
+Build-Jdk-Spec: 1.8
+Created-By: Maven JAR Plugin 3.4.2
+Specification-Version: 1.15
+Implementation-Vendor: The Apache Software Foundation
+

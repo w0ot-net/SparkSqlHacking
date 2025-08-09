@@ -1,0 +1,15 @@
+package shaded.parquet.com.fasterxml.jackson.databind.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import shaded.parquet.com.fasterxml.jackson.annotation.JacksonAnnotation;
+import shaded.parquet.com.fasterxml.jackson.databind.PropertyNamingStrategy;
+
+@Target({ElementType.ANNOTATION_TYPE, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@JacksonAnnotation
+public @interface JsonNaming {
+   Class value() default PropertyNamingStrategy.class;
+}

@@ -1,0 +1,9 @@
+package breeze.linalg;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Y1q!\u0001\u0002\u0011\u0002G\u0005qA\u0001\fMS:,\u0017M]!mO\u0016\u0014'/Y#yG\u0016\u0004H/[8o\u0015\t\u0019A!\u0001\u0004mS:\fGn\u001a\u0006\u0002\u000b\u00051!M]3fu\u0016\u001c\u0001a\u0005\u0002\u0001\u0011A\u0011\u0011b\u0005\b\u0003\u0015Aq!a\u0003\b\u000e\u00031Q!!\u0004\u0004\u0002\rq\u0012xn\u001c;?\u0013\u0005y\u0011!B:dC2\f\u0017BA\t\u0013\u0003\u001d\u0001\u0018mY6bO\u0016T\u0011aD\u0005\u0003)U\u0011\u0001CU;oi&lW-\u0012=dKB$\u0018n\u001c8\u000b\u0005E\u0011\u0002"
+)
+public interface LinearAlgebraException {
+}

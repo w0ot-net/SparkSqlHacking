@@ -1,0 +1,13 @@
+package org.datanucleus.metadata;
+
+public enum FieldRole {
+   ROLE_NONE,
+   ROLE_OWNER,
+   ROLE_FIELD,
+   ROLE_COLLECTION_ELEMENT,
+   ROLE_ARRAY_ELEMENT,
+   ROLE_MAP_KEY,
+   ROLE_MAP_VALUE,
+   ROLE_INDEX,
+   ROLE_PERSISTABLE_RELATION;
+}

@@ -1,0 +1,12 @@
+package breeze.optimize;
+
+import scala.collection.Iterator;
+import scala.collection.immutable.Seq;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005}2qAA\u0002\u0011\u0002G\u0005\u0001\u0002C\u0003#\u0001\u0019\u00051EA\u000eJi\u0016\u0014\u0018M\u00197f\u001fB$\u0018.\\5{CRLwN\u001c)bG.\fw-\u001a\u0006\u0003\t\u0015\t\u0001b\u001c9uS6L'0\u001a\u0006\u0002\r\u00051!M]3fu\u0016\u001c\u0001!\u0006\u0003\n-\u0001\n4c\u0001\u0001\u000b!A\u00111BD\u0007\u0002\u0019)\tQ\"A\u0003tG\u0006d\u0017-\u0003\u0002\u0010\u0019\t1\u0011I\\=SK\u001a\u0004B!\u0005\n\u0015?5\t1!\u0003\u0002\u0014\u0007\t\u0019r\n\u001d;j[&T\u0018\r^5p]B\u000b7m[1hKB\u0011QC\u0006\u0007\u0001\t\u00159\u0002A1\u0001\u0019\u0005!1UO\\2uS>t\u0017CA\r\u001d!\tY!$\u0003\u0002\u001c\u0019\t9aj\u001c;iS:<\u0007CA\u0006\u001e\u0013\tqBBA\u0002B]f\u0004\"!\u0006\u0011\u0005\u000b\u0005\u0002!\u0019\u0001\r\u0003\rY+7\r^8s\u0003)IG/\u001a:bi&|gn\u001d\u000b\u0005IM*t\u0007E\u0002&[Ar!AJ\u0016\u000f\u0005\u001dRS\"\u0001\u0015\u000b\u0005%:\u0011A\u0002\u001fs_>$h(C\u0001\u000e\u0013\taC\"A\u0004qC\u000e\\\u0017mZ3\n\u00059z#\u0001C%uKJ\fGo\u001c:\u000b\u00051b\u0001CA\u000b2\t\u0015\u0011\u0004A1\u0001\u0019\u0005\u0015\u0019F/\u0019;f\u0011\u0015!\u0014\u00011\u0001\u0015\u0003\t1g\u000eC\u00037\u0003\u0001\u0007q$\u0001\u0003j]&$\b\"\u0002\u001d\u0002\u0001\u0004I\u0014aB8qi&|gn\u001d\t\u0004\u0017ib\u0014BA\u001e\r\u0005)a$/\u001a9fCR,GM\u0010\t\u0003#uJ!AP\u0002\u0003%=\u0003H/[7ju\u0006$\u0018n\u001c8PaRLwN\u001c"
+)
+public interface IterableOptimizationPackage extends OptimizationPackage {
+   Iterator iterations(final Object fn, final Object init, final Seq options);
+}

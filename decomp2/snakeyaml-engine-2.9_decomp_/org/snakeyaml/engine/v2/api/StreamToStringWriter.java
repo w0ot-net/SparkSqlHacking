@@ -1,0 +1,6 @@
+package org.snakeyaml.engine.v2.api;
+
+import java.io.StringWriter;
+
+class StreamToStringWriter extends StringWriter implements StreamDataWriter {
+}

@@ -1,0 +1,20 @@
+package algebra.ring;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005-4qAB\u0004\u0011\u0002G\u0005AbB\u0003A\u000f!\u0005\u0011IB\u0003\u0007\u000f!\u0005!\tC\u0003V\u0005\u0011\u0005a\u000bC\u0003X\u0005\u0011\u0015\u0001\fC\u0004d\u0005\u0005\u0005I\u0011\u00023\u0003\u0007IswM\u0003\u0002\t\u0013\u0005!!/\u001b8h\u0015\u0005Q\u0011aB1mO\u0016\u0014'/Y\u0002\u0001+\ti!d\u0005\u0003\u0001\u001dQi\u0004CA\b\u0013\u001b\u0005\u0001\"\"A\t\u0002\u000bM\u001c\u0017\r\\1\n\u0005M\u0001\"aA!osB\u0019QC\u0006\r\u000e\u0003\u001dI!aF\u0004\u0003\u0011M+W.\u001b:j]\u001e\u0004\"!\u0007\u000e\r\u0001\u0011I1\u0004\u0001Q\u0001\u0002\u0003\u0015\r\u0001\b\u0002\u0002\u0003F\u0011QD\u0004\t\u0003\u001fyI!a\b\t\u0003\u000f9{G\u000f[5oO\"2!$\t\u0013/ga\u0002\"a\u0004\u0012\n\u0005\r\u0002\"aC:qK\u000eL\u0017\r\\5{K\u0012\fTaI\u0013'Q\u001dr!a\u0004\u0014\n\u0005\u001d\u0002\u0012aA%oiF\"A%K\u0017\u0012\u001d\tQS&D\u0001,\u0015\ta3\"\u0001\u0004=e>|GOP\u0005\u0002#E*1e\f\u00193c9\u0011q\u0002M\u0005\u0003cA\tA\u0001T8oOF\"A%K\u0017\u0012c\u0015\u0019C'N\u001c7\u001d\tyQ'\u0003\u00027!\u0005)a\t\\8biF\"A%K\u0017\u0012c\u0015\u0019\u0013H\u000f\u001f<\u001d\ty!(\u0003\u0002<!\u00051Ai\\;cY\u0016\fD\u0001J\u0015.#A\u0019QC\u0010\r\n\u0005}:!\u0001G!eI&$\u0018N^3D_6lW\u000f^1uSZ,wI]8va\u0006\u0019!K\\4\u0011\u0005U\u00111#\u0002\u0002D\r*k\u0005CA\bE\u0013\t)\u0005C\u0001\u0004B]f\u0014VM\u001a\t\u0004+\u001dK\u0015B\u0001%\b\u0005Y\tE\rZ5uSZ,wI]8va\u001a+hn\u0019;j_:\u001c\bCA\u000b\u0001!\r)2*S\u0005\u0003\u0019\u001e\u0011\u0001%T;mi&\u0004H.[2bi&4XmU3nS\u001e\u0014x.\u001e9Gk:\u001cG/[8ogB\u0011ajU\u0007\u0002\u001f*\u0011\u0001+U\u0001\u0003S>T\u0011AU\u0001\u0005U\u00064\u0018-\u0003\u0002U\u001f\na1+\u001a:jC2L'0\u00192mK\u00061A(\u001b8jiz\"\u0012!Q\u0001\u0006CB\u0004H._\u000b\u00033r#\"AW/\u0011\u0007U\u00011\f\u0005\u0002\u001a9\u0012)1\u0004\u0002b\u00019!)a\f\u0002a\u00025\u0006\u0011QM\u001e\u0015\u0003\t\u0001\u0004\"aD1\n\u0005\t\u0004\"AB5oY&tW-\u0001\u0007xe&$XMU3qY\u0006\u001cW\rF\u0001f!\t1\u0017.D\u0001h\u0015\tA\u0017+\u0001\u0003mC:<\u0017B\u00016h\u0005\u0019y%M[3di\u0002"
+)
+public interface Rng extends Semiring, AdditiveCommutativeGroup {
+   static Rng apply(final Rng ev) {
+      return Rng$.MODULE$.apply(ev);
+   }
+
+   static boolean isMultiplicativeCommutative(final MultiplicativeSemigroup ev) {
+      return Rng$.MODULE$.isMultiplicativeCommutative(ev);
+   }
+
+   static boolean isAdditiveCommutative(final AdditiveSemigroup ev) {
+      return Rng$.MODULE$.isAdditiveCommutative(ev);
+   }
+}

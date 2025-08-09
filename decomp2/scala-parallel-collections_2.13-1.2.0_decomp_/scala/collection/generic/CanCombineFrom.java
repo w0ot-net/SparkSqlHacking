@@ -1,0 +1,14 @@
+package scala.collection.generic;
+
+import scala.collection.Parallel;
+import scala.collection.parallel.Combiner;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005E2qa\u0001\u0003\u0011\u0002G\u00051\u0002C\u0003\u0016\u0001\u0019\u0005a\u0003C\u0003\u0016\u0001\u0019\u0005\u0001G\u0001\bDC:\u001cu.\u001c2j]\u00164%o\\7\u000b\u0005\u00151\u0011aB4f]\u0016\u0014\u0018n\u0019\u0006\u0003\u000f!\t!bY8mY\u0016\u001cG/[8o\u0015\u0005I\u0011!B:dC2\f7\u0001A\u000b\u0005\u00199z\u0012fE\u0002\u0001\u001bE\u0001\"AD\b\u000e\u0003!I!\u0001\u0005\u0005\u0003\r\u0005s\u0017PU3g!\t\u00112#D\u0001\u0007\u0013\t!bA\u0001\u0005QCJ\fG\u000e\\3m\u0003\u0015\t\u0007\u000f\u001d7z)\t92\u0006\u0005\u0003\u00197uAS\"A\r\u000b\u0005i1\u0011\u0001\u00039be\u0006dG.\u001a7\n\u0005qI\"\u0001C\"p[\nLg.\u001a:\u0011\u0005yyB\u0002\u0001\u0003\u0007A\u0001A)\u0019A\u0011\u0003\t\u0015cW-\\\t\u0003E\u0015\u0002\"AD\u0012\n\u0005\u0011B!a\u0002(pi\"Lgn\u001a\t\u0003\u001d\u0019J!a\n\u0005\u0003\u0007\u0005s\u0017\u0010\u0005\u0002\u001fS\u00111!\u0006\u0001CC\u0002\u0005\u0012!\u0001V8\t\u000b1\n\u0001\u0019A\u0017\u0002\t\u0019\u0014x.\u001c\t\u0003=9\"aa\f\u0001\t\u0006\u0004\t#\u0001\u0002$s_6$\u0012a\u0006"
+)
+public interface CanCombineFrom extends Parallel {
+   Combiner apply(final Object from);
+
+   Combiner apply();
+}

@@ -1,0 +1,16 @@
+package breeze.linalg;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005I3A\u0001C\u0005\u0001\u001d!A\u0011\u0005\u0001B\u0001B\u0003%!\u0005C\u0003+\u0001\u0011\u00051fB\u0004/\u0013\u0005\u0005\t\u0012A\u0018\u0007\u000f!I\u0011\u0011!E\u0001a!)!\u0006\u0002C\u0001{!9a\bBI\u0001\n\u0003y\u0004b\u0002&\u0005\u0003\u0003%Ia\u0013\u0002\u0010\u0019\u0006\u0004\u0018mY6Fq\u000e,\u0007\u000f^5p]*\u0011!bC\u0001\u0007Y&t\u0017\r\\4\u000b\u00031\taA\u0019:fKj,7\u0001A\n\u0004\u0001=i\u0002C\u0001\t\u001b\u001d\t\trC\u0004\u0002\u0013+5\t1C\u0003\u0002\u0015\u001b\u00051AH]8pizJ\u0011AF\u0001\u0006g\u000e\fG.Y\u0005\u00031e\tq\u0001]1dW\u0006<WMC\u0001\u0017\u0013\tYBD\u0001\tSk:$\u0018.\\3Fq\u000e,\u0007\u000f^5p]*\u0011\u0001$\u0007\t\u0003=}i\u0011!C\u0005\u0003A%\u0011a\u0003T5oK\u0006\u0014\u0018\t\\4fEJ\fW\t_2faRLwN\\\u0001\u0004[N<\u0007CA\u0012(\u001d\t!S\u0005\u0005\u0002\u00133%\u0011a%G\u0001\u0007!J,G-\u001a4\n\u0005!J#AB*ue&twM\u0003\u0002'3\u00051A(\u001b8jiz\"\"\u0001L\u0017\u0011\u0005y\u0001\u0001bB\u0011\u0003!\u0003\u0005\rAI\u0001\u0010\u0019\u0006\u0004\u0018mY6Fq\u000e,\u0007\u000f^5p]B\u0011a\u0004B\n\u0004\tE*\u0004C\u0001\u001a4\u001b\u0005I\u0012B\u0001\u001b\u001a\u0005\u0019\te.\u001f*fMB\u0011agO\u0007\u0002o)\u0011\u0001(O\u0001\u0003S>T\u0011AO\u0001\u0005U\u00064\u0018-\u0003\u0002=o\ta1+\u001a:jC2L'0\u00192mKR\tq&A\u000e%Y\u0016\u001c8/\u001b8ji\u0012:'/Z1uKJ$C-\u001a4bk2$H%M\u000b\u0002\u0001*\u0012!%Q\u0016\u0002\u0005B\u00111\tS\u0007\u0002\t*\u0011QIR\u0001\nk:\u001c\u0007.Z2lK\u0012T!aR\r\u0002\u0015\u0005tgn\u001c;bi&|g.\u0003\u0002J\t\n\tRO\\2iK\u000e\\W\r\u001a,be&\fgnY3\u0002\u0019]\u0014\u0018\u000e^3SKBd\u0017mY3\u0015\u00031\u0003\"!\u0014)\u000e\u00039S!aT\u001d\u0002\t1\fgnZ\u0005\u0003#:\u0013aa\u00142kK\u000e$\b"
+)
+public class LapackException extends RuntimeException implements LinearAlgebraException {
+   public static String $lessinit$greater$default$1() {
+      return LapackException$.MODULE$.$lessinit$greater$default$1();
+   }
+
+   public LapackException(final String msg) {
+      super(msg);
+   }
+}

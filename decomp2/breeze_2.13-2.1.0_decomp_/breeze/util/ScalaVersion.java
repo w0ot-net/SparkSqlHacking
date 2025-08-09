@@ -1,0 +1,12 @@
+package breeze.util;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005m9a\u0001B\u0003\t\u0002\u001dIaAB\u0006\u0006\u0011\u00039A\u0002C\u0003\u0014\u0003\u0011\u0005Q\u0003C\u0003\u0017\u0003\u0011\u0005q#\u0001\u0007TG\u0006d\u0017MV3sg&|gN\u0003\u0002\u0007\u000f\u0005!Q\u000f^5m\u0015\u0005A\u0011A\u00022sK\u0016TX\r\u0005\u0002\u000b\u00035\tQA\u0001\u0007TG\u0006d\u0017MV3sg&|gn\u0005\u0002\u0002\u001bA\u0011a\"E\u0007\u0002\u001f)\t\u0001#A\u0003tG\u0006d\u0017-\u0003\u0002\u0013\u001f\t1\u0011I\\=SK\u001a\fa\u0001P5oSRt4\u0001\u0001\u000b\u0002\u0013\u0005)\u0011n\u001d\u001a2gU\t\u0001\u0004\u0005\u0002\u000f3%\u0011!d\u0004\u0002\b\u0005>|G.Z1o\u0001"
+)
+public final class ScalaVersion {
+   public static boolean is213() {
+      return ScalaVersion$.MODULE$.is213();
+   }
+}

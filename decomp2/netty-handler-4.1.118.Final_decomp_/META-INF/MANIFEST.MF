@@ -1,0 +1,70 @@
+Manifest-Version: 1.0
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0
+Bundle-SymbolicName: io.netty.handler
+Built-By: norman
+Bnd-LastModified: 1739203823442
+Specification-Title: Netty/Handler
+Implementation-Vendor-Id: io.netty
+Bundle-DocURL: https://netty.io/
+Import-Package: sun.security.ssl;resolution:=optional,sun.security.x509;
+ resolution:=optional,org.eclipse.jetty.npn;version="[1,2)";resolution:=
+ optional,org.eclipse.jetty.alpn;version="[1,2)";resolution:=optional,or
+ g.bouncycastle.jcajce.provider;version="[1.0,2)";resolution:=optional,i
+ o.netty.buffer;version="[4.1,5)",io.netty.channel;version="[4.1,5)",io.
+ netty.channel.socket;version="[4.1,5)",io.netty.channel.unix;version="[
+ 4.1,5)",io.netty.handler.codec;version="[4.1,5)",io.netty.handler.codec
+ .base64;version="[4.1,5)",io.netty.handler.ssl,io.netty.handler.ssl.uti
+ l,io.netty.internal.tcnative;version="[2.0,3)";resolution:=optional,io.
+ netty.resolver;version="[4.1,5)",io.netty.util;version="[4.1,5)",io.net
+ ty.util.concurrent;version="[4.1,5)",io.netty.util.internal;version="[4
+ .1,5)",io.netty.util.internal.logging;version="[4.1,5)",javax.crypto,ja
+ vax.crypto.spec,javax.net.ssl,javax.security.auth.x500,javax.security.c
+ ert,org.bouncycastle.asn1.pkcs;version="[1.69,2)";resolution:=optional,
+ org.bouncycastle.asn1.x500;version="[1.69,2)";resolution:=optional,org.
+ bouncycastle.cert;version="[1.69,2)";resolution:=optional,org.bouncycas
+ tle.cert.jcajce;version="[1.69,2)";resolution:=optional,org.bouncycastl
+ e.jce.provider;version="[1.69,2)";resolution:=optional,org.bouncycastle
+ .jsse;version="[1.69,2)";resolution:=optional,org.bouncycastle.jsse.pro
+ vider;version="[1.69,2)";resolution:=optional,org.bouncycastle.openssl;
+ version="[1.69,2)";resolution:=optional,org.bouncycastle.openssl.jcajce
+ ;version="[1.69,2)";resolution:=optional,org.bouncycastle.operator;vers
+ ion="[1.69,2)";resolution:=optional,org.bouncycastle.operator.jcajce;ve
+ rsion="[1.69,2)";resolution:=optional,org.bouncycastle.pkcs;version="[1
+ .69,2)";resolution:=optional,org.conscrypt;version="[2.5,3)";resolution
+ :=optional,sun.nio.ch;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Export-Package: io.netty.handler.address;uses:="io.netty.channel,io.nett
+ y.resolver";version="4.1.118",io.netty.handler.flow;uses:="io.netty.cha
+ nnel";version="4.1.118",io.netty.handler.flush;uses:="io.netty.channel"
+ ;version="4.1.118",io.netty.handler.ipfilter;uses:="io.netty.channel";v
+ ersion="4.1.118",io.netty.handler.logging;uses:="io.netty.channel,io.ne
+ tty.util.internal.logging";version="4.1.118",io.netty.handler.pcap;uses
+ :="io.netty.channel";version="4.1.118",io.netty.handler.ssl;uses:="io.n
+ etty.buffer,io.netty.channel,io.netty.handler.codec,io.netty.util,io.ne
+ tty.util.concurrent,javax.crypto,javax.net.ssl";version="4.1.118",io.ne
+ tty.handler.ssl.ocsp;uses:="io.netty.channel,io.netty.handler.ssl";vers
+ ion="4.1.118",io.netty.handler.ssl.util;uses:="javax.net.ssl,javax.secu
+ rity.auth.x500,javax.security.cert";version="4.1.118",io.netty.handler.
+ stream;uses:="io.netty.buffer,io.netty.channel";version="4.1.118",io.ne
+ tty.handler.timeout;uses:="io.netty.channel";version="4.1.118",io.netty
+ .handler.traffic;uses:="io.netty.channel,io.netty.util.concurrent";vers
+ ion="4.1.118"
+Bundle-Name: Netty/Handler
+Build-Jdk-Spec: 1.8
+Implementation-Title: Netty/Handler
+Bundle-Description: Netty is an asynchronous event-driven network applic
+ ation framework for    rapid development of maintainable high performan
+ ce protocol servers and    clients.
+Automatic-Module-Name: io.netty.handler
+Implementation-Version: 4.1.118.Final
+Specification-Vendor: The Netty Project
+Bundle-ManifestVersion: 2
+Bundle-Vendor: The Netty Project
+Tool: Bnd-6.3.1.202206071316
+Implementation-Vendor: The Netty Project
+Bundle-Version: 4.1.118.Final
+Created-By: Apache Maven Bundle Plugin 5.1.8
+Build-Jdk: 1.8.0_402
+Specification-Version: 4.1
+Implementation-URL: https://netty.io/netty-handler/
+

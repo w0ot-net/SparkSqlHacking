@@ -1,0 +1,25 @@
+package spire.std;
+
+import cats.kernel.CommutativeGroup;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00194\u0001\"\u0003\u0006\u0011\u0002G\u0005AB\u0004\u0005\u0006\u001d\u00021\u0019a\u0014\u0005\u0006#\u00021\u0019A\u0015\u0005\u0006)\u00021\u0019!\u0016\u0005\u0006/\u00021\u0019\u0001\u0017\u0005\u00065\u00021\u0019a\u0017\u0005\u0006;\u00021\u0019A\u0018\u0005\u0006A\u00021\u0019!\u0019\u0005\u0006G\u00021\u0019\u0001\u001a\u0002\u0010\u0003\n<%o\\;q!J|G-^2uq)\u00111\u0002D\u0001\u0004gR$'\"A\u0007\u0002\u000bM\u0004\u0018N]3\u0016\u0013=ac'\u000f\u001f@\u0005\u0016C5\u0003\u0002\u0001\u0011-)\u0003\"!\u0005\u000b\u000e\u0003IQ\u0011aE\u0001\u0006g\u000e\fG.Y\u0005\u0003+I\u0011a!\u00118z%\u00164\u0007cA\f%O9\u0011\u0001$\t\b\u00033}q!A\u0007\u0010\u000e\u0003mQ!\u0001H\u000f\u0002\rq\u0012xn\u001c;?\u0007\u0001I\u0011!D\u0005\u0003A1\tq!\u00197hK\n\u0014\u0018-\u0003\u0002#G\u00059\u0001/Y2lC\u001e,'B\u0001\u0011\r\u0013\t)cEA\u0004BE\u001e\u0013x.\u001e9\u000b\u0005\t\u001a\u0003CC\t)UUB4HP!E\u000f&\u0011\u0011F\u0005\u0002\u0007)V\u0004H.\u001a\u001d\u0011\u0005-bC\u0002\u0001\u0003\u0006[\u0001\u0011\rA\f\u0002\u0002\u0003F\u0011qF\r\t\u0003#AJ!!\r\n\u0003\u000f9{G\u000f[5oOB\u0011\u0011cM\u0005\u0003iI\u00111!\u00118z!\tYc\u0007B\u00038\u0001\t\u0007aFA\u0001C!\tY\u0013\bB\u0003;\u0001\t\u0007aFA\u0001D!\tYC\bB\u0003>\u0001\t\u0007aFA\u0001E!\tYs\bB\u0003A\u0001\t\u0007aFA\u0001F!\tY#\tB\u0003D\u0001\t\u0007aFA\u0001G!\tYS\tB\u0003G\u0001\t\u0007aFA\u0001H!\tY\u0003\nB\u0003J\u0001\t\u0007aFA\u0001I!)YEJK\u001b9wy\nEiR\u0007\u0002\u0015%\u0011QJ\u0003\u0002\u000e\u000fJ|W\u000f\u001d)s_\u0012,8\r\u001e\u001d\u0002\u0015M$(/^2ukJ,\u0017'F\u0001Q!\r9BEK\u0001\u000bgR\u0014Xo\u0019;ve\u0016\u0014T#A*\u0011\u0007]!S'\u0001\u0006tiJ,8\r^;sKN*\u0012A\u0016\t\u0004/\u0011B\u0014AC:ueV\u001cG/\u001e:fiU\t\u0011\fE\u0002\u0018Im\n!b\u001d;sk\u000e$XO]36+\u0005a\u0006cA\f%}\u0005Q1\u000f\u001e:vGR,(/\u001a\u001c\u0016\u0003}\u00032a\u0006\u0013B\u0003)\u0019HO];diV\u0014XmN\u000b\u0002EB\u0019q\u0003\n#\u0002\u0015M$(/^2ukJ,\u0007(F\u0001f!\r9Be\u0012"
+)
+public interface AbGroupProduct8 extends CommutativeGroup, GroupProduct8 {
+   CommutativeGroup structure1();
+
+   CommutativeGroup structure2();
+
+   CommutativeGroup structure3();
+
+   CommutativeGroup structure4();
+
+   CommutativeGroup structure5();
+
+   CommutativeGroup structure6();
+
+   CommutativeGroup structure7();
+
+   CommutativeGroup structure8();
+}

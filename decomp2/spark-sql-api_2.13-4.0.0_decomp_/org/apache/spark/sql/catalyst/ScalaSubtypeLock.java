@@ -1,0 +1,9 @@
+package org.apache.spark.sql.catalyst;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005m9aa\u0001\u0003\t\u0002\u0011qaA\u0002\t\u0005\u0011\u0003!\u0011\u0003C\u0003\u0019\u0003\u0011\u0005!$\u0001\tTG\u0006d\u0017mU;cif\u0004X\rT8dW*\u0011QAB\u0001\tG\u0006$\u0018\r\\=ti*\u0011q\u0001C\u0001\u0004gFd'BA\u0005\u000b\u0003\u0015\u0019\b/\u0019:l\u0015\tYA\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u001b\u0005\u0019qN]4\u0011\u0005=\tQ\"\u0001\u0003\u0003!M\u001b\u0017\r\\1Tk\n$\u0018\u0010]3M_\u000e\\7CA\u0001\u0013!\t\u0019b#D\u0001\u0015\u0015\u0005)\u0012!B:dC2\f\u0017BA\f\u0015\u0005\u0019\te.\u001f*fM\u00061A(\u001b8jiz\u001a\u0001\u0001F\u0001\u000f\u0001"
+)
+public final class ScalaSubtypeLock {
+}

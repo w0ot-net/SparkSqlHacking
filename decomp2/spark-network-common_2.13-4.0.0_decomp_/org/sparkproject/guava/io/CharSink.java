@@ -1,0 +1,120 @@
+package org.sparkproject.guava.io;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Iterator;
+import java.util.stream.Stream;
+import org.sparkproject.guava.annotations.GwtIncompatible;
+import org.sparkproject.guava.annotations.J2ktIncompatible;
+import org.sparkproject.guava.base.Preconditions;
+import org.sparkproject.guava.base.StandardSystemProperty;
+
+@ElementTypesAreNonnullByDefault
+@J2ktIncompatible
+@GwtIncompatible
+public abstract class CharSink {
+   protected CharSink() {
+   }
+
+   public abstract Writer openStream() throws IOException;
+
+   public Writer openBufferedStream() throws IOException {
+      Writer writer = this.openStream();
+      return writer instanceof BufferedWriter ? (BufferedWriter)writer : new BufferedWriter(writer);
+   }
+
+   public void write(CharSequence charSequence) throws IOException {
+      Preconditions.checkNotNull(charSequence);
+      Writer out = this.openStream();
+
+      try {
+         out.append(charSequence);
+      } catch (Throwable var6) {
+         if (out != null) {
+            try {
+               out.close();
+            } catch (Throwable var5) {
+               var6.addSuppressed(var5);
+            }
+         }
+
+         throw var6;
+      }
+
+      if (out != null) {
+         out.close();
+      }
+
+   }
+
+   public void writeLines(Iterable lines) throws IOException {
+      this.writeLines(lines, System.getProperty("line.separator"));
+   }
+
+   public void writeLines(Iterable lines, String lineSeparator) throws IOException {
+      this.writeLines(lines.iterator(), lineSeparator);
+   }
+
+   public void writeLines(Stream lines) throws IOException {
+      this.writeLines(lines, StandardSystemProperty.LINE_SEPARATOR.value());
+   }
+
+   public void writeLines(Stream lines, String lineSeparator) throws IOException {
+      this.writeLines(lines.iterator(), lineSeparator);
+   }
+
+   private void writeLines(Iterator lines, String lineSeparator) throws IOException {
+      Preconditions.checkNotNull(lineSeparator);
+      Writer out = this.openBufferedStream();
+
+      try {
+         while(lines.hasNext()) {
+            out.append((CharSequence)lines.next()).append(lineSeparator);
+         }
+      } catch (Throwable var7) {
+         if (out != null) {
+            try {
+               out.close();
+            } catch (Throwable var6) {
+               var7.addSuppressed(var6);
+            }
+         }
+
+         throw var7;
+      }
+
+      if (out != null) {
+         out.close();
+      }
+
+   }
+
+   @CanIgnoreReturnValue
+   public long writeFrom(Readable readable) throws IOException {
+      Preconditions.checkNotNull(readable);
+      Writer out = this.openStream();
+
+      long var3;
+      try {
+         var3 = CharStreams.copy(readable, out);
+      } catch (Throwable var6) {
+         if (out != null) {
+            try {
+               out.close();
+            } catch (Throwable var5) {
+               var6.addSuppressed(var5);
+            }
+         }
+
+         throw var6;
+      }
+
+      if (out != null) {
+         out.close();
+      }
+
+      return var3;
+   }
+}

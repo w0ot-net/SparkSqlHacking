@@ -1,0 +1,10 @@
+package org.apache.spark.util.collection;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00052\u0001BA\u0002\u0011\u0002G\u0005q!\u0004\u0005\u0006)\u00011\tA\u0006\u0002\f!\u0006L'o],sSR,'O\u0003\u0002\u0005\u000b\u0005Q1m\u001c7mK\u000e$\u0018n\u001c8\u000b\u0005\u00199\u0011\u0001B;uS2T!\u0001C\u0005\u0002\u000bM\u0004\u0018M]6\u000b\u0005)Y\u0011AB1qC\u000eDWMC\u0001\r\u0003\ry'oZ\n\u0003\u00019\u0001\"a\u0004\n\u000e\u0003AQ\u0011!E\u0001\u0006g\u000e\fG.Y\u0005\u0003'A\u0011a!\u00118z%\u00164\u0017!B<sSR,7\u0001\u0001\u000b\u0004/iy\u0002CA\b\u0019\u0013\tI\u0002C\u0001\u0003V]&$\b\"B\u000e\u0002\u0001\u0004a\u0012aA6fsB\u0011q\"H\u0005\u0003=A\u00111!\u00118z\u0011\u0015\u0001\u0013\u00011\u0001\u001d\u0003\u00151\u0018\r\\;f\u0001"
+)
+public interface PairsWriter {
+   void write(final Object key, final Object value);
+}

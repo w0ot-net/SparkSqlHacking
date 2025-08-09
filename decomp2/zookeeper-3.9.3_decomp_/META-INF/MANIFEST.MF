@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Created-By: Maven Jar Plugin 3.2.0
+Build-Jdk-Spec: 11
+Specification-Title: Apache ZooKeeper - Server
+Specification-Version: 3.9
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Apache ZooKeeper - Server
+Implementation-Version: 3.9.3
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Build: c26634f34490bb0ea7a09cc51e05ede3b4e320ee
+

@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-Description: Super CSV is a fast, programmer-friendly, free CSV p
+ ackage for Java
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-SymbolicName: net.sf.supercsv.super-csv
+Archiver-Version: Plexus Archiver
+Built-By: jim
+Bnd-LastModified: 1398343611630
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://supercsv.sourceforge.net/
+Bundle-Vendor: Super CSV
+Tool: Bnd-1.50.0
+Export-Package: org.supercsv.cellprocessor.ift;uses:="org.supercsv.util"
+ ;version="2.2.0",org.supercsv.io;uses:="org.supercsv.cellprocessor.ift,
+ org.supercsv.exception,org.supercsv.util,org.supercsv.prefs,org.supercs
+ v.encoder,org.supercsv.comment";version="2.2.0",org.supercsv.quote;uses
+ :="org.supercsv.util,org.supercsv.prefs";version="2.2.0",org.supercsv.c
+ ellprocessor;uses:="org.supercsv.cellprocessor.ift,org.supercsv.util,or
+ g.supercsv.exception";version="2.2.0",org.supercsv.comment;version="2.2
+ .0",org.supercsv.encoder;uses:="org.supercsv.util,org.supercsv.prefs,or
+ g.supercsv.quote";version="2.2.0",org.supercsv.exception;uses:="org.sup
+ ercsv.cellprocessor.ift,org.supercsv.util";version="2.2.0",org.supercsv
+ .util;uses:="org.supercsv.exception,org.supercsv.cellprocessor.ift";ver
+ sion="2.2.0",org.supercsv.cellprocessor.constraint;uses:="org.supercsv.
+ cellprocessor.ift,org.supercsv.cellprocessor,org.supercsv.exception,org
+ .supercsv.util";version="2.2.0",org.supercsv.prefs;uses:="org.supercsv.
+ quote,org.supercsv.encoder,org.supercsv.comment";version="2.2.0"
+Bundle-Name: Super CSV Core
+Bundle-Version: 2.2.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0
+

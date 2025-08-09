@@ -1,0 +1,29 @@
+package org.apache.ivy.core.report;
+
+import java.io.File;
+import org.apache.ivy.core.module.descriptor.Artifact;
+
+public class MetadataArtifactDownloadReport extends ArtifactDownloadReport {
+   private boolean isSearched;
+   private File originalLocalFile;
+
+   public MetadataArtifactDownloadReport(Artifact artifact) {
+      super(artifact);
+   }
+
+   public boolean isSearched() {
+      return this.isSearched;
+   }
+
+   public void setSearched(boolean isSearched) {
+      this.isSearched = isSearched;
+   }
+
+   public File getOriginalLocalFile() {
+      return this.originalLocalFile;
+   }
+
+   public void setOriginalLocalFile(File originalLocalFile) {
+      this.originalLocalFile = originalLocalFile;
+   }
+}

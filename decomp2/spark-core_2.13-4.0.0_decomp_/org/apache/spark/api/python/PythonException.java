@@ -1,0 +1,12 @@
+package org.apache.spark.api.python;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005I2Q\u0001B\u0003\u0001\u0013=A\u0001b\b\u0001\u0003\u0002\u0003\u0006I\u0001\t\u0005\tQ\u0001\u0011\t\u0011)A\u0005S!)A\u0006\u0001C\u0001[\ty\u0001+\u001f;i_:,\u0005pY3qi&|gN\u0003\u0002\u0007\u000f\u00051\u0001/\u001f;i_:T!\u0001C\u0005\u0002\u0007\u0005\u0004\u0018N\u0003\u0002\u000b\u0017\u0005)1\u000f]1sW*\u0011A\"D\u0001\u0007CB\f7\r[3\u000b\u00039\t1a\u001c:h'\t\u0001\u0001\u0003\u0005\u0002\u001299\u0011!#\u0007\b\u0003']i\u0011\u0001\u0006\u0006\u0003+Y\ta\u0001\u0010:p_Rt4\u0001A\u0005\u00021\u0005)1oY1mC&\u0011!dG\u0001\ba\u0006\u001c7.Y4f\u0015\u0005A\u0012BA\u000f\u001f\u0005A\u0011VO\u001c;j[\u0016,\u0005pY3qi&|gN\u0003\u0002\u001b7\u0005\u0019Qn]4\u0011\u0005\u0005*cB\u0001\u0012$!\t\u00192$\u0003\u0002%7\u00051\u0001K]3eK\u001aL!AJ\u0014\u0003\rM#(/\u001b8h\u0015\t!3$A\u0003dCV\u001cX\r\u0005\u0002\u0012U%\u00111F\b\u0002\n)\"\u0014xn^1cY\u0016\fa\u0001P5oSRtDc\u0001\u00181cA\u0011q\u0006A\u0007\u0002\u000b!)qd\u0001a\u0001A!)\u0001f\u0001a\u0001S\u0001"
+)
+public class PythonException extends RuntimeException {
+   public PythonException(final String msg, final Throwable cause) {
+      super(msg, cause);
+   }
+}

@@ -1,0 +1,12 @@
+package org.apache.spark.util.random;
+
+import org.apache.spark.annotation.DeveloperApi;
+import scala.reflect.ScalaSignature;
+
+@DeveloperApi
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00192qAA\u0002\u0011\u0002G\u0005a\u0002C\u0003\u0016\u0001\u0019\u0005aC\u0001\u0007Qg\u0016,Hm\u001c:b]\u0012|WN\u0003\u0002\u0005\u000b\u00051!/\u00198e_6T!AB\u0004\u0002\tU$\u0018\u000e\u001c\u0006\u0003\u0011%\tQa\u001d9be.T!AC\u0006\u0002\r\u0005\u0004\u0018m\u00195f\u0015\u0005a\u0011aA8sO\u000e\u00011C\u0001\u0001\u0010!\t\u00012#D\u0001\u0012\u0015\u0005\u0011\u0012!B:dC2\f\u0017B\u0001\u000b\u0012\u0005\u0019\te.\u001f*fM\u000691/\u001a;TK\u0016$GCA\f\u001b!\t\u0001\u0002$\u0003\u0002\u001a#\t!QK\\5u\u0011\u0015Y\u0012\u00011\u0001\u001d\u0003\u0011\u0019X-\u001a3\u0011\u0005Ai\u0012B\u0001\u0010\u0012\u0005\u0011auN\\4)\u0005\u0001\u0001\u0003CA\u0011%\u001b\u0005\u0011#BA\u0012\b\u0003)\tgN\\8uCRLwN\\\u0005\u0003K\t\u0012A\u0002R3wK2|\u0007/\u001a:Ba&\u0004"
+)
+public interface Pseudorandom {
+   void setSeed(final long seed);
+}

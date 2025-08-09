@@ -1,0 +1,9 @@
+package org.apache.spark.sql.types;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\r:a!\u0002\u0004\t\u0002!\u0001bA\u0002\n\u0007\u0011\u0003A1\u0003C\u0003\u001b\u0003\u0011\u0005AD\u0002\u0004\u0013\r\u0005\u0005\u0001\"\b\u0005\u00065\r!\t!I\u0001\u000f\rJ\f7\r^5p]\u0006dG+\u001f9f\u0015\t9\u0001\"A\u0003usB,7O\u0003\u0002\n\u0015\u0005\u00191/\u001d7\u000b\u0005-a\u0011!B:qCJ\\'BA\u0007\u000f\u0003\u0019\t\u0007/Y2iK*\tq\"A\u0002pe\u001e\u0004\"!E\u0001\u000e\u0003\u0019\u0011aB\u0012:bGRLwN\\1m)f\u0004Xm\u0005\u0002\u0002)A\u0011Q\u0003G\u0007\u0002-)\tq#A\u0003tG\u0006d\u0017-\u0003\u0002\u001a-\t1\u0011I\\=SK\u001a\fa\u0001P5oSRt4\u0001\u0001\u000b\u0002!M\u00111A\b\t\u0003#}I!\u0001\t\u0004\u0003\u00179+X.\u001a:jGRK\b/\u001a\u000b\u0002EA\u0011\u0011c\u0001"
+)
+public abstract class FractionalType extends NumericType {
+}

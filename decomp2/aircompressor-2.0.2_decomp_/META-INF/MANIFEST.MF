@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: aircompressor
+Implementation-Version: 2.0.2
+Specification-Title: aircompressor
+Build-Time: 2024-08-16T21:57:06-0700
+Git-Commit-Id: 36fe717d29ca455a268cdcd6ecf8b72e3f9bf211
+Build-Jdk-Spec: 1.8
+Created-By: Maven Jar Plugin 3.2.0
+Specification-Version: 2.0
+

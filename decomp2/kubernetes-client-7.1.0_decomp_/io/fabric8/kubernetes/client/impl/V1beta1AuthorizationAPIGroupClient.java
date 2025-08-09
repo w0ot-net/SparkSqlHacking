@@ -1,0 +1,32 @@
+package io.fabric8.kubernetes.client.impl;
+
+import io.fabric8.kubernetes.api.model.authorization.v1beta1.LocalSubjectAccessReview;
+import io.fabric8.kubernetes.api.model.authorization.v1beta1.SelfSubjectAccessReview;
+import io.fabric8.kubernetes.api.model.authorization.v1beta1.SelfSubjectRulesReview;
+import io.fabric8.kubernetes.api.model.authorization.v1beta1.SubjectAccessReview;
+import io.fabric8.kubernetes.client.V1beta1AuthorizationAPIGroupDSL;
+import io.fabric8.kubernetes.client.dsl.InOutCreateable;
+import io.fabric8.kubernetes.client.dsl.NamespacedInOutCreateable;
+import io.fabric8.kubernetes.client.extension.ClientAdapter;
+
+public class V1beta1AuthorizationAPIGroupClient extends ClientAdapter implements V1beta1AuthorizationAPIGroupDSL {
+   public InOutCreateable selfSubjectAccessReview() {
+      return ((BaseClient)this.getClient().adapt(BaseClient.class)).getHandlers().getNonListingOperation(SelfSubjectAccessReview.class, this);
+   }
+
+   public InOutCreateable subjectAccessReview() {
+      return ((BaseClient)this.getClient().adapt(BaseClient.class)).getHandlers().getNonListingOperation(SubjectAccessReview.class, this);
+   }
+
+   public NamespacedInOutCreateable localSubjectAccessReview() {
+      return ((BaseClient)this.getClient().adapt(BaseClient.class)).getHandlers().getNamespacedHasMetadataCreateOnlyOperation(LocalSubjectAccessReview.class, this);
+   }
+
+   public InOutCreateable selfSubjectRulesReview() {
+      return ((BaseClient)this.getClient().adapt(BaseClient.class)).getHandlers().getNonListingOperation(SelfSubjectRulesReview.class, this);
+   }
+
+   public V1beta1AuthorizationAPIGroupClient newInstance() {
+      return new V1beta1AuthorizationAPIGroupClient();
+   }
+}

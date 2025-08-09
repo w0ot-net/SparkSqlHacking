@@ -1,0 +1,39 @@
+package spire.syntax;
+
+import algebra.ring.Field;
+
+public final class LiteralIntMultiplicativeGroupOps$ {
+   public static final LiteralIntMultiplicativeGroupOps$ MODULE$ = new LiteralIntMultiplicativeGroupOps$();
+
+   public final Object $div$extension(final int $this, final Object rhs, final Field ev) {
+      return ev.div(ev.fromInt($this), rhs);
+   }
+
+   public final int hashCode$extension(final int $this) {
+      return Integer.hashCode($this);
+   }
+
+   public final boolean equals$extension(final int $this, final Object x$1) {
+      boolean var3;
+      if (x$1 instanceof LiteralIntMultiplicativeGroupOps) {
+         var3 = true;
+      } else {
+         var3 = false;
+      }
+
+      boolean var10000;
+      if (var3) {
+         int var5 = ((LiteralIntMultiplicativeGroupOps)x$1).lhs();
+         if ($this == var5) {
+            var10000 = true;
+            return var10000;
+         }
+      }
+
+      var10000 = false;
+      return var10000;
+   }
+
+   private LiteralIntMultiplicativeGroupOps$() {
+   }
+}

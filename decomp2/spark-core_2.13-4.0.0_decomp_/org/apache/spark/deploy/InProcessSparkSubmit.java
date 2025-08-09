@@ -1,0 +1,12 @@
+package org.apache.spark.deploy;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005=:a\u0001B\u0003\t\u0002\u001diaAB\b\u0006\u0011\u00039\u0001\u0003C\u0003\u0018\u0003\u0011\u0005\u0011\u0004C\u0003\u001b\u0003\u0011\u00051$\u0001\u000bJ]B\u0013xnY3tgN\u0003\u0018M]6Tk\nl\u0017\u000e\u001e\u0006\u0003\r\u001d\ta\u0001Z3qY>L(B\u0001\u0005\n\u0003\u0015\u0019\b/\u0019:l\u0015\tQ1\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u0019\u0005\u0019qN]4\u0011\u00059\tQ\"A\u0003\u0003)%s\u0007K]8dKN\u001c8\u000b]1sWN+(-\\5u'\t\t\u0011\u0003\u0005\u0002\u0013+5\t1CC\u0001\u0015\u0003\u0015\u00198-\u00197b\u0013\t12C\u0001\u0004B]f\u0014VMZ\u0001\u0007y%t\u0017\u000e\u001e \u0004\u0001Q\tQ\"\u0001\u0003nC&tGC\u0001\u000f !\t\u0011R$\u0003\u0002\u001f'\t!QK\\5u\u0011\u0015\u00013\u00011\u0001\"\u0003\u0011\t'oZ:\u0011\u0007I\u0011C%\u0003\u0002$'\t)\u0011I\u001d:bsB\u0011Q\u0005\f\b\u0003M)\u0002\"aJ\n\u000e\u0003!R!!\u000b\r\u0002\rq\u0012xn\u001c;?\u0013\tY3#\u0001\u0004Qe\u0016$WMZ\u0005\u0003[9\u0012aa\u0015;sS:<'BA\u0016\u0014\u0001"
+)
+public final class InProcessSparkSubmit {
+   public static void main(final String[] args) {
+      InProcessSparkSubmit$.MODULE$.main(args);
+   }
+}

@@ -1,0 +1,9 @@
+package org.apache.spark;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005e1\u0001\"\u0001\u0002\u0011\u0002G\u0005\"\u0001\u0003\u0002\u0018\u001b\u0006\u0004x*\u001e;qkR$&/Y2lKJlUm]:bO\u0016T!a\u0001\u0003\u0002\u000bM\u0004\u0018M]6\u000b\u0005\u00151\u0011AB1qC\u000eDWMC\u0001\b\u0003\ry'oZ\n\u0003\u0001%\u0001\"AC\u0007\u000e\u0003-Q\u0011\u0001D\u0001\u0006g\u000e\fG.Y\u0005\u0003\u001d-\u0011a!\u00118z%\u001647\u0001A\u0015\u0006\u0001E\u0019RcF\u0005\u0003%\t\u0011AdR3u\u001b\u0006\u0004\u0018I\u001c3NKJ<WMU3tk2$8\u000b^1ukN,7/\u0003\u0002\u0015\u0005\t!r)\u001a;NCB|U\u000f\u001e9viN#\u0018\r^;tKNL!A\u0006\u0002\u0003;\u001d+Go\u00155vM\u001adW\rU;tQ6+'oZ3s\u0019>\u001c\u0017\r^5p]NT!\u0001\u0007\u0002\u0002)M#x\u000e]'ba>+H\u000f];u)J\f7m[3s\u0001"
+)
+public interface MapOutputTrackerMessage {
+}

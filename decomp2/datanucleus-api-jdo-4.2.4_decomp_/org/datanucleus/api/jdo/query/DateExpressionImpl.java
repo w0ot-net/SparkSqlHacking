@@ -1,0 +1,38 @@
+package org.datanucleus.api.jdo.query;
+
+import java.sql.Date;
+import java.util.List;
+import javax.jdo.query.DateExpression;
+import javax.jdo.query.NumericExpression;
+import javax.jdo.query.PersistableExpression;
+import org.datanucleus.query.expression.Expression;
+import org.datanucleus.query.expression.InvokeExpression;
+
+public class DateExpressionImpl extends ComparableExpressionImpl implements DateExpression {
+   public DateExpressionImpl(PersistableExpression parent, String name) {
+      super(parent, name);
+   }
+
+   public DateExpressionImpl(Class cls, String name, ExpressionType type) {
+      super(cls, name, type);
+   }
+
+   public DateExpressionImpl(Expression queryExpr) {
+      super(queryExpr);
+   }
+
+   public NumericExpression getDay() {
+      Expression invokeExpr = new InvokeExpression(this.queryExpr, "getDay", (List)null);
+      return new NumericExpressionImpl(invokeExpr);
+   }
+
+   public NumericExpression getMonth() {
+      Expression invokeExpr = new InvokeExpression(this.queryExpr, "getMonth", (List)null);
+      return new NumericExpressionImpl(invokeExpr);
+   }
+
+   public NumericExpression getYear() {
+      Expression invokeExpr = new InvokeExpression(this.queryExpr, "getYear", (List)null);
+      return new NumericExpressionImpl(invokeExpr);
+   }
+}

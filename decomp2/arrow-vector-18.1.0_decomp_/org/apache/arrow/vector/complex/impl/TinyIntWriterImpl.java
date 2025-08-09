@@ -1,0 +1,58 @@
+package org.apache.arrow.vector.complex.impl;
+
+import org.apache.arrow.vector.TinyIntVector;
+import org.apache.arrow.vector.holders.NullableTinyIntHolder;
+import org.apache.arrow.vector.holders.TinyIntHolder;
+import org.apache.arrow.vector.types.pojo.Field;
+
+public class TinyIntWriterImpl extends AbstractFieldWriter {
+   final TinyIntVector vector;
+
+   public TinyIntWriterImpl(TinyIntVector vector) {
+      this.vector = vector;
+   }
+
+   public Field getField() {
+      return this.vector.getField();
+   }
+
+   public int getValueCapacity() {
+      return this.vector.getValueCapacity();
+   }
+
+   public void allocate() {
+      this.vector.allocateNew();
+   }
+
+   public void close() {
+      this.vector.close();
+   }
+
+   public void clear() {
+      this.vector.clear();
+   }
+
+   protected int idx() {
+      return super.idx();
+   }
+
+   public void write(TinyIntHolder h) {
+      this.vector.setSafe(this.idx(), h);
+      this.vector.setValueCount(this.idx() + 1);
+   }
+
+   public void write(NullableTinyIntHolder h) {
+      this.vector.setSafe(this.idx(), h);
+      this.vector.setValueCount(this.idx() + 1);
+   }
+
+   public void writeTinyInt(byte value) {
+      this.vector.setSafe(this.idx(), 1, value);
+      this.vector.setValueCount(this.idx() + 1);
+   }
+
+   public void writeNull() {
+      this.vector.setNull(this.idx());
+      this.vector.setValueCount(this.idx() + 1);
+   }
+}

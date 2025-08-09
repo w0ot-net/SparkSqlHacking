@@ -1,0 +1,10 @@
+package org.apache.spark.sql.catalyst.trees;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005u1qAA\u0002\u0011\u0002G\u0005\u0001\u0003C\u0003\u0018\u0001\u0019\u0005\u0001D\u0001\u0006XSRDwJ]5hS:T!\u0001B\u0003\u0002\u000bQ\u0014X-Z:\u000b\u0005\u00199\u0011\u0001C2bi\u0006d\u0017p\u001d;\u000b\u0005!I\u0011aA:rY*\u0011!bC\u0001\u0006gB\f'o\u001b\u0006\u0003\u00195\ta!\u00199bG\",'\"\u0001\b\u0002\u0007=\u0014xm\u0001\u0001\u0014\u0005\u0001\t\u0002C\u0001\n\u0016\u001b\u0005\u0019\"\"\u0001\u000b\u0002\u000bM\u001c\u0017\r\\1\n\u0005Y\u0019\"AB!osJ+g-\u0001\u0004pe&<\u0017N\\\u000b\u00023A\u0011!dG\u0007\u0002\u0007%\u0011Ad\u0001\u0002\u0007\u001fJLw-\u001b8"
+)
+public interface WithOrigin {
+   Origin origin();
+}

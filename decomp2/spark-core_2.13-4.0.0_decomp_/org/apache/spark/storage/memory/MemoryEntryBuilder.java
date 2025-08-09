@@ -1,0 +1,12 @@
+package org.apache.spark.storage.memory;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u000552qa\u0001\u0003\u0011\u0002G%q\u0002C\u0003\u0018\u0001\u0019\u0005\u0001\u0004C\u0003\u001d\u0001\u0019\u0005QD\u0001\nNK6|'/_#oiJL()^5mI\u0016\u0014(BA\u0003\u0007\u0003\u0019iW-\\8ss*\u0011q\u0001C\u0001\bgR|'/Y4f\u0015\tI!\"A\u0003ta\u0006\u00148N\u0003\u0002\f\u0019\u00051\u0011\r]1dQ\u0016T\u0011!D\u0001\u0004_J<7\u0001A\u000b\u0003!\u0011\u001a\"\u0001A\t\u0011\u0005I)R\"A\n\u000b\u0003Q\tQa]2bY\u0006L!AF\n\u0003\r\u0005s\u0017PU3g\u0003-\u0001(/Z2jg\u0016\u001c\u0016N_3\u0016\u0003e\u0001\"A\u0005\u000e\n\u0005m\u0019\"\u0001\u0002'p]\u001e\fQAY;jY\u0012$\u0012A\b\t\u0004?\u0001\u0012S\"\u0001\u0003\n\u0005\u0005\"!aC'f[>\u0014\u00180\u00128uef\u0004\"a\t\u0013\r\u0001\u0011)Q\u0005\u0001b\u0001M\t\tA+\u0005\u0002(UA\u0011!\u0003K\u0005\u0003SM\u0011qAT8uQ&tw\r\u0005\u0002\u0013W%\u0011Af\u0005\u0002\u0004\u0003:L\b"
+)
+public interface MemoryEntryBuilder {
+   long preciseSize();
+
+   MemoryEntry build();
+}

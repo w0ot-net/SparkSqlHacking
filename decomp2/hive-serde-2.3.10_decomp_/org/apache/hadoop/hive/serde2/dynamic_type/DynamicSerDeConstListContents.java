@@ -1,0 +1,11 @@
+package org.apache.hadoop.hive.serde2.dynamic_type;
+
+public class DynamicSerDeConstListContents extends SimpleNode {
+   public DynamicSerDeConstListContents(int id) {
+      super(id);
+   }
+
+   public DynamicSerDeConstListContents(thrift_grammar p, int id) {
+      super(p, id);
+   }
+}

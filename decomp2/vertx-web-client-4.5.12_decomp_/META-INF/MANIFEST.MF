@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Implementation-Title: vertx-web-client
+Automatic-Module-Name: io.vertx.web.client
+Implementation-Version: 4.5.12
+Built-By: julien
+Specification-Vendor: Eclipse
+Specification-Title: vertx-web-client
+Implementation-Vendor-Id: io.vertx
+Implementation-Vendor: Eclipse
+Maven-Artifact-Id: vertx-web-client
+Maven-Version: 4.5.12
+Created-By: Apache Maven 3.9.9
+Build-Jdk: 1.8.0_372
+Specification-Version: 4.5
+Implementation-URL: http://nexus.sonatype.org/oss-repository-hosting.htm
+ l/vertx-parent/vertx-ext/vertx-ext-parent/vertx-web-parent/vertx-web-cl
+ ient
+Maven-Group-Id: io.vertx
+

@@ -1,0 +1,45 @@
+package org.apache.ivy.plugins.version;
+
+import java.util.Comparator;
+import java.util.List;
+import org.apache.ivy.core.module.descriptor.ModuleDescriptor;
+import org.apache.ivy.core.module.id.ModuleRevisionId;
+import org.apache.ivy.core.module.status.Status;
+import org.apache.ivy.core.module.status.StatusManager;
+
+public class LatestVersionMatcher extends AbstractVersionMatcher {
+   public LatestVersionMatcher() {
+      super("latest");
+   }
+
+   public boolean isDynamic(ModuleRevisionId askedMrid) {
+      return askedMrid.getRevision().startsWith("latest.");
+   }
+
+   public boolean accept(ModuleRevisionId askedMrid, ModuleRevisionId foundMrid) {
+      return true;
+   }
+
+   public boolean needModuleDescriptor(ModuleRevisionId askedMrid, ModuleRevisionId foundMrid) {
+      List<Status> statuses = StatusManager.getCurrent().getStatuses();
+      Status lowest = (Status)statuses.get(statuses.size() - 1);
+      String latestLowest = "latest." + lowest.getName();
+      return !latestLowest.equals(askedMrid.getRevision());
+   }
+
+   public boolean accept(ModuleRevisionId askedMrid, ModuleDescriptor foundMD) {
+      String askedBranch = askedMrid.getBranch();
+      String foundBranch = foundMD.getModuleRevisionId().getBranch();
+      boolean sameBranch = askedBranch == null ? foundBranch == null : askedBranch.equals(foundBranch);
+      if (!sameBranch) {
+         return false;
+      } else {
+         String askedStatus = askedMrid.getRevision().substring("latest.".length());
+         return StatusManager.getCurrent().getPriority(askedStatus) >= StatusManager.getCurrent().getPriority(foundMD.getStatus());
+      }
+   }
+
+   public int compare(ModuleRevisionId askedMrid, ModuleRevisionId foundMrid, Comparator staticComparator) {
+      return this.needModuleDescriptor(askedMrid, foundMrid) ? 0 : 1;
+   }
+}

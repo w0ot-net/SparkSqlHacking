@@ -1,0 +1,11 @@
+package org.apache.hadoop.hive.serde2.dynamic_type;
+
+public class DynamicSerDeCommaOrSemicolon extends SimpleNode {
+   public DynamicSerDeCommaOrSemicolon(int id) {
+      super(id);
+   }
+
+   public DynamicSerDeCommaOrSemicolon(thrift_grammar p, int id) {
+      super(p, id);
+   }
+}

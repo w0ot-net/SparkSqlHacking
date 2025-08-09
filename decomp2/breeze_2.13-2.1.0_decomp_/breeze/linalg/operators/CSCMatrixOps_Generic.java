@@ -1,0 +1,9 @@
+package breeze.linalg.operators;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005]1q!\u0001\u0002\u0011\u0002G\u0005\u0011B\u0001\u000bD'\u000ek\u0015\r\u001e:jq>\u00038oX$f]\u0016\u0014\u0018n\u0019\u0006\u0003\u0007\u0011\t\u0011b\u001c9fe\u0006$xN]:\u000b\u0005\u00151\u0011A\u00027j]\u0006dwMC\u0001\b\u0003\u0019\u0011'/Z3{K\u000e\u00011\u0003\u0002\u0001\u000b!Q\u0001\"a\u0003\b\u000e\u00031Q\u0011!D\u0001\u0006g\u000e\fG.Y\u0005\u0003\u001f1\u0011a!\u00118z%\u00164\u0007CA\t\u0013\u001b\u0005\u0011\u0011BA\n\u0003\u0005)9UM\\3sS\u000e|\u0005o\u001d\t\u0003#UI!A\u0006\u0002\u0003\u001bQ+gn]8s\u0019><\bK]5p\u0001"
+)
+public interface CSCMatrixOps_Generic extends TensorLowPrio {
+}

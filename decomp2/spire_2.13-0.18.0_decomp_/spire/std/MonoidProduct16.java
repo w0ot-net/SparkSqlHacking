@@ -1,0 +1,54 @@
+package spire.std;
+
+import cats.kernel.Monoid;
+import scala.Tuple16;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0005=c\u0001C\n\u0015!\u0003\r\tA\u0006\r\t\u000bA\u0004A\u0011A9\t\u000bU\u0004a1\u0001<\t\u000ba\u0004a1A=\t\u000bm\u0004a1\u0001?\t\u000by\u0004a1A@\t\u000f\u0005\r\u0001Ab\u0001\u0002\u0006!9\u0011\u0011\u0002\u0001\u0007\u0004\u0005-\u0001bBA\b\u0001\u0019\r\u0011\u0011\u0003\u0005\b\u0003+\u0001a1AA\f\u0011\u001d\tY\u0002\u0001D\u0002\u0003;Aq!!\t\u0001\r\u0007\t\u0019\u0003C\u0004\u0002(\u00011\u0019!!\u000b\t\u000f\u00055\u0002Ab\u0001\u00020!9\u00111\u0007\u0001\u0007\u0004\u0005U\u0002bBA\u001d\u0001\u0019\r\u00111\b\u0005\b\u0003\u007f\u0001a1AA!\u0011\u001d\t)\u0005\u0001D\u0002\u0003\u000fBq!a\u0013\u0001\t\u0003\tiEA\bN_:|\u0017\u000e\u001a)s_\u0012,8\r^\u00197\u0015\t)b#A\u0002ti\u0012T\u0011aF\u0001\u0006gBL'/Z\u000b\u00123Y\u00025IR%M\u001fJ+\u0006l\u00170bI\u001eT7\u0003\u0002\u0001\u001bA1\u0004\"a\u0007\u0010\u000e\u0003qQ\u0011!H\u0001\u0006g\u000e\fG.Y\u0005\u0003?q\u0011a!\u00118z%\u00164\u0007cA\u0011/c9\u0011!e\u000b\b\u0003G%r!\u0001\n\u0015\u000e\u0003\u0015R!AJ\u0014\u0002\rq\u0012xn\u001c;?\u0007\u0001I\u0011aF\u0005\u0003UY\tq!\u00197hK\n\u0014\u0018-\u0003\u0002-[\u00059\u0001/Y2lC\u001e,'B\u0001\u0016\u0017\u0013\ty\u0003G\u0001\u0004N_:|\u0017\u000e\u001a\u0006\u0003Y5\u0002\"c\u0007\u001a5\u007f\t+\u0005j\u0013(R)^SV\fY2gS&\u00111\u0007\b\u0002\b)V\u0004H.Z\u00197!\t)d\u0007\u0004\u0001\u0005\u000b]\u0002!\u0019\u0001\u001d\u0003\u0003\u0005\u000b\"!\u000f\u001f\u0011\u0005mQ\u0014BA\u001e\u001d\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"aG\u001f\n\u0005yb\"aA!osB\u0011Q\u0007\u0011\u0003\u0006\u0003\u0002\u0011\r\u0001\u000f\u0002\u0002\u0005B\u0011Qg\u0011\u0003\u0006\t\u0002\u0011\r\u0001\u000f\u0002\u0002\u0007B\u0011QG\u0012\u0003\u0006\u000f\u0002\u0011\r\u0001\u000f\u0002\u0002\tB\u0011Q'\u0013\u0003\u0006\u0015\u0002\u0011\r\u0001\u000f\u0002\u0002\u000bB\u0011Q\u0007\u0014\u0003\u0006\u001b\u0002\u0011\r\u0001\u000f\u0002\u0002\rB\u0011Qg\u0014\u0003\u0006!\u0002\u0011\r\u0001\u000f\u0002\u0002\u000fB\u0011QG\u0015\u0003\u0006'\u0002\u0011\r\u0001\u000f\u0002\u0002\u0011B\u0011Q'\u0016\u0003\u0006-\u0002\u0011\r\u0001\u000f\u0002\u0002\u0013B\u0011Q\u0007\u0017\u0003\u00063\u0002\u0011\r\u0001\u000f\u0002\u0002\u0015B\u0011Qg\u0017\u0003\u00069\u0002\u0011\r\u0001\u000f\u0002\u0002\u0017B\u0011QG\u0018\u0003\u0006?\u0002\u0011\r\u0001\u000f\u0002\u0002\u0019B\u0011Q'\u0019\u0003\u0006E\u0002\u0011\r\u0001\u000f\u0002\u0002\u001bB\u0011Q\u0007\u001a\u0003\u0006K\u0002\u0011\r\u0001\u000f\u0002\u0002\u001dB\u0011Qg\u001a\u0003\u0006Q\u0002\u0011\r\u0001\u000f\u0002\u0002\u001fB\u0011QG\u001b\u0003\u0006W\u0002\u0011\r\u0001\u000f\u0002\u0002!B\u0011RN\u001c\u001b@\u0005\u0016C5JT)U/jk\u0006m\u00194j\u001b\u0005!\u0012BA8\u0015\u0005I\u0019V-\\5he>,\b\u000f\u0015:pIV\u001cG/\r\u001c\u0002\r\u0011Jg.\u001b;%)\u0005\u0011\bCA\u000et\u0013\t!HD\u0001\u0003V]&$\u0018AC:ueV\u001cG/\u001e:fcU\tq\u000fE\u0002\"]Q\n!b\u001d;sk\u000e$XO]33+\u0005Q\bcA\u0011/\u007f\u0005Q1\u000f\u001e:vGR,(/Z\u001a\u0016\u0003u\u00042!\t\u0018C\u0003)\u0019HO];diV\u0014X\rN\u000b\u0003\u0003\u0003\u00012!\t\u0018F\u0003)\u0019HO];diV\u0014X-N\u000b\u0003\u0003\u000f\u00012!\t\u0018I\u0003)\u0019HO];diV\u0014XMN\u000b\u0003\u0003\u001b\u00012!\t\u0018L\u0003)\u0019HO];diV\u0014XmN\u000b\u0003\u0003'\u00012!\t\u0018O\u0003)\u0019HO];diV\u0014X\rO\u000b\u0003\u00033\u00012!\t\u0018R\u0003)\u0019HO];diV\u0014X-O\u000b\u0003\u0003?\u00012!\t\u0018U\u0003-\u0019HO];diV\u0014X-\r\u0019\u0016\u0005\u0005\u0015\u0002cA\u0011//\u0006Y1\u000f\u001e:vGR,(/Z\u00192+\t\tY\u0003E\u0002\"]i\u000b1b\u001d;sk\u000e$XO]32eU\u0011\u0011\u0011\u0007\t\u0004C9j\u0016aC:ueV\u001cG/\u001e:fcM*\"!a\u000e\u0011\u0007\u0005r\u0003-A\u0006tiJ,8\r^;sKF\"TCAA\u001f!\r\tcfY\u0001\fgR\u0014Xo\u0019;ve\u0016\fT'\u0006\u0002\u0002DA\u0019\u0011E\f4\u0002\u0017M$(/^2ukJ,\u0017GN\u000b\u0003\u0003\u0013\u00022!\t\u0018j\u0003\u0015)W\u000e\u001d;z+\u0005\t\u0004"
+)
+public interface MonoidProduct16 extends Monoid, SemigroupProduct16 {
+   Monoid structure1();
+
+   Monoid structure2();
+
+   Monoid structure3();
+
+   Monoid structure4();
+
+   Monoid structure5();
+
+   Monoid structure6();
+
+   Monoid structure7();
+
+   Monoid structure8();
+
+   Monoid structure9();
+
+   Monoid structure10();
+
+   Monoid structure11();
+
+   Monoid structure12();
+
+   Monoid structure13();
+
+   Monoid structure14();
+
+   Monoid structure15();
+
+   Monoid structure16();
+
+   // $FF: synthetic method
+   static Tuple16 empty$(final MonoidProduct16 $this) {
+      return $this.empty();
+   }
+
+   default Tuple16 empty() {
+      return new Tuple16(this.structure1().empty(), this.structure2().empty(), this.structure3().empty(), this.structure4().empty(), this.structure5().empty(), this.structure6().empty(), this.structure7().empty(), this.structure8().empty(), this.structure9().empty(), this.structure10().empty(), this.structure11().empty(), this.structure12().empty(), this.structure13().empty(), this.structure14().empty(), this.structure15().empty(), this.structure16().empty());
+   }
+
+   static void $init$(final MonoidProduct16 $this) {
+   }
+}

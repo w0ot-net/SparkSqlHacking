@@ -1,0 +1,18 @@
+package org.apache.commons.compress.harmony.unpack200.bytecode;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+
+public class CPDouble extends CPConstantNumber {
+   public CPDouble(Double value, int globalIndex) {
+      super((byte)6, value, globalIndex);
+   }
+
+   public String toString() {
+      return "Double: " + this.getValue();
+   }
+
+   protected void writeBody(DataOutputStream dos) throws IOException {
+      dos.writeDouble(this.getNumber().doubleValue());
+   }
+}

@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0
+Bundle-SymbolicName: io.netty.common
+Built-By: norman
+Bnd-LastModified: 1739203786487
+Specification-Title: Netty/Common
+Implementation-Vendor-Id: io.netty
+Bundle-DocURL: https://netty.io/
+Import-Package: sun.misc;resolution:=optional,com.oracle.svm.core.annota
+ te;resolution:=optional,io.netty.util;resolution:=optional,io.netty.uti
+ l.concurrent;resolution:=optional,io.netty.util.internal;resolution:=op
+ tional,io.netty.util.internal.logging;resolution:=optional,javax.securi
+ ty.cert;resolution:=optional,org.apache.commons.logging;resolution:=opt
+ ional;version="[1.2,2)",org.apache.log4j;resolution:=optional;version="
+ [2.17,3)",org.apache.logging.log4j;resolution:=optional;version="[2.17,
+ 3)",org.apache.logging.log4j.message;resolution:=optional;version="[2.1
+ 7,3)",org.apache.logging.log4j.spi;resolution:=optional;version="[2.17,
+ 3)",org.slf4j;resolution:=optional;version="[1.7,2)",org.slf4j.helpers;
+ resolution:=optional;version="[1.7,2)",org.slf4j.spi;resolution:=option
+ al;version="[1.7,2)",reactor.blockhound;resolution:=optional,reactor.bl
+ ockhound.integration;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+DynamicImport-Package: *
+Export-Package: io.netty.util;uses:="io.netty.util.concurrent,io.netty.u
+ til.internal";version="4.1.118",io.netty.util.collection;version="4.1.1
+ 18",io.netty.util.concurrent;uses:="io.netty.util.internal";version="4.
+ 1.118",io.netty.util.internal;uses:="io.netty.util,io.netty.util.concur
+ rent,io.netty.util.internal.logging,javax.security.cert,reactor.blockho
+ und,reactor.blockhound.integration";version="4.1.118",io.netty.util.int
+ ernal.logging;version="4.1.118",io.netty.util.internal.svm;version="4.1
+ .118"
+Bundle-Name: Netty/Common
+Build-Jdk-Spec: 1.8
+Implementation-Title: Netty/Common
+Bundle-Description: Netty is an asynchronous event-driven network applic
+ ation framework for    rapid development of maintainable high performan
+ ce protocol servers and    clients.
+Automatic-Module-Name: io.netty.common
+Implementation-Version: 4.1.118.Final
+Specification-Vendor: The Netty Project
+Bundle-ManifestVersion: 2
+Bundle-Vendor: The Netty Project
+Tool: Bnd-6.3.1.202206071316
+Implementation-Vendor: The Netty Project
+Bundle-Version: 4.1.118.Final
+Created-By: Apache Maven Bundle Plugin 5.1.8
+Build-Jdk: 1.8.0_402
+Specification-Version: 4.1
+Implementation-URL: https://netty.io/netty-common/
+

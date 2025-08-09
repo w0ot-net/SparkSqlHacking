@@ -1,0 +1,194 @@
+package io.fabric8.kubernetes.api.model.resource.v1beta1;
+
+import io.fabric8.kubernetes.api.builder.BaseFluent;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+
+public class ResourcePoolFluent extends BaseFluent {
+   private Long generation;
+   private String name;
+   private Long resourceSliceCount;
+   private Map additionalProperties;
+
+   public ResourcePoolFluent() {
+   }
+
+   public ResourcePoolFluent(ResourcePool instance) {
+      this.copyInstance(instance);
+   }
+
+   protected void copyInstance(ResourcePool instance) {
+      instance = instance != null ? instance : new ResourcePool();
+      if (instance != null) {
+         this.withGeneration(instance.getGeneration());
+         this.withName(instance.getName());
+         this.withResourceSliceCount(instance.getResourceSliceCount());
+         this.withAdditionalProperties(instance.getAdditionalProperties());
+      }
+
+   }
+
+   public Long getGeneration() {
+      return this.generation;
+   }
+
+   public ResourcePoolFluent withGeneration(Long generation) {
+      this.generation = generation;
+      return this;
+   }
+
+   public boolean hasGeneration() {
+      return this.generation != null;
+   }
+
+   public String getName() {
+      return this.name;
+   }
+
+   public ResourcePoolFluent withName(String name) {
+      this.name = name;
+      return this;
+   }
+
+   public boolean hasName() {
+      return this.name != null;
+   }
+
+   public Long getResourceSliceCount() {
+      return this.resourceSliceCount;
+   }
+
+   public ResourcePoolFluent withResourceSliceCount(Long resourceSliceCount) {
+      this.resourceSliceCount = resourceSliceCount;
+      return this;
+   }
+
+   public boolean hasResourceSliceCount() {
+      return this.resourceSliceCount != null;
+   }
+
+   public ResourcePoolFluent addToAdditionalProperties(String key, Object value) {
+      if (this.additionalProperties == null && key != null && value != null) {
+         this.additionalProperties = new LinkedHashMap();
+      }
+
+      if (key != null && value != null) {
+         this.additionalProperties.put(key, value);
+      }
+
+      return this;
+   }
+
+   public ResourcePoolFluent addToAdditionalProperties(Map map) {
+      if (this.additionalProperties == null && map != null) {
+         this.additionalProperties = new LinkedHashMap();
+      }
+
+      if (map != null) {
+         this.additionalProperties.putAll(map);
+      }
+
+      return this;
+   }
+
+   public ResourcePoolFluent removeFromAdditionalProperties(String key) {
+      if (this.additionalProperties == null) {
+         return this;
+      } else {
+         if (key != null && this.additionalProperties != null) {
+            this.additionalProperties.remove(key);
+         }
+
+         return this;
+      }
+   }
+
+   public ResourcePoolFluent removeFromAdditionalProperties(Map map) {
+      if (this.additionalProperties == null) {
+         return this;
+      } else {
+         if (map != null) {
+            for(Object key : map.keySet()) {
+               if (this.additionalProperties != null) {
+                  this.additionalProperties.remove(key);
+               }
+            }
+         }
+
+         return this;
+      }
+   }
+
+   public Map getAdditionalProperties() {
+      return this.additionalProperties;
+   }
+
+   public ResourcePoolFluent withAdditionalProperties(Map additionalProperties) {
+      if (additionalProperties == null) {
+         this.additionalProperties = null;
+      } else {
+         this.additionalProperties = new LinkedHashMap(additionalProperties);
+      }
+
+      return this;
+   }
+
+   public boolean hasAdditionalProperties() {
+      return this.additionalProperties != null;
+   }
+
+   public boolean equals(Object o) {
+      if (this == o) {
+         return true;
+      } else if (o != null && this.getClass() == o.getClass()) {
+         if (!super.equals(o)) {
+            return false;
+         } else {
+            ResourcePoolFluent that = (ResourcePoolFluent)o;
+            if (!Objects.equals(this.generation, that.generation)) {
+               return false;
+            } else if (!Objects.equals(this.name, that.name)) {
+               return false;
+            } else if (!Objects.equals(this.resourceSliceCount, that.resourceSliceCount)) {
+               return false;
+            } else {
+               return Objects.equals(this.additionalProperties, that.additionalProperties);
+            }
+         }
+      } else {
+         return false;
+      }
+   }
+
+   public int hashCode() {
+      return Objects.hash(new Object[]{this.generation, this.name, this.resourceSliceCount, this.additionalProperties, super.hashCode()});
+   }
+
+   public String toString() {
+      StringBuilder sb = new StringBuilder();
+      sb.append("{");
+      if (this.generation != null) {
+         sb.append("generation:");
+         sb.append(this.generation + ",");
+      }
+
+      if (this.name != null) {
+         sb.append("name:");
+         sb.append(this.name + ",");
+      }
+
+      if (this.resourceSliceCount != null) {
+         sb.append("resourceSliceCount:");
+         sb.append(this.resourceSliceCount + ",");
+      }
+
+      if (this.additionalProperties != null && !this.additionalProperties.isEmpty()) {
+         sb.append("additionalProperties:");
+         sb.append(this.additionalProperties);
+      }
+
+      sb.append("}");
+      return sb.toString();
+   }
+}

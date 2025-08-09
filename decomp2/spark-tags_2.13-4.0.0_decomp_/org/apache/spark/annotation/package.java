@@ -1,0 +1,9 @@
+package org.apache.spark.annotation;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005e9Qa\u0001\u0003\t\u000251Qa\u0004\u0003\t\u0002AAQaF\u0001\u0005\u0002a\tq\u0001]1dW\u0006<WM\u0003\u0002\u0006\r\u0005Q\u0011M\u001c8pi\u0006$\u0018n\u001c8\u000b\u0005\u001dA\u0011!B:qCJ\\'BA\u0005\u000b\u0003\u0019\t\u0007/Y2iK*\t1\"A\u0002pe\u001e\u001c\u0001\u0001\u0005\u0002\u000f\u00035\tAAA\u0004qC\u000e\\\u0017mZ3\u0014\u0005\u0005\t\u0002C\u0001\n\u0016\u001b\u0005\u0019\"\"\u0001\u000b\u0002\u000bM\u001c\u0017\r\\1\n\u0005Y\u0019\"AB!osJ+g-\u0001\u0004=S:LGO\u0010\u000b\u0002\u001b\u0001"
+)
+public final class package {
+}

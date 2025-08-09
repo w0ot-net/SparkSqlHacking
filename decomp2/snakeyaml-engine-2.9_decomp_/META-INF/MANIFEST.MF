@@ -1,0 +1,42 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1736967306542
+Build-Jdk-Spec: 11
+Bundle-Description: Core YAML 1.2 parser and emitter for Java
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: SnakeYAML Engine
+Bundle-SymbolicName: org.snakeyaml.engine
+Bundle-Version: 2.9.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.snakeyaml.engine.v2.api;version="2.9",org.snakeyaml.
+ engine.v2.api.lowlevel;version="2.9",org.snakeyaml.engine.v2.comments;v
+ ersion="2.9",org.snakeyaml.engine.v2.common;version="2.9",org.snakeyaml
+ .engine.v2.composer;version="2.9",org.snakeyaml.engine.v2.constructor;v
+ ersion="2.9",org.snakeyaml.engine.v2.constructor.core;version="2.9",org
+ .snakeyaml.engine.v2.constructor.json;version="2.9",org.snakeyaml.engin
+ e.v2.emitter;version="2.9",org.snakeyaml.engine.v2.env;version="2.9",or
+ g.snakeyaml.engine.v2.events;version="2.9",org.snakeyaml.engine.v2.exce
+ ptions;version="2.9",org.snakeyaml.engine.v2.nodes;version="2.9",org.sn
+ akeyaml.engine.v2.parser;version="2.9",org.snakeyaml.engine.v2.represen
+ ter;version="2.9",org.snakeyaml.engine.v2.resolver;version="2.9",org.sn
+ akeyaml.engine.v2.scanner;version="2.9",org.snakeyaml.engine.v2.schema;
+ version="2.9",org.snakeyaml.engine.v2.serializer;version="2.9",org.snak
+ eyaml.engine.v2.tokens;version="2.9"
+Import-Package: org.snakeyaml.engine.v2.api;version="[2.9,3)",org.snakey
+ aml.engine.v2.comments;version="[2.9,3)",org.snakeyaml.engine.v2.compos
+ er;version="[2.9,3)",org.snakeyaml.engine.v2.constructor;version="[2.9,
+ 3)",org.snakeyaml.engine.v2.constructor.core;version="[2.9,3)",org.snak
+ eyaml.engine.v2.constructor.json;version="[2.9,3)",org.snakeyaml.engine
+ .v2.emitter;version="[2.9,3)",org.snakeyaml.engine.v2.env;version="[2.9
+ ,3)",org.snakeyaml.engine.v2.events;version="[2.9,3)",org.snakeyaml.eng
+ ine.v2.exceptions;version="[2.9,3)",org.snakeyaml.engine.v2.nodes;versi
+ on="[2.9,3)",org.snakeyaml.engine.v2.parser;version="[2.9,3)",org.snake
+ yaml.engine.v2.representer;version="[2.9,3)",org.snakeyaml.engine.v2.re
+ solver;version="[2.9,3)",org.snakeyaml.engine.v2.scanner;version="[2.9,
+ 3)",org.snakeyaml.engine.v2.schema;version="[2.9,3)",org.snakeyaml.engi
+ ne.v2.serializer;version="[2.9,3)",org.snakeyaml.engine.v2.tokens;versi
+ on="[2.9,3)"
+Multi-Release: true
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.1.1.202006162103
+

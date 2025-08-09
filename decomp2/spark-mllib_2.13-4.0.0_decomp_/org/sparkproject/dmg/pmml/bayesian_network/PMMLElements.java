@@ -1,0 +1,58 @@
+package org.sparkproject.dmg.pmml.bayesian_network;
+
+import java.lang.reflect.Field;
+import org.sparkproject.jpmml.model.ReflectionUtil;
+
+public interface PMMLElements {
+   Field BAYESIANNETWORKMODEL_EXTENSIONS = ReflectionUtil.getField(BayesianNetworkModel.class, "extensions");
+   Field BAYESIANNETWORKMODEL_MININGSCHEMA = ReflectionUtil.getField(BayesianNetworkModel.class, "miningSchema");
+   Field BAYESIANNETWORKMODEL_OUTPUT = ReflectionUtil.getField(BayesianNetworkModel.class, "output");
+   Field BAYESIANNETWORKMODEL_MODELSTATS = ReflectionUtil.getField(BayesianNetworkModel.class, "modelStats");
+   Field BAYESIANNETWORKMODEL_MODELEXPLANATION = ReflectionUtil.getField(BayesianNetworkModel.class, "modelExplanation");
+   Field BAYESIANNETWORKMODEL_TARGETS = ReflectionUtil.getField(BayesianNetworkModel.class, "targets");
+   Field BAYESIANNETWORKMODEL_LOCALTRANSFORMATIONS = ReflectionUtil.getField(BayesianNetworkModel.class, "localTransformations");
+   Field BAYESIANNETWORKMODEL_BAYESIANNETWORKNODES = ReflectionUtil.getField(BayesianNetworkModel.class, "bayesianNetworkNodes");
+   Field BAYESIANNETWORKMODEL_MODELVERIFICATION = ReflectionUtil.getField(BayesianNetworkModel.class, "modelVerification");
+   Field BAYESIANNETWORKNODES_EXTENSIONS = ReflectionUtil.getField(BayesianNetworkNodes.class, "extensions");
+   Field BAYESIANNETWORKNODES_CONTENT = ReflectionUtil.getField(BayesianNetworkNodes.class, "content");
+   Field CONTINUOUSCONDITIONALPROBABILITY_EXTENSIONS = ReflectionUtil.getField(ContinuousConditionalProbability.class, "extensions");
+   Field CONTINUOUSCONDITIONALPROBABILITY_PARENTVALUES = ReflectionUtil.getField(ContinuousConditionalProbability.class, "parentValues");
+   Field CONTINUOUSCONDITIONALPROBABILITY_CONTINUOUSDISTRIBUTIONS = ReflectionUtil.getField(ContinuousConditionalProbability.class, "continuousDistributions");
+   Field CONTINUOUSDISTRIBUTION_EXTENSIONS = ReflectionUtil.getField(ContinuousDistribution.class, "extensions");
+   Field CONTINUOUSDISTRIBUTION_TRIANGULARDISTRIBUTIONFORBN = ReflectionUtil.getField(ContinuousDistribution.class, "triangularDistributionForBN");
+   Field CONTINUOUSDISTRIBUTION_NORMALDISTRIBUTIONFORBN = ReflectionUtil.getField(ContinuousDistribution.class, "normalDistributionForBN");
+   Field CONTINUOUSDISTRIBUTION_LOGNORMALDISTRIBUTIONFORBN = ReflectionUtil.getField(ContinuousDistribution.class, "lognormalDistributionForBN");
+   Field CONTINUOUSDISTRIBUTION_UNIFORMDISTRIBUTIONFORBN = ReflectionUtil.getField(ContinuousDistribution.class, "uniformDistributionForBN");
+   Field CONTINUOUSNODE_EXTENSIONS = ReflectionUtil.getField(ContinuousNode.class, "extensions");
+   Field CONTINUOUSNODE_DERIVEDFIELDS = ReflectionUtil.getField(ContinuousNode.class, "derivedFields");
+   Field CONTINUOUSNODE_CONTENT = ReflectionUtil.getField(ContinuousNode.class, "content");
+   Field DISCRETECONDITIONALPROBABILITY_EXTENSIONS = ReflectionUtil.getField(DiscreteConditionalProbability.class, "extensions");
+   Field DISCRETECONDITIONALPROBABILITY_PARENTVALUES = ReflectionUtil.getField(DiscreteConditionalProbability.class, "parentValues");
+   Field DISCRETECONDITIONALPROBABILITY_VALUEPROBABILITIES = ReflectionUtil.getField(DiscreteConditionalProbability.class, "valueProbabilities");
+   Field DISCRETENODE_EXTENSIONS = ReflectionUtil.getField(DiscreteNode.class, "extensions");
+   Field DISCRETENODE_DERIVEDFIELDS = ReflectionUtil.getField(DiscreteNode.class, "derivedFields");
+   Field DISCRETENODE_CONTENT = ReflectionUtil.getField(DiscreteNode.class, "content");
+   Field LOGNORMALDISTRIBUTION_EXTENSIONS = ReflectionUtil.getField(LognormalDistribution.class, "extensions");
+   Field LOGNORMALDISTRIBUTION_MEAN = ReflectionUtil.getField(LognormalDistribution.class, "mean");
+   Field LOGNORMALDISTRIBUTION_VARIANCE = ReflectionUtil.getField(LognormalDistribution.class, "variance");
+   Field LOWER_EXTENSIONS = ReflectionUtil.getField(Lower.class, "extensions");
+   Field LOWER_EXPRESSION = ReflectionUtil.getField(Lower.class, "expression");
+   Field MEAN_EXTENSIONS = ReflectionUtil.getField(Mean.class, "extensions");
+   Field MEAN_EXPRESSION = ReflectionUtil.getField(Mean.class, "expression");
+   Field NORMALDISTRIBUTION_EXTENSIONS = ReflectionUtil.getField(NormalDistribution.class, "extensions");
+   Field NORMALDISTRIBUTION_MEAN = ReflectionUtil.getField(NormalDistribution.class, "mean");
+   Field NORMALDISTRIBUTION_VARIANCE = ReflectionUtil.getField(NormalDistribution.class, "variance");
+   Field PARENTVALUE_EXTENSIONS = ReflectionUtil.getField(ParentValue.class, "extensions");
+   Field TRIANGULARDISTRIBUTION_EXTENSIONS = ReflectionUtil.getField(TriangularDistribution.class, "extensions");
+   Field TRIANGULARDISTRIBUTION_MEAN = ReflectionUtil.getField(TriangularDistribution.class, "mean");
+   Field TRIANGULARDISTRIBUTION_LOWER = ReflectionUtil.getField(TriangularDistribution.class, "lower");
+   Field TRIANGULARDISTRIBUTION_UPPER = ReflectionUtil.getField(TriangularDistribution.class, "upper");
+   Field UNIFORMDISTRIBUTION_EXTENSIONS = ReflectionUtil.getField(UniformDistribution.class, "extensions");
+   Field UNIFORMDISTRIBUTION_LOWER = ReflectionUtil.getField(UniformDistribution.class, "lower");
+   Field UNIFORMDISTRIBUTION_UPPER = ReflectionUtil.getField(UniformDistribution.class, "upper");
+   Field UPPER_EXTENSIONS = ReflectionUtil.getField(Upper.class, "extensions");
+   Field UPPER_EXPRESSION = ReflectionUtil.getField(Upper.class, "expression");
+   Field VALUEPROBABILITY_EXTENSIONS = ReflectionUtil.getField(ValueProbability.class, "extensions");
+   Field VARIANCE_EXTENSIONS = ReflectionUtil.getField(Variance.class, "extensions");
+   Field VARIANCE_EXPRESSION = ReflectionUtil.getField(Variance.class, "expression");
+}

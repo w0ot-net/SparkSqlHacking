@@ -1,0 +1,7 @@
+
+io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassList
+io.fabric8.kubernetes.api.model.scheduling.v1beta1.PriorityClassList
+io.fabric8.kubernetes.api.model.scheduling.v1alpha1.PriorityClass
+io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClass
+io.fabric8.kubernetes.api.model.scheduling.v1alpha1.PriorityClassList
+io.fabric8.kubernetes.api.model.scheduling.v1beta1.PriorityClass

@@ -1,0 +1,18 @@
+package breeze.compat;
+
+import scala.;
+import scala.Function1;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u00051;Qa\u0002\u0005\t\u000251Qa\u0004\u0005\t\u0002AAQaF\u0001\u0005\u0002a)A!G\u0001\u00015\u0015!A&\u0001\u0001.\u0011\u0015\u0019\u0014\u0001\"\u00015\u0011\u0015y\u0014\u0001\"\u0001A\u00031\u00196-\u00197bg\r{W\u000e]1u\u0015\tI!\"\u0001\u0004d_6\u0004\u0018\r\u001e\u0006\u0002\u0017\u00051!M]3fu\u0016\u001c\u0001\u0001\u0005\u0002\u000f\u00035\t\u0001B\u0001\u0007TG\u0006d\u0017mM\"p[B\fGo\u0005\u0002\u0002#A\u0011!#F\u0007\u0002')\tA#A\u0003tG\u0006d\u0017-\u0003\u0002\u0017'\t1\u0011I\\=SK\u001a\fa\u0001P5oSRtD#A\u0007\u0003'\r{gN^3sg&|gn\u0014:Tk\n$\u0018\u0010]3\u0016\u0007m\u0001#\u0006\u0005\u0003\u00139yI\u0013BA\u000f\u0014\u0005%1UO\\2uS>t\u0017\u0007\u0005\u0002 A1\u0001A!B\u0011\u0004\u0005\u0004\u0011#!\u0001+\u0012\u0005\r2\u0003C\u0001\n%\u0013\t)3CA\u0004O_RD\u0017N\\4\u0011\u0005I9\u0013B\u0001\u0015\u0014\u0005\r\te.\u001f\t\u0003?)\"QaK\u0002C\u0002\t\u0012\u0011!\u0016\u0002\u000b\u0007>tg/\u001a:tS>tWc\u0001\u00181eA!!\u0003H\u00182!\ty\u0002\u0007B\u0003\"\t\t\u0007!\u0005\u0005\u0002 e\u001111\u0006\u0002CC\u0002\t\n!bQ8om\u0016\u00148/[8o+\r)\u0014h\u000f\u000b\u0003mq\u0002Ba\u000e\u00039u5\t\u0011\u0001\u0005\u0002 s\u0011)\u0011%\u0002b\u0001EA\u0011qd\u000f\u0003\u0006W\u0015\u0011\rA\t\u0005\u0006{\u0015\u0001\rAP\u0001\u0002MB!!\u0003\b\u001d;\u0003Q9\u0017N^3o?\u000e{gN^3sg&|gn\u0018+`+V\u0019\u0011\t\u0012$\u0015\u0005\t;\u0005\u0003B\u001c\u0005\u0007\u0016\u0003\"a\b#\u0005\u000b\u00052!\u0019\u0001\u0012\u0011\u0005}1E!B\u0016\u0007\u0005\u0004\u0011\u0003\"\u0002%\u0007\u0001\bI\u0015AA3w!\u0011\u0011\"jQ#\n\u0005-\u001b\"\u0001\u0005\u0013mKN\u001cHeY8m_:$C.Z:t\u0001"
+)
+public final class Scala3Compat {
+   public static Function1 given_Conversion_T_U(final .less.colon.less ev) {
+      return Scala3Compat$.MODULE$.given_Conversion_T_U(ev);
+   }
+
+   public static Function1 Conversion(final Function1 f) {
+      return Scala3Compat$.MODULE$.Conversion(f);
+   }
+}

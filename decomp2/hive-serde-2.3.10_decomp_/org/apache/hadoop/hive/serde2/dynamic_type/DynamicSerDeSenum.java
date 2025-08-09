@@ -1,0 +1,11 @@
+package org.apache.hadoop.hive.serde2.dynamic_type;
+
+public class DynamicSerDeSenum extends SimpleNode {
+   public DynamicSerDeSenum(int id) {
+      super(id);
+   }
+
+   public DynamicSerDeSenum(thrift_grammar p, int id) {
+      super(p, id);
+   }
+}

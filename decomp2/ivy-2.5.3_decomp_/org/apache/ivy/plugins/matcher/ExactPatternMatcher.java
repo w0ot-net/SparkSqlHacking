@@ -1,0 +1,33 @@
+package org.apache.ivy.plugins.matcher;
+
+public final class ExactPatternMatcher extends AbstractPatternMatcher {
+   public static final ExactPatternMatcher INSTANCE = new ExactPatternMatcher();
+
+   public ExactPatternMatcher() {
+      super("exact");
+   }
+
+   protected Matcher newMatcher(String expression) {
+      return new ExactMatcher(expression);
+   }
+
+   private static class ExactMatcher implements Matcher {
+      private String expression;
+
+      public ExactMatcher(String expression) {
+         this.expression = expression;
+      }
+
+      public boolean matches(String input) {
+         if (input == null) {
+            throw new NullPointerException();
+         } else {
+            return input.equals(this.expression);
+         }
+      }
+
+      public boolean isExact() {
+         return true;
+      }
+   }
+}

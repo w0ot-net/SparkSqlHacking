@@ -1,0 +1,53 @@
+package org.apache.ivy.plugins.version;
+
+import java.util.Comparator;
+import org.apache.ivy.core.module.descriptor.ModuleDescriptor;
+import org.apache.ivy.core.module.id.ModuleRevisionId;
+import org.apache.ivy.core.settings.IvySettings;
+import org.apache.ivy.plugins.IvySettingsAware;
+import org.apache.ivy.util.Checks;
+
+public abstract class AbstractVersionMatcher implements VersionMatcher, IvySettingsAware {
+   private String name;
+   private IvySettings settings;
+
+   public AbstractVersionMatcher() {
+   }
+
+   public AbstractVersionMatcher(String name) {
+      this.name = name;
+   }
+
+   public String getName() {
+      return this.name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public boolean needModuleDescriptor(ModuleRevisionId askedMrid, ModuleRevisionId foundMrid) {
+      return false;
+   }
+
+   public boolean accept(ModuleRevisionId askedMrid, ModuleDescriptor foundMD) {
+      return this.accept(askedMrid, foundMD.getResolvedModuleRevisionId());
+   }
+
+   public int compare(ModuleRevisionId askedMrid, ModuleRevisionId foundMrid, Comparator staticComparator) {
+      return 0;
+   }
+
+   public String toString() {
+      return this.getName();
+   }
+
+   public IvySettings getSettings() {
+      return this.settings;
+   }
+
+   public void setSettings(IvySettings settings) {
+      Checks.checkNotNull(settings, "settings");
+      this.settings = settings;
+   }
+}

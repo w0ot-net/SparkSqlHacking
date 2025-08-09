@@ -1,0 +1,10 @@
+package breeze.optimize;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00112qAA\u0002\u0011\u0002G\u0005\u0001\u0002C\u0003\u0011\u0001\u0019\u0005\u0011CA\u0005NS:LW.\u001b>fe*\u0011A!B\u0001\t_B$\u0018.\\5{K*\ta!\u0001\u0004ce\u0016,'0Z\u0002\u0001+\rIA\u0003I\n\u0003\u0001)\u0001\"a\u0003\b\u000e\u00031Q\u0011!D\u0001\u0006g\u000e\fG.Y\u0005\u0003\u001f1\u0011a!\u00118z%\u00164\u0017\u0001C7j]&l\u0017N_3\u0015\u0007Ii\"\u0005\u0005\u0002\u0014)1\u0001A!B\u000b\u0001\u0005\u00041\"!\u0001+\u0012\u0005]Q\u0002CA\u0006\u0019\u0013\tIBBA\u0004O_RD\u0017N\\4\u0011\u0005-Y\u0012B\u0001\u000f\r\u0005\r\te.\u001f\u0005\u0006=\u0005\u0001\raH\u0001\u0002MB\u00111\u0003\t\u0003\u0007C\u0001A)\u0019\u0001\f\u0003\u0003\u0019CQaI\u0001A\u0002I\tq!\u001b8ji&\fG\u000e"
+)
+public interface Minimizer {
+   Object minimize(final Object f, final Object initial);
+}

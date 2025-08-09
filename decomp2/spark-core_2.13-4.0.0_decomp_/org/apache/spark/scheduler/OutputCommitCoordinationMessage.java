@@ -1,0 +1,10 @@
+package org.apache.spark.scheduler;
+
+import java.io.Serializable;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00052q!\u0001\u0002\u0011\u0002G%2BA\u0010PkR\u0004X\u000f^\"p[6LGoQ8pe\u0012Lg.\u0019;j_:lUm]:bO\u0016T!a\u0001\u0003\u0002\u0013M\u001c\u0007.\u001a3vY\u0016\u0014(BA\u0003\u0007\u0003\u0015\u0019\b/\u0019:l\u0015\t9\u0001\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u0013\u0005\u0019qN]4\u0004\u0001M\u0019\u0001\u0001\u0004\n\u0011\u00055\u0001R\"\u0001\b\u000b\u0003=\tQa]2bY\u0006L!!\u0005\b\u0003\r\u0005s\u0017PU3g!\t\u00192D\u0004\u0002\u001539\u0011Q\u0003G\u0007\u0002-)\u0011qCC\u0001\u0007yI|w\u000e\u001e \n\u0003=I!A\u0007\b\u0002\u000fA\f7m[1hK&\u0011A$\b\u0002\r'\u0016\u0014\u0018.\u00197ju\u0006\u0014G.\u001a\u0006\u000359I#\u0001A\u0010\u000b\u0005\u0001\u0012\u0011aD*u_B\u001cun\u001c:eS:\fGo\u001c:"
+)
+public interface OutputCommitCoordinationMessage extends Serializable {
+}

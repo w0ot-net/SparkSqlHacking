@@ -1,0 +1,18 @@
+package spire.math;
+
+import cats.kernel.Order;
+import scala.reflect.ClassTag;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0015<Q!\u0002\u0004\t\u0002-1Q!\u0004\u0004\t\u00029AQ\u0001G\u0001\u0005\u0002eAQAG\u0001\u0005\u0006mAQAG\u0001\u0005\u0006A\u000bQ\"\u00138tKJ$\u0018n\u001c8T_J$(BA\u0004\t\u0003\u0011i\u0017\r\u001e5\u000b\u0003%\tQa\u001d9je\u0016\u001c\u0001\u0001\u0005\u0002\r\u00035\taAA\u0007J]N,'\u000f^5p]N{'\u000f^\n\u0004\u0003=)\u0002C\u0001\t\u0014\u001b\u0005\t\"\"\u0001\n\u0002\u000bM\u001c\u0017\r\\1\n\u0005Q\t\"AB!osJ+g\r\u0005\u0002\r-%\u0011qC\u0002\u0002\u0005'>\u0014H/\u0001\u0004=S:LGO\u0010\u000b\u0002\u0017\u0005!1o\u001c:u+\taR\u0007\u0006\u0002\u001e\u0017R\u0019a$\t\"\u0011\u0005Ay\u0012B\u0001\u0011\u0012\u0005\u0011)f.\u001b;\t\u000f\t\u001a\u0011\u0011!a\u0002G\u0005QQM^5eK:\u001cW\rJ\u001a\u0011\u0007\u0011\u00024G\u0004\u0002&[9\u0011ae\u000b\b\u0003O)j\u0011\u0001\u000b\u0006\u0003S)\ta\u0001\u0010:p_Rt\u0014\"A\u0005\n\u00051B\u0011aB1mO\u0016\u0014'/Y\u0005\u0003]=\nq\u0001]1dW\u0006<WM\u0003\u0002-\u0011%\u0011\u0011G\r\u0002\u0006\u001fJ$WM\u001d\u0006\u0003]=\u0002\"\u0001N\u001b\r\u0001\u0011Iag\u0001Q\u0001\u0002\u0003\u0015\ra\u000e\u0002\u0002\u0003F\u0011\u0001h\u000f\t\u0003!eJ!AO\t\u0003\u000f9{G\u000f[5oOB\u0011\u0001\u0003P\u0005\u0003{E\u00111!\u00118zQ\t)t\b\u0005\u0002\u0011\u0001&\u0011\u0011)\u0005\u0002\fgB,7-[1mSj,G\rC\u0004D\u0007\u0005\u0005\t9\u0001#\u0002\u0015\u00154\u0018\u000eZ3oG\u0016$C\u0007E\u0002F\u0011Nr!AR$\u000e\u0003!I!A\f\u0005\n\u0005%S%\u0001C\"mCN\u001cH+Y4\u000b\u00059B\u0001\"\u0002'\u0004\u0001\u0004i\u0015\u0001\u00023bi\u0006\u00042\u0001\u0005(4\u0013\ty\u0015CA\u0003BeJ\f\u00170\u0006\u0002R/R!!\u000b\u00180d)\rq2+\u0017\u0005\b)\u0012\t\t\u0011q\u0001V\u0003))g/\u001b3f]\u000e,G%\u000e\t\u0004\u000b\"3\u0006C\u0001\u001bX\t%1D\u0001)A\u0001\u0002\u000b\u0007q\u0007\u000b\u0002X\u007f!9!\fBA\u0001\u0002\bY\u0016AC3wS\u0012,gnY3%mA\u0019A\u0005\r,\t\u000b1#\u0001\u0019A/\u0011\u0007Aqe\u000bC\u0003`\t\u0001\u0007\u0001-A\u0003ti\u0006\u0014H\u000f\u0005\u0002\u0011C&\u0011!-\u0005\u0002\u0004\u0013:$\b\"\u00023\u0005\u0001\u0004\u0001\u0017aA3oI\u0002"
+)
+public final class InsertionSort {
+   public static void sort(final Object data, final int start, final int end, final ClassTag evidence$5, final Order evidence$6) {
+      InsertionSort$.MODULE$.sort(data, start, end, evidence$5, evidence$6);
+   }
+
+   public static void sort(final Object data, final Order evidence$3, final ClassTag evidence$4) {
+      InsertionSort$.MODULE$.sort(data, evidence$3, evidence$4);
+   }
+}

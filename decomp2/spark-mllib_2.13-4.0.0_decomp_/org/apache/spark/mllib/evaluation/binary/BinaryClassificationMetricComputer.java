@@ -1,0 +1,11 @@
+package org.apache.spark.mllib.evaluation.binary;
+
+import java.io.Serializable;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u000592\u0001BA\u0002\u0011\u0002G\u0005Qa\u0004\u0005\u0006G\u00011\t\u0001\n\u0002#\u0005&t\u0017M]=DY\u0006\u001c8/\u001b4jG\u0006$\u0018n\u001c8NKR\u0014\u0018nY\"p[B,H/\u001a:\u000b\u0005\u0011)\u0011A\u00022j]\u0006\u0014\u0018P\u0003\u0002\u0007\u000f\u0005QQM^1mk\u0006$\u0018n\u001c8\u000b\u0005!I\u0011!B7mY&\u0014'B\u0001\u0006\f\u0003\u0015\u0019\b/\u0019:l\u0015\taQ\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u001d\u0005\u0019qN]4\u0014\u0007\u0001\u0001b\u0003\u0005\u0002\u0012)5\t!CC\u0001\u0014\u0003\u0015\u00198-\u00197b\u0013\t)\"C\u0001\u0004B]f\u0014VM\u001a\t\u0003/\u0001r!\u0001\u0007\u0010\u000f\u0005eiR\"\u0001\u000e\u000b\u0005ma\u0012A\u0002\u001fs_>$hh\u0001\u0001\n\u0003MI!a\b\n\u0002\u000fA\f7m[1hK&\u0011\u0011E\t\u0002\r'\u0016\u0014\u0018.\u00197ju\u0006\u0014G.\u001a\u0006\u0003?I\tQ!\u00199qYf$\"!\n\u0015\u0011\u0005E1\u0013BA\u0014\u0013\u0005\u0019!u.\u001e2mK\")\u0011&\u0001a\u0001U\u0005\t1\r\u0005\u0002,Y5\t1!\u0003\u0002.\u0007\t)\")\u001b8bef\u001cuN\u001c4vg&|g.T1ue&D\b"
+)
+public interface BinaryClassificationMetricComputer extends Serializable {
+   double apply(final BinaryConfusionMatrix c);
+}

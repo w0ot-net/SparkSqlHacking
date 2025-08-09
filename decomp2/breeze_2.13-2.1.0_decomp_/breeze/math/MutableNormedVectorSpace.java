@@ -1,0 +1,9 @@
+package breeze.math;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00112q!\u0001\u0002\u0011\u0002G\u0005qA\u0001\rNkR\f'\r\\3O_JlW\r\u001a,fGR|'o\u00159bG\u0016T!a\u0001\u0003\u0002\t5\fG\u000f\u001b\u0006\u0002\u000b\u00051!M]3fu\u0016\u001c\u0001!F\u0002\t+}\u0019B\u0001A\u0005\u0010CA\u0011!\"D\u0007\u0002\u0017)\tA\"A\u0003tG\u0006d\u0017-\u0003\u0002\u000f\u0017\t1\u0011I\\=SK\u001a\u0004B\u0001E\t\u0014=5\t!!\u0003\u0002\u0013\u0005\t\u0011R*\u001e;bE2,g+Z2u_J\u001c\u0006/Y2f!\t!R\u0003\u0004\u0001\u0005\u000bY\u0001!\u0019A\f\u0003\u0003Y\u000b\"\u0001G\u000e\u0011\u0005)I\u0012B\u0001\u000e\f\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"A\u0003\u000f\n\u0005uY!aA!osB\u0011Ac\b\u0003\u0006A\u0001\u0011\ra\u0006\u0002\u0002'B!\u0001CI\n\u001f\u0013\t\u0019#AA\tO_JlW\r\u001a,fGR|'o\u00159bG\u0016\u0004"
+)
+public interface MutableNormedVectorSpace extends MutableVectorSpace, NormedVectorSpace {
+}

@@ -1,0 +1,11 @@
+package io.vertx.core.impl.logging;
+
+public class LoggerFactory {
+   public static Logger getLogger(Class clazz) {
+      return new LoggerAdapter(io.vertx.core.logging.LoggerFactory.getLogger(clazz).getDelegate());
+   }
+
+   public static Logger getLogger(String name) {
+      return new LoggerAdapter(io.vertx.core.logging.LoggerFactory.getLogger(name).getDelegate());
+   }
+}

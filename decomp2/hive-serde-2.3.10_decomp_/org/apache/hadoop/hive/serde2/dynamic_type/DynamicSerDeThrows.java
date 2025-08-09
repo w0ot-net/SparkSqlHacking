@@ -1,0 +1,11 @@
+package org.apache.hadoop.hive.serde2.dynamic_type;
+
+public class DynamicSerDeThrows extends SimpleNode {
+   public DynamicSerDeThrows(int id) {
+      super(id);
+   }
+
+   public DynamicSerDeThrows(thrift_grammar p, int id) {
+      super(p, id);
+   }
+}

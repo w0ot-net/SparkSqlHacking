@@ -1,0 +1,13 @@
+package org.apache.spark;
+
+import java.io.Serializable;
+import org.apache.spark.annotation.DeveloperApi;
+import scala.reflect.ScalaSignature;
+
+@DeveloperApi
+@ScalaSignature(
+   bytes = "\u0006\u0005m2qAA\u0002\u0011\u0002G\u0005!\u0002C\u0003\u001b\u0001\u0019\u00051DA\rQCJ$\u0018\u000e^5p]\u00163\u0018\r\\;bi>\u0014h)Y2u_JL(B\u0001\u0003\u0006\u0003\u0015\u0019\b/\u0019:l\u0015\t1q!\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u0011\u0005\u0019qN]4\u0004\u0001U\u00191B\t\u0017\u0014\u0007\u0001a!\u0003\u0005\u0002\u000e!5\taBC\u0001\u0010\u0003\u0015\u00198-\u00197b\u0013\t\tbB\u0001\u0004B]f\u0014VM\u001a\t\u0003'ai\u0011\u0001\u0006\u0006\u0003+Y\t!![8\u000b\u0003]\tAA[1wC&\u0011\u0011\u0004\u0006\u0002\r'\u0016\u0014\u0018.\u00197ju\u0006\u0014G.Z\u0001\u0010GJ,\u0017\r^3Fm\u0006dW/\u0019;peR\tA\u0004\u0005\u0003\u001e=\u0001ZS\"A\u0002\n\u0005}\u0019!A\u0005)beRLG/[8o\u000bZ\fG.^1u_J\u0004\"!\t\u0012\r\u0001\u0011)1\u0005\u0001b\u0001I\t\tA+\u0005\u0002&QA\u0011QBJ\u0005\u0003O9\u0011qAT8uQ&tw\r\u0005\u0002\u000eS%\u0011!F\u0004\u0002\u0004\u0003:L\bCA\u0011-\t\u0015i\u0003A1\u0001%\u0005\u0005)\u0006F\u0001\u00010!\t\u00014'D\u00012\u0015\t\u00114!\u0001\u0006b]:|G/\u0019;j_:L!\u0001N\u0019\u0003\u0019\u0011+g/\u001a7pa\u0016\u0014\u0018\t]5)\u0007\u00011\u0014\b\u0005\u00021o%\u0011\u0001(\r\u0002\u0006'&t7-Z\u0011\u0002u\u0005)1GL\u001b/a\u0001"
+)
+public interface PartitionEvaluatorFactory extends Serializable {
+   PartitionEvaluator createEvaluator();
+}

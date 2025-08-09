@@ -1,0 +1,23 @@
+JarIndex-Version: 1.0
+
+vertx-auth-common-4.5.12.jar
+META-INF
+META-INF/maven
+META-INF/maven/io.vertx
+META-INF/maven/io.vertx/vertx-auth-common
+META-INF/services
+io
+io/vertx
+io/vertx/ext
+io/vertx/ext/auth
+io/vertx/ext/auth/authentication
+io/vertx/ext/auth/authorization
+io/vertx/ext/auth/authorization/impl
+io/vertx/ext/auth/impl
+io/vertx/ext/auth/impl/asn
+io/vertx/ext/auth/impl/cose
+io/vertx/ext/auth/impl/hash
+io/vertx/ext/auth/impl/http
+io/vertx/ext/auth/impl/jose
+io/vertx/ext/auth/prng
+

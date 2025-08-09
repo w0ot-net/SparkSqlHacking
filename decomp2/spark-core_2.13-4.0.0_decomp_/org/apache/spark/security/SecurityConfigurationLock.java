@@ -1,0 +1,9 @@
+package org.apache.spark.security;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005e9aa\u0001\u0003\t\u0002\u0019aaA\u0002\b\u0005\u0011\u00031q\u0002C\u0003\u0017\u0003\u0011\u0005\u0001$A\rTK\u000e,(/\u001b;z\u0007>tg-[4ve\u0006$\u0018n\u001c8M_\u000e\\'BA\u0003\u0007\u0003!\u0019XmY;sSRL(BA\u0004\t\u0003\u0015\u0019\b/\u0019:l\u0015\tI!\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u0017\u0005\u0019qN]4\u0011\u00055\tQ\"\u0001\u0003\u00033M+7-\u001e:jif\u001cuN\u001c4jOV\u0014\u0018\r^5p]2{7m[\n\u0003\u0003A\u0001\"!\u0005\u000b\u000e\u0003IQ\u0011aE\u0001\u0006g\u000e\fG.Y\u0005\u0003+I\u0011a!\u00118z%\u00164\u0017A\u0002\u001fj]&$hh\u0001\u0001\u0015\u00031\u0001"
+)
+public final class SecurityConfigurationLock {
+}

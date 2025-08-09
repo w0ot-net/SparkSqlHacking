@@ -1,0 +1,21 @@
+package org.apache.spark.scheduler.cluster.k8s;
+
+import io.fabric8.kubernetes.api.model.Pod;
+import scala.Function1;
+import scala.collection.immutable.Seq;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005U3\u0001BB\u0004\u0011\u0002G\u0005Qb\u0005\u0005\u00065\u00011\t\u0001\b\u0005\u0006w\u00011\t\u0001\u0010\u0005\u0006{\u00011\t\u0001\u0010\u0005\u0006}\u00011\ta\u0010\u0005\u0006!\u00021\t!\u0015\u0002\u001b\u000bb,7-\u001e;peB{Gm]*oCB\u001c\bn\u001c;t'R|'/\u001a\u0006\u0003\u0011%\t1a\u001b\u001dt\u0015\tQ1\"A\u0004dYV\u001cH/\u001a:\u000b\u00051i\u0011!C:dQ\u0016$W\u000f\\3s\u0015\tqq\"A\u0003ta\u0006\u00148N\u0003\u0002\u0011#\u00051\u0011\r]1dQ\u0016T\u0011AE\u0001\u0004_J<7C\u0001\u0001\u0015!\t)\u0002$D\u0001\u0017\u0015\u00059\u0012!B:dC2\f\u0017BA\r\u0017\u0005\u0019\te.\u001f*fM\u0006i\u0011\r\u001a3Tk\n\u001c8M]5cKJ\u001c\u0001\u0001\u0006\u0002\u001emQ\u0011a$\t\t\u0003+}I!\u0001\t\f\u0003\tUs\u0017\u000e\u001e\u0005\u0006E\u0005\u0001\raI\u0001\u000f_:tUm^*oCB\u001c\bn\u001c;t!\u0011)BE\n\u0010\n\u0005\u00152\"!\u0003$v]\u000e$\u0018n\u001c82!\r9sF\r\b\u0003Q5r!!\u000b\u0017\u000e\u0003)R!aK\u000e\u0002\rq\u0012xn\u001c;?\u0013\u00059\u0012B\u0001\u0018\u0017\u0003\u001d\u0001\u0018mY6bO\u0016L!\u0001M\u0019\u0003\u0007M+\u0017O\u0003\u0002/-A\u00111\u0007N\u0007\u0002\u000f%\u0011Qg\u0002\u0002\u0015\u000bb,7-\u001e;peB{Gm]*oCB\u001c\bn\u001c;\t\u000b]\n\u0001\u0019\u0001\u001d\u00025A\u0014xnY3tg\n\u000bGo\u00195J]R,'O^1m\u001b&dG.[:\u0011\u0005UI\u0014B\u0001\u001e\u0017\u0005\u0011auN\\4\u0002\tM$x\u000e\u001d\u000b\u0002=\u0005\tbn\u001c;jMf\u001cVOY:de&\u0014WM]:\u0002\u0013U\u0004H-\u0019;f!>$GC\u0001\u0010A\u0011\u0015\tE\u00011\u0001C\u0003))\b\u000fZ1uK\u0012\u0004v\u000e\u001a\t\u0003\u0007:k\u0011\u0001\u0012\u0006\u0003\u000b\u001a\u000bQ!\\8eK2T!a\u0012%\u0002\u0007\u0005\u0004\u0018N\u0003\u0002J\u0015\u0006Q1.\u001e2fe:,G/Z:\u000b\u0005-c\u0015a\u00024bEJL7\r\u000f\u0006\u0002\u001b\u0006\u0011\u0011n\\\u0005\u0003\u001f\u0012\u00131\u0001U8e\u0003=\u0011X\r\u001d7bG\u0016\u001cf.\u00199tQ>$HC\u0001\u0010S\u0011\u0015\u0019V\u00011\u0001U\u0003-qWm^*oCB\u001c\bn\u001c;\u0011\u0007\u001dz#\t"
+)
+public interface ExecutorPodsSnapshotsStore {
+   void addSubscriber(final long processBatchIntervalMillis, final Function1 onNewSnapshots);
+
+   void stop();
+
+   void notifySubscribers();
+
+   void updatePod(final Pod updatedPod);
+
+   void replaceSnapshot(final Seq newSnapshot);
+}

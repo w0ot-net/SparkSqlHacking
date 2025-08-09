@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 1.8
+Bundle-Description: Jersey core Servlet 3.x implementation
+Bundle-DocURL: https://www.eclipse.org/org/foundation/
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html, http://www.eclipse.org/org/documents
+ /edl-v10.php, https://opensource.org/licenses/BSD-2-Clause, http://www.
+ apache.org/licenses/LICENSE-2.0.html, https://creativecommons.org/publi
+ cdomain/zero/1.0/, https://asm.ow2.io/license.html, jquery.org/license,
+  http://www.opensource.org/licenses/mit-license.php, https://www.w3.org
+ /Consortium/Legal/copyright-documents-19990405
+Bundle-ManifestVersion: 2
+Bundle-Name: jersey-container-servlet-core
+Bundle-SymbolicName: org.glassfish.jersey.containers.jersey-container-se
+ rvlet-core
+Bundle-Vendor: Eclipse Foundation
+Bundle-Version: 3.0.16
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Export-Package: org.glassfish.jersey.servlet;version="3.0.16";uses:="jak
+ arta.servlet,jakarta.servlet.http,org.glassfish.jersey.internal.util,or
+ g.glassfish.jersey.internal.util.collection,org.glassfish.jersey.server
+ ,org.glassfish.jersey.server.spi",org.glassfish.jersey.servlet.internal
+ ;version="3.0.16";uses:="jakarta.servlet,jakarta.servlet.http,org.glass
+ fish.jersey.internal.inject,org.glassfish.jersey.internal.l10n,org.glas
+ sfish.jersey.server,org.glassfish.jersey.server.spi,org.glassfish.jerse
+ y.servlet.internal.spi,org.glassfish.jersey.servlet.spi",org.glassfish.
+ jersey.servlet.internal.spi;version="3.0.16";uses:="jakarta.servlet,jak
+ arta.servlet.http,org.glassfish.jersey.server,org.glassfish.jersey.serv
+ er.spi",org.glassfish.jersey.servlet.spi;version="3.0.16";uses:="jakart
+ a.servlet,jakarta.servlet.http"
+Import-Package: jakarta.persistence;resolution:=optional;version="[3.0,4
+ )",jakarta.servlet;version="[5.0,7.0)",jakarta.servlet.http;version="[5
+ .0,7.0)",jakarta.inject;version="[2.0,3)",jakarta.ws.rs;version="[3.0,4
+ )",jakarta.ws.rs.core;version="[3.0,4)",javax.naming,org.glassfish.jers
+ ey.innate.io;version="[3.0,4)",org.glassfish.jersey.internal;version="[
+ 3.0,4)",org.glassfish.jersey.internal.inject;version="[3.0,4)",org.glas
+ sfish.jersey.internal.l10n;version="[3.0,4)",org.glassfish.jersey.inter
+ nal.util;version="[3.0,4)",org.glassfish.jersey.internal.util.collectio
+ n;version="[3.0,4)",org.glassfish.jersey.message.internal;version="[3.0
+ ,4)",org.glassfish.jersey.process.internal;version="[3.0,4)",org.glassf
+ ish.jersey.server;version="[3.0,4)",org.glassfish.jersey.server.interna
+ l;version="[3.0,4)",org.glassfish.jersey.server.internal.scanning;versi
+ on="[3.0,4)",org.glassfish.jersey.server.spi;version="[3.0,4)",org.glas
+ sfish.jersey.servlet;version="[3.0,4)",org.glassfish.jersey.servlet.int
+ ernal;version="[3.0,4)",org.glassfish.jersey.servlet.internal.spi;versi
+ on="[3.0,4)",org.glassfish.jersey.servlet.spi;version="[3.0,4)",org.gla
+ ssfish.jersey.uri;version="[3.0,4)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-6.3.1.202206071316
+

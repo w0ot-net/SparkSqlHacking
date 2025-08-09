@@ -1,0 +1,37 @@
+package io.vertx.core.cli;
+
+public class InvalidValueException extends CLIException {
+   private final Option option;
+   private final Argument argument;
+   private final String value;
+
+   public InvalidValueException(Option option, String value) {
+      this((Option)option, value, (Exception)null);
+   }
+
+   public InvalidValueException(Argument argument, String value, Exception cause) {
+      super("The value '" + value + "' is not accepted by the argument '" + (argument.getArgName() != null ? argument.getArgName() : argument.getIndex()) + "'", cause);
+      this.option = null;
+      this.value = value;
+      this.argument = argument;
+   }
+
+   public InvalidValueException(Option option, String value, Exception cause) {
+      super("The value '" + value + "' is not accepted by '" + option.getName() + "'", cause);
+      this.argument = null;
+      this.value = value;
+      this.option = option;
+   }
+
+   public Option getOption() {
+      return this.option;
+   }
+
+   public String getValue() {
+      return this.value;
+   }
+
+   public Argument getArgument() {
+      return this.argument;
+   }
+}

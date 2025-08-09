@@ -1,0 +1,9 @@
+package org.apache.spark.rpc.netty;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\r2\u0001\"\u0001\u0002\u0011\u0002G\u0005\"\u0001\u0004\u0002\r\u0013:\u0014w\u000e_'fgN\fw-\u001a\u0006\u0003\u0007\u0011\tQA\\3uifT!!\u0002\u0004\u0002\u0007I\u00048M\u0003\u0002\b\u0011\u0005)1\u000f]1sW*\u0011\u0011BC\u0001\u0007CB\f7\r[3\u000b\u0003-\t1a\u001c:h'\t\u0001Q\u0002\u0005\u0002\u000f#5\tqBC\u0001\u0011\u0003\u0015\u00198-\u00197b\u0013\t\u0011rB\u0001\u0004B]f\u0014VMZ\u0002\u0001S!\u0001QcF\r\u001c;}\t#B\u0001\f\u0003\u0003\u001dyen\u0015;beRT!\u0001\u0007\u0002\u0002\r=s7\u000b^8q\u0013\tQ\"AA\u0007P]\u0016<\u0016-_'fgN\fw-Z\u0005\u00039\t\u0011aCU3n_R,\u0007K]8dKN\u001c8i\u001c8oK\u000e$X\rZ\u0005\u0003=\t\u0011ADU3n_R,\u0007K]8dKN\u001c8i\u001c8oK\u000e$\u0018n\u001c8FeJ|'/\u0003\u0002!\u0005\tI\"+Z7pi\u0016\u0004&o\\2fgN$\u0015n]2p]:,7\r^3e\u0013\t\u0011#A\u0001\u0006Sa\u000elUm]:bO\u0016\u0004"
+)
+public interface InboxMessage {
+}

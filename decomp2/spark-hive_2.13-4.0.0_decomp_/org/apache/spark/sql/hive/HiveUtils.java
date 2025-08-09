@@ -1,0 +1,97 @@
+package org.apache.spark.sql.hive;
+
+import org.apache.spark.internal.Logging;
+import org.apache.spark.internal.config.ConfigEntry;
+import org.apache.spark.sql.catalyst.catalog.CatalogTable;
+import scala.StringContext;
+import scala.collection.immutable.Map;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\t}qAB\u001a5\u0011\u0003AdH\u0002\u0004Ai!\u0005\u0001(\u0011\u0005\u0006\u001d\u0006!\t\u0001\u0015\u0005\b#\u0006\u0011\r\u0011\"\u0003S\u0011\u0019Y\u0016\u0001)A\u0005'\"9A,\u0001b\u0001\n\u0003i\u0006BB5\u0002A\u0003%a\fC\u0004k\u0003\t\u0007I\u0011A6\t\rI\f\u0001\u0015!\u0003m\u0011\u0015\u0019\u0018\u0001\"\u0003u\u0011\u001dQ\u0018A1A\u0005\u0002-Daa_\u0001!\u0002\u0013a\u0007b\u0002?\u0002\u0005\u0004%\ta\u001b\u0005\u0007{\u0006\u0001\u000b\u0011\u00027\t\u000fy\f!\u0019!C\u0001\u007f\"A\u0011QC\u0001!\u0002\u0013\t\t\u0001C\u0005\u0002\u0018\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011QD\u0001!\u0002\u0013\tY\u0002C\u0005\u0002 \u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011\u0011E\u0001!\u0002\u0013\tY\u0002C\u0005\u0002$\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011QE\u0001!\u0002\u0013\tY\u0002C\u0005\u0002(\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011\u0011F\u0001!\u0002\u0013\tY\u0002C\u0005\u0002,\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011QF\u0001!\u0002\u0013\tY\u0002C\u0005\u00020\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011\u0011G\u0001!\u0002\u0013\tY\u0002C\u0005\u00024\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011QG\u0001!\u0002\u0013\tY\u0002\u0003\u0005\u00028\u0005\u0011\r\u0011\"\u0001\u0000\u0011!\tI$\u0001Q\u0001\n\u0005\u0005\u0001bBA\u001e\u0003\u0011%\u0011Q\b\u0005\t\u00037\n!\u0019!C\u0001\u007f\"A\u0011QL\u0001!\u0002\u0013\t\t\u0001C\u0005\u0002`\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011\u0011M\u0001!\u0002\u0013\tY\u0002C\u0005\u0002d\u0005\u0011\r\u0011\"\u0001\u0002\u001a!A\u0011QM\u0001!\u0002\u0013\tY\u0002C\u0004\u0002h\u0005!I!!\u001b\t\u000f\u0005e\u0014\u0001\"\u0003\u0002|!9\u0011qP\u0001\u0005\n\u0005\u0005\u0005bBAC\u0003\u0011%\u0011q\u0011\u0005\b\u0003\u0017\u000bA\u0011BAG\u0011\u001d\t\t*\u0001C\u0001\u0003'C\u0001\"!&\u0002\t#!\u0014q\u0013\u0005\t\u0003\u0003\fA\u0011\u0003\u001b\u0002D\"Q\u0011\u0011\\\u0001\u0012\u0002\u0013EA'a7\t\u000f\u0005E\u0018\u0001\"\u0001\u0002t\"9\u0011\u0011`\u0001\u0005\u0002\u0005m\bb\u0002B\t\u0003\u0011\u0005!1C\u0001\n\u0011&4X-\u0016;jYNT!!\u000e\u001c\u0002\t!Lg/\u001a\u0006\u0003oa\n1a]9m\u0015\tI$(A\u0003ta\u0006\u00148N\u0003\u0002<y\u00051\u0011\r]1dQ\u0016T\u0011!P\u0001\u0004_J<\u0007CA \u0002\u001b\u0005!$!\u0003%jm\u0016,F/\u001b7t'\r\t!\t\u0013\t\u0003\u0007\u001ak\u0011\u0001\u0012\u0006\u0002\u000b\u0006)1oY1mC&\u0011q\t\u0012\u0002\u0007\u0003:L(+\u001a4\u0011\u0005%cU\"\u0001&\u000b\u0005-C\u0014\u0001C5oi\u0016\u0014h.\u00197\n\u00055S%a\u0002'pO\u001eLgnZ\u0001\u0007y%t\u0017\u000e\u001e \u0004\u0001Q\ta(\u0001\fQ\u0003R#VI\u0015(`\r>\u0013vlS#Z?\u0016\u000bvLV!M+\u0005\u0019\u0006C\u0001+Z\u001b\u0005)&B\u0001,X\u0003!i\u0017\r^2iS:<'B\u0001-E\u0003\u0011)H/\u001b7\n\u0005i+&!\u0002*fO\u0016D\u0018a\u0006)B)R+%KT0G\u001fJ{6*R-`\u000bF{f+\u0011'!\u0003I\u0011W/\u001b7uS:D\u0015N^3WKJ\u001c\u0018n\u001c8\u0016\u0003y\u0003\"a\u00184\u000f\u0005\u0001$\u0007CA1E\u001b\u0005\u0011'BA2P\u0003\u0019a$o\\8u}%\u0011Q\rR\u0001\u0007!J,G-\u001a4\n\u0005\u001dD'AB*ue&twM\u0003\u0002f\t\u0006\u0019\"-^5mi&t\u0007*\u001b<f-\u0016\u00148/[8oA\u0005!\")V%M)&su\fS%W\u000b~3VIU*J\u001f:+\u0012\u0001\u001c\t\u0004[BtV\"\u00018\u000b\u0005=T\u0015AB2p]\u001aLw-\u0003\u0002r]\nY1i\u001c8gS\u001e,e\u000e\u001e:z\u0003U\u0011U+\u0013'U\u0013:{\u0006*\u0013,F?Z+%kU%P\u001d\u0002\nq#[:D_6\u0004\u0018\r^5cY\u0016D\u0015N^3WKJ\u001c\u0018n\u001c8\u0015\u0005UD\bCA\"w\u0013\t9HIA\u0004C_>dW-\u00198\t\u000beL\u0001\u0019\u00010\u0002\u001d!Lg/\u001a,feNLwN\\*ue\u00061\u0002*\u0013,F?6+E+Q*U\u001fJ+uLV#S'&{e*A\fI\u0013Z+u,T#U\u0003N#vJU#`-\u0016\u00136+S(OA\u0005\u0019\u0002*\u0013,F?6+E+Q*U\u001fJ+uLS!S'\u0006!\u0002*\u0013,F?6+E+Q*U\u001fJ+uLS!S'\u0002\n\u0001\u0004S%W\u000b~kU\tV!T)>\u0013Vi\u0018&B%N{\u0006+\u0011+I+\t\t\t\u0001\u0005\u0003na\u0006\r\u0001#BA\u0003\u0003\u001fqf\u0002BA\u0004\u0003\u0017q1!YA\u0005\u0013\u0005)\u0015bAA\u0007\t\u00069\u0001/Y2lC\u001e,\u0017\u0002BA\t\u0003'\u00111aU3r\u0015\r\ti\u0001R\u0001\u001a\u0011&3ViX'F)\u0006\u001bFk\u0014*F?*\u000b%kU0Q\u0003RC\u0005%A\rD\u001f:3VI\u0015+`\u001b\u0016#\u0016i\u0015+P%\u0016{\u0006+\u0011*R+\u0016#VCAA\u000e!\ri\u0007/^\u0001\u001b\u0007>se+\u0012*U?6+E+Q*U\u001fJ+u\fU!S#V+E\u000bI\u0001.\u0007>se+\u0012*U?6+E+Q*U\u001fJ+u\fU!S#V+EkX,J)\"{6k\u0011%F\u001b\u0006{V*\u0012*H\u0013:;\u0015AL\"P\u001dZ+%\u000bV0N\u000bR\u000b5\u000bV(S\u000b~\u0003\u0016IU)V\u000bR{v+\u0013+I?N\u001b\u0005*R'B?6+%kR%O\u000f\u0002\nQcQ(O-\u0016\u0013FkX'F)\u0006\u001bFk\u0014*F?>\u00136)\u0001\fD\u001f:3VI\u0015+`\u001b\u0016#\u0016i\u0015+P%\u0016{vJU\"!\u0003\r\u001auJ\u0014,F%R{\u0016JT*F%RKejR0Q\u0003J#\u0016\nV%P\u001d\u0016#u\fV!C\u0019\u0016\u000bAeQ(O-\u0016\u0013FkX%O'\u0016\u0013F+\u0013(H?B\u000b%\u000bV%U\u0013>sU\tR0U\u0003\ncU\tI\u0001&\u0007>se+\u0012*U?&s5+\u0012*U\u0013:;u,\u0016(Q\u0003J#\u0016\nV%P\u001d\u0016#u\fV!C\u0019\u0016\u000baeQ(O-\u0016\u0013FkX%O'\u0016\u0013F+\u0013(H?Vs\u0005+\u0011*U\u0013RKuJT#E?R\u000b%\tT#!\u0003Y\u0019uJ\u0014,F%R{V*\u0012+B'R{%+R0D)\u0006\u001b\u0016aF\"P\u001dZ+%\u000bV0N\u000bR\u000b5\u000bV(S\u000b~\u001bE+Q*!\u0003q\u0019uJ\u0014,F%R{V*\u0012+B'R{%+R0J\u001dN+%\u000bV0E\u0013J\u000bQdQ(O-\u0016\u0013FkX'F)\u0006\u001bFk\u0014*F?&s5+\u0012*U?\u0012K%\u000bI\u0001\u001f\u0011&3ViX'F)\u0006\u001bFk\u0014*F?NC\u0015IU#E?B\u0013VIR%Y\u000bN\u000bq\u0004S%W\u000b~kU\tV!T)>\u0013ViX*I\u0003J+Ei\u0018)S\u000b\u001aK\u0005,R*!\u00031QGMY2Qe\u00164\u0017\u000e_3t+\t\ty\u0004\u0005\u0004\u0002B\u0005-\u0013QJ\u0007\u0003\u0003\u0007RA!!\u0012\u0002H\u0005I\u0011.\\7vi\u0006\u0014G.\u001a\u0006\u0004\u0003\u0013\"\u0015AC2pY2,7\r^5p]&!\u0011\u0011CA\"!\u0011\ty%!\u0017\u000e\u0005\u0005E#\u0002BA*\u0003+\nA\u0001\\1oO*\u0011\u0011qK\u0001\u0005U\u00064\u0018-C\u0002h\u0003#\nq\u0004S%W\u000b~kU\tV!T)>\u0013Vi\u0018\"B%JKUIU0Q%\u00163\u0015\nW#T\u0003\u0001B\u0015JV#`\u001b\u0016#\u0016i\u0015+P%\u0016{&)\u0011*S\u0013\u0016\u0013v\f\u0015*F\r&CVi\u0015\u0011\u00021!Ke+R0U\u0011JKe\tV0T\u000bJ3VIU0B'fs5)A\rI\u0013Z+u\f\u0016%S\u0013\u001a#vlU#S-\u0016\u0013v,Q*Z\u001d\u000e\u0003\u0013AK+T\u000b~#U\tT#H\u0003R+uLR(S?NKV\nT%O\u0017~#V\t\u0017+`\u0013:\u0003V\u000bV0G\u001fJk\u0015\tV\u0001,+N+u\fR#M\u000b\u001e\u000bE+R0G\u001fJ{6+W'M\u0013:[u\fV#Y)~Ke\nU+U?\u001a{%+T!UA\u0005!\u0002.\u001b<f\u001b\u0016$\u0018m\u001d;pe\u00164VM]:j_:$2AXA6\u0011\u001d\tig\na\u0001\u0003_\nAaY8oMB!\u0011\u0011OA;\u001b\t\t\u0019H\u0003\u0002Lm%!\u0011qOA:\u0005\u001d\u0019\u0016\u000bT\"p]\u001a\f\u0011\u0003[5wK6+G/Y:u_J,'*\u0019:t)\rq\u0016Q\u0010\u0005\b\u0003[B\u0003\u0019AA8\u0003UA\u0017N^3NKR\f7\u000f^8sK*\u000b'o\u001d)bi\"$B!a\u0001\u0002\u0004\"9\u0011QN\u0015A\u0002\u0005=\u0014a\u00075jm\u0016lU\r^1ti>\u0014Xm\u00155be\u0016$\u0007K]3gSb,7\u000f\u0006\u0003\u0002\u0004\u0005%\u0005bBA7U\u0001\u0007\u0011qN\u0001\u001dQ&4X-T3uCN$xN]3CCJ\u0014\u0018.\u001a:Qe\u00164\u0017\u000e_3t)\u0011\t\u0019!a$\t\u000f\u000554\u00061\u0001\u0002p\u0005\t\u0012n]\"mSN+7o]5p]N#\u0018\r^3\u0015\u0003U\fQC\\3x\u00072LWM\u001c;G_J,\u00050Z2vi&|g\u000e\u0006\u0004\u0002\u001a\u0006\u0015\u0016q\u0016\t\u0005\u00037\u000b\t+\u0004\u0002\u0002\u001e*\u0019\u0011q\u0014\u001b\u0002\r\rd\u0017.\u001a8u\u0013\u0011\t\u0019+!(\u0003\u001d!Kg/Z\"mS\u0016tG/S7qY\"9\u0011QN\u0017A\u0002\u0005\u001d\u0006\u0003BAU\u0003Wk\u0011\u0001O\u0005\u0004\u0003[C$!C*qCJ\\7i\u001c8g\u0011\u001d\t\t,\fa\u0001\u0003g\u000b!\u0002[1e_>\u00048i\u001c8g!\u0011\t),!0\u000e\u0005\u0005]&\u0002BA7\u0003sS1!a/;\u0003\u0019A\u0017\rZ8pa&!\u0011qXA\\\u00055\u0019uN\u001c4jOV\u0014\u0018\r^5p]\u0006!b.Z<DY&,g\u000e\u001e$pe6+G/\u00193bi\u0006$\u0002\"!2\u0002L\u00065\u0017q\u001a\t\u0005\u00037\u000b9-\u0003\u0003\u0002J\u0006u%A\u0003%jm\u0016\u001cE.[3oi\"9\u0011Q\u000e\u0018A\u0002\u0005\u001d\u0006bBAY]\u0001\u0007\u00111\u0017\u0005\n\u0003#t\u0003\u0013!a\u0001\u0003'\fabY8oM&<WO]1uS>t7\u000fE\u0003`\u0003+tf,C\u0002\u0002X\"\u00141!T1q\u0003yqWm^\"mS\u0016tGOR8s\u001b\u0016$\u0018\rZ1uC\u0012\"WMZ1vYR$3'\u0006\u0002\u0002^*\"\u00111[ApW\t\t\t\u000f\u0005\u0003\u0002d\u00065XBAAs\u0015\u0011\t9/!;\u0002\u0013Ut7\r[3dW\u0016$'bAAv\t\u0006Q\u0011M\u001c8pi\u0006$\u0018n\u001c8\n\t\u0005=\u0018Q\u001d\u0002\u0012k:\u001c\u0007.Z2lK\u00124\u0016M]5b]\u000e,\u0017!\u00078foR+W\u000e]8sCJL8i\u001c8gS\u001e,(/\u0019;j_:$B!a5\u0002v\"1\u0011q\u001f\u0019A\u0002U\f\u0001#^:f\u0013:lU-\\8ss\u0012+'OY=\u0002\u0017%tg-\u001a:TG\",W.\u0019\u000b\u0005\u0003{\u0014i\u0001\u0005\u0003\u0002\u0000\n%QB\u0001B\u0001\u0015\u0011\u0011\u0019A!\u0002\u0002\u000f\r\fG/\u00197pO*\u0019!q\u0001\u001c\u0002\u0011\r\fG/\u00197zgRLAAa\u0003\u0003\u0002\ta1)\u0019;bY><G+\u00192mK\"9!qB\u0019A\u0002\u0005u\u0018!\u0002;bE2,\u0017!\u00069beRLG/[8o\u001d\u0006lW\rV8WC2,Xm\u001d\u000b\u0005\u0005+\u0011Y\u0002\u0005\u0003D\u0005/q\u0016b\u0001B\r\t\n)\u0011I\u001d:bs\"1!Q\u0004\u001aA\u0002y\u000bAA\\1nK\u0002"
+)
+public final class HiveUtils {
+   public static String[] partitionNameToValues(final String name) {
+      return HiveUtils$.MODULE$.partitionNameToValues(name);
+   }
+
+   public static CatalogTable inferSchema(final CatalogTable table) {
+      return HiveUtils$.MODULE$.inferSchema(table);
+   }
+
+   public static Map newTemporaryConfiguration(final boolean useInMemoryDerby) {
+      return HiveUtils$.MODULE$.newTemporaryConfiguration(useInMemoryDerby);
+   }
+
+   public static boolean isCliSessionState() {
+      return HiveUtils$.MODULE$.isCliSessionState();
+   }
+
+   public static ConfigEntry USE_DELEGATE_FOR_SYMLINK_TEXT_INPUT_FORMAT() {
+      return HiveUtils$.MODULE$.USE_DELEGATE_FOR_SYMLINK_TEXT_INPUT_FORMAT();
+   }
+
+   public static ConfigEntry HIVE_THRIFT_SERVER_ASYNC() {
+      return HiveUtils$.MODULE$.HIVE_THRIFT_SERVER_ASYNC();
+   }
+
+   public static ConfigEntry HIVE_METASTORE_BARRIER_PREFIXES() {
+      return HiveUtils$.MODULE$.HIVE_METASTORE_BARRIER_PREFIXES();
+   }
+
+   public static ConfigEntry HIVE_METASTORE_SHARED_PREFIXES() {
+      return HiveUtils$.MODULE$.HIVE_METASTORE_SHARED_PREFIXES();
+   }
+
+   public static ConfigEntry CONVERT_METASTORE_INSERT_DIR() {
+      return HiveUtils$.MODULE$.CONVERT_METASTORE_INSERT_DIR();
+   }
+
+   public static ConfigEntry CONVERT_METASTORE_CTAS() {
+      return HiveUtils$.MODULE$.CONVERT_METASTORE_CTAS();
+   }
+
+   public static ConfigEntry CONVERT_INSERTING_UNPARTITIONED_TABLE() {
+      return HiveUtils$.MODULE$.CONVERT_INSERTING_UNPARTITIONED_TABLE();
+   }
+
+   public static ConfigEntry CONVERT_INSERTING_PARTITIONED_TABLE() {
+      return HiveUtils$.MODULE$.CONVERT_INSERTING_PARTITIONED_TABLE();
+   }
+
+   public static ConfigEntry CONVERT_METASTORE_ORC() {
+      return HiveUtils$.MODULE$.CONVERT_METASTORE_ORC();
+   }
+
+   public static ConfigEntry CONVERT_METASTORE_PARQUET_WITH_SCHEMA_MERGING() {
+      return HiveUtils$.MODULE$.CONVERT_METASTORE_PARQUET_WITH_SCHEMA_MERGING();
+   }
+
+   public static ConfigEntry CONVERT_METASTORE_PARQUET() {
+      return HiveUtils$.MODULE$.CONVERT_METASTORE_PARQUET();
+   }
+
+   public static ConfigEntry HIVE_METASTORE_JARS_PATH() {
+      return HiveUtils$.MODULE$.HIVE_METASTORE_JARS_PATH();
+   }
+
+   public static ConfigEntry HIVE_METASTORE_JARS() {
+      return HiveUtils$.MODULE$.HIVE_METASTORE_JARS();
+   }
+
+   public static ConfigEntry HIVE_METASTORE_VERSION() {
+      return HiveUtils$.MODULE$.HIVE_METASTORE_VERSION();
+   }
+
+   public static ConfigEntry BUILTIN_HIVE_VERSION() {
+      return HiveUtils$.MODULE$.BUILTIN_HIVE_VERSION();
+   }
+
+   public static String builtinHiveVersion() {
+      return HiveUtils$.MODULE$.builtinHiveVersion();
+   }
+
+   public static Logging.LogStringContext LogStringContext(final StringContext sc) {
+      return HiveUtils$.MODULE$.LogStringContext(sc);
+   }
+}

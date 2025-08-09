@@ -1,0 +1,18 @@
+package io.vertx.core.cli.converters;
+
+public final class CharacterConverter implements Converter {
+   public static final CharacterConverter INSTANCE = new CharacterConverter();
+
+   private CharacterConverter() {
+   }
+
+   public Character fromString(String input) throws IllegalArgumentException {
+      if (input == null) {
+         throw new NullPointerException("input must not be null");
+      } else if (input.length() != 1) {
+         throw new IllegalArgumentException("The input string \"" + input + "\" cannot be converted to a character. The input's length must be 1");
+      } else {
+         return input.toCharArray()[0];
+      }
+   }
+}

@@ -1,0 +1,704 @@
+package shaded.parquet.com.fasterxml.jackson.databind;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+import shaded.parquet.com.fasterxml.jackson.annotation.JsonFormat;
+import shaded.parquet.com.fasterxml.jackson.annotation.JsonInclude;
+import shaded.parquet.com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import shaded.parquet.com.fasterxml.jackson.core.JsonGenerator;
+import shaded.parquet.com.fasterxml.jackson.core.JsonParser;
+import shaded.parquet.com.fasterxml.jackson.core.ObjectCodec;
+import shaded.parquet.com.fasterxml.jackson.databind.cfg.ContextAttributes;
+import shaded.parquet.com.fasterxml.jackson.databind.cfg.DatatypeFeature;
+import shaded.parquet.com.fasterxml.jackson.databind.cfg.DatatypeFeatures;
+import shaded.parquet.com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
+import shaded.parquet.com.fasterxml.jackson.databind.exc.InvalidTypeIdException;
+import shaded.parquet.com.fasterxml.jackson.databind.introspect.Annotated;
+import shaded.parquet.com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import shaded.parquet.com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.ContextualSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.FilterProvider;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.ResolvableSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.SerializerCache;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.SerializerFactory;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.impl.FailingSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.impl.ReadOnlyClassToSerializerMap;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.impl.WritableObjectId;
+import shaded.parquet.com.fasterxml.jackson.databind.ser.std.NullSerializer;
+import shaded.parquet.com.fasterxml.jackson.databind.type.TypeFactory;
+import shaded.parquet.com.fasterxml.jackson.databind.util.ClassUtil;
+import shaded.parquet.com.fasterxml.jackson.databind.util.TokenBuffer;
+
+public abstract class SerializerProvider extends DatabindContext {
+   protected static final boolean CACHE_UNKNOWN_MAPPINGS = false;
+   public static final JsonSerializer DEFAULT_NULL_KEY_SERIALIZER = new FailingSerializer("Null key for a Map not allowed in JSON (use a converting NullKeySerializer?)");
+   protected static final JsonSerializer DEFAULT_UNKNOWN_SERIALIZER = new UnknownSerializer();
+   protected final SerializationConfig _config;
+   protected final Class _serializationView;
+   protected final SerializerFactory _serializerFactory;
+   protected final SerializerCache _serializerCache;
+   protected transient ContextAttributes _attributes;
+   protected JsonSerializer _unknownTypeSerializer;
+   protected JsonSerializer _keySerializer;
+   protected JsonSerializer _nullValueSerializer;
+   protected JsonSerializer _nullKeySerializer;
+   protected final ReadOnlyClassToSerializerMap _knownSerializers;
+   protected DateFormat _dateFormat;
+   protected final boolean _stdNullValueSerializer;
+
+   public SerializerProvider() {
+      this._unknownTypeSerializer = DEFAULT_UNKNOWN_SERIALIZER;
+      this._nullValueSerializer = NullSerializer.instance;
+      this._nullKeySerializer = DEFAULT_NULL_KEY_SERIALIZER;
+      this._config = null;
+      this._serializerFactory = null;
+      this._serializerCache = new SerializerCache();
+      this._knownSerializers = null;
+      this._serializationView = null;
+      this._attributes = null;
+      this._stdNullValueSerializer = true;
+   }
+
+   protected SerializerProvider(SerializerProvider src, SerializationConfig config, SerializerFactory f) {
+      this._unknownTypeSerializer = DEFAULT_UNKNOWN_SERIALIZER;
+      this._nullValueSerializer = NullSerializer.instance;
+      this._nullKeySerializer = DEFAULT_NULL_KEY_SERIALIZER;
+      this._serializerFactory = f;
+      this._config = config;
+      this._serializerCache = src._serializerCache;
+      this._unknownTypeSerializer = src._unknownTypeSerializer;
+      this._keySerializer = src._keySerializer;
+      this._nullValueSerializer = src._nullValueSerializer;
+      this._nullKeySerializer = src._nullKeySerializer;
+      this._stdNullValueSerializer = this._nullValueSerializer == DEFAULT_NULL_KEY_SERIALIZER;
+      this._serializationView = config.getActiveView();
+      this._attributes = config.getAttributes();
+      this._knownSerializers = this._serializerCache.getReadOnlyLookupMap();
+   }
+
+   protected SerializerProvider(SerializerProvider src) {
+      this._unknownTypeSerializer = DEFAULT_UNKNOWN_SERIALIZER;
+      this._nullValueSerializer = NullSerializer.instance;
+      this._nullKeySerializer = DEFAULT_NULL_KEY_SERIALIZER;
+      this._config = null;
+      this._serializationView = null;
+      this._serializerFactory = null;
+      this._knownSerializers = null;
+      this._serializerCache = new SerializerCache();
+      this._unknownTypeSerializer = src._unknownTypeSerializer;
+      this._keySerializer = src._keySerializer;
+      this._nullValueSerializer = src._nullValueSerializer;
+      this._nullKeySerializer = src._nullKeySerializer;
+      this._stdNullValueSerializer = src._stdNullValueSerializer;
+   }
+
+   protected SerializerProvider(SerializerProvider src, SerializerCache serializerCache) {
+      this._unknownTypeSerializer = DEFAULT_UNKNOWN_SERIALIZER;
+      this._nullValueSerializer = NullSerializer.instance;
+      this._nullKeySerializer = DEFAULT_NULL_KEY_SERIALIZER;
+      this._serializerCache = serializerCache;
+      this._config = src._config;
+      this._serializationView = src._serializationView;
+      this._serializerFactory = src._serializerFactory;
+      this._attributes = src._attributes;
+      this._knownSerializers = src._knownSerializers;
+      this._unknownTypeSerializer = src._unknownTypeSerializer;
+      this._nullValueSerializer = src._nullValueSerializer;
+      this._nullKeySerializer = src._nullKeySerializer;
+      this._keySerializer = src._keySerializer;
+      this._stdNullValueSerializer = src._stdNullValueSerializer;
+   }
+
+   public void setDefaultKeySerializer(JsonSerializer ks) {
+      if (ks == null) {
+         throw new IllegalArgumentException("Cannot pass null JsonSerializer");
+      } else {
+         this._keySerializer = ks;
+      }
+   }
+
+   public void setNullValueSerializer(JsonSerializer nvs) {
+      if (nvs == null) {
+         throw new IllegalArgumentException("Cannot pass null JsonSerializer");
+      } else {
+         this._nullValueSerializer = nvs;
+      }
+   }
+
+   public void setNullKeySerializer(JsonSerializer nks) {
+      if (nks == null) {
+         throw new IllegalArgumentException("Cannot pass null JsonSerializer");
+      } else {
+         this._nullKeySerializer = nks;
+      }
+   }
+
+   public final SerializationConfig getConfig() {
+      return this._config;
+   }
+
+   public final AnnotationIntrospector getAnnotationIntrospector() {
+      return this._config.getAnnotationIntrospector();
+   }
+
+   public final TypeFactory getTypeFactory() {
+      return this._config.getTypeFactory();
+   }
+
+   public JavaType constructSpecializedType(JavaType baseType, Class subclass) throws IllegalArgumentException {
+      return baseType.hasRawClass(subclass) ? baseType : this.getConfig().getTypeFactory().constructSpecializedType(baseType, subclass, true);
+   }
+
+   public final Class getActiveView() {
+      return this._serializationView;
+   }
+
+   public final boolean canOverrideAccessModifiers() {
+      return this._config.canOverrideAccessModifiers();
+   }
+
+   public final boolean isEnabled(MapperFeature feature) {
+      return this._config.isEnabled((MapperFeature)feature);
+   }
+
+   public final boolean isEnabled(DatatypeFeature feature) {
+      return this._config.isEnabled(feature);
+   }
+
+   public final DatatypeFeatures getDatatypeFeatures() {
+      return this._config.getDatatypeFeatures();
+   }
+
+   public final JsonFormat.Value getDefaultPropertyFormat(Class baseType) {
+      return this._config.getDefaultPropertyFormat(baseType);
+   }
+
+   public final JsonInclude.Value getDefaultPropertyInclusion(Class baseType) {
+      return this._config.getDefaultPropertyInclusion(baseType);
+   }
+
+   public Locale getLocale() {
+      return this._config.getLocale();
+   }
+
+   public TimeZone getTimeZone() {
+      return this._config.getTimeZone();
+   }
+
+   public Object getAttribute(Object key) {
+      return this._attributes.getAttribute(key);
+   }
+
+   public SerializerProvider setAttribute(Object key, Object value) {
+      this._attributes = this._attributes.withPerCallAttribute(key, value);
+      return this;
+   }
+
+   public final boolean isEnabled(SerializationFeature feature) {
+      return this._config.isEnabled(feature);
+   }
+
+   public final boolean hasSerializationFeatures(int featureMask) {
+      return this._config.hasSerializationFeatures(featureMask);
+   }
+
+   public final FilterProvider getFilterProvider() {
+      return this._config.getFilterProvider();
+   }
+
+   public JsonGenerator getGenerator() {
+      return null;
+   }
+
+   public TokenBuffer bufferForValueConversion(ObjectCodec oc) {
+      return new TokenBuffer(oc, false);
+   }
+
+   public final TokenBuffer bufferForValueConversion() {
+      return this.bufferForValueConversion((ObjectCodec)null);
+   }
+
+   public abstract WritableObjectId findObjectId(Object var1, ObjectIdGenerator var2);
+
+   public JsonSerializer findValueSerializer(Class valueType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._serializerCache.untypedValueSerializer(this._config.constructType(valueType));
+            if (ser == null) {
+               ser = this._createAndCacheUntypedSerializer(valueType);
+               if (ser == null) {
+                  ser = this.getUnknownTypeSerializer(valueType);
+                  return ser;
+               }
+            }
+         }
+      }
+
+      return this.handleSecondaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findValueSerializer(JavaType valueType, BeanProperty property) throws JsonMappingException {
+      if (valueType == null) {
+         this.reportMappingProblem("Null passed for `valueType` of `findValueSerializer()`");
+      }
+
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._createAndCacheUntypedSerializer(valueType);
+            if (ser == null) {
+               ser = this.getUnknownTypeSerializer(valueType.getRawClass());
+               return ser;
+            }
+         }
+      }
+
+      return this.handleSecondaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findValueSerializer(Class valueType) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._serializerCache.untypedValueSerializer(this._config.constructType(valueType));
+            if (ser == null) {
+               ser = this._createAndCacheUntypedSerializer(valueType);
+               if (ser == null) {
+                  ser = this.getUnknownTypeSerializer(valueType);
+               }
+            }
+         }
+      }
+
+      return ser;
+   }
+
+   public JsonSerializer findValueSerializer(JavaType valueType) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._createAndCacheUntypedSerializer(valueType);
+            if (ser == null) {
+               ser = this.getUnknownTypeSerializer(valueType.getRawClass());
+            }
+         }
+      }
+
+      return ser;
+   }
+
+   public JsonSerializer findPrimaryPropertySerializer(JavaType valueType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._createAndCacheUntypedSerializer(valueType);
+            if (ser == null) {
+               ser = this.getUnknownTypeSerializer(valueType.getRawClass());
+               return ser;
+            }
+         }
+      }
+
+      return this.handlePrimaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findPrimaryPropertySerializer(Class valueType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._serializerCache.untypedValueSerializer(this._config.constructType(valueType));
+            if (ser == null) {
+               ser = this._createAndCacheUntypedSerializer(valueType);
+               if (ser == null) {
+                  ser = this.getUnknownTypeSerializer(valueType);
+                  return ser;
+               }
+            }
+         }
+      }
+
+      return this.handlePrimaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findContentValueSerializer(JavaType valueType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._createAndCacheUntypedSerializer(valueType);
+            if (ser == null) {
+               ser = this.getUnknownTypeSerializer(valueType.getRawClass());
+               return ser;
+            }
+         }
+      }
+
+      return this.handleSecondaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findContentValueSerializer(Class valueType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(valueType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(valueType);
+         if (ser == null) {
+            ser = this._serializerCache.untypedValueSerializer(this._config.constructType(valueType));
+            if (ser == null) {
+               ser = this._createAndCacheUntypedSerializer(valueType);
+               if (ser == null) {
+                  ser = this.getUnknownTypeSerializer(valueType);
+                  return ser;
+               }
+            }
+         }
+      }
+
+      return this.handleSecondaryContextualization(ser, property);
+   }
+
+   public JsonSerializer findTypedValueSerializer(Class valueType, boolean cache, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.typedValueSerializer(valueType);
+      if (ser != null) {
+         return ser;
+      } else {
+         ser = this._serializerCache.typedValueSerializer(valueType);
+         if (ser != null) {
+            return ser;
+         } else {
+            ser = this.findValueSerializer(valueType, property);
+            TypeSerializer typeSer = this._serializerFactory.createTypeSerializer(this._config, this._config.constructType(valueType));
+            if (typeSer != null) {
+               typeSer = typeSer.forProperty(property);
+               ser = new TypeWrappedSerializer(typeSer, ser);
+            }
+
+            if (cache) {
+               this._serializerCache.addTypedSerializer(valueType, ser);
+            }
+
+            return ser;
+         }
+      }
+   }
+
+   public JsonSerializer findTypedValueSerializer(JavaType valueType, boolean cache, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.typedValueSerializer(valueType);
+      if (ser != null) {
+         return ser;
+      } else {
+         ser = this._serializerCache.typedValueSerializer(valueType);
+         if (ser != null) {
+            return ser;
+         } else {
+            ser = this.findValueSerializer(valueType, property);
+            TypeSerializer typeSer = this._serializerFactory.createTypeSerializer(this._config, valueType);
+            if (typeSer != null) {
+               typeSer = typeSer.forProperty(property);
+               ser = new TypeWrappedSerializer(typeSer, ser);
+            }
+
+            if (cache) {
+               this._serializerCache.addTypedSerializer(valueType, ser);
+            }
+
+            return ser;
+         }
+      }
+   }
+
+   public TypeSerializer findTypeSerializer(JavaType javaType) throws JsonMappingException {
+      return this._serializerFactory.createTypeSerializer(this._config, javaType);
+   }
+
+   public JsonSerializer findKeySerializer(JavaType keyType, BeanProperty property) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._serializerFactory.createKeySerializer(this, keyType, this._keySerializer);
+      return this._handleContextualResolvable(ser, property);
+   }
+
+   public JsonSerializer findKeySerializer(Class rawKeyType, BeanProperty property) throws JsonMappingException {
+      return this.findKeySerializer(this._config.constructType(rawKeyType), property);
+   }
+
+   public JsonSerializer getDefaultNullKeySerializer() {
+      return this._nullKeySerializer;
+   }
+
+   public JsonSerializer getDefaultNullValueSerializer() {
+      return this._nullValueSerializer;
+   }
+
+   public JsonSerializer findNullKeySerializer(JavaType serializationType, BeanProperty property) throws JsonMappingException {
+      return this._nullKeySerializer;
+   }
+
+   public JsonSerializer findNullValueSerializer(BeanProperty property) throws JsonMappingException {
+      return this._nullValueSerializer;
+   }
+
+   public JsonSerializer getUnknownTypeSerializer(Class unknownType) {
+      return (JsonSerializer)(unknownType == Object.class ? this._unknownTypeSerializer : new UnknownSerializer(unknownType));
+   }
+
+   public boolean isUnknownTypeSerializer(JsonSerializer ser) {
+      if (ser != this._unknownTypeSerializer && ser != null) {
+         return this.isEnabled(SerializationFeature.FAIL_ON_EMPTY_BEANS) && ser.getClass() == UnknownSerializer.class;
+      } else {
+         return true;
+      }
+   }
+
+   public abstract JsonSerializer serializerInstance(Annotated var1, Object var2) throws JsonMappingException;
+
+   public abstract Object includeFilterInstance(BeanPropertyDefinition var1, Class var2) throws JsonMappingException;
+
+   public abstract boolean includeFilterSuppressNulls(Object var1) throws JsonMappingException;
+
+   public JsonSerializer handlePrimaryContextualization(JsonSerializer ser, BeanProperty property) throws JsonMappingException {
+      if (ser != null && ser instanceof ContextualSerializer) {
+         ser = ((ContextualSerializer)ser).createContextual(this, property);
+      }
+
+      return ser;
+   }
+
+   public JsonSerializer handleSecondaryContextualization(JsonSerializer ser, BeanProperty property) throws JsonMappingException {
+      if (ser != null && ser instanceof ContextualSerializer) {
+         ser = ((ContextualSerializer)ser).createContextual(this, property);
+      }
+
+      return ser;
+   }
+
+   public final void defaultSerializeValue(Object value, JsonGenerator gen) throws IOException {
+      if (value == null) {
+         if (this._stdNullValueSerializer) {
+            gen.writeNull();
+         } else {
+            this._nullValueSerializer.serialize((Object)null, gen, this);
+         }
+      } else {
+         Class<?> cls = value.getClass();
+         this.findTypedValueSerializer((Class)cls, true, (BeanProperty)null).serialize(value, gen, this);
+      }
+
+   }
+
+   public final void defaultSerializeField(String fieldName, Object value, JsonGenerator gen) throws IOException {
+      gen.writeFieldName(fieldName);
+      if (value == null) {
+         if (this._stdNullValueSerializer) {
+            gen.writeNull();
+         } else {
+            this._nullValueSerializer.serialize((Object)null, gen, this);
+         }
+      } else {
+         Class<?> cls = value.getClass();
+         this.findTypedValueSerializer((Class)cls, true, (BeanProperty)null).serialize(value, gen, this);
+      }
+
+   }
+
+   public final void defaultSerializeDateValue(long timestamp, JsonGenerator gen) throws IOException {
+      if (this.isEnabled(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)) {
+         gen.writeNumber(timestamp);
+      } else {
+         gen.writeString(this._dateFormat().format(new Date(timestamp)));
+      }
+
+   }
+
+   public final void defaultSerializeDateValue(Date date, JsonGenerator gen) throws IOException {
+      if (this.isEnabled(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)) {
+         gen.writeNumber(date.getTime());
+      } else {
+         gen.writeString(this._dateFormat().format(date));
+      }
+
+   }
+
+   public void defaultSerializeDateKey(long timestamp, JsonGenerator gen) throws IOException {
+      if (this.isEnabled(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS)) {
+         gen.writeFieldName(String.valueOf(timestamp));
+      } else {
+         gen.writeFieldName(this._dateFormat().format(new Date(timestamp)));
+      }
+
+   }
+
+   public void defaultSerializeDateKey(Date date, JsonGenerator gen) throws IOException {
+      if (this.isEnabled(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS)) {
+         gen.writeFieldName(String.valueOf(date.getTime()));
+      } else {
+         gen.writeFieldName(this._dateFormat().format(date));
+      }
+
+   }
+
+   public final void defaultSerializeNull(JsonGenerator gen) throws IOException {
+      if (this._stdNullValueSerializer) {
+         gen.writeNull();
+      } else {
+         this._nullValueSerializer.serialize((Object)null, gen, this);
+      }
+
+   }
+
+   public void reportMappingProblem(String message, Object... args) throws JsonMappingException {
+      throw this.mappingException(message, args);
+   }
+
+   public Object reportBadTypeDefinition(BeanDescription bean, String msg, Object... msgArgs) throws JsonMappingException {
+      String beanDesc = bean == null ? "N/A" : ClassUtil.nameOf(bean.getBeanClass());
+      msg = String.format("Invalid type definition for type %s: %s", beanDesc, this._format(msg, msgArgs));
+      throw InvalidDefinitionException.from((JsonGenerator)this.getGenerator(), msg, bean, (BeanPropertyDefinition)null);
+   }
+
+   public Object reportBadPropertyDefinition(BeanDescription bean, BeanPropertyDefinition prop, String message, Object... msgArgs) throws JsonMappingException {
+      message = this._format(message, msgArgs);
+      String propName = "N/A";
+      if (prop != null) {
+         propName = this._quotedString(prop.getName());
+      }
+
+      String beanDesc = "N/A";
+      if (bean != null) {
+         beanDesc = ClassUtil.nameOf(bean.getBeanClass());
+      }
+
+      message = String.format("Invalid definition for property %s (of type %s): %s", propName, beanDesc, message);
+      throw InvalidDefinitionException.from(this.getGenerator(), message, bean, prop);
+   }
+
+   public Object reportBadDefinition(JavaType type, String msg) throws JsonMappingException {
+      throw InvalidDefinitionException.from(this.getGenerator(), msg, type);
+   }
+
+   public Object reportBadDefinition(JavaType type, String msg, Throwable cause) throws JsonMappingException {
+      throw InvalidDefinitionException.from(this.getGenerator(), msg, type).withCause(cause);
+   }
+
+   public Object reportBadDefinition(Class raw, String msg, Throwable cause) throws JsonMappingException {
+      throw InvalidDefinitionException.from(this.getGenerator(), msg, this.constructType(raw)).withCause(cause);
+   }
+
+   public void reportMappingProblem(Throwable t, String message, Object... msgArgs) throws JsonMappingException {
+      message = this._format(message, msgArgs);
+      throw JsonMappingException.from(this.getGenerator(), message, t);
+   }
+
+   public JsonMappingException invalidTypeIdException(JavaType baseType, String typeId, String extraDesc) {
+      String msg = String.format("Could not resolve type id '%s' as a subtype of %s", typeId, ClassUtil.getTypeDescription(baseType));
+      return InvalidTypeIdException.from((JsonParser)null, this._colonConcat(msg, extraDesc), baseType, typeId);
+   }
+
+   /** @deprecated */
+   @Deprecated
+   public JsonMappingException mappingException(String message, Object... msgArgs) {
+      return JsonMappingException.from(this.getGenerator(), this._format(message, msgArgs));
+   }
+
+   /** @deprecated */
+   @Deprecated
+   protected JsonMappingException mappingException(Throwable t, String message, Object... msgArgs) {
+      return JsonMappingException.from(this.getGenerator(), this._format(message, msgArgs), t);
+   }
+
+   protected void _reportIncompatibleRootType(Object value, JavaType rootType) throws IOException {
+      if (rootType.isPrimitive()) {
+         Class<?> wrapperType = ClassUtil.wrapperType(rootType.getRawClass());
+         if (wrapperType.isAssignableFrom(value.getClass())) {
+            return;
+         }
+      }
+
+      this.reportBadDefinition(rootType, String.format("Incompatible types: declared root type (%s) vs %s", rootType, ClassUtil.classNameOf(value)));
+   }
+
+   protected JsonSerializer _findExplicitUntypedSerializer(Class runtimeType) throws JsonMappingException {
+      JsonSerializer<Object> ser = this._knownSerializers.untypedValueSerializer(runtimeType);
+      if (ser == null) {
+         ser = this._serializerCache.untypedValueSerializer(runtimeType);
+         if (ser == null) {
+            ser = this._createAndCacheUntypedSerializer(runtimeType);
+         }
+      }
+
+      return this.isUnknownTypeSerializer(ser) ? null : ser;
+   }
+
+   protected JsonSerializer _createAndCacheUntypedSerializer(Class rawType) throws JsonMappingException {
+      JavaType fullType = this._config.constructType(rawType);
+
+      JsonSerializer<Object> ser;
+      try {
+         ser = this._createUntypedSerializer(fullType);
+      } catch (IllegalArgumentException iae) {
+         this.reportBadDefinition(fullType, ClassUtil.exceptionMessage(iae));
+         ser = null;
+      }
+
+      if (ser != null) {
+         this._serializerCache.addAndResolveNonTypedSerializer(rawType, fullType, ser, this);
+      }
+
+      return ser;
+   }
+
+   protected JsonSerializer _createAndCacheUntypedSerializer(JavaType type) throws JsonMappingException {
+      JsonSerializer<Object> ser;
+      try {
+         ser = this._createUntypedSerializer(type);
+      } catch (IllegalArgumentException iae) {
+         ser = null;
+         this.reportMappingProblem(iae, ClassUtil.exceptionMessage(iae));
+      }
+
+      if (ser != null) {
+         this._serializerCache.addAndResolveNonTypedSerializer(type, ser, this);
+      }
+
+      return ser;
+   }
+
+   protected JsonSerializer _createUntypedSerializer(JavaType type) throws JsonMappingException {
+      return this._serializerFactory.createSerializer(this, type);
+   }
+
+   protected JsonSerializer _handleContextualResolvable(JsonSerializer ser, BeanProperty property) throws JsonMappingException {
+      if (ser instanceof ResolvableSerializer) {
+         ((ResolvableSerializer)ser).resolve(this);
+      }
+
+      return this.handleSecondaryContextualization(ser, property);
+   }
+
+   protected JsonSerializer _handleResolvable(JsonSerializer ser) throws JsonMappingException {
+      if (ser instanceof ResolvableSerializer) {
+         ((ResolvableSerializer)ser).resolve(this);
+      }
+
+      return ser;
+   }
+
+   protected final DateFormat _dateFormat() {
+      if (this._dateFormat != null) {
+         return this._dateFormat;
+      } else {
+         DateFormat df = this._config.getDateFormat();
+         DateFormat var2;
+         this._dateFormat = var2 = (DateFormat)df.clone();
+         return var2;
+      }
+   }
+}

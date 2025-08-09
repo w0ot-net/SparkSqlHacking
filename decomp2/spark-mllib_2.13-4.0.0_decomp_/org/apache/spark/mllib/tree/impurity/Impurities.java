@@ -1,0 +1,12 @@
+package org.apache.spark.mllib.tree.impurity;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005A:a\u0001B\u0003\t\u0002%\tbAB\n\u0006\u0011\u0003IA\u0003C\u0003\u001c\u0003\u0011\u0005Q\u0004C\u0003\u001f\u0003\u0011\u0005q$\u0001\u0006J[B,(/\u001b;jKNT!AB\u0004\u0002\u0011%l\u0007/\u001e:jifT!\u0001C\u0005\u0002\tQ\u0014X-\u001a\u0006\u0003\u0015-\tQ!\u001c7mS\nT!\u0001D\u0007\u0002\u000bM\u0004\u0018M]6\u000b\u00059y\u0011AB1qC\u000eDWMC\u0001\u0011\u0003\ry'o\u001a\t\u0003%\u0005i\u0011!\u0002\u0002\u000b\u00136\u0004XO]5uS\u0016\u001c8CA\u0001\u0016!\t1\u0012$D\u0001\u0018\u0015\u0005A\u0012!B:dC2\f\u0017B\u0001\u000e\u0018\u0005\u0019\te.\u001f*fM\u00061A(\u001b8jiz\u001a\u0001\u0001F\u0001\u0012\u0003)1'o\\7TiJLgn\u001a\u000b\u0003A\r\u0002\"AE\u0011\n\u0005\t*!\u0001C%naV\u0014\u0018\u000e^=\t\u000b\u0011\u001a\u0001\u0019A\u0013\u0002\t9\fW.\u001a\t\u0003M5r!aJ\u0016\u0011\u0005!:R\"A\u0015\u000b\u0005)b\u0012A\u0002\u001fs_>$h(\u0003\u0002-/\u00051\u0001K]3eK\u001aL!AL\u0018\u0003\rM#(/\u001b8h\u0015\tas\u0003"
+)
+public final class Impurities {
+   public static Impurity fromString(final String name) {
+      return Impurities$.MODULE$.fromString(name);
+   }
+}

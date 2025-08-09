@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.11
+Created-By: Apache Maven Bundle Plugin
+BoringSSL-Revision: b8c97f5b4bc5d4758612a0430e5c2792d0f9ca7f
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: io.netty.tcnative-boringssl-static
+Built-By: runneradmin
+Bnd-LastModified: 1739172383862
+Specification-Title: Netty/TomcatNative [BoringSSL - Static]
+Implementation-Vendor-Id: io.netty
+Bundle-DocURL: https://netty.io/
+Fragment-Host: io.netty.tcnative-classes
+Bundle-Name: Netty/TomcatNative [BoringSSL - Static]
+Multi-Release: true
+Build-Jdk-Spec: 1.8
+Implementation-Title: Netty/TomcatNative [BoringSSL - Static]
+Bundle-Description: A Mavenized fork of Tomcat Native which incorporates
+  various patches. This artifact is statically linked    to BoringSSL an
+ d Apache APR.
+Apr-Version: 1.6.5
+Implementation-Version: 2.0.70.Final
+Specification-Vendor: The Netty Project
+Bundle-ManifestVersion: 2
+Bundle-Vendor: The Netty Project
+Tool: Bnd-5.1.1.202006162103
+Implementation-Vendor: The Netty Project
+Bundle-Version: 2.0.70.Final
+BoringSSL-Branch: chromium-stable
+Build-Jdk: 1.8.0_442
+Specification-Version: 2.0
+Implementation-URL: https://github.com/netty/netty-tcnative/netty-tcnati
+ ve-boringssl-static/
+Bundle-NativeCode: META-INF/native/netty_tcnative_windows_x86_64.dll;osn
+ ame=win32;processor=x86_64
+

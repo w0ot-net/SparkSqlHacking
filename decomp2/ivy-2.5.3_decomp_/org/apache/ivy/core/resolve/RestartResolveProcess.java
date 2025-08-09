@@ -1,0 +1,7 @@
+package org.apache.ivy.core.resolve;
+
+public class RestartResolveProcess extends ResolveProcessException {
+   public RestartResolveProcess(String message) {
+      super(message);
+   }
+}

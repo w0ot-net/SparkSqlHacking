@@ -1,0 +1,14 @@
+package org.apache.spark.mllib.random;
+
+import java.io.Serializable;
+import org.apache.spark.util.random.Pseudorandom;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00193qa\u0001\u0003\u0011\u0002G\u0005q\u0002C\u0003+\u0001\u0019\u00051\u0006C\u0003A\u0001\u0019\u0005\u0011IA\nSC:$w.\u001c#bi\u0006<UM\\3sCR|'O\u0003\u0002\u0006\r\u00051!/\u00198e_6T!a\u0002\u0005\u0002\u000b5dG.\u001b2\u000b\u0005%Q\u0011!B:qCJ\\'BA\u0006\r\u0003\u0019\t\u0007/Y2iK*\tQ\"A\u0002pe\u001e\u001c\u0001!\u0006\u0002\u0011]M!\u0001!E\f\u001f!\t\u0011R#D\u0001\u0014\u0015\u0005!\u0012!B:dC2\f\u0017B\u0001\f\u0014\u0005\u0019\te.\u001f*fMB\u0011\u0001\u0004H\u0007\u00023)\u0011QA\u0007\u0006\u00037!\tA!\u001e;jY&\u0011Q$\u0007\u0002\r!N,W\u000fZ8sC:$w.\u001c\t\u0003?\u001dr!\u0001I\u0013\u000f\u0005\u0005\"S\"\u0001\u0012\u000b\u0005\rr\u0011A\u0002\u001fs_>$h(C\u0001\u0015\u0013\t13#A\u0004qC\u000e\\\u0017mZ3\n\u0005!J#\u0001D*fe&\fG.\u001b>bE2,'B\u0001\u0014\u0014\u0003%qW\r\u001f;WC2,X\rF\u0001-!\tic\u0006\u0004\u0001\u0005\u000b=\u0002!\u0019\u0001\u0019\u0003\u0003Q\u000b\"!\r\u001b\u0011\u0005I\u0011\u0014BA\u001a\u0014\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"AE\u001b\n\u0005Y\u001a\"aA!os\"\u001a\u0011\u0001\u000f \u0011\u0005ebT\"\u0001\u001e\u000b\u0005mB\u0011AC1o]>$\u0018\r^5p]&\u0011QH\u000f\u0002\u0006'&t7-Z\u0011\u0002\u007f\u0005)\u0011GL\u0019/a\u0005!1m\u001c9z)\u0005\u0011\u0005cA\"\u0001Y5\tA\u0001K\u0002\u0003qyB3\u0001\u0001\u001d?\u0001"
+)
+public interface RandomDataGenerator extends Pseudorandom, Serializable {
+   Object nextValue();
+
+   RandomDataGenerator copy();
+}

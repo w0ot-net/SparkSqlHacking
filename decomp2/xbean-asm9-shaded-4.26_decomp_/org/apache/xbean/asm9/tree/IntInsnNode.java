@@ -1,0 +1,30 @@
+package org.apache.xbean.asm9.tree;
+
+import java.util.Map;
+import org.apache.xbean.asm9.MethodVisitor;
+
+public class IntInsnNode extends AbstractInsnNode {
+   public int operand;
+
+   public IntInsnNode(int opcode, int operand) {
+      super(opcode);
+      this.operand = operand;
+   }
+
+   public void setOpcode(int opcode) {
+      this.opcode = opcode;
+   }
+
+   public int getType() {
+      return 1;
+   }
+
+   public void accept(MethodVisitor methodVisitor) {
+      methodVisitor.visitIntInsn(this.opcode, this.operand);
+      this.acceptAnnotations(methodVisitor);
+   }
+
+   public AbstractInsnNode clone(Map clonedLabels) {
+      return (new IntInsnNode(this.opcode, this.operand)).cloneAnnotations(this);
+   }
+}

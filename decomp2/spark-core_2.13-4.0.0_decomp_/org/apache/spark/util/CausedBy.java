@@ -1,0 +1,13 @@
+package org.apache.spark.util;
+
+import scala.Option;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u00055:a\u0001B\u0003\t\u0002\u001diaAB\b\u0006\u0011\u00039\u0001\u0003C\u0003\u0018\u0003\u0011\u0005\u0011\u0004C\u0003\u001b\u0003\u0011\u00051$\u0001\u0005DCV\u001cX\r\u001a\"z\u0015\t1q!\u0001\u0003vi&d'B\u0001\u0005\n\u0003\u0015\u0019\b/\u0019:l\u0015\tQ1\"\u0001\u0004ba\u0006\u001c\u0007.\u001a\u0006\u0002\u0019\u0005\u0019qN]4\u0011\u00059\tQ\"A\u0003\u0003\u0011\r\u000bWo]3e\u0005f\u001c\"!A\t\u0011\u0005I)R\"A\n\u000b\u0003Q\tQa]2bY\u0006L!AF\n\u0003\r\u0005s\u0017PU3g\u0003\u0019a\u0014N\\5u}\r\u0001A#A\u0007\u0002\u000fUt\u0017\r\u001d9msR\u0011Ad\u000b\t\u0004%uy\u0012B\u0001\u0010\u0014\u0005\u0019y\u0005\u000f^5p]B\u0011\u0001\u0005\u000b\b\u0003C\u0019r!AI\u0013\u000e\u0003\rR!\u0001\n\r\u0002\rq\u0012xn\u001c;?\u0013\u0005!\u0012BA\u0014\u0014\u0003\u001d\u0001\u0018mY6bO\u0016L!!\u000b\u0016\u0003\u0013QC'o\\<bE2,'BA\u0014\u0014\u0011\u0015a3\u00011\u0001 \u0003\u0005)\u0007"
+)
+public final class CausedBy {
+   public static Option unapply(final Throwable e) {
+      return CausedBy$.MODULE$.unapply(e);
+   }
+}

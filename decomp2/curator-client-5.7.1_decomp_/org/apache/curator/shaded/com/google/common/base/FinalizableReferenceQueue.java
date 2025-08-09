@@ -1,0 +1,170 @@
+package org.apache.curator.shaded.com.google.common.base;
+
+import java.io.Closeable;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.ref.PhantomReference;
+import java.lang.ref.Reference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.CheckForNull;
+import org.apache.curator.shaded.com.google.common.annotations.GwtIncompatible;
+import org.apache.curator.shaded.com.google.common.annotations.J2ktIncompatible;
+import org.apache.curator.shaded.com.google.common.annotations.VisibleForTesting;
+
+@ElementTypesAreNonnullByDefault
+@J2ktIncompatible
+@GwtIncompatible
+public class FinalizableReferenceQueue implements Closeable {
+   private static final Logger logger = Logger.getLogger(FinalizableReferenceQueue.class.getName());
+   private static final String FINALIZER_CLASS_NAME = "org.apache.curator.shaded.com.google.common.base.internal.Finalizer";
+   private static final Method startFinalizer;
+   final ReferenceQueue queue = new ReferenceQueue();
+   final PhantomReference frqRef;
+   final boolean threadStarted;
+
+   public FinalizableReferenceQueue() {
+      this.frqRef = new PhantomReference(this, this.queue);
+      boolean threadStarted = false;
+
+      try {
+         startFinalizer.invoke((Object)null, FinalizableReference.class, this.queue, this.frqRef);
+         threadStarted = true;
+      } catch (IllegalAccessException impossible) {
+         throw new AssertionError(impossible);
+      } catch (Throwable t) {
+         logger.log(Level.INFO, "Failed to start reference finalizer thread. Reference cleanup will only occur when new references are created.", t);
+      }
+
+      this.threadStarted = threadStarted;
+   }
+
+   public void close() {
+      this.frqRef.enqueue();
+      this.cleanUp();
+   }
+
+   void cleanUp() {
+      if (!this.threadStarted) {
+         Reference<?> reference;
+         while((reference = this.queue.poll()) != null) {
+            reference.clear();
+
+            try {
+               ((FinalizableReference)reference).finalizeReferent();
+            } catch (Throwable t) {
+               logger.log(Level.SEVERE, "Error cleaning up after reference.", t);
+            }
+         }
+
+      }
+   }
+
+   private static Class loadFinalizer(FinalizerLoader... loaders) {
+      for(FinalizerLoader loader : loaders) {
+         Class<?> finalizer = loader.loadFinalizer();
+         if (finalizer != null) {
+            return finalizer;
+         }
+      }
+
+      throw new AssertionError();
+   }
+
+   static Method getStartFinalizer(Class finalizer) {
+      try {
+         return finalizer.getMethod("startFinalizer", Class.class, ReferenceQueue.class, PhantomReference.class);
+      } catch (NoSuchMethodException e) {
+         throw new AssertionError(e);
+      }
+   }
+
+   static {
+      Class<?> finalizer = loadFinalizer(new SystemLoader(), new DecoupledLoader(), new DirectLoader());
+      startFinalizer = getStartFinalizer(finalizer);
+   }
+
+   static class SystemLoader implements FinalizerLoader {
+      @VisibleForTesting
+      static boolean disabled;
+
+      @CheckForNull
+      public Class loadFinalizer() {
+         if (disabled) {
+            return null;
+         } else {
+            ClassLoader systemLoader;
+            try {
+               systemLoader = ClassLoader.getSystemClassLoader();
+            } catch (SecurityException var4) {
+               FinalizableReferenceQueue.logger.info("Not allowed to access system class loader.");
+               return null;
+            }
+
+            if (systemLoader != null) {
+               try {
+                  return systemLoader.loadClass("org.apache.curator.shaded.com.google.common.base.internal.Finalizer");
+               } catch (ClassNotFoundException var3) {
+                  return null;
+               }
+            } else {
+               return null;
+            }
+         }
+      }
+   }
+
+   static class DecoupledLoader implements FinalizerLoader {
+      private static final String LOADING_ERROR = "Could not load Finalizer in its own class loader. Loading Finalizer in the current class loader instead. As a result, you will not be able to garbage collect this class loader. To support reclaiming this class loader, either resolve the underlying issue, or move Guava to your system class path.";
+
+      @CheckForNull
+      public Class loadFinalizer() {
+         try {
+            ClassLoader finalizerLoader = this.newLoader(this.getBaseUrl());
+            return finalizerLoader.loadClass("org.apache.curator.shaded.com.google.common.base.internal.Finalizer");
+         } catch (Exception e) {
+            FinalizableReferenceQueue.logger.log(Level.WARNING, "Could not load Finalizer in its own class loader. Loading Finalizer in the current class loader instead. As a result, you will not be able to garbage collect this class loader. To support reclaiming this class loader, either resolve the underlying issue, or move Guava to your system class path.", e);
+            return null;
+         }
+      }
+
+      URL getBaseUrl() throws IOException {
+         String finalizerPath = "org.apache.curator.shaded.com.google.common.base.internal.Finalizer".replace('.', '/') + ".class";
+         URL finalizerUrl = this.getClass().getClassLoader().getResource(finalizerPath);
+         if (finalizerUrl == null) {
+            throw new FileNotFoundException(finalizerPath);
+         } else {
+            String urlString = finalizerUrl.toString();
+            if (!urlString.endsWith(finalizerPath)) {
+               throw new IOException("Unsupported path style: " + urlString);
+            } else {
+               urlString = urlString.substring(0, urlString.length() - finalizerPath.length());
+               return new URL(finalizerUrl, urlString);
+            }
+         }
+      }
+
+      URLClassLoader newLoader(URL base) {
+         return new URLClassLoader(new URL[]{base}, (ClassLoader)null);
+      }
+   }
+
+   static class DirectLoader implements FinalizerLoader {
+      public Class loadFinalizer() {
+         try {
+            return Class.forName("org.apache.curator.shaded.com.google.common.base.internal.Finalizer");
+         } catch (ClassNotFoundException e) {
+            throw new AssertionError(e);
+         }
+      }
+   }
+
+   interface FinalizerLoader {
+      @CheckForNull
+      Class loadFinalizer();
+   }
+}

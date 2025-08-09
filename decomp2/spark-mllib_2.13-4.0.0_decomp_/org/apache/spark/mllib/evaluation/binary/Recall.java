@@ -1,0 +1,12 @@
+package org.apache.spark.mllib.evaluation.binary;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Y:a!\u0002\u0004\t\u0002!\u0011bA\u0002\u000b\u0007\u0011\u0003AQ\u0003C\u0003 \u0003\u0011\u0005\u0011\u0005C\u0003#\u0003\u0011\u00053\u0005C\u0004-\u0003\u0005\u0005I\u0011B\u0017\u0002\rI+7-\u00197m\u0015\t9\u0001\"\u0001\u0004cS:\f'/\u001f\u0006\u0003\u0013)\t!\"\u001a<bYV\fG/[8o\u0015\tYA\"A\u0003nY2L'M\u0003\u0002\u000e\u001d\u0005)1\u000f]1sW*\u0011q\u0002E\u0001\u0007CB\f7\r[3\u000b\u0003E\t1a\u001c:h!\t\u0019\u0012!D\u0001\u0007\u0005\u0019\u0011VmY1mYN\u0019\u0011A\u0006\u000f\u0011\u0005]QR\"\u0001\r\u000b\u0003e\tQa]2bY\u0006L!a\u0007\r\u0003\r\u0005s\u0017PU3g!\t\u0019R$\u0003\u0002\u001f\r\t\u0011#)\u001b8bef\u001cE.Y:tS\u001aL7-\u0019;j_:lU\r\u001e:jG\u000e{W\u000e];uKJ\fa\u0001P5oSRt4\u0001\u0001\u000b\u0002%\u0005)\u0011\r\u001d9msR\u0011Ae\n\t\u0003/\u0015J!A\n\r\u0003\r\u0011{WO\u00197f\u0011\u0015A3\u00011\u0001*\u0003\u0005\u0019\u0007CA\n+\u0013\tYcAA\u000bCS:\f'/_\"p]\u001a,8/[8o\u001b\u0006$(/\u001b=\u0002\u0019]\u0014\u0018\u000e^3SKBd\u0017mY3\u0015\u00039\u0002\"a\f\u001b\u000e\u0003AR!!\r\u001a\u0002\t1\fgn\u001a\u0006\u0002g\u0005!!.\u0019<b\u0013\t)\u0004G\u0001\u0004PE*,7\r\u001e"
+)
+public final class Recall {
+   public static double apply(final BinaryConfusionMatrix c) {
+      return Recall$.MODULE$.apply(c);
+   }
+}

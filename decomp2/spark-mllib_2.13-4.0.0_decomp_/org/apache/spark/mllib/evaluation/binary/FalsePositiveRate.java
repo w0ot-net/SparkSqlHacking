@@ -1,0 +1,12 @@
+package org.apache.spark.mllib.evaluation.binary;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Y:a!\u0002\u0004\t\u0002!\u0011bA\u0002\u000b\u0007\u0011\u0003AQ\u0003C\u0003 \u0003\u0011\u0005\u0011\u0005C\u0003#\u0003\u0011\u00053\u0005C\u0004-\u0003\u0005\u0005I\u0011B\u0017\u0002#\u0019\u000bGn]3Q_NLG/\u001b<f%\u0006$XM\u0003\u0002\b\u0011\u00051!-\u001b8befT!!\u0003\u0006\u0002\u0015\u00154\u0018\r\\;bi&|gN\u0003\u0002\f\u0019\u0005)Q\u000e\u001c7jE*\u0011QBD\u0001\u0006gB\f'o\u001b\u0006\u0003\u001fA\ta!\u00199bG\",'\"A\t\u0002\u0007=\u0014x\r\u0005\u0002\u0014\u00035\taAA\tGC2\u001cX\rU8tSRLg/\u001a*bi\u0016\u001c2!\u0001\f\u001d!\t9\"$D\u0001\u0019\u0015\u0005I\u0012!B:dC2\f\u0017BA\u000e\u0019\u0005\u0019\te.\u001f*fMB\u00111#H\u0005\u0003=\u0019\u0011!EQ5oCJL8\t\\1tg&4\u0017nY1uS>tW*\u001a;sS\u000e\u001cu.\u001c9vi\u0016\u0014\u0018A\u0002\u001fj]&$hh\u0001\u0001\u0015\u0003I\tQ!\u00199qYf$\"\u0001J\u0014\u0011\u0005])\u0013B\u0001\u0014\u0019\u0005\u0019!u.\u001e2mK\")\u0001f\u0001a\u0001S\u0005\t1\r\u0005\u0002\u0014U%\u00111F\u0002\u0002\u0016\u0005&t\u0017M]=D_:4Wo]5p]6\u000bGO]5y\u000319(/\u001b;f%\u0016\u0004H.Y2f)\u0005q\u0003CA\u00185\u001b\u0005\u0001$BA\u00193\u0003\u0011a\u0017M\\4\u000b\u0003M\nAA[1wC&\u0011Q\u0007\r\u0002\u0007\u001f\nTWm\u0019;"
+)
+public final class FalsePositiveRate {
+   public static double apply(final BinaryConfusionMatrix c) {
+      return FalsePositiveRate$.MODULE$.apply(c);
+   }
+}

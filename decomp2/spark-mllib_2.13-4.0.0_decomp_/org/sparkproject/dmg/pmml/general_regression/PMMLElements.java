@@ -1,0 +1,54 @@
+package org.sparkproject.dmg.pmml.general_regression;
+
+import java.lang.reflect.Field;
+import org.sparkproject.jpmml.model.ReflectionUtil;
+
+public interface PMMLElements {
+   Field BASECUMHAZARDTABLES_EXTENSIONS = ReflectionUtil.getField(BaseCumHazardTables.class, "extensions");
+   Field BASECUMHAZARDTABLES_BASELINESTRATA = ReflectionUtil.getField(BaseCumHazardTables.class, "baselineStrata");
+   Field BASECUMHAZARDTABLES_BASELINECELLS = ReflectionUtil.getField(BaseCumHazardTables.class, "baselineCells");
+   Field BASELINECELL_EXTENSIONS = ReflectionUtil.getField(BaselineCell.class, "extensions");
+   Field BASELINESTRATUM_EXTENSIONS = ReflectionUtil.getField(BaselineStratum.class, "extensions");
+   Field BASELINESTRATUM_BASELINECELLS = ReflectionUtil.getField(BaselineStratum.class, "baselineCells");
+   Field CATEGORIES_EXTENSIONS = ReflectionUtil.getField(Categories.class, "extensions");
+   Field CATEGORIES_CATEGORIES = ReflectionUtil.getField(Categories.class, "categories");
+   Field CATEGORY_EXTENSIONS = ReflectionUtil.getField(Category.class, "extensions");
+   Field COVARIATELIST_EXTENSIONS = ReflectionUtil.getField(CovariateList.class, "extensions");
+   Field COVARIATELIST_PREDICTORS = ReflectionUtil.getField(CovariateList.class, "predictors");
+   Field EVENTVALUES_EXTENSIONS = ReflectionUtil.getField(EventValues.class, "extensions");
+   Field EVENTVALUES_VALUES = ReflectionUtil.getField(EventValues.class, "values");
+   Field EVENTVALUES_INTERVALS = ReflectionUtil.getField(EventValues.class, "intervals");
+   Field FACTORLIST_EXTENSIONS = ReflectionUtil.getField(FactorList.class, "extensions");
+   Field FACTORLIST_PREDICTORS = ReflectionUtil.getField(FactorList.class, "predictors");
+   Field GENERALREGRESSIONMODEL_EXTENSIONS = ReflectionUtil.getField(GeneralRegressionModel.class, "extensions");
+   Field GENERALREGRESSIONMODEL_MININGSCHEMA = ReflectionUtil.getField(GeneralRegressionModel.class, "miningSchema");
+   Field GENERALREGRESSIONMODEL_OUTPUT = ReflectionUtil.getField(GeneralRegressionModel.class, "output");
+   Field GENERALREGRESSIONMODEL_MODELSTATS = ReflectionUtil.getField(GeneralRegressionModel.class, "modelStats");
+   Field GENERALREGRESSIONMODEL_MODELEXPLANATION = ReflectionUtil.getField(GeneralRegressionModel.class, "modelExplanation");
+   Field GENERALREGRESSIONMODEL_TARGETS = ReflectionUtil.getField(GeneralRegressionModel.class, "targets");
+   Field GENERALREGRESSIONMODEL_LOCALTRANSFORMATIONS = ReflectionUtil.getField(GeneralRegressionModel.class, "localTransformations");
+   Field GENERALREGRESSIONMODEL_PARAMETERLIST = ReflectionUtil.getField(GeneralRegressionModel.class, "parameterList");
+   Field GENERALREGRESSIONMODEL_FACTORLIST = ReflectionUtil.getField(GeneralRegressionModel.class, "factorList");
+   Field GENERALREGRESSIONMODEL_COVARIATELIST = ReflectionUtil.getField(GeneralRegressionModel.class, "covariateList");
+   Field GENERALREGRESSIONMODEL_PPMATRIX = ReflectionUtil.getField(GeneralRegressionModel.class, "ppMatrix");
+   Field GENERALREGRESSIONMODEL_PCOVMATRIX = ReflectionUtil.getField(GeneralRegressionModel.class, "pCovMatrix");
+   Field GENERALREGRESSIONMODEL_PARAMMATRIX = ReflectionUtil.getField(GeneralRegressionModel.class, "paramMatrix");
+   Field GENERALREGRESSIONMODEL_EVENTVALUES = ReflectionUtil.getField(GeneralRegressionModel.class, "eventValues");
+   Field GENERALREGRESSIONMODEL_BASECUMHAZARDTABLES = ReflectionUtil.getField(GeneralRegressionModel.class, "baseCumHazardTables");
+   Field GENERALREGRESSIONMODEL_MODELVERIFICATION = ReflectionUtil.getField(GeneralRegressionModel.class, "modelVerification");
+   Field PARAMETER_EXTENSIONS = ReflectionUtil.getField(Parameter.class, "extensions");
+   Field PARAMETERLIST_EXTENSIONS = ReflectionUtil.getField(ParameterList.class, "extensions");
+   Field PARAMETERLIST_PARAMETERS = ReflectionUtil.getField(ParameterList.class, "parameters");
+   Field PARAMMATRIX_EXTENSIONS = ReflectionUtil.getField(ParamMatrix.class, "extensions");
+   Field PARAMMATRIX_PCELLS = ReflectionUtil.getField(ParamMatrix.class, "pCells");
+   Field PCELL_EXTENSIONS = ReflectionUtil.getField(PCell.class, "extensions");
+   Field PCOVCELL_EXTENSIONS = ReflectionUtil.getField(PCovCell.class, "extensions");
+   Field PCOVMATRIX_EXTENSIONS = ReflectionUtil.getField(PCovMatrix.class, "extensions");
+   Field PCOVMATRIX_PCOVCELLS = ReflectionUtil.getField(PCovMatrix.class, "pCovCells");
+   Field PPCELL_EXTENSIONS = ReflectionUtil.getField(PPCell.class, "extensions");
+   Field PPMATRIX_EXTENSIONS = ReflectionUtil.getField(PPMatrix.class, "extensions");
+   Field PPMATRIX_PPCELLS = ReflectionUtil.getField(PPMatrix.class, "ppCells");
+   Field PREDICTOR_EXTENSIONS = ReflectionUtil.getField(Predictor.class, "extensions");
+   Field PREDICTOR_CATEGORIES = ReflectionUtil.getField(Predictor.class, "categories");
+   Field PREDICTOR_MATRIX = ReflectionUtil.getField(Predictor.class, "matrix");
+}

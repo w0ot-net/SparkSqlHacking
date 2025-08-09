@@ -1,0 +1,45 @@
+package spire.std;
+
+import cats.kernel.CommutativeGroup;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0005ec\u0001C\n\u0015!\u0003\r\nA\u0006\r\t\u000bY\u0004a1A<\t\u000be\u0004a1\u0001>\t\u000bq\u0004a1A?\t\r}\u0004a1AA\u0001\u0011\u001d\t)\u0001\u0001D\u0002\u0003\u000fAq!a\u0003\u0001\r\u0007\ti\u0001C\u0004\u0002\u0012\u00011\u0019!a\u0005\t\u000f\u0005]\u0001Ab\u0001\u0002\u001a!9\u0011Q\u0004\u0001\u0007\u0004\u0005}\u0001bBA\u0012\u0001\u0019\r\u0011Q\u0005\u0005\b\u0003S\u0001a1AA\u0016\u0011\u001d\ty\u0003\u0001D\u0002\u0003cAq!!\u000e\u0001\r\u0007\t9\u0004C\u0004\u0002<\u00011\u0019!!\u0010\t\u000f\u0005\u0005\u0003Ab\u0001\u0002D!9\u0011q\t\u0001\u0007\u0004\u0005%\u0003bBA'\u0001\u0019\r\u0011q\n\u0005\b\u0003'\u0002a1AA+\u0005A\t%m\u0012:pkB\u0004&o\u001c3vGR\f\u0004H\u0003\u0002\u0016-\u0005\u00191\u000f\u001e3\u000b\u0003]\tQa\u001d9je\u0016,2#\u0007\u001cA\u0007\u001aKEj\u0014*V1ns\u0016\rZ4k[B\u001cB\u0001\u0001\u000e!eB\u00111DH\u0007\u00029)\tQ$A\u0003tG\u0006d\u0017-\u0003\u0002 9\t1\u0011I\\=SK\u001a\u00042!\t\u00182\u001d\t\u00113F\u0004\u0002$S9\u0011A\u0005K\u0007\u0002K)\u0011aeJ\u0001\u0007yI|w\u000e\u001e \u0004\u0001%\tq#\u0003\u0002+-\u00059\u0011\r\\4fEJ\f\u0017B\u0001\u0017.\u0003\u001d\u0001\u0018mY6bO\u0016T!A\u000b\f\n\u0005=\u0002$aB!c\u000fJ|W\u000f\u001d\u0006\u0003Y5\u0002Bc\u0007\u001a5\u007f\t+\u0005j\u0013(R)^SV\fY2gS2|\u0017BA\u001a\u001d\u0005\u001d!V\u000f\u001d7fca\u0002\"!\u000e\u001c\r\u0001\u0011)q\u0007\u0001b\u0001q\t\t\u0011)\u0005\u0002:yA\u00111DO\u0005\u0003wq\u0011qAT8uQ&tw\r\u0005\u0002\u001c{%\u0011a\b\b\u0002\u0004\u0003:L\bCA\u001bA\t\u0015\t\u0005A1\u00019\u0005\u0005\u0011\u0005CA\u001bD\t\u0015!\u0005A1\u00019\u0005\u0005\u0019\u0005CA\u001bG\t\u00159\u0005A1\u00019\u0005\u0005!\u0005CA\u001bJ\t\u0015Q\u0005A1\u00019\u0005\u0005)\u0005CA\u001bM\t\u0015i\u0005A1\u00019\u0005\u00051\u0005CA\u001bP\t\u0015\u0001\u0006A1\u00019\u0005\u00059\u0005CA\u001bS\t\u0015\u0019\u0006A1\u00019\u0005\u0005A\u0005CA\u001bV\t\u00151\u0006A1\u00019\u0005\u0005I\u0005CA\u001bY\t\u0015I\u0006A1\u00019\u0005\u0005Q\u0005CA\u001b\\\t\u0015a\u0006A1\u00019\u0005\u0005Y\u0005CA\u001b_\t\u0015y\u0006A1\u00019\u0005\u0005a\u0005CA\u001bb\t\u0015\u0011\u0007A1\u00019\u0005\u0005i\u0005CA\u001be\t\u0015)\u0007A1\u00019\u0005\u0005q\u0005CA\u001bh\t\u0015A\u0007A1\u00019\u0005\u0005y\u0005CA\u001bk\t\u0015Y\u0007A1\u00019\u0005\u0005\u0001\u0006CA\u001bn\t\u0015q\u0007A1\u00019\u0005\u0005\t\u0006CA\u001bq\t\u0015\t\bA1\u00019\u0005\u0005\u0011\u0006\u0003F:ui}\u0012U\tS&O#R;&,\u00181dM&dw.D\u0001\u0015\u0013\t)HC\u0001\bHe>,\b\u000f\u0015:pIV\u001cG/\r\u001d\u0002\u0015M$(/^2ukJ,\u0017'F\u0001y!\r\tc\u0006N\u0001\u000bgR\u0014Xo\u0019;ve\u0016\u0014T#A>\u0011\u0007\u0005rs(\u0001\u0006tiJ,8\r^;sKN*\u0012A \t\u0004C9\u0012\u0015AC:ueV\u001cG/\u001e:fiU\u0011\u00111\u0001\t\u0004C9*\u0015AC:ueV\u001cG/\u001e:fkU\u0011\u0011\u0011\u0002\t\u0004C9B\u0015AC:ueV\u001cG/\u001e:fmU\u0011\u0011q\u0002\t\u0004C9Z\u0015AC:ueV\u001cG/\u001e:foU\u0011\u0011Q\u0003\t\u0004C9r\u0015AC:ueV\u001cG/\u001e:fqU\u0011\u00111\u0004\t\u0004C9\n\u0016AC:ueV\u001cG/\u001e:fsU\u0011\u0011\u0011\u0005\t\u0004C9\"\u0016aC:ueV\u001cG/\u001e:fcA*\"!a\n\u0011\u0007\u0005rs+A\u0006tiJ,8\r^;sKF\nTCAA\u0017!\r\tcFW\u0001\fgR\u0014Xo\u0019;ve\u0016\f$'\u0006\u0002\u00024A\u0019\u0011EL/\u0002\u0017M$(/^2ukJ,\u0017gM\u000b\u0003\u0003s\u00012!\t\u0018a\u0003-\u0019HO];diV\u0014X-\r\u001b\u0016\u0005\u0005}\u0002cA\u0011/G\u0006Y1\u000f\u001e:vGR,(/Z\u00196+\t\t)\u0005E\u0002\"]\u0019\f1b\u001d;sk\u000e$XO]32mU\u0011\u00111\n\t\u0004C9J\u0017aC:ueV\u001cG/\u001e:fc]*\"!!\u0015\u0011\u0007\u0005rC.A\u0006tiJ,8\r^;sKFBTCAA,!\r\tcf\u001c"
+)
+public interface AbGroupProduct18 extends CommutativeGroup, GroupProduct18 {
+   CommutativeGroup structure1();
+
+   CommutativeGroup structure2();
+
+   CommutativeGroup structure3();
+
+   CommutativeGroup structure4();
+
+   CommutativeGroup structure5();
+
+   CommutativeGroup structure6();
+
+   CommutativeGroup structure7();
+
+   CommutativeGroup structure8();
+
+   CommutativeGroup structure9();
+
+   CommutativeGroup structure10();
+
+   CommutativeGroup structure11();
+
+   CommutativeGroup structure12();
+
+   CommutativeGroup structure13();
+
+   CommutativeGroup structure14();
+
+   CommutativeGroup structure15();
+
+   CommutativeGroup structure16();
+
+   CommutativeGroup structure17();
+
+   CommutativeGroup structure18();
+}

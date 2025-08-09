@@ -1,0 +1,258 @@
+package org.apache.commons.compress.harmony.pack200;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
+import java.util.jar.JarOutputStream;
+import java.util.jar.Manifest;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+public class PackingUtils {
+   private static PackingLogger packingLogger = new PackingLogger("org.harmony.apache.pack200", (String)null);
+   private static FileHandler fileHandler;
+
+   public static void config(PackingOptions options) throws IOException {
+      String logFileName = options != null ? options.getLogFile() : null;
+      if (fileHandler != null) {
+         fileHandler.close();
+      }
+
+      if (logFileName != null) {
+         fileHandler = new FileHandler(logFileName, false);
+         fileHandler.setFormatter(new SimpleFormatter());
+         packingLogger.addHandler(fileHandler);
+         packingLogger.setUseParentHandlers(false);
+      }
+
+      if (options != null) {
+         packingLogger.setVerbose(options.isVerbose());
+      }
+
+   }
+
+   public static void copyThroughJar(JarFile jarFile, OutputStream outputStream) throws IOException {
+      JarOutputStream jarOutputStream = new JarOutputStream(outputStream);
+
+      try {
+         jarOutputStream.setComment("PACK200");
+         byte[] bytes = new byte[16384];
+         Enumeration<JarEntry> entries = jarFile.entries();
+
+         while(entries.hasMoreElements()) {
+            JarEntry jarEntry = (JarEntry)entries.nextElement();
+            jarOutputStream.putNextEntry(jarEntry);
+            InputStream inputStream = jarFile.getInputStream(jarEntry);
+
+            try {
+               int bytesRead;
+               while((bytesRead = inputStream.read(bytes)) != -1) {
+                  jarOutputStream.write(bytes, 0, bytesRead);
+               }
+
+               jarOutputStream.closeEntry();
+               log("Packed " + jarEntry.getName());
+            } catch (Throwable var11) {
+               if (inputStream != null) {
+                  try {
+                     inputStream.close();
+                  } catch (Throwable var10) {
+                     var11.addSuppressed(var10);
+                  }
+               }
+
+               throw var11;
+            }
+
+            if (inputStream != null) {
+               inputStream.close();
+            }
+         }
+
+         jarFile.close();
+      } catch (Throwable var12) {
+         try {
+            jarOutputStream.close();
+         } catch (Throwable var9) {
+            var12.addSuppressed(var9);
+         }
+
+         throw var12;
+      }
+
+      jarOutputStream.close();
+   }
+
+   public static void copyThroughJar(JarInputStream jarInputStream, OutputStream outputStream) throws IOException {
+      Manifest manifest = jarInputStream.getManifest();
+      JarOutputStream jarOutputStream = new JarOutputStream(outputStream, manifest);
+
+      try {
+         jarOutputStream.setComment("PACK200");
+         log("Packed META-INF/MANIFEST.MF");
+         byte[] bytes = new byte[16384];
+
+         JarEntry jarEntry;
+         while((jarEntry = jarInputStream.getNextJarEntry()) != null) {
+            jarOutputStream.putNextEntry(jarEntry);
+
+            int bytesRead;
+            while((bytesRead = jarInputStream.read(bytes)) != -1) {
+               jarOutputStream.write(bytes, 0, bytesRead);
+            }
+
+            log("Packed " + jarEntry.getName());
+         }
+
+         jarInputStream.close();
+      } catch (Throwable var8) {
+         try {
+            jarOutputStream.close();
+         } catch (Throwable var7) {
+            var8.addSuppressed(var7);
+         }
+
+         throw var8;
+      }
+
+      jarOutputStream.close();
+   }
+
+   public static List getPackingFileListFromJar(JarFile jarFile, boolean keepFileOrder) throws IOException {
+      List<Archive.PackingFile> packingFileList = new ArrayList();
+      Enumeration<JarEntry> jarEntries = jarFile.entries();
+
+      while(jarEntries.hasMoreElements()) {
+         JarEntry jarEntry = (JarEntry)jarEntries.nextElement();
+         InputStream inputStream = jarFile.getInputStream(jarEntry);
+
+         try {
+            byte[] bytes = readJarEntry(jarEntry, new BufferedInputStream(inputStream));
+            packingFileList.add(new Archive.PackingFile(bytes, jarEntry));
+         } catch (Throwable var9) {
+            if (inputStream != null) {
+               try {
+                  inputStream.close();
+               } catch (Throwable var8) {
+                  var9.addSuppressed(var8);
+               }
+            }
+
+            throw var9;
+         }
+
+         if (inputStream != null) {
+            inputStream.close();
+         }
+      }
+
+      if (!keepFileOrder) {
+         reorderPackingFiles(packingFileList);
+      }
+
+      return packingFileList;
+   }
+
+   public static List getPackingFileListFromJar(JarInputStream jarInputStream, boolean keepFileOrder) throws IOException {
+      List<Archive.PackingFile> packingFileList = new ArrayList();
+      Manifest manifest = jarInputStream.getManifest();
+      if (manifest != null) {
+         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+         manifest.write(baos);
+         packingFileList.add(new Archive.PackingFile("META-INF/MANIFEST.MF", baos.toByteArray(), 0L));
+      }
+
+      JarEntry jarEntry;
+      while((jarEntry = jarInputStream.getNextJarEntry()) != null) {
+         byte[] bytes = readJarEntry(jarEntry, new BufferedInputStream(jarInputStream));
+         packingFileList.add(new Archive.PackingFile(bytes, jarEntry));
+      }
+
+      if (!keepFileOrder) {
+         reorderPackingFiles(packingFileList);
+      }
+
+      return packingFileList;
+   }
+
+   public static void log(String message) {
+      packingLogger.log(Level.INFO, message);
+   }
+
+   private static byte[] readJarEntry(JarEntry jarEntry, InputStream inputStream) throws IOException {
+      long size = jarEntry.getSize();
+      if (size > 2147483647L) {
+         throw new IllegalArgumentException("Large Class!");
+      } else {
+         if (size < 0L) {
+            size = 0L;
+         }
+
+         byte[] bytes = new byte[(int)size];
+         if ((long)inputStream.read(bytes) != size) {
+            throw new IllegalArgumentException("Error reading from stream");
+         } else {
+            return bytes;
+         }
+      }
+   }
+
+   private static void reorderPackingFiles(List packingFileList) {
+      Iterator<Archive.PackingFile> iterator = packingFileList.iterator();
+
+      while(iterator.hasNext()) {
+         Archive.PackingFile packingFile = (Archive.PackingFile)iterator.next();
+         if (packingFile.isDirectory()) {
+            iterator.remove();
+         }
+      }
+
+      packingFileList.sort((arg0, arg1) -> {
+         String fileName0 = arg0.getName();
+         String fileName1 = arg1.getName();
+         if (fileName0.equals(fileName1)) {
+            return 0;
+         } else if ("META-INF/MANIFEST.MF".equals(fileName0)) {
+            return -1;
+         } else {
+            return "META-INF/MANIFEST.MF".equals(fileName1) ? 1 : fileName0.compareTo(fileName1);
+         }
+      });
+   }
+
+   static {
+      LogManager.getLogManager().addLogger(packingLogger);
+   }
+
+   private static final class PackingLogger extends Logger {
+      private boolean verbose;
+
+      protected PackingLogger(String name, String resourceBundleName) {
+         super(name, resourceBundleName);
+      }
+
+      public void log(LogRecord logRecord) {
+         if (this.verbose) {
+            super.log(logRecord);
+         }
+
+      }
+
+      private void setVerbose(boolean isVerbose) {
+         this.verbose = isVerbose;
+      }
+   }
+}

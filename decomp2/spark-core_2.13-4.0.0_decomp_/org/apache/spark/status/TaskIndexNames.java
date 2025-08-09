@@ -1,0 +1,208 @@
+package org.apache.spark.status;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\rMsAB4i\u0011\u0003Q\u0007O\u0002\u0004sQ\"\u0005!n\u001d\u0005\u0006u\u0006!\t\u0001 \u0005\b{\u0006\u0011\r\u0011\"\u0002\u007f\u0011\u001d\t)!\u0001Q\u0001\u000e}D\u0011\"a\u0002\u0002\u0005\u0004%)!!\u0003\t\u0011\u0005E\u0011\u0001)A\u0007\u0003\u0017A\u0011\"a\u0005\u0002\u0005\u0004%)!!\u0006\t\u0011\u0005u\u0011\u0001)A\u0007\u0003/A\u0011\"a\b\u0002\u0005\u0004%)!!\t\t\u0011\u0005%\u0012\u0001)A\u0007\u0003GA\u0011\"a\u000b\u0002\u0005\u0004%)!!\f\t\u0011\u0005U\u0012\u0001)A\u0007\u0003_A\u0011\"a\u000e\u0002\u0005\u0004%)!!\u000f\t\u0011\u0005\u0005\u0013\u0001)A\u0007\u0003wA\u0011\"a\u0011\u0002\u0005\u0004%)!!\u0012\t\u0011\u00055\u0013\u0001)A\u0007\u0003\u000fB\u0011\"a\u0014\u0002\u0005\u0004%)!!\u0015\t\u0011\u0005e\u0013\u0001)A\u0007\u0003'B\u0011\"a\u0017\u0002\u0005\u0004%)!!\u0018\t\u0011\u0005\u0015\u0014\u0001)A\u0007\u0003?B\u0011\"a\u001a\u0002\u0005\u0004%)!!\u001b\t\u0011\u0005E\u0014\u0001)A\u0007\u0003WB\u0011\"a\u001d\u0002\u0005\u0004%)!!\u001e\t\u0011\u0005u\u0014\u0001)A\u0007\u0003oB\u0011\"a \u0002\u0005\u0004%)!!!\t\u0011\u0005%\u0015\u0001)A\u0007\u0003\u0007C\u0011\"a#\u0002\u0005\u0004%)!!$\t\u0011\u0005U\u0015\u0001)A\u0007\u0003\u001fC\u0011\"a&\u0002\u0005\u0004%)!!'\t\u0011\u0005\u0005\u0016\u0001)A\u0007\u00037C\u0011\"a)\u0002\u0005\u0004%)!!*\t\u0011\u00055\u0016\u0001)A\u0007\u0003OC\u0011\"a,\u0002\u0005\u0004%)!!-\t\u0011\u0005e\u0016\u0001)A\u0007\u0003gC\u0011\"a/\u0002\u0005\u0004%)!!0\t\u0011\u0005\u0015\u0017\u0001)A\u0007\u0003\u007fC\u0011\"a2\u0002\u0005\u0004%)!!3\t\u0011\u0005E\u0017\u0001)A\u0007\u0003\u0017D\u0011\"a5\u0002\u0005\u0004%)!!6\t\u0011\u0005u\u0017\u0001)A\u0007\u0003/D\u0011\"a8\u0002\u0005\u0004%)!!9\t\u0011\u0005%\u0018\u0001)A\u0007\u0003GD\u0011\"a;\u0002\u0005\u0004%)!!<\t\u0011\u0005U\u0018\u0001)A\u0007\u0003_D\u0011\"a>\u0002\u0005\u0004%)!!?\t\u0011\t\u0005\u0011\u0001)A\u0007\u0003wD\u0011Ba\u0001\u0002\u0005\u0004%)A!\u0002\t\u0011\t5\u0011\u0001)A\u0007\u0005\u000fA\u0011Ba\u0004\u0002\u0005\u0004%)A!\u0005\t\u0011\te\u0011\u0001)A\u0007\u0005'A\u0011Ba\u0007\u0002\u0005\u0004%)A!\b\t\u0011\t\u0015\u0012\u0001)A\u0007\u0005?A\u0011Ba\n\u0002\u0005\u0004%)A!\u000b\t\u0011\tE\u0012\u0001)A\u0007\u0005WA\u0011Ba\r\u0002\u0005\u0004%)A!\u000e\t\u0011\tu\u0012\u0001)A\u0007\u0005oA\u0011Ba\u0010\u0002\u0005\u0004%)A!\u0011\t\u0011\t%\u0013\u0001)A\u0007\u0005\u0007B\u0011Ba\u0013\u0002\u0005\u0004%)A!\u0014\t\u0011\tU\u0013\u0001)A\u0007\u0005\u001fB\u0011Ba\u0016\u0002\u0005\u0004%)A!\u0017\t\u0011\t\u0005\u0014\u0001)A\u0007\u00057B\u0011Ba\u0019\u0002\u0005\u0004%)A!\u001a\t\u0011\t5\u0014\u0001)A\u0007\u0005OB\u0011Ba\u001c\u0002\u0005\u0004%)A!\u001d\t\u0011\te\u0014\u0001)A\u0007\u0005gB\u0011Ba\u001f\u0002\u0005\u0004%)A! \t\u0011\t\u0015\u0015\u0001)A\u0007\u0005\u007fB\u0011Ba\"\u0002\u0005\u0004%)A!#\t\u0011\tE\u0015\u0001)A\u0007\u0005\u0017C\u0011Ba%\u0002\u0005\u0004%)A!&\t\u0011\tu\u0015\u0001)A\u0007\u0005/C\u0011Ba(\u0002\u0005\u0004%)A!)\t\u0011\t%\u0016\u0001)A\u0007\u0005GC\u0011Ba+\u0002\u0005\u0004%)A!,\t\u0011\tU\u0016\u0001)A\u0007\u0005_C\u0011Ba.\u0002\u0005\u0004%)A!/\t\u0011\t\u0005\u0017\u0001)A\u0007\u0005wC\u0011Ba1\u0002\u0005\u0004%)A!2\t\u0011\t5\u0017\u0001)A\u0007\u0005\u000fD\u0011Ba4\u0002\u0005\u0004%)A!5\t\u0011\te\u0017\u0001)A\u0007\u0005'D\u0011Ba7\u0002\u0005\u0004%)A!8\t\u0011\t\u0015\u0018\u0001)A\u0007\u0005?D\u0011Ba:\u0002\u0005\u0004%)A!;\t\u0011\tE\u0018\u0001)A\u0007\u0005WD\u0011Ba=\u0002\u0005\u0004%)A!>\t\u0011\tu\u0018\u0001)A\u0007\u0005oD\u0011Ba@\u0002\u0005\u0004%)a!\u0001\t\u0011\r%\u0011\u0001)A\u0007\u0007\u0007A\u0011ba\u0003\u0002\u0005\u0004%)a!\u0004\t\u0011\rU\u0011\u0001)A\u0007\u0007\u001fA\u0011ba\u0006\u0002\u0005\u0004%)a!\u0007\t\u0011\r\u0005\u0012\u0001)A\u0007\u00077A\u0011ba\t\u0002\u0005\u0004%)a!\n\t\u0011\r5\u0012\u0001)A\u0007\u0007OA\u0011ba\f\u0002\u0005\u0004%)a!\r\t\u0011\re\u0012\u0001)A\u0007\u0007gA\u0011ba\u000f\u0002\u0005\u0004%)a!\u0010\t\u0011\r\u0015\u0013\u0001)A\u0007\u0007\u007fA\u0011ba\u0012\u0002\u0005\u0004%)a!\u0013\t\u0011\rE\u0013\u0001)A\u0007\u0007\u0017\na\u0002V1tW&sG-\u001a=OC6,7O\u0003\u0002jU\u000611\u000f^1ukNT!a\u001b7\u0002\u000bM\u0004\u0018M]6\u000b\u00055t\u0017AB1qC\u000eDWMC\u0001p\u0003\ry'o\u001a\t\u0003c\u0006i\u0011\u0001\u001b\u0002\u000f)\u0006\u001c8.\u00138eKbt\u0015-\\3t'\t\tA\u000f\u0005\u0002vq6\taOC\u0001x\u0003\u0015\u00198-\u00197b\u0013\tIhO\u0001\u0004B]f\u0014VMZ\u0001\u0007y%t\u0017\u000e\u001e \u0004\u0001Q\t\u0001/\u0001\u0007B\u0007\u000e+V*\u0016'B)>\u00136+F\u0001\u0000\u001f\t\t\t!\t\u0002\u0002\u0004\u0005\u0019\u0011mY2\u0002\u001b\u0005\u001b5)V'V\u0019\u0006#vJU*!\u0003\u001d\tE\u000bV#N!R+\"!a\u0003\u0010\u0005\u00055\u0011EAA\b\u0003\r\tG\u000f^\u0001\t\u0003R#V)\u0014)UA\u0005qA)R*F%~\u001b\u0005+V0U\u00136+UCAA\f\u001f\t\tI\"\t\u0002\u0002\u001c\u0005\u0019Am\u0019;\u0002\u001f\u0011+5+\u0012*`\u0007B+v\fV%N\u000b\u0002\n!\u0002R#T\u000bJ{F+S'F+\t\t\u0019c\u0004\u0002\u0002&\u0005\u0012\u0011qE\u0001\u0004I\u0016\u001c\u0018a\u0003#F'\u0016\u0013v\fV%N\u000b\u0002\n!\u0002R%T\u0017~\u001b\u0006+\u0013'M+\t\tyc\u0004\u0002\u00022\u0005\u0012\u00111G\u0001\u0004I\n\u001c\u0018a\u0003#J'.{6\u000bU%M\u0019\u0002\n\u0001\u0002R+S\u0003RKuJT\u000b\u0003\u0003wy!!!\u0010\"\u0005\u0005}\u0012a\u00013ve\u0006IA)\u0016*B)&{e\nI\u0001\u0006\u000bJ\u0013vJU\u000b\u0003\u0003\u000fz!!!\u0013\"\u0005\u0005-\u0013aA3se\u00061QI\u0015*P%\u0002\n\u0001\"\u0012-F\u0007V#vJU\u000b\u0003\u0003'z!!!\u0016\"\u0005\u0005]\u0013aA3yK\u0006IQ\tW#D+R{%\u000bI\u0001\u0005\u0011>\u001bF+\u0006\u0002\u0002`=\u0011\u0011\u0011M\u0011\u0003\u0003G\n1\u0001[:u\u0003\u0015Auj\u0015+!\u00035)\u0005,R\"`\u0007B+v\fV%N\u000bV\u0011\u00111N\b\u0003\u0003[\n#!a\u001c\u0002\u0007\u0015\u001cG/\u0001\bF1\u0016\u001bul\u0011)V?RKU*\u0012\u0011\u0002\u001b\u0015CViQ0S+:{F+S'F+\t\t9h\u0004\u0002\u0002z\u0005\u0012\u00111P\u0001\u0004KJ$\u0018AD#Y\u000b\u000e{&+\u0016(`)&kU\tI\u0001\b\u000f\u000e{F+S'F+\t\t\u0019i\u0004\u0002\u0002\u0006\u0006\u0012\u0011qQ\u0001\u0003O\u000e\f\u0001bR\"`)&kU\tI\u0001\u0014\u000f\u0016#F+\u0013(H?J+5+\u0016'U?RKU*R\u000b\u0003\u0003\u001f{!!!%\"\u0005\u0005M\u0015aA4si\u0006!r)\u0012+U\u0013:;uLU#T+2#v\fV%N\u000b\u0002\nQ\"\u0013(Q+R{&+R\"P%\u0012\u001bVCAAN\u001f\t\ti*\t\u0002\u0002 \u0006\u0011\u0011N]\u0001\u000f\u0013:\u0003V\u000bV0S\u000b\u000e{%\u000bR*!\u0003)Ie\nU+U?NK%,R\u000b\u0003\u0003O{!!!+\"\u0005\u0005-\u0016AA5t\u0003-Ie\nU+U?NK%,\u0012\u0011\u0002\u00171\u000bUKT\"I?RKU*R\u000b\u0003\u0003g{!!!.\"\u0005\u0005]\u0016A\u00017u\u00031a\u0015)\u0016(D\u0011~#\u0016*T#!\u0003!aujQ!M\u0013RKVCAA`\u001f\t\t\t-\t\u0002\u0002D\u0006\u0019An\\2\u0002\u00131{5)\u0011'J)f\u0003\u0013!C'F\u001b~\u001b\u0006+\u0013'M+\t\tYm\u0004\u0002\u0002N\u0006\u0012\u0011qZ\u0001\u0004[\n\u001c\u0018AC'F\u001b~\u001b\u0006+\u0013'MA\u0005qq*\u0016+Q+R{&+R\"P%\u0012\u001bVCAAl\u001f\t\tI.\t\u0002\u0002\\\u0006\u0011qN]\u0001\u0010\u001fV#\u0006+\u0016+`%\u0016\u001buJ\u0015#TA\u0005Yq*\u0016+Q+R{6+\u0013.F+\t\t\u0019o\u0004\u0002\u0002f\u0006\u0012\u0011q]\u0001\u0003_N\fAbT+U!V#vlU%[\u000b\u0002\n\u0001\u0002U#B\u0017~kU)T\u000b\u0003\u0003_|!!!=\"\u0005\u0005M\u0018a\u00019f[\u0006I\u0001+R!L?6+U\nI\u0001\f%\u0016\u001bV\u000b\u0014+`'&SV)\u0006\u0002\u0002|>\u0011\u0011Q`\u0011\u0003\u0003\u007f\f!A]:\u0002\u0019I+5+\u0016'U?NK%,\u0012\u0011\u0002\u001fM\u001b\u0005*\u0012#V\u0019\u0016\u0013v\fR#M\u0003f+\"Aa\u0002\u0010\u0005\t%\u0011E\u0001B\u0006\u0003\r!G._\u0001\u0011'\u000eCU\tR+M\u000bJ{F)\u0012'B3\u0002\n\u0001bU#S?RKU*R\u000b\u0003\u0005'y!A!\u0006\"\u0005\t]\u0011a\u0001:ti\u0006I1+\u0012*`)&kU\tI\u0001\u0015'\"+fI\u0012'F?2{5)\u0011'`\u00052{5iS*\u0016\u0005\t}qB\u0001B\u0011C\t\u0011\u0019#\u0001\u0003tY\nd\u0017!F*I+\u001a3E*R0M\u001f\u000e\u000bEj\u0018\"M\u001f\u000e[5\u000bI\u0001\u0015'\"+fI\u0012'F?J+\u0015\tR0S\u000b\u000e{%\u000bR*\u0016\u0005\t-rB\u0001B\u0017C\t\u0011y#A\u0002teJ\fQc\u0015%V\r\u001acUi\u0018*F\u0003\u0012{&+R\"P%\u0012\u001b\u0006%\u0001\u000fT\u0011V3e\tT#`%\u0016\u000bEi\u0018$F)\u000eCulV!J)~#\u0016*T#\u0016\u0005\t]rB\u0001B\u001dC\t\u0011Y$A\u0002teR\fQd\u0015%V\r\u001acUi\u0018*F\u0003\u0012{f)\u0012+D\u0011~;\u0016)\u0013+`)&kU\tI\u0001\u0016'\"+fI\u0012'F?J+Uj\u0014+F?\ncujQ&T+\t\u0011\u0019e\u0004\u0002\u0003F\u0005\u0012!qI\u0001\u0005gJ\u0014G.\u0001\fT\u0011V3e\tT#`%\u0016ku\nV#`\u00052{5iS*!\u0003Q\u0019\u0006*\u0016$G\u0019\u0016{&+R'P)\u0016{&+R!E'V\u0011!qJ\b\u0003\u0005#\n#Aa\u0015\u0002\tM\u0014(-_\u0001\u0016'\"+fI\u0012'F?J+Uj\u0014+F?J+\u0015\tR*!\u0003q\u0019\u0006*\u0016$G\u0019\u0016{&+R'P)\u0016{&+R!E'~#vj\u0018#J'.+\"Aa\u0017\u0010\u0005\tu\u0013E\u0001B0\u0003\u0011\u0019(O\u00193\u0002;MCUK\u0012$M\u000b~\u0013V)T(U\u000b~\u0013V)\u0011#T?R{u\fR%T\u0017\u0002\n1c\u0015%V\r\u001acUi\u0018+P)\u0006cuLU#B\tN+\"Aa\u001a\u0010\u0005\t%\u0014E\u0001B6\u0003\u0011\u0019HOY=\u0002)MCUK\u0012$M\u000b~#v\nV!M?J+\u0015\tR*!\u0003Q\u0019\u0006*\u0016$G\u0019\u0016{Fk\u0014+B\u0019~\u0013EjT\"L'V\u0011!1O\b\u0003\u0005k\n#Aa\u001e\u0002\tM$(\r\\\u0001\u0016'\"+fI\u0012'F?R{E+\u0011'`\u00052{5iS*!\u0003U\u0019\u0006*\u0016$G\u0019\u0016{vKU%U\u000b~\u0013ViQ(S\tN+\"Aa \u0010\u0005\t\u0005\u0015E\u0001BB\u0003\r\u0019xO]\u0001\u0017'\"+fI\u0012'F?^\u0013\u0016\nV#`%\u0016\u001buJ\u0015#TA\u0005\u00112\u000bS+G\r2+ul\u0016*J)\u0016{6+\u0013.F+\t\u0011Yi\u0004\u0002\u0003\u000e\u0006\u0012!qR\u0001\u0004g^\u001c\u0018aE*I+\u001a3E*R0X%&#ViX*J5\u0016\u0003\u0013AE*I+\u001a3E*R0X%&#Vi\u0018+J\u001b\u0016+\"Aa&\u0010\u0005\te\u0015E\u0001BN\u0003\r\u0019x\u000f^\u0001\u0014'\"+fI\u0012'F?^\u0013\u0016\nV#`)&kU\tI\u0001\u001d'\"+fI\u0012'F?J+Uj\u0014+F?J+\u0015kU0E+J\u000bE+S(O+\t\u0011\u0019k\u0004\u0002\u0003&\u0006\u0012!qU\u0001\u0005gJ\u0014H-A\u000fT\u0011V3e\tT#`%\u0016ku\nV#`%\u0016\u000b6k\u0018#V%\u0006#\u0016j\u0014(!\u0003!\u001a\u0006*\u0016$G\u0019\u0016{\u0006+V*I?\u000e{%KU+Q)~kUIU$F\t~\u0013EjT\"L?\u000eCUKT&T+\t\u0011yk\u0004\u0002\u00032\u0006\u0012!1W\u0001\u0007gB\u001cWNY2\u0002SMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u0007>\u0013&+\u0016)U?6+%kR#E?\ncujQ&`\u0007\"+fjS*!\u0003!\u001a\u0006*\u0016$G\u0019\u0016{\u0006+V*I?6+%kR#E?\u001a+Ek\u0011%`\r\u0006cEJQ!D\u0017~\u001bu*\u0016(U+\t\u0011Yl\u0004\u0002\u0003>\u0006\u0012!qX\u0001\u0007gBlgMZ2\u0002SMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u001b\u0016\u0013v)\u0012#`\r\u0016#6\tS0G\u00032c%)Q\"L?\u000e{UK\u0014+!\u0003\u0005\u001a\u0006*\u0016$G\u0019\u0016{\u0006+V*I?6+%kR#E?J+Uj\u0014+F?\ncujQ&T+\t\u00119m\u0004\u0002\u0003J\u0006\u0012!1Z\u0001\u0006gBl'OY\u0001#'\"+fI\u0012'F?B+6\u000bS0N\u000bJ;U\tR0S\u000b6{E+R0C\u0019>\u001b5j\u0015\u0011\u0002AMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u001b\u0016\u0013v)\u0012#`\u0019>\u001b\u0015\tT0C\u0019>\u001b5jU\u000b\u0003\u0005'|!A!6\"\u0005\t]\u0017!B:q[2\u0014\u0017!I*I+\u001a3E*R0Q+NCu,T#S\u000f\u0016#u\fT(D\u00032{&\tT(D\u0017N\u0003\u0013!I*I+\u001a3E*R0Q+NCu,T#S\u000f\u0016#uLU#N\u001fR+ul\u0011%V\u001d.\u001bVC\u0001Bp\u001f\t\u0011\t/\t\u0002\u0003d\u0006)1\u000f]7sG\u0006\u00113\u000bS+G\r2+u\fU+T\u0011~kUIU$F\t~\u0013V)T(U\u000b~\u001b\u0005*\u0016(L'\u0002\n\u0001e\u0015%V\r\u001acUi\u0018)V'\"{V*\u0012*H\u000b\u0012{FjT\"B\u0019~\u001b\u0005*\u0016(L'V\u0011!1^\b\u0003\u0005[\f#Aa<\u0002\u000bM\u0004X\u000e\\2\u0002CMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u001b\u0016\u0013v)\u0012#`\u0019>\u001b\u0015\tT0D\u0011Vs5j\u0015\u0011\u0002AMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u001b\u0016\u0013v)\u0012#`%\u0016ku\nV#`%\u0016\u000bEiU\u000b\u0003\u0005o|!A!?\"\u0005\tm\u0018!B:q[J\u0014\u0018!I*I+\u001a3E*R0Q+NCu,T#S\u000f\u0016#uLU#N\u001fR+uLU#B\tN\u0003\u0013aH*I+\u001a3E*R0Q+NCu,T#S\u000f\u0016#u\fT(D\u00032{&+R!E'V\u001111A\b\u0003\u0007\u000b\t#aa\u0002\u0002\u000bM\u0004X\u000e\u001c:\u0002AMCUK\u0012$M\u000b~\u0003Vk\u0015%`\u001b\u0016\u0013v)\u0012#`\u0019>\u001b\u0015\tT0S\u000b\u0006#5\u000bI\u0001)'\"+fI\u0012'F?B+6\u000bS0N\u000bJ;U\tR0S\u000b6{E+R0S\u000bF\u001bv\fR+S\u0003RKuJT\u000b\u0003\u0007\u001fy!a!\u0005\"\u0005\rM\u0011AB:q[J\u0014H-A\u0015T\u0011V3e\tT#`!V\u001b\u0006jX'F%\u001e+Ei\u0018*F\u001b>#Vi\u0018*F#N{F)\u0016*B)&{e\nI\u0001\u0006'R\u000bu)R\u000b\u0003\u00077y!a!\b\"\u0005\r}\u0011!B:uC\u001e,\u0017AB*U\u0003\u001e+\u0005%\u0001\u0004T)\u0006#VkU\u000b\u0003\u0007Oy!a!\u000b\"\u0005\r-\u0012aA:uC\u000691\u000bV!U+N\u0003\u0013A\u0003+B'.{\u0016J\u0014#F1V\u001111G\b\u0003\u0007k\t#aa\u000e\u0002\u0007%$\u00070A\u0006U\u0003N[u,\u0013(E\u000bb\u0003\u0013!\u0005+B'.{\u0006+\u0011*U\u0013RKuJT0J\tV\u00111qH\b\u0003\u0007\u0003\n#aa\u0011\u0002\rA\f'\u000f^5e\u0003I!\u0016iU&`!\u0006\u0013F+\u0013+J\u001f:{\u0016\n\u0012\u0011\u0002\u001f\r{U\n\u0015'F)&{ej\u0018+J\u001b\u0016+\"aa\u0013\u0010\u0005\r5\u0013EAB(\u0003\t\u0019G/\u0001\tD\u001f6\u0003F*\u0012+J\u001f:{F+S'FA\u0001"
+)
+public final class TaskIndexNames {
+   public static String COMPLETION_TIME() {
+      return TaskIndexNames$.MODULE$.COMPLETION_TIME();
+   }
+
+   public static String TASK_PARTITION_ID() {
+      return TaskIndexNames$.MODULE$.TASK_PARTITION_ID();
+   }
+
+   public static String TASK_INDEX() {
+      return TaskIndexNames$.MODULE$.TASK_INDEX();
+   }
+
+   public static String STATUS() {
+      return TaskIndexNames$.MODULE$.STATUS();
+   }
+
+   public static String STAGE() {
+      return TaskIndexNames$.MODULE$.STAGE();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_REMOTE_REQS_DURATION() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_REMOTE_REQS_DURATION();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_LOCAL_READS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_LOCAL_READS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_REMOTE_READS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_REMOTE_READS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_LOCAL_CHUNKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_LOCAL_CHUNKS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_REMOTE_CHUNKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_REMOTE_CHUNKS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_LOCAL_BLOCKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_LOCAL_BLOCKS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_REMOTE_BLOCKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_REMOTE_BLOCKS();
+   }
+
+   public static String SHUFFLE_PUSH_MERGED_FETCH_FALLBACK_COUNT() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_MERGED_FETCH_FALLBACK_COUNT();
+   }
+
+   public static String SHUFFLE_PUSH_CORRUPT_MERGED_BLOCK_CHUNKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_PUSH_CORRUPT_MERGED_BLOCK_CHUNKS();
+   }
+
+   public static String SHUFFLE_REMOTE_REQS_DURATION() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_REMOTE_REQS_DURATION();
+   }
+
+   public static String SHUFFLE_WRITE_TIME() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_WRITE_TIME();
+   }
+
+   public static String SHUFFLE_WRITE_SIZE() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_WRITE_SIZE();
+   }
+
+   public static String SHUFFLE_WRITE_RECORDS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_WRITE_RECORDS();
+   }
+
+   public static String SHUFFLE_TOTAL_BLOCKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_TOTAL_BLOCKS();
+   }
+
+   public static String SHUFFLE_TOTAL_READS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_TOTAL_READS();
+   }
+
+   public static String SHUFFLE_REMOTE_READS_TO_DISK() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_REMOTE_READS_TO_DISK();
+   }
+
+   public static String SHUFFLE_REMOTE_READS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_REMOTE_READS();
+   }
+
+   public static String SHUFFLE_REMOTE_BLOCKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_REMOTE_BLOCKS();
+   }
+
+   public static String SHUFFLE_READ_FETCH_WAIT_TIME() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_READ_FETCH_WAIT_TIME();
+   }
+
+   public static String SHUFFLE_READ_RECORDS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_READ_RECORDS();
+   }
+
+   public static String SHUFFLE_LOCAL_BLOCKS() {
+      return TaskIndexNames$.MODULE$.SHUFFLE_LOCAL_BLOCKS();
+   }
+
+   public static String SER_TIME() {
+      return TaskIndexNames$.MODULE$.SER_TIME();
+   }
+
+   public static String SCHEDULER_DELAY() {
+      return TaskIndexNames$.MODULE$.SCHEDULER_DELAY();
+   }
+
+   public static String RESULT_SIZE() {
+      return TaskIndexNames$.MODULE$.RESULT_SIZE();
+   }
+
+   public static String PEAK_MEM() {
+      return TaskIndexNames$.MODULE$.PEAK_MEM();
+   }
+
+   public static String OUTPUT_SIZE() {
+      return TaskIndexNames$.MODULE$.OUTPUT_SIZE();
+   }
+
+   public static String OUTPUT_RECORDS() {
+      return TaskIndexNames$.MODULE$.OUTPUT_RECORDS();
+   }
+
+   public static String MEM_SPILL() {
+      return TaskIndexNames$.MODULE$.MEM_SPILL();
+   }
+
+   public static String LOCALITY() {
+      return TaskIndexNames$.MODULE$.LOCALITY();
+   }
+
+   public static String LAUNCH_TIME() {
+      return TaskIndexNames$.MODULE$.LAUNCH_TIME();
+   }
+
+   public static String INPUT_SIZE() {
+      return TaskIndexNames$.MODULE$.INPUT_SIZE();
+   }
+
+   public static String INPUT_RECORDS() {
+      return TaskIndexNames$.MODULE$.INPUT_RECORDS();
+   }
+
+   public static String GETTING_RESULT_TIME() {
+      return TaskIndexNames$.MODULE$.GETTING_RESULT_TIME();
+   }
+
+   public static String GC_TIME() {
+      return TaskIndexNames$.MODULE$.GC_TIME();
+   }
+
+   public static String EXEC_RUN_TIME() {
+      return TaskIndexNames$.MODULE$.EXEC_RUN_TIME();
+   }
+
+   public static String EXEC_CPU_TIME() {
+      return TaskIndexNames$.MODULE$.EXEC_CPU_TIME();
+   }
+
+   public static String HOST() {
+      return TaskIndexNames$.MODULE$.HOST();
+   }
+
+   public static String EXECUTOR() {
+      return TaskIndexNames$.MODULE$.EXECUTOR();
+   }
+
+   public static String ERROR() {
+      return TaskIndexNames$.MODULE$.ERROR();
+   }
+
+   public static String DURATION() {
+      return TaskIndexNames$.MODULE$.DURATION();
+   }
+
+   public static String DISK_SPILL() {
+      return TaskIndexNames$.MODULE$.DISK_SPILL();
+   }
+
+   public static String DESER_TIME() {
+      return TaskIndexNames$.MODULE$.DESER_TIME();
+   }
+
+   public static String DESER_CPU_TIME() {
+      return TaskIndexNames$.MODULE$.DESER_CPU_TIME();
+   }
+
+   public static String ATTEMPT() {
+      return TaskIndexNames$.MODULE$.ATTEMPT();
+   }
+
+   public static String ACCUMULATORS() {
+      return TaskIndexNames$.MODULE$.ACCUMULATORS();
+   }
+}

@@ -1,0 +1,108 @@
+package org.apache.arrow.vector;
+
+import org.apache.arrow.memory.BufferAllocator;
+import org.apache.arrow.vector.complex.impl.TimeStampSecTZReaderImpl;
+import org.apache.arrow.vector.complex.reader.FieldReader;
+import org.apache.arrow.vector.holders.NullableTimeStampSecTZHolder;
+import org.apache.arrow.vector.holders.TimeStampSecTZHolder;
+import org.apache.arrow.vector.types.TimeUnit;
+import org.apache.arrow.vector.types.Types;
+import org.apache.arrow.vector.types.pojo.ArrowType;
+import org.apache.arrow.vector.types.pojo.Field;
+import org.apache.arrow.vector.types.pojo.FieldType;
+import org.apache.arrow.vector.util.TransferPair;
+
+public final class TimeStampSecTZVector extends TimeStampVector implements ValueIterableVector {
+   private final String timeZone;
+
+   public TimeStampSecTZVector(String name, BufferAllocator allocator, String timeZone) {
+      this(name, FieldType.nullable(new ArrowType.Timestamp(TimeUnit.SECOND, timeZone)), allocator);
+   }
+
+   public TimeStampSecTZVector(String name, FieldType fieldType, BufferAllocator allocator) {
+      super(name, fieldType, allocator);
+      ArrowType.Timestamp arrowType = (ArrowType.Timestamp)fieldType.getType();
+      this.timeZone = arrowType.getTimezone();
+   }
+
+   public TimeStampSecTZVector(Field field, BufferAllocator allocator) {
+      super(field, allocator);
+      ArrowType.Timestamp arrowType = (ArrowType.Timestamp)field.getFieldType().getType();
+      this.timeZone = arrowType.getTimezone();
+   }
+
+   protected FieldReader getReaderImpl() {
+      return new TimeStampSecTZReaderImpl(this);
+   }
+
+   public Types.MinorType getMinorType() {
+      return Types.MinorType.TIMESTAMPSECTZ;
+   }
+
+   public String getTimeZone() {
+      return this.timeZone;
+   }
+
+   public void get(int index, NullableTimeStampSecTZHolder holder) {
+      if (NullCheckingForGet.NULL_CHECKING_ENABLED && this.isSet(index) == 0) {
+         holder.isSet = 0;
+      } else {
+         holder.isSet = 1;
+         holder.value = this.valueBuffer.getLong((long)index * 8L);
+         holder.timezone = this.timeZone;
+      }
+   }
+
+   public Long getObject(int index) {
+      return this.isSet(index) == 0 ? null : this.valueBuffer.getLong((long)index * 8L);
+   }
+
+   public void set(int index, NullableTimeStampSecTZHolder holder) throws IllegalArgumentException {
+      if (holder.isSet < 0) {
+         throw new IllegalArgumentException();
+      } else if (!this.timeZone.equals(holder.timezone)) {
+         throw new IllegalArgumentException(String.format("holder.timezone: %s not equal to vector timezone: %s", holder.timezone, this.timeZone));
+      } else {
+         if (holder.isSet > 0) {
+            BitVectorHelper.setBit(this.validityBuffer, (long)index);
+            this.setValue(index, holder.value);
+         } else {
+            BitVectorHelper.unsetBit(this.validityBuffer, index);
+         }
+
+      }
+   }
+
+   public void set(int index, TimeStampSecTZHolder holder) {
+      if (!this.timeZone.equals(holder.timezone)) {
+         throw new IllegalArgumentException(String.format("holder.timezone: %s not equal to vector timezone: %s", holder.timezone, this.timeZone));
+      } else {
+         BitVectorHelper.setBit(this.validityBuffer, (long)index);
+         this.setValue(index, holder.value);
+      }
+   }
+
+   public void setSafe(int index, NullableTimeStampSecTZHolder holder) throws IllegalArgumentException {
+      this.handleSafe(index);
+      this.set(index, holder);
+   }
+
+   public void setSafe(int index, TimeStampSecTZHolder holder) {
+      this.handleSafe(index);
+      this.set(index, holder);
+   }
+
+   public TransferPair getTransferPair(String ref, BufferAllocator allocator) {
+      TimeStampSecTZVector to = new TimeStampSecTZVector(ref, this.field.getFieldType(), allocator);
+      return new TimeStampVector.TransferImpl(to);
+   }
+
+   public TransferPair getTransferPair(Field field, BufferAllocator allocator) {
+      TimeStampSecTZVector to = new TimeStampSecTZVector(field, allocator);
+      return new TimeStampVector.TransferImpl(to);
+   }
+
+   public TransferPair makeTransferPair(ValueVector to) {
+      return new TimeStampVector.TransferImpl((TimeStampSecTZVector)to);
+   }
+}

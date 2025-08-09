@@ -1,0 +1,20 @@
+package org.apache.xbean.asm9.tree;
+
+import java.util.List;
+import org.apache.xbean.asm9.ModuleVisitor;
+
+public class ModuleExportNode {
+   public String packaze;
+   public int access;
+   public List modules;
+
+   public ModuleExportNode(String packaze, int access, List modules) {
+      this.packaze = packaze;
+      this.access = access;
+      this.modules = modules;
+   }
+
+   public void accept(ModuleVisitor moduleVisitor) {
+      moduleVisitor.visitExport(this.packaze, this.access, this.modules == null ? null : (String[])this.modules.toArray(new String[0]));
+   }
+}

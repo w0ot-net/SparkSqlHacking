@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.apache.avro.ipc
+Build-Jdk-Spec: 22
+Bundle-Description: Avro inter-process communication components
+Bundle-DocURL: https://www.apache.org/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Avro IPC
+Bundle-SymbolicName: avro-ipc
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.12.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+DynamicImport-Package: org.apache.avro.ipc.jetty,org.apache.avro.ipc.net
+ ty
+Export-Package: org.apache.avro.ipc;version="1.12.0";uses:="javax.securi
+ ty.auth.callback,javax.security.sasl,javax.servlet,javax.servlet.http,o
+ rg.apache.avro,org.apache.avro.data,org.apache.avro.generic,org.apache.
+ avro.io,org.apache.avro.message,org.apache.avro.specific",org.apache.av
+ ro.ipc.generic;version="1.12.0";uses:="org.apache.avro,org.apache.avro.
+ generic,org.apache.avro.io,org.apache.avro.ipc",org.apache.avro.ipc.ref
+ lect;version="1.12.0";uses:="org.apache.avro,org.apache.avro.io,org.apa
+ che.avro.ipc,org.apache.avro.ipc.specific,org.apache.avro.reflect",org.
+ apache.avro.ipc.specific;version="1.12.0";uses:="org.apache.avro,org.ap
+ ache.avro.io,org.apache.avro.ipc,org.apache.avro.ipc.generic,org.apache
+ .avro.specific",org.apache.avro.ipc.stats;version="1.12.0";uses:="javax
+ .servlet,javax.servlet.http,org.apache.avro.ipc",org.apache.avro.ipc.st
+ ats.static;version="1.12.0",org.apache.avro.ipc.stats.templates;version
+ ="1.12.0"
+Implementation-Title: Apache Avro IPC
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Version: 1.12.0
+Import-Package: org.apache.avro;version="1.12.0",org.apache.avro.data;ve
+ rsion="1.12.0",org.apache.avro.generic;version="1.12.0",org.apache.avro
+ .io;version="1.12.0",org.apache.avro.message;version="1.12.0",org.apach
+ e.avro.reflect;version="1.12.0",org.apache.avro.specific;version="1.12.
+ 0",org.apache.avro.util;version="1.12.0",javax.servlet;resolution:=opti
+ onal;version="[4.0,5)",javax.servlet.http;resolution:=optional;version=
+ "[4.0,5)",org.apache.velocity;resolution:=optional;version="[2.3,3)",or
+ g.apache.velocity.app;resolution:=optional;version="[2.3,3)",org.apache
+ .velocity.context;resolution:=optional;version="[2.3,3)",java.io,java.l
+ ang,java.lang.invoke,java.lang.reflect,java.net,java.nio,java.nio.chann
+ els,java.nio.charset,java.text,java.util,java.util.concurrent,java.util
+ .concurrent.locks,javax.security.auth.callback,javax.security.sasl,org.
+ slf4j;version="[2.0,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Specification-Title: Apache Avro IPC
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 1.12
+Tool: Bnd-6.3.1.202206071316
+

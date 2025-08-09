@@ -1,0 +1,504 @@
+package org.apache.spark.deploy.master.ui;
+
+import jakarta.servlet.http.HttpServletRequest;
+import java.lang.invoke.SerializedLambda;
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkEnv$;
+import org.apache.spark.deploy.SparkHadoopUtil$;
+import org.apache.spark.internal.config.UI$;
+import org.apache.spark.ui.UIUtils$;
+import org.apache.spark.ui.WebUIPage;
+import org.apache.spark.util.Utils$;
+import scala.Function1;
+import scala.MatchError;
+import scala.Option;
+import scala.Tuple2;
+import scala.collection.IterableOnceOps;
+import scala.collection.SeqOps;
+import scala.collection.immutable.Map;
+import scala.collection.immutable.Seq;
+import scala.package.;
+import scala.reflect.ScalaSignature;
+import scala.runtime.BoxesRunTime;
+import scala.xml.Elem;
+import scala.xml.MetaData;
+import scala.xml.NodeBuffer;
+import scala.xml.NodeSeq;
+import scala.xml.Null;
+import scala.xml.Text;
+import scala.xml.TopScope;
+import scala.xml.UnprefixedAttribute;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005y4Q\u0001D\u0007\u0001\u001beA\u0001b\b\u0001\u0003\u0002\u0003\u0006I!\t\u0005\tK\u0001\u0011\t\u0011)A\u0005M!)!\u0006\u0001C\u0001W!)q\u0006\u0001C\u0001a!)\u0011\u000b\u0001C\u0005%\")!\r\u0001C\u0005%\")1\r\u0001C\u0005%\")A\r\u0001C\u0005%\")Q\r\u0001C\u0005M\")q\u000f\u0001C\u0005q\")!\u0010\u0001C\u0005w\nyQI\u001c<je>tW.\u001a8u!\u0006<WM\u0003\u0002\u000f\u001f\u0005\u0011Q/\u001b\u0006\u0003!E\ta!\\1ti\u0016\u0014(B\u0001\n\u0014\u0003\u0019!W\r\u001d7ps*\u0011A#F\u0001\u0006gB\f'o\u001b\u0006\u0003-]\ta!\u00199bG\",'\"\u0001\r\u0002\u0007=\u0014xm\u0005\u0002\u00015A\u00111$H\u0007\u00029)\u0011abE\u0005\u0003=q\u0011\u0011bV3c+&\u0003\u0016mZ3\u0002\rA\f'/\u001a8u\u0007\u0001\u0001\"AI\u0012\u000e\u00035I!\u0001J\u0007\u0003\u00175\u000b7\u000f^3s/\u0016\u0014W+S\u0001\u0005G>tg\r\u0005\u0002(Q5\t1#\u0003\u0002*'\tI1\u000b]1sW\u000e{gNZ\u0001\u0007y%t\u0017\u000e\u001e \u0015\u00071jc\u0006\u0005\u0002#\u0001!)qd\u0001a\u0001C!)Qe\u0001a\u0001M\u00051!/\u001a8eKJ$\"!M#\u0011\u0007IbtH\u0004\u00024s9\u0011AgN\u0007\u0002k)\u0011a\u0007I\u0001\u0007yI|w\u000e\u001e \n\u0003a\nQa]2bY\u0006L!AO\u001e\u0002\u000fA\f7m[1hK*\t\u0001(\u0003\u0002>}\t\u00191+Z9\u000b\u0005iZ\u0004C\u0001!D\u001b\u0005\t%B\u0001\"<\u0003\rAX\u000e\\\u0005\u0003\t\u0006\u0013AAT8eK\")a\t\u0002a\u0001\u000f\u00069!/Z9vKN$\bC\u0001%P\u001b\u0005I%B\u0001&L\u0003\u0011AG\u000f\u001e9\u000b\u00051k\u0015aB:feZdW\r\u001e\u0006\u0002\u001d\u00069!.Y6beR\f\u0017B\u0001)J\u0005IAE\u000f\u001e9TKJ4H.\u001a;SKF,Xm\u001d;\u0002\u001dA\u0014x\u000e]3sifDU-\u00193feV\t1\u000bE\u0002U3jk\u0011!\u0016\u0006\u0003-^\u000b\u0011\"[7nkR\f'\r\\3\u000b\u0005a[\u0014AC2pY2,7\r^5p]&\u0011Q(\u0016\t\u00037\u0002l\u0011\u0001\u0018\u0006\u0003;z\u000bA\u0001\\1oO*\tq,\u0001\u0003kCZ\f\u0017BA1]\u0005\u0019\u0019FO]5oO\u0006y1\r\\1tgB\u000bG\u000f\u001b%fC\u0012,'/A\u0007iK\u0006$WM]\"mCN\u001cXm]\u0001\u001aQ\u0016\fG-\u001a:DY\u0006\u001c8/Z:O_N{'\u000f\u001e,bYV,7/A\u0007km6\u0014vn\u001e#bi\u0006\u0004&/\u001a\u000b\u0003O*\u0004\"\u0001\u00115\n\u0005%\f%\u0001B#mK6DQa[\u0005A\u00021\f!a\u001b<\u0011\t5t\u0007\u000f]\u0007\u0002w%\u0011qn\u000f\u0002\u0007)V\u0004H.\u001a\u001a\u0011\u0005E,hB\u0001:t!\t!4(\u0003\u0002uw\u00051\u0001K]3eK\u001aL!!\u0019<\u000b\u0005Q\\\u0014a\u00039s_B,'\u000f^=S_^$\"aZ=\t\u000b-T\u0001\u0019\u00017\u0002\u0019\rd\u0017m]:QCRD'k\\<\u0015\u0005\u001dd\b\"B?\f\u0001\u0004a\u0017\u0001\u00023bi\u0006\u0004"
+)
+public class EnvironmentPage extends WebUIPage {
+   private final SparkConf conf;
+
+   public Seq render(final HttpServletRequest request) {
+      Map details = SparkEnv$.MODULE$.environmentDetails(this.conf, SparkHadoopUtil$.MODULE$.get().newConfiguration(this.conf), "", (Seq).MODULE$.Seq().empty(), (Seq).MODULE$.Seq().empty(), (Seq).MODULE$.Seq().empty(), scala.Predef..MODULE$.Map().empty());
+      Seq jvmInformation = (Seq)((SeqOps)details.apply("JVM Information")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      scala.collection.Seq sparkProperties = (scala.collection.Seq)Utils$.MODULE$.redact(this.conf, (scala.collection.Seq)details.apply("Spark Properties")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      scala.collection.Seq hadoopProperties = (scala.collection.Seq)Utils$.MODULE$.redact(this.conf, (scala.collection.Seq)details.apply("Hadoop Properties")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      scala.collection.Seq systemProperties = (scala.collection.Seq)Utils$.MODULE$.redact(this.conf, (scala.collection.Seq)details.apply("System Properties")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      scala.collection.Seq metricsProperties = (scala.collection.Seq)Utils$.MODULE$.redact(this.conf, (scala.collection.Seq)details.apply("Metrics Properties")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      Seq classpathEntries = (Seq)((SeqOps)details.apply("Classpath Entries")).sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      Seq prefixes = (Seq)this.conf.get(UI$.MODULE$.MASTER_UI_VISIBLE_ENV_VAR_PREFIXES());
+      Seq environmentVariables = (Seq)((IterableOnceOps)scala.jdk.CollectionConverters..MODULE$.MapHasAsScala(System.getenv()).asScala().filter((x0$1) -> BoxesRunTime.boxToBoolean($anonfun$render$1(prefixes, x0$1)))).toSeq().sorted(scala.math.Ordering..MODULE$.Tuple2(scala.math.Ordering.String..MODULE$, scala.math.Ordering.String..MODULE$));
+      Seq x$1 = this.propertyHeader();
+      Function1 x$2 = (kv) -> this.propertyRow(kv);
+      boolean x$4 = true;
+      Seq x$5 = this.headerClasses();
+      Option x$6 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$7 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$8 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$9 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq runtimeInformationTable = UIUtils$.MODULE$.listingTable(x$1, x$2, jvmInformation, true, x$6, x$5, x$7, x$8, x$9);
+      Seq x$10 = this.propertyHeader();
+      Function1 x$11 = (kv) -> this.propertyRow(kv);
+      boolean x$13 = true;
+      Seq x$14 = this.headerClasses();
+      Option x$15 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$16 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$17 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$18 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq sparkPropertiesTable = UIUtils$.MODULE$.listingTable(x$10, x$11, sparkProperties, true, x$15, x$14, x$16, x$17, x$18);
+      Seq x$19 = this.propertyHeader();
+      Function1 x$20 = (kv) -> this.propertyRow(kv);
+      boolean x$22 = true;
+      Seq x$23 = this.headerClasses();
+      Option x$24 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$25 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$26 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$27 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq hadoopPropertiesTable = UIUtils$.MODULE$.listingTable(x$19, x$20, hadoopProperties, true, x$24, x$23, x$25, x$26, x$27);
+      Seq x$28 = this.propertyHeader();
+      Function1 x$29 = (kv) -> this.propertyRow(kv);
+      boolean x$31 = true;
+      Seq x$32 = this.headerClasses();
+      Option x$33 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$34 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$35 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$36 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq systemPropertiesTable = UIUtils$.MODULE$.listingTable(x$28, x$29, systemProperties, true, x$33, x$32, x$34, x$35, x$36);
+      Seq x$37 = this.propertyHeader();
+      Function1 x$38 = (kv) -> this.propertyRow(kv);
+      boolean x$40 = true;
+      Seq x$41 = this.headerClasses();
+      Option x$42 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$43 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$44 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$45 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq metricsPropertiesTable = UIUtils$.MODULE$.listingTable(x$37, x$38, metricsProperties, true, x$42, x$41, x$43, x$44, x$45);
+      Seq x$46 = this.classPathHeader();
+      Function1 x$47 = (data) -> this.classPathRow(data);
+      boolean x$49 = true;
+      Seq x$50 = this.headerClasses();
+      Option x$51 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$52 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$53 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$54 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq classpathEntriesTable = UIUtils$.MODULE$.listingTable(x$46, x$47, classpathEntries, true, x$51, x$50, x$52, x$53, x$54);
+      Seq x$55 = this.propertyHeader();
+      Function1 x$56 = (kv) -> this.propertyRow(kv);
+      boolean x$58 = true;
+      Seq x$59 = this.headerClasses();
+      Option x$60 = UIUtils$.MODULE$.listingTable$default$5();
+      boolean x$61 = UIUtils$.MODULE$.listingTable$default$7();
+      boolean x$62 = UIUtils$.MODULE$.listingTable$default$8();
+      Seq x$63 = UIUtils$.MODULE$.listingTable$default$9();
+      Seq environmentVariablesTable = UIUtils$.MODULE$.listingTable(x$55, x$56, environmentVariables, true, x$60, x$59, x$61, x$62, x$63);
+      NodeBuffer $buf = new NodeBuffer();
+      Null var10005 = scala.xml.Null..MODULE$;
+      TopScope var10006 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10008 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n        "));
+      Null var10014 = scala.xml.Null..MODULE$;
+      TopScope var10015 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var137 = new UnprefixedAttribute("href", new Text("/"), $md);
+      TopScope var10024 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Back to Master"));
+      $buf.$amp$plus(new Elem((String)null, "a", var137, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Elem((String)null, "p", var10014, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n      "));
+      $buf.$amp$plus(new Elem((String)null, "div", var10005, var10006, false, var10008.seqToNodeSeq($buf)));
+      var10005 = scala.xml.Null..MODULE$;
+      var10006 = scala.xml.TopScope..MODULE$;
+      var10008 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var138 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-runtimeInformation',\n            'aggregated-runtimeInformation')"), $md);
+      var138 = new UnprefixedAttribute("class", new Text("collapse-aggregated-runtimeInformation collapse-table"), var138);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      Null var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var140 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-open"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var140, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      Null var10032 = scala.xml.Null..MODULE$;
+      TopScope var10033 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Runtime Information"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var138, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var141 = new UnprefixedAttribute("class", new Text("aggregated-runtimeInformation collapsible-table"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(runtimeInformationTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var141, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var142 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-sparkProperties',\n            'aggregated-sparkProperties')"), $md);
+      var142 = new UnprefixedAttribute("class", new Text("collapse-aggregated-sparkProperties collapse-table"), var142);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var144 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-open"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var144, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Spark Properties"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var142, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var145 = new UnprefixedAttribute("class", new Text("aggregated-sparkProperties collapsible-table"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(sparkPropertiesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var145, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var146 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-hadoopProperties',\n            'aggregated-hadoopProperties')"), $md);
+      var146 = new UnprefixedAttribute("class", new Text("collapse-aggregated-hadoopProperties collapse-table"), var146);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var148 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-closed"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var148, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Hadoop Properties"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var146, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var149 = new UnprefixedAttribute("class", new Text("aggregated-hadoopProperties collapsible-table collapsed"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(hadoopPropertiesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var149, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var150 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-systemProperties',\n            'aggregated-systemProperties')"), $md);
+      var150 = new UnprefixedAttribute("class", new Text("collapse-aggregated-systemProperties collapse-table"), var150);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var152 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-closed"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var152, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("System Properties"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var150, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var153 = new UnprefixedAttribute("class", new Text("aggregated-systemProperties collapsible-table collapsed"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(systemPropertiesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var153, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var154 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-metricsProperties',\n            'aggregated-metricsProperties')"), $md);
+      var154 = new UnprefixedAttribute("class", new Text("collapse-aggregated-metricsProperties collapse-table"), var154);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var156 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-closed"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var156, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Metrics Properties"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var154, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var157 = new UnprefixedAttribute("class", new Text("aggregated-metricsProperties collapsible-table collapsed"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(metricsPropertiesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var157, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var158 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-classpathEntries',\n            'aggregated-classpathEntries')"), $md);
+      var158 = new UnprefixedAttribute("class", new Text("collapse-aggregated-classpathEntries collapse-table"), var158);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var160 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-closed"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var160, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Classpath Entries"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var158, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var161 = new UnprefixedAttribute("class", new Text("aggregated-classpathEntries collapsible-table collapsed"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(classpathEntriesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var161, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var162 = new UnprefixedAttribute("onClick", new Text("collapseTable('collapse-aggregated-environmentVariables',\n            'aggregated-environmentVariables')"), $md);
+      var162 = new UnprefixedAttribute("class", new Text("collapse-aggregated-environmentVariables collapse-table"), var162);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      var10023 = scala.xml.Null..MODULE$;
+      var10024 = scala.xml.TopScope..MODULE$;
+      var10026 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n            "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var164 = new UnprefixedAttribute("class", new Text("collapse-table-arrow arrow-closed"), $md);
+      $buf.$amp$plus(new Elem((String)null, "span", var164, scala.xml.TopScope..MODULE$, false, scala.collection.immutable.Nil..MODULE$));
+      $buf.$amp$plus(new Text("\n            "));
+      var10032 = scala.xml.Null..MODULE$;
+      var10033 = scala.xml.TopScope..MODULE$;
+      var10035 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("Environment Variables"));
+      $buf.$amp$plus(new Elem((String)null, "a", var10032, var10033, false, var10035.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(new Elem((String)null, "h4", var10023, var10024, false, var10026.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "span", var162, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n        "));
+      MetaData $md = scala.xml.Null..MODULE$;
+      MetaData var165 = new UnprefixedAttribute("class", new Text("aggregated-environmentVariables collapsible-table collapsed"), $md);
+      var10015 = scala.xml.TopScope..MODULE$;
+      var10017 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(new Text("\n          "));
+      $buf.$amp$plus(environmentVariablesTable);
+      $buf.$amp$plus(new Text("\n        "));
+      $buf.$amp$plus(new Elem((String)null, "div", var165, var10015, false, var10017.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Text("\n      "));
+      $buf.$amp$plus(new Elem((String)null, "span", var10005, var10006, false, var10008.seqToNodeSeq($buf)));
+      return UIUtils$.MODULE$.basicSparkPage(request, () -> scala.xml.NodeSeq..MODULE$.seqToNodeSeq($buf), "Environment", UIUtils$.MODULE$.basicSparkPage$default$4());
+   }
+
+   private Seq propertyHeader() {
+      return new scala.collection.immutable..colon.colon("Name", new scala.collection.immutable..colon.colon("Value", scala.collection.immutable.Nil..MODULE$));
+   }
+
+   private Seq classPathHeader() {
+      return new scala.collection.immutable..colon.colon("Resource", new scala.collection.immutable..colon.colon("Source", scala.collection.immutable.Nil..MODULE$));
+   }
+
+   private Seq headerClasses() {
+      return new scala.collection.immutable..colon.colon("sorttable_alpha", new scala.collection.immutable..colon.colon("sorttable_alpha", scala.collection.immutable.Nil..MODULE$));
+   }
+
+   private Seq headerClassesNoSortValues() {
+      return new scala.collection.immutable..colon.colon("sorttable_numeric", new scala.collection.immutable..colon.colon("sorttable_nosort", scala.collection.immutable.Nil..MODULE$));
+   }
+
+   private Elem jvmRowDataPre(final Tuple2 kv) {
+      Null var10004 = scala.xml.Null..MODULE$;
+      TopScope var10005 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10007 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      Null var10013 = scala.xml.Null..MODULE$;
+      TopScope var10014 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(kv._1());
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      var10013 = scala.xml.Null..MODULE$;
+      var10014 = scala.xml.TopScope..MODULE$;
+      var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      Null var10022 = scala.xml.Null..MODULE$;
+      TopScope var10023 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10025 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(kv._2());
+      $buf.$amp$plus(new Elem((String)null, "pre", var10022, var10023, false, var10025.seqToNodeSeq($buf)));
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      return new Elem((String)null, "tr", var10004, var10005, false, var10007.seqToNodeSeq($buf));
+   }
+
+   private Elem propertyRow(final Tuple2 kv) {
+      Null var10004 = scala.xml.Null..MODULE$;
+      TopScope var10005 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10007 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      Null var10013 = scala.xml.Null..MODULE$;
+      TopScope var10014 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(kv._1());
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      var10013 = scala.xml.Null..MODULE$;
+      var10014 = scala.xml.TopScope..MODULE$;
+      var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(kv._2());
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      return new Elem((String)null, "tr", var10004, var10005, false, var10007.seqToNodeSeq($buf));
+   }
+
+   private Elem classPathRow(final Tuple2 data) {
+      Null var10004 = scala.xml.Null..MODULE$;
+      TopScope var10005 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10007 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      Null var10013 = scala.xml.Null..MODULE$;
+      TopScope var10014 = scala.xml.TopScope..MODULE$;
+      NodeSeq var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(data._1());
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      var10013 = scala.xml.Null..MODULE$;
+      var10014 = scala.xml.TopScope..MODULE$;
+      var10016 = scala.xml.NodeSeq..MODULE$;
+      NodeBuffer $buf = new NodeBuffer();
+      $buf.$amp$plus(data._2());
+      $buf.$amp$plus(new Elem((String)null, "td", var10013, var10014, false, var10016.seqToNodeSeq($buf)));
+      return new Elem((String)null, "tr", var10004, var10005, false, var10007.seqToNodeSeq($buf));
+   }
+
+   // $FF: synthetic method
+   public static final boolean $anonfun$render$2(final String k$1, final String x$1) {
+      return k$1.startsWith(x$1);
+   }
+
+   // $FF: synthetic method
+   public static final boolean $anonfun$render$1(final Seq prefixes$1, final Tuple2 x0$1) {
+      if (x0$1 != null) {
+         String k = (String)x0$1._1();
+         return prefixes$1.exists((x$1) -> BoxesRunTime.boxToBoolean($anonfun$render$2(k, x$1)));
+      } else {
+         throw new MatchError(x0$1);
+      }
+   }
+
+   public EnvironmentPage(final MasterWebUI parent, final SparkConf conf) {
+      super("Environment");
+      this.conf = conf;
+   }
+
+   // $FF: synthetic method
+   private static Object $deserializeLambda$(SerializedLambda var0) {
+      return Class.lambdaDeserialize<invokedynamic>(var0);
+   }
+}

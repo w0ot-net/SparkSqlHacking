@@ -1,0 +1,24 @@
+package org.apache.spark.sql.streaming;
+
+import java.io.Serializable;
+import org.apache.spark.annotation.Evolving;
+import scala.collection.Iterator;
+import scala.reflect.ScalaSignature;
+
+@Evolving
+@ScalaSignature(
+   bytes = "\u0006\u0005U3qa\u0002\u0005\u0011\u0002G\u00051\u0003C\u0003(\u0001\u0019\u0005\u0001\u0006C\u0003-\u0001\u0019\u0005Q\u0006C\u0003=\u0001\u0019\u0005Q\bC\u0003G\u0001\u0019\u0005q\tC\u0003J\u0001\u0019\u0005!\nC\u0003M\u0001\u0019\u0005QJA\u0005MSN$8\u000b^1uK*\u0011\u0011BC\u0001\ngR\u0014X-Y7j]\u001eT!a\u0003\u0007\u0002\u0007M\fHN\u0003\u0002\u000e\u001d\u0005)1\u000f]1sW*\u0011q\u0002E\u0001\u0007CB\f7\r[3\u000b\u0003E\t1a\u001c:h\u0007\u0001)\"\u0001F\u001a\u0014\u0007\u0001)2\u0004\u0005\u0002\u001735\tqCC\u0001\u0019\u0003\u0015\u00198-\u00197b\u0013\tQrC\u0001\u0004B]f\u0014VM\u001a\t\u00039\u0011r!!\b\u0012\u000f\u0005y\tS\"A\u0010\u000b\u0005\u0001\u0012\u0012A\u0002\u001fs_>$h(C\u0001\u0019\u0013\t\u0019s#A\u0004qC\u000e\\\u0017mZ3\n\u0005\u00152#\u0001D*fe&\fG.\u001b>bE2,'BA\u0012\u0018\u0003\u0019)\u00070[:ugR\t\u0011\u0006\u0005\u0002\u0017U%\u00111f\u0006\u0002\b\u0005>|G.Z1o\u0003\r9W\r\u001e\u000b\u0002]A\u0019AdL\u0019\n\u0005A2#\u0001C%uKJ\fGo\u001c:\u0011\u0005I\u001aD\u0002\u0001\u0003\u0006i\u0001\u0011\r!\u000e\u0002\u0002'F\u0011a'\u000f\t\u0003-]J!\u0001O\f\u0003\u000f9{G\u000f[5oOB\u0011aCO\u0005\u0003w]\u00111!\u00118z\u0003\r\u0001X\u000f\u001e\u000b\u0003}\u0005\u0003\"AF \n\u0005\u0001;\"\u0001B+oSRDQAQ\u0002A\u0002\r\u000b\u0001B\\3x'R\fG/\u001a\t\u0004-\u0011\u000b\u0014BA#\u0018\u0005\u0015\t%O]1z\u0003-\t\u0007\u000f]3oIZ\u000bG.^3\u0015\u0005yB\u0005\"\u0002\"\u0005\u0001\u0004\t\u0014AC1qa\u0016tG\rT5tiR\u0011ah\u0013\u0005\u0006\u0005\u0016\u0001\raQ\u0001\u0006G2,\u0017M\u001d\u000b\u0002}!\u0012\u0001a\u0014\t\u0003!Nk\u0011!\u0015\u0006\u0003%2\t!\"\u00198o_R\fG/[8o\u0013\t!\u0016K\u0001\u0005Fm>dg/\u001b8h\u0001"
+)
+public interface ListState extends Serializable {
+   boolean exists();
+
+   Iterator get();
+
+   void put(final Object newState);
+
+   void appendValue(final Object newState);
+
+   void appendList(final Object newState);
+
+   void clear();
+}

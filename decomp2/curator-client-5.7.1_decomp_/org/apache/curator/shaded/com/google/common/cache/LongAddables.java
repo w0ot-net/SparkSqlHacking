@@ -1,0 +1,54 @@
+package org.apache.curator.shaded.com.google.common.cache;
+
+import java.util.concurrent.atomic.AtomicLong;
+import org.apache.curator.shaded.com.google.common.annotations.GwtCompatible;
+import org.apache.curator.shaded.com.google.common.base.Supplier;
+
+@ElementTypesAreNonnullByDefault
+@GwtCompatible(
+   emulated = true
+)
+final class LongAddables {
+   private static final Supplier SUPPLIER;
+
+   public static LongAddable create() {
+      return (LongAddable)SUPPLIER.get();
+   }
+
+   static {
+      Supplier<LongAddable> supplier;
+      try {
+         new LongAdder();
+         supplier = new Supplier() {
+            public LongAddable get() {
+               return new LongAdder();
+            }
+         };
+      } catch (Throwable var2) {
+         supplier = new Supplier() {
+            public LongAddable get() {
+               return new PureJavaLongAddable();
+            }
+         };
+      }
+
+      SUPPLIER = supplier;
+   }
+
+   private static final class PureJavaLongAddable extends AtomicLong implements LongAddable {
+      private PureJavaLongAddable() {
+      }
+
+      public void increment() {
+         this.getAndIncrement();
+      }
+
+      public void add(long x) {
+         this.getAndAdd(x);
+      }
+
+      public long sum() {
+         return this.get();
+      }
+   }
+}

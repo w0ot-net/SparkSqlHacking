@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0
+Bundle-SymbolicName: io.netty.handler-proxy
+Built-By: root
+Bnd-LastModified: 1739202705618
+Specification-Title: Netty/Handler/Proxy
+Implementation-Vendor-Id: io.netty
+Bundle-DocURL: https://netty.io/
+Import-Package: io.netty.buffer;version="[4.1,5)",io.netty.channel;versi
+ on="[4.1,5)",io.netty.handler.codec.base64;version="[4.1,5)",io.netty.h
+ andler.codec.http;version="[4.1,5)",io.netty.handler.codec.socksx.v4;ve
+ rsion="[4.1,5)",io.netty.handler.codec.socksx.v5;version="[4.1,5)",io.n
+ etty.util;version="[4.1,5)",io.netty.util.concurrent;version="[4.1,5)",
+ io.netty.util.internal;version="[4.1,5)",io.netty.util.internal.logging
+ ;version="[4.1,5)",sun.nio.ch;resolution:=optional,org.eclipse.jetty.np
+ n;version="[1,2)";resolution:=optional,org.eclipse.jetty.alpn;version="
+ [1,2)";resolution:=optional,org.bouncycastle.jcajce.provider;version="[
+ 1.0,2)";resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Export-Package: io.netty.handler.proxy;uses:="io.netty.channel,io.netty.
+ handler.codec.http,io.netty.util.concurrent";version="4.1.118"
+Bundle-Name: Netty/Handler/Proxy
+Build-Jdk-Spec: 1.8
+Implementation-Title: Netty/Handler/Proxy
+Bundle-Description: Netty is an asynchronous event-driven network applic
+ ation framework for    rapid development of maintainable high performan
+ ce protocol servers and    clients.
+Automatic-Module-Name: io.netty.handler.proxy
+Implementation-Version: 4.1.118.Final
+Specification-Vendor: The Netty Project
+Bundle-ManifestVersion: 2
+Bundle-Vendor: The Netty Project
+Tool: Bnd-6.3.1.202206071316
+Implementation-Vendor: The Netty Project
+Bundle-Version: 4.1.118.Final
+Created-By: Apache Maven Bundle Plugin 5.1.8
+Build-Jdk: 1.8.0_432
+Specification-Version: 4.1
+Implementation-URL: https://netty.io/netty-handler-proxy/
+

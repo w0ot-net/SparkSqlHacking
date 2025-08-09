@@ -1,0 +1,6 @@
+package io.vertx.core.datagram.impl;
+
+public enum InternetProtocolFamily {
+   IPv4,
+   IPv6;
+}

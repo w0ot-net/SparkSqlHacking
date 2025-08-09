@@ -1,0 +1,18 @@
+package org.apache.spark.streaming.receiver;
+
+import org.apache.spark.storage.StreamBlockId;
+import scala.collection.mutable.ArrayBuffer;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005y3\u0001\"\u0002\u0004\u0011\u0002G\u0005\u0001\u0002\u0005\u0005\u0006/\u00011\t!\u0007\u0005\u0006I\u00011\t!\n\u0005\u0006]\u00011\ta\f\u0005\u0006\t\u00021\t!\u0012\u0002\u0017\u00052|7m[$f]\u0016\u0014\u0018\r^8s\u0019&\u001cH/\u001a8fe*\u0011q\u0001C\u0001\te\u0016\u001cW-\u001b<fe*\u0011\u0011BC\u0001\ngR\u0014X-Y7j]\u001eT!a\u0003\u0007\u0002\u000bM\u0004\u0018M]6\u000b\u00055q\u0011AB1qC\u000eDWMC\u0001\u0010\u0003\ry'oZ\n\u0003\u0001E\u0001\"AE\u000b\u000e\u0003MQ\u0011\u0001F\u0001\u0006g\u000e\fG.Y\u0005\u0003-M\u0011a!\u00118z%\u00164\u0017!C8o\u0003\u0012$G)\u0019;b\u0007\u0001!2AG\u000f#!\t\u00112$\u0003\u0002\u001d'\t!QK\\5u\u0011\u0015q\u0012\u00011\u0001 \u0003\u0011!\u0017\r^1\u0011\u0005I\u0001\u0013BA\u0011\u0014\u0005\r\te.\u001f\u0005\u0006G\u0005\u0001\raH\u0001\t[\u0016$\u0018\rZ1uC\u0006yqN\\$f]\u0016\u0014\u0018\r^3CY>\u001c7\u000e\u0006\u0002\u001bM!)qE\u0001a\u0001Q\u00059!\r\\8dW&#\u0007CA\u0015-\u001b\u0005Q#BA\u0016\u000b\u0003\u001d\u0019Ho\u001c:bO\u0016L!!\f\u0016\u0003\u001bM#(/Z1n\u00052|7m[%e\u0003-yg\u000eU;tQ\ncwnY6\u0015\u0007i\u0001\u0014\u0007C\u0003(\u0007\u0001\u0007\u0001\u0006C\u00033\u0007\u0001\u00071'A\u0006beJ\f\u0017PQ;gM\u0016\u0014\bG\u0001\u001b?!\r)$\bP\u0007\u0002m)\u0011q\u0007O\u0001\b[V$\u0018M\u00197f\u0015\tI4#\u0001\u0006d_2dWm\u0019;j_:L!a\u000f\u001c\u0003\u0017\u0005\u0013(/Y=Ck\u001a4WM\u001d\t\u0003{yb\u0001\u0001B\u0005@c\u0005\u0005\t\u0011!B\u0001\u0001\n\u0019q\fJ\u0019\u0012\u0005\u0005{\u0002C\u0001\nC\u0013\t\u00195CA\u0004O_RD\u0017N\\4\u0002\u000f=tWI\u001d:peR\u0019!DR*\t\u000b\u001d#\u0001\u0019\u0001%\u0002\u000f5,7o]1hKB\u0011\u0011\n\u0015\b\u0003\u0015:\u0003\"aS\n\u000e\u00031S!!\u0014\r\u0002\rq\u0012xn\u001c;?\u0013\ty5#\u0001\u0004Qe\u0016$WMZ\u0005\u0003#J\u0013aa\u0015;sS:<'BA(\u0014\u0011\u0015!F\u00011\u0001V\u0003%!\bN]8xC\ndW\r\u0005\u0002W7:\u0011q+\u0017\b\u0003\u0017bK\u0011\u0001F\u0005\u00035N\tq\u0001]1dW\u0006<W-\u0003\u0002];\nIA\u000b\u001b:po\u0006\u0014G.\u001a\u0006\u00035N\u0001"
+)
+public interface BlockGeneratorListener {
+   void onAddData(final Object data, final Object metadata);
+
+   void onGenerateBlock(final StreamBlockId blockId);
+
+   void onPushBlock(final StreamBlockId blockId, final ArrayBuffer arrayBuffer);
+
+   void onError(final String message, final Throwable throwable);
+}

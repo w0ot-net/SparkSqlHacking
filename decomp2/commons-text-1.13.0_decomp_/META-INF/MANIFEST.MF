@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Build-Jdk-Spec: 17
+Specification-Title: Apache Commons Text
+Specification-Version: 1.13
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Apache Commons Text
+Implementation-Version: 1.13.0
+Implementation-Vendor: The Apache Software Foundation
+Automatic-Module-Name: org.apache.commons.text
+Bundle-Description: Apache Commons Text is a set of utility functions an
+ d reusable components for the purpose of processing    and manipulating
+  text that should be of use in a Java environment.
+Bundle-DocURL: https://commons.apache.org/proper/commons-text
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons Text
+Bundle-SymbolicName: org.apache.commons.text
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.13.0
+Export-Package: org.apache.commons.text;version="1.13.0",org.apache.comm
+ ons.text.diff;version="1.13.0",org.apache.commons.text.io;version="1.13
+ .0",org.apache.commons.text.lookup;version="1.13.0",org.apache.commons.
+ text.matcher;version="1.13.0",org.apache.commons.text.numbers;version="
+ 1.13.0",org.apache.commons.text.similarity;version="1.13.0",org.apache.
+ commons.text.translate;version="1.13.0"
+Import-Package: org.apache.commons.lang3;version="3.17.0",org.apache.com
+ mons.lang3.function;version="3.17.0",org.apache.commons.lang3.time;vers
+ ion="3.17.0",javax.script,javax.xml.xpath,org.xml.sax
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt,META-INF/NOTICE.txt=N
+ OTICE.txt
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-6.4.1.202306080939
+Multi-Release: true
+

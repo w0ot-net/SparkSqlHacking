@@ -1,0 +1,59 @@
+package org.apache.spark.rpc.netty;
+
+import java.io.Serializable;
+import scala.Product;
+import scala.collection.Iterator;
+import scala.runtime.ModuleSerializationProxy;
+import scala.runtime.Statics;
+import scala.runtime.ScalaRunTime.;
+
+public final class OnStop$ implements InboxMessage, Product, Serializable {
+   public static final OnStop$ MODULE$ = new OnStop$();
+
+   static {
+      Product.$init$(MODULE$);
+   }
+
+   public String productElementName(final int n) {
+      return Product.productElementName$(this, n);
+   }
+
+   public Iterator productElementNames() {
+      return Product.productElementNames$(this);
+   }
+
+   public String productPrefix() {
+      return "OnStop";
+   }
+
+   public int productArity() {
+      return 0;
+   }
+
+   public Object productElement(final int x$1) {
+      return Statics.ioobe(x$1);
+   }
+
+   public Iterator productIterator() {
+      return .MODULE$.typedProductIterator(this);
+   }
+
+   public boolean canEqual(final Object x$1) {
+      return x$1 instanceof OnStop$;
+   }
+
+   public int hashCode() {
+      return -1929089375;
+   }
+
+   public String toString() {
+      return "OnStop";
+   }
+
+   private Object writeReplace() {
+      return new ModuleSerializationProxy(OnStop$.class);
+   }
+
+   private OnStop$() {
+   }
+}

@@ -1,0 +1,9 @@
+package org.apache.spark.sql.types;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\r2a!\u0002\u0004\u0002\u0012!\u0001\u0002\"B\u000b\u0001\t\u00039r!B\r\u0007\u0011\u0003Qb!B\u0003\u0007\u0011\u0003Y\u0002\"B\u000b\u0004\t\u0003\u0011#AC!u_6L7\rV=qK*\u0011q\u0001C\u0001\u0006if\u0004Xm\u001d\u0006\u0003\u0013)\t1a]9m\u0015\tYA\"A\u0003ta\u0006\u00148N\u0003\u0002\u000e\u001d\u00051\u0011\r]1dQ\u0016T\u0011aD\u0001\u0004_J<7C\u0001\u0001\u0012!\t\u00112#D\u0001\u0007\u0013\t!bA\u0001\u0005ECR\fG+\u001f9f\u0003\u0019a\u0014N\\5u}\r\u0001A#\u0001\r\u0011\u0005I\u0001\u0011AC!u_6L7\rV=qKB\u0011!cA\n\u0003\u0007q\u0001\"!\b\u0011\u000e\u0003yQ\u0011aH\u0001\u0006g\u000e\fG.Y\u0005\u0003Cy\u0011a!\u00118z%\u00164G#\u0001\u000e"
+)
+public abstract class AtomicType extends DataType {
+}

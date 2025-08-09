@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Implementation-Title: Objenesis
+Bundle-Description: A library for instantiating Java objects
+Automatic-Module-Name: org.objenesis
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.objenesis
+Implementation-Version: 3.3
+Specification-Vendor: Joe Walnes, Henri Tremblay, Leonardo Mesquita
+Bnd-LastModified: 1659306572100
+Bundle-ManifestVersion: 2
+Specification-Title: Objenesis
+Bundle-Vendor: Joe Walnes, Henri Tremblay, Leonardo Mesquita
+Import-Package: COM.newmonics.PercClassLoader;resolution:=optional,sun.m
+ isc;resolution:=optional,sun.reflect;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-6.3.1.202206071316
+Implementation-Vendor: Joe Walnes, Henri Tremblay, Leonardo Mesquita
+Dependencies: jdk.unsupported
+Export-Package: org.objenesis;uses:="org.objenesis.instantiator,org.obje
+ nesis.strategy";version="3.3.0",org.objenesis.instantiator.sun;uses:="o
+ rg.objenesis.instantiator,org.objenesis.instantiator.annotations,org.ob
+ jenesis.instantiator.basic";version="3.3.0",org.objenesis.instantiator.
+ util;uses:="sun.misc";version="3.3.0",org.objenesis.instantiator.perc;u
+ ses:="org.objenesis.instantiator,org.objenesis.instantiator.annotations
+ ";version="3.3.0",org.objenesis.instantiator.basic;uses:="org.objenesis
+ .instantiator,org.objenesis.instantiator.annotations";version="3.3.0",o
+ rg.objenesis.instantiator.gcj;uses:="org.objenesis.instantiator,org.obj
+ enesis.instantiator.annotations";version="3.3.0",org.objenesis.instanti
+ ator.annotations;version="3.3.0",org.objenesis.instantiator;version="3.
+ 3.0",org.objenesis.instantiator.android;uses:="org.objenesis.instantiat
+ or,org.objenesis.instantiator.annotations";version="3.3.0",org.objenesi
+ s.strategy;uses:="org.objenesis.instantiator";version="3.3.0"
+Bundle-Name: Objenesis
+Bundle-Version: 3.3.0
+Build-Jdk-Spec: 1.8
+Created-By: Apache Maven Bundle Plugin 5.1.7
+Specification-Version: 3.3
+

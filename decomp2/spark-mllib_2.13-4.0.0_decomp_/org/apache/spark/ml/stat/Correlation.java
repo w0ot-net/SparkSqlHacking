@@ -1,0 +1,17 @@
+package org.apache.spark.ml.stat;
+
+import org.apache.spark.sql.Dataset;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0015<Q!\u0002\u0004\t\u0002E1Qa\u0005\u0004\t\u0002QAQaG\u0001\u0005\u0002qAQ!H\u0001\u0005\u0002yAQ!H\u0001\u0005\u0002i\u000b1bQ8se\u0016d\u0017\r^5p]*\u0011q\u0001C\u0001\u0005gR\fGO\u0003\u0002\n\u0015\u0005\u0011Q\u000e\u001c\u0006\u0003\u00171\tQa\u001d9be.T!!\u0004\b\u0002\r\u0005\u0004\u0018m\u00195f\u0015\u0005y\u0011aA8sO\u000e\u0001\u0001C\u0001\n\u0002\u001b\u00051!aC\"peJ,G.\u0019;j_:\u001c\"!A\u000b\u0011\u0005YIR\"A\f\u000b\u0003a\tQa]2bY\u0006L!AG\f\u0003\r\u0005s\u0017PU3g\u0003\u0019a\u0014N\\5u}Q\t\u0011#\u0001\u0003d_J\u0014H\u0003B\u00104\u000b>\u0003\"\u0001\t\u0019\u000f\u0005\u0005jcB\u0001\u0012,\u001d\t\u0019#F\u0004\u0002%S9\u0011Q\u0005K\u0007\u0002M)\u0011q\u0005E\u0001\u0007yI|w\u000e\u001e \n\u0003=I!!\u0004\b\n\u0005-a\u0011B\u0001\u0017\u000b\u0003\r\u0019\u0018\u000f\\\u0005\u0003]=\nq\u0001]1dW\u0006<WM\u0003\u0002-\u0015%\u0011\u0011G\r\u0002\n\t\u0006$\u0018M\u0012:b[\u0016T!AL\u0018\t\u000bQ\u001a\u0001\u0019A\u001b\u0002\u000f\u0011\fG/Y:fiB\u0012a\u0007\u0010\t\u0004oaRT\"A\u0018\n\u0005ez#a\u0002#bi\u0006\u001cX\r\u001e\t\u0003wqb\u0001\u0001B\u0005>g\u0005\u0005\t\u0011!B\u0001}\t\u0019q\fJ\u0019\u0012\u0005}\u0012\u0005C\u0001\fA\u0013\t\tuCA\u0004O_RD\u0017N\\4\u0011\u0005Y\u0019\u0015B\u0001#\u0018\u0005\r\te.\u001f\u0005\u0006\r\u000e\u0001\raR\u0001\u0007G>dW/\u001c8\u0011\u0005!ceBA%K!\t)s#\u0003\u0002L/\u00051\u0001K]3eK\u001aL!!\u0014(\u0003\rM#(/\u001b8h\u0015\tYu\u0003C\u0003Q\u0007\u0001\u0007q)\u0001\u0004nKRDw\u000e\u001a\u0015\u0004\u0007IC\u0006CA*W\u001b\u0005!&BA+\u000b\u0003)\tgN\\8uCRLwN\\\u0005\u0003/R\u0013QaU5oG\u0016\f\u0013!W\u0001\u0006e9\u0012d\u0006\r\u000b\u0004?m\u000b\u0007\"\u0002\u001b\u0005\u0001\u0004a\u0006GA/`!\r9\u0004H\u0018\t\u0003w}#\u0011\u0002Y.\u0002\u0002\u0003\u0005)\u0011\u0001 \u0003\u0007}##\u0007C\u0003G\t\u0001\u0007q\tK\u0002\u0005%bC3!\u0001*YQ\r\u0001!\u000b\u0017"
+)
+public final class Correlation {
+   public static Dataset corr(final Dataset dataset, final String column) {
+      return Correlation$.MODULE$.corr(dataset, column);
+   }
+
+   public static Dataset corr(final Dataset dataset, final String column, final String method) {
+      return Correlation$.MODULE$.corr(dataset, column, method);
+   }
+}

@@ -1,0 +1,13 @@
+package org.apache.spark.sql.catalyst.encoders;
+
+import java.io.Serializable;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005m2qa\u0001\u0003\u0011\u0002G\u0005\u0011\u0003C\u0003&\u0001\u0019\u0005a\u0005C\u00038\u0001\u0019\u0005\u0001HA\u0003D_\u0012,7M\u0003\u0002\u0006\r\u0005AQM\\2pI\u0016\u00148O\u0003\u0002\b\u0011\u0005A1-\u0019;bYf\u001cHO\u0003\u0002\n\u0015\u0005\u00191/\u001d7\u000b\u0005-a\u0011!B:qCJ\\'BA\u0007\u000f\u0003\u0019\t\u0007/Y2iK*\tq\"A\u0002pe\u001e\u001c\u0001!F\u0002\u0013k%\u001a2\u0001A\n\u001a!\t!r#D\u0001\u0016\u0015\u00051\u0012!B:dC2\f\u0017B\u0001\r\u0016\u0005\u0019\te.\u001f*fMB\u0011!D\t\b\u00037\u0001r!\u0001H\u0010\u000e\u0003uQ!A\b\t\u0002\rq\u0012xn\u001c;?\u0013\u00051\u0012BA\u0011\u0016\u0003\u001d\u0001\u0018mY6bO\u0016L!a\t\u0013\u0003\u0019M+'/[1mSj\f'\r\\3\u000b\u0005\u0005*\u0012AB3oG>$W\r\u0006\u0002(eA\u0011\u0001&\u000b\u0007\u0001\t\u0015Q\u0003A1\u0001,\u0005\u0005y\u0015C\u0001\u00170!\t!R&\u0003\u0002/+\t9aj\u001c;iS:<\u0007C\u0001\u000b1\u0013\t\tTCA\u0002B]fDQaM\u0001A\u0002Q\n!!\u001b8\u0011\u0005!*D!\u0002\u001c\u0001\u0005\u0004Y#!A%\u0002\r\u0011,7m\u001c3f)\t!\u0014\bC\u0003;\u0005\u0001\u0007q%A\u0002pkR\u0004"
+)
+public interface Codec extends Serializable {
+   Object encode(final Object in);
+
+   Object decode(final Object out);
+}

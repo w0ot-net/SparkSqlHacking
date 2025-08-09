@@ -1,0 +1,9 @@
+package shaded.parquet.com.fasterxml.jackson.databind.jsonFormatVisitors;
+
+import shaded.parquet.com.fasterxml.jackson.databind.SerializerProvider;
+
+public interface JsonFormatVisitorWithSerializerProvider {
+   SerializerProvider getProvider();
+
+   void setProvider(SerializerProvider var1);
+}

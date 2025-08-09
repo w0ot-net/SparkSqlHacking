@@ -1,0 +1,11 @@
+package org.apache.spark.graphx.impl;
+
+import scala.reflect.ClassTag;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005}2\u0001BA\u0002\u0011\u0002G\u0005Q!\u0004\u0005\u0006+\u00011\ta\u0006\u0002\"-\u0016\u0014H/\u001a=QCJ$\u0018\u000e^5p]\n\u000b7/Z(qg\u000e{gn\u001d;sk\u000e$xN\u001d\u0006\u0003\t\u0015\tA![7qY*\u0011aaB\u0001\u0007OJ\f\u0007\u000f\u001b=\u000b\u0005!I\u0011!B:qCJ\\'B\u0001\u0006\f\u0003\u0019\t\u0007/Y2iK*\tA\"A\u0002pe\u001e,\"A\u0004\u0016\u0014\u0005\u0001y\u0001C\u0001\t\u0014\u001b\u0005\t\"\"\u0001\n\u0002\u000bM\u001c\u0017\r\\1\n\u0005Q\t\"AB!osJ+g-A\u0003u_>\u00038o\u0001\u0001\u0016\u0005a\u0001CCA\r=)\tQB\u0007\u0005\u0003\u001c9yIS\"A\u0002\n\u0005u\u0019!A\u0006,feR,\u0007\u0010U1si&$\u0018n\u001c8CCN,w\n]:\u0011\u0005}\u0001C\u0002\u0001\u0003\u0006C\u0005\u0011\rA\t\u0002\u0003-\u0012\u000b\"a\t\u0014\u0011\u0005A!\u0013BA\u0013\u0012\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"\u0001E\u0014\n\u0005!\n\"aA!osB\u0011qD\u000b\u0003\u0006W\u0001\u0011\r\u0001\f\u0002\u0002)V\u0011QFM\t\u0003G9\u00022aG\u00182\u0013\t\u00014AA\nWKJ$X\r\u001f)beRLG/[8o\u0005\u0006\u001cX\r\u0005\u0002 e\u0011)1G\u000bb\u0001E\t\t\u0001\fC\u00046\u0003\u0005\u0005\t9\u0001\u001c\u0002\u0015\u00154\u0018\u000eZ3oG\u0016$C\u0007E\u00028uyi\u0011\u0001\u000f\u0006\u0003sE\tqA]3gY\u0016\u001cG/\u0003\u0002<q\tA1\t\\1tgR\u000bw\rC\u0003>\u0003\u0001\u0007a(A\u0005qCJ$\u0018\u000e^5p]B\u0019qD\u000b\u0010"
+)
+public interface VertexPartitionBaseOpsConstructor {
+   VertexPartitionBaseOps toOps(final VertexPartitionBase partition, final ClassTag evidence$4);
+}

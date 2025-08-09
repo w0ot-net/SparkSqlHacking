@@ -1,0 +1,10 @@
+package org.apache.spark.ml.regression;
+
+import org.apache.spark.ml.PredictionModel;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u000552QAA\u0002\u0002\u00029AQa\u000b\u0001\u0005\u00021\u0012qBU3he\u0016\u001c8/[8o\u001b>$W\r\u001c\u0006\u0003\t\u0015\t!B]3he\u0016\u001c8/[8o\u0015\t1q!\u0001\u0002nY*\u0011\u0001\"C\u0001\u0006gB\f'o\u001b\u0006\u0003\u0015-\ta!\u00199bG\",'\"\u0001\u0007\u0002\u0007=\u0014xm\u0001\u0001\u0016\u0007=12eE\u0002\u0001!!\u0002B!\u0005\n\u0015E5\tQ!\u0003\u0002\u0014\u000b\ty\u0001K]3eS\u000e$\u0018n\u001c8N_\u0012,G\u000e\u0005\u0002\u0016-1\u0001A!B\f\u0001\u0005\u0004A\"\u0001\u0004$fCR,(/Z:UsB,\u0017CA\r !\tQR$D\u0001\u001c\u0015\u0005a\u0012!B:dC2\f\u0017B\u0001\u0010\u001c\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"A\u0007\u0011\n\u0005\u0005Z\"aA!osB\u0011Qc\t\u0003\u0006I\u0001\u0011\r!\n\u0002\u0002\u001bF\u0011\u0011D\n\t\u0005O\u0001!\"%D\u0001\u0004!\t\t\u0012&\u0003\u0002+\u000b\ty\u0001K]3eS\u000e$xN\u001d)be\u0006l7/\u0001\u0004=S:LGO\u0010\u000b\u0002M\u0001"
+)
+public abstract class RegressionModel extends PredictionModel {
+}

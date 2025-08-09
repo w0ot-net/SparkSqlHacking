@@ -1,0 +1,32 @@
+package breeze.util;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00014qa\u0003\u0007\u0011\u0002\u0007\u0005\u0011\u0003C\u0003\u001a\u0001\u0011\u0005!\u0004C\u0003\u001f\u0001\u0011\u0005q\u0004C\u00031\u0001\u0019\u0005\u0011\u0007C\u00034\u0001\u0019\u0005AgB\u00039\u0019!\u0005\u0011HB\u0003\f\u0019!\u00051\bC\u0003=\r\u0011\u0005Q\bC\u0003\u001f\r\u0011\u0005a\bC\u0003N\r\u0011\ra\nC\u0003T\r\u0011\rAK\u0001\u0003MK:\u001c(BA\u0007\u000f\u0003\u0011)H/\u001b7\u000b\u0003=\taA\u0019:fKj,7\u0001A\u000b\u0004%9\u00123C\u0001\u0001\u0014!\t!r#D\u0001\u0016\u0015\u00051\u0012!B:dC2\f\u0017B\u0001\r\u0016\u0005\u0019\te.\u001f*fM\u00061A%\u001b8ji\u0012\"\u0012a\u0007\t\u0003)qI!!H\u000b\u0003\tUs\u0017\u000e^\u0001\u0006CB\u0004H.\u001f\u000b\u0003A-\u0002\"!\t\u0012\r\u0001\u0011)1\u0005\u0001b\u0001I\t\tQ+\u0005\u0002&QA\u0011ACJ\u0005\u0003OU\u0011qAT8uQ&tw\r\u0005\u0002\u0015S%\u0011!&\u0006\u0002\u0004\u0003:L\b\"\u0002\u0017\u0003\u0001\u0004i\u0013!\u0001;\u0011\u0005\u0005rC!B\u0018\u0001\u0005\u0004!#!\u0001+\u0002\u0007\u001d,G\u000f\u0006\u0002!e!)Af\u0001a\u0001[\u0005\u00191/\u001a;\u0015\u00075*d\u0007C\u0003-\t\u0001\u0007Q\u0006C\u00038\t\u0001\u0007\u0001%A\u0001v\u0003\u0011aUM\\:\u0011\u0005i2Q\"\u0001\u0007\u0014\u0005\u0019\u0019\u0012A\u0002\u001fj]&$h\bF\u0001:+\ry$\t\u0012\u000b\u0004\u0001\u0016K\u0005\u0003\u0002\u001e\u0001\u0003\u000e\u0003\"!\t\"\u0005\u000b=B!\u0019\u0001\u0013\u0011\u0005\u0005\"E!B\u0012\t\u0005\u0004!\u0003\"\u0002\u0019\t\u0001\u00041\u0005\u0003\u0002\u000bH\u0003\u000eK!\u0001S\u000b\u0003\u0013\u0019+hn\u0019;j_:\f\u0004\"B\u001a\t\u0001\u0004Q\u0005#\u0002\u000bL\u0003\u000e\u000b\u0015B\u0001'\u0016\u0005%1UO\\2uS>t''\u0001\u0005jI\u0016tG/\u001b;z+\ty%+F\u0001Q!\u0011Q\u0004!U)\u0011\u0005\u0005\u0012F!B\u0018\n\u0005\u0004!\u0013!F5t_6|'\u000f\u001d5jg6L\u0016.\u001a7eg2+gn]\u000b\u0004+bSFC\u0001,\\!\u0011Q\u0004aV-\u0011\u0005\u0005BF!B\u0018\u000b\u0005\u0004!\u0003CA\u0011[\t\u0015\u0019#B1\u0001%\u0011\u0015a&\u0002q\u0001^\u0003\rI7o\u001c\t\u0005uy;\u0016,\u0003\u0002`\u0019\tY\u0011j]8n_J\u0004\b.[:n\u0001"
+)
+public interface Lens {
+   static Lens isomorphismYieldsLens(final Isomorphism iso) {
+      return Lens$.MODULE$.isomorphismYieldsLens(iso);
+   }
+
+   static Lens identity() {
+      return Lens$.MODULE$.identity();
+   }
+
+   // $FF: synthetic method
+   static Object apply$(final Lens $this, final Object t) {
+      return $this.apply(t);
+   }
+
+   default Object apply(final Object t) {
+      return this.get(t);
+   }
+
+   Object get(final Object t);
+
+   Object set(final Object t, final Object u);
+
+   static void $init$(final Lens $this) {
+   }
+}

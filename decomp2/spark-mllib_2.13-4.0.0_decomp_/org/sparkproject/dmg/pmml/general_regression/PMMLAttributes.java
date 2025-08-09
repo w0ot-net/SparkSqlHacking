@@ -1,0 +1,57 @@
+package org.sparkproject.dmg.pmml.general_regression;
+
+import java.lang.reflect.Field;
+import org.sparkproject.jpmml.model.ReflectionUtil;
+
+public interface PMMLAttributes {
+   Field BASECUMHAZARDTABLES_MAXTIME = ReflectionUtil.getField(BaseCumHazardTables.class, "maxTime");
+   Field BASELINECELL_TIME = ReflectionUtil.getField(BaselineCell.class, "time");
+   Field BASELINECELL_CUMHAZARD = ReflectionUtil.getField(BaselineCell.class, "cumHazard");
+   Field BASELINESTRATUM_VALUE = ReflectionUtil.getField(BaselineStratum.class, "value");
+   Field BASELINESTRATUM_LABEL = ReflectionUtil.getField(BaselineStratum.class, "label");
+   Field BASELINESTRATUM_MAXTIME = ReflectionUtil.getField(BaselineStratum.class, "maxTime");
+   Field CATEGORY_VALUE = ReflectionUtil.getField(Category.class, "value");
+   Field GENERALREGRESSIONMODEL_TARGETVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "targetVariable");
+   Field GENERALREGRESSIONMODEL_MODELTYPE = ReflectionUtil.getField(GeneralRegressionModel.class, "modelType");
+   Field GENERALREGRESSIONMODEL_MODELNAME = ReflectionUtil.getField(GeneralRegressionModel.class, "modelName");
+   Field GENERALREGRESSIONMODEL_MININGFUNCTION = ReflectionUtil.getField(GeneralRegressionModel.class, "miningFunction");
+   Field GENERALREGRESSIONMODEL_ALGORITHMNAME = ReflectionUtil.getField(GeneralRegressionModel.class, "algorithmName");
+   Field GENERALREGRESSIONMODEL_TARGETREFERENCECATEGORY = ReflectionUtil.getField(GeneralRegressionModel.class, "targetReferenceCategory");
+   Field GENERALREGRESSIONMODEL_CUMULATIVELINKFUNCTION = ReflectionUtil.getField(GeneralRegressionModel.class, "cumulativeLinkFunction");
+   Field GENERALREGRESSIONMODEL_LINKFUNCTION = ReflectionUtil.getField(GeneralRegressionModel.class, "linkFunction");
+   Field GENERALREGRESSIONMODEL_LINKPARAMETER = ReflectionUtil.getField(GeneralRegressionModel.class, "linkParameter");
+   Field GENERALREGRESSIONMODEL_TRIALSVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "trialsVariable");
+   Field GENERALREGRESSIONMODEL_TRIALSVALUE = ReflectionUtil.getField(GeneralRegressionModel.class, "trialsValue");
+   Field GENERALREGRESSIONMODEL_DISTRIBUTION = ReflectionUtil.getField(GeneralRegressionModel.class, "distribution");
+   Field GENERALREGRESSIONMODEL_DISTPARAMETER = ReflectionUtil.getField(GeneralRegressionModel.class, "distParameter");
+   Field GENERALREGRESSIONMODEL_OFFSETVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "offsetVariable");
+   Field GENERALREGRESSIONMODEL_OFFSETVALUE = ReflectionUtil.getField(GeneralRegressionModel.class, "offsetValue");
+   Field GENERALREGRESSIONMODEL_MODELDF = ReflectionUtil.getField(GeneralRegressionModel.class, "modelDF");
+   Field GENERALREGRESSIONMODEL_ENDTIMEVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "endTimeVariable");
+   Field GENERALREGRESSIONMODEL_STARTTIMEVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "startTimeVariable");
+   Field GENERALREGRESSIONMODEL_SUBJECTIDVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "subjectIDVariable");
+   Field GENERALREGRESSIONMODEL_STATUSVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "statusVariable");
+   Field GENERALREGRESSIONMODEL_BASELINESTRATAVARIABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "baselineStrataVariable");
+   Field GENERALREGRESSIONMODEL_SCORABLE = ReflectionUtil.getField(GeneralRegressionModel.class, "scorable");
+   Field GENERALREGRESSIONMODEL_MATHCONTEXT = ReflectionUtil.getField(GeneralRegressionModel.class, "mathContext");
+   Field PARAMETER_NAME = ReflectionUtil.getField(Parameter.class, "name");
+   Field PARAMETER_LABEL = ReflectionUtil.getField(Parameter.class, "label");
+   Field PARAMETER_REFERENCEPOINT = ReflectionUtil.getField(Parameter.class, "referencePoint");
+   Field PCELL_TARGETCATEGORY = ReflectionUtil.getField(PCell.class, "targetCategory");
+   Field PCELL_PARAMETERNAME = ReflectionUtil.getField(PCell.class, "parameterName");
+   Field PCELL_BETA = ReflectionUtil.getField(PCell.class, "beta");
+   Field PCELL_DF = ReflectionUtil.getField(PCell.class, "df");
+   Field PCOVCELL_PROW = ReflectionUtil.getField(PCovCell.class, "pRow");
+   Field PCOVCELL_PCOL = ReflectionUtil.getField(PCovCell.class, "pCol");
+   Field PCOVCELL_TROW = ReflectionUtil.getField(PCovCell.class, "tRow");
+   Field PCOVCELL_TCOL = ReflectionUtil.getField(PCovCell.class, "tCol");
+   Field PCOVCELL_VALUE = ReflectionUtil.getField(PCovCell.class, "value");
+   Field PCOVCELL_TARGETCATEGORY = ReflectionUtil.getField(PCovCell.class, "targetCategory");
+   Field PCOVMATRIX_TYPE = ReflectionUtil.getField(PCovMatrix.class, "type");
+   Field PPCELL_VALUE = ReflectionUtil.getField(PPCell.class, "value");
+   Field PPCELL_FIELD = ReflectionUtil.getField(PPCell.class, "field");
+   Field PPCELL_PARAMETERNAME = ReflectionUtil.getField(PPCell.class, "parameterName");
+   Field PPCELL_TARGETCATEGORY = ReflectionUtil.getField(PPCell.class, "targetCategory");
+   Field PREDICTOR_FIELD = ReflectionUtil.getField(Predictor.class, "field");
+   Field PREDICTOR_CONTRASTMATRIXTYPE = ReflectionUtil.getField(Predictor.class, "contrastMatrixType");
+}

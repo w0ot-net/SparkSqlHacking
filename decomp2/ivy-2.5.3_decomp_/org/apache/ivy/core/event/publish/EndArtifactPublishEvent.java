@@ -1,0 +1,22 @@
+package org.apache.ivy.core.event.publish;
+
+import java.io.File;
+import org.apache.ivy.core.module.descriptor.Artifact;
+import org.apache.ivy.plugins.resolver.DependencyResolver;
+
+public class EndArtifactPublishEvent extends PublishEvent {
+   public static final String NAME = "post-publish-artifact";
+   public static final String STATUS_SUCCESSFUL = "successful";
+   public static final String STATUS_FAILED = "failed";
+   private final boolean successful;
+
+   public EndArtifactPublishEvent(DependencyResolver resolver, Artifact artifact, File data, boolean overwrite, boolean successful) {
+      super("post-publish-artifact", resolver, artifact, data, overwrite);
+      this.successful = successful;
+      this.addAttribute("status", this.isSuccessful() ? "successful" : "failed");
+   }
+
+   public boolean isSuccessful() {
+      return this.successful;
+   }
+}

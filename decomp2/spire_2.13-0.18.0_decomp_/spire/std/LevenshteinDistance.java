@@ -1,0 +1,12 @@
+package spire.std;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005-;Q!\u0002\u0004\t\u0002-1Q!\u0004\u0004\t\u00029AQAM\u0001\u0005\u0002MBQ\u0001N\u0001\u0005\u0002UBqAO\u0001\u0002\u0002\u0013%1(A\nMKZ,gn\u001d5uK&tG)[:uC:\u001cWM\u0003\u0002\b\u0011\u0005\u00191\u000f\u001e3\u000b\u0003%\tQa\u001d9je\u0016\u001c\u0001\u0001\u0005\u0002\r\u00035\taAA\nMKZ,gn\u001d5uK&tG)[:uC:\u001cWm\u0005\u0003\u0002\u001fUI\u0003C\u0001\t\u0014\u001b\u0005\t\"\"\u0001\n\u0002\u000bM\u001c\u0017\r\\1\n\u0005Q\t\"AB!osJ+g\r\u0005\u0003\u00173m1S\"A\f\u000b\u0005aA\u0011aB1mO\u0016\u0014'/Y\u0005\u00035]\u00111\"T3ue&\u001c7\u000b]1dKB\u0011Ad\t\b\u0003;\u0005\u0002\"AH\t\u000e\u0003}Q!\u0001\t\u0006\u0002\rq\u0012xn\u001c;?\u0013\t\u0011\u0013#\u0001\u0004Qe\u0016$WMZ\u0005\u0003I\u0015\u0012aa\u0015;sS:<'B\u0001\u0012\u0012!\t\u0001r%\u0003\u0002)#\t\u0019\u0011J\u001c;\u0011\u0005)zcBA\u0016.\u001d\tqB&C\u0001\u0013\u0013\tq\u0013#A\u0004qC\u000e\\\u0017mZ3\n\u0005A\n$\u0001D*fe&\fG.\u001b>bE2,'B\u0001\u0018\u0012\u0003\u0019a\u0014N\\5u}Q\t1\"\u0001\u0005eSN$\u0018M\\2f)\r1c\u0007\u000f\u0005\u0006o\r\u0001\raG\u0001\u0002C\")\u0011h\u0001a\u00017\u0005\t!-\u0001\u0007xe&$XMU3qY\u0006\u001cW\rF\u0001=!\ti$)D\u0001?\u0015\ty\u0004)\u0001\u0003mC:<'\"A!\u0002\t)\fg/Y\u0005\u0003\u0007z\u0012aa\u00142kK\u000e$\b\u0006B\u0001F\u0011&\u0003\"\u0001\u0005$\n\u0005\u001d\u000b\"\u0001E*fe&\fGNV3sg&|g.V%E\u0003\u00151\u0018\r\\;f=\u0005\u0001\u0001\u0006\u0002\u0001F\u0011&\u0003"
+)
+public final class LevenshteinDistance {
+   public static int distance(final String a, final String b) {
+      return LevenshteinDistance$.MODULE$.distance(a, b);
+   }
+}

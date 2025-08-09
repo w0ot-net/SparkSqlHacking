@@ -1,0 +1,15 @@
+package org.apache.spark.sql;
+
+import java.io.Serializable;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u000513Q!\u0002\u0004\u0002\u0002=AQa\t\u0001\u0005\u0002\u0011BQA\r\u0001\u0007\u0002MBQA\u0010\u0001\u0007\u0002}BQ!\u0012\u0001\u0007\u0002\u0019\u0013QBR8sK\u0006\u001c\u0007n\u0016:ji\u0016\u0014(BA\u0004\t\u0003\r\u0019\u0018\u000f\u001c\u0006\u0003\u0013)\tQa\u001d9be.T!a\u0003\u0007\u0002\r\u0005\u0004\u0018m\u00195f\u0015\u0005i\u0011aA8sO\u000e\u0001QC\u0001\t*'\r\u0001\u0011c\u0006\t\u0003%Ui\u0011a\u0005\u0006\u0002)\u0005)1oY1mC&\u0011ac\u0005\u0002\u0007\u0003:L(+\u001a4\u0011\u0005a\u0001cBA\r\u001f\u001d\tQR$D\u0001\u001c\u0015\tab\"\u0001\u0004=e>|GOP\u0005\u0002)%\u0011qdE\u0001\ba\u0006\u001c7.Y4f\u0013\t\t#E\u0001\u0007TKJL\u0017\r\\5{C\ndWM\u0003\u0002 '\u00051A(\u001b8jiz\"\u0012!\n\t\u0004M\u00019S\"\u0001\u0004\u0011\u0005!JC\u0002\u0001\u0003\u0006U\u0001\u0011\ra\u000b\u0002\u0002)F\u0011Af\f\t\u0003%5J!AL\n\u0003\u000f9{G\u000f[5oOB\u0011!\u0003M\u0005\u0003cM\u00111!\u00118z\u0003\u0011y\u0007/\u001a8\u0015\u0007Q:D\b\u0005\u0002\u0013k%\u0011ag\u0005\u0002\b\u0005>|G.Z1o\u0011\u0015A$\u00011\u0001:\u0003-\u0001\u0018M\u001d;ji&|g.\u00133\u0011\u0005IQ\u0014BA\u001e\u0014\u0005\u0011auN\\4\t\u000bu\u0012\u0001\u0019A\u001d\u0002\u000f\u0015\u0004xn\u00195JI\u00069\u0001O]8dKN\u001cHC\u0001!D!\t\u0011\u0012)\u0003\u0002C'\t!QK\\5u\u0011\u0015!5\u00011\u0001(\u0003\u00151\u0018\r\\;f\u0003\u0015\u0019Gn\\:f)\t\u0001u\tC\u0003I\t\u0001\u0007\u0011*A\u0006feJ|'o\u0014:Ok2d\u0007C\u0001\rK\u0013\tY%EA\u0005UQJ|w/\u00192mK\u0002"
+)
+public abstract class ForeachWriter implements Serializable {
+   public abstract boolean open(final long partitionId, final long epochId);
+
+   public abstract void process(final Object value);
+
+   public abstract void close(final Throwable errorOrNull);
+}

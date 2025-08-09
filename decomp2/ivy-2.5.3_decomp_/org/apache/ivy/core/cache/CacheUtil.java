@@ -1,0 +1,16 @@
+package org.apache.ivy.core.cache;
+
+public final class CacheUtil {
+   public static void checkCachePattern(String cachePattern) {
+      if (cachePattern == null) {
+         throw new IllegalArgumentException("null cache pattern not allowed.");
+      } else if (cachePattern.startsWith("..")) {
+         throw new IllegalArgumentException("invalid cache pattern: '" + cachePattern + "': cache patterns must not lead outside cache directory");
+      } else if (cachePattern.startsWith("/")) {
+         throw new IllegalArgumentException("invalid cache pattern: '" + cachePattern + "': cache patterns must not be absolute");
+      }
+   }
+
+   private CacheUtil() {
+   }
+}

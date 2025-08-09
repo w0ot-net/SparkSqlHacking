@@ -1,0 +1,34 @@
+package org.apache.parquet.column.values.bitpacking;
+
+import java.io.IOException;
+import java.io.OutputStream;
+
+class OneBitPackingWriter extends BitPacking.BitPackingWriter {
+   private OutputStream out;
+   private int buffer = 0;
+   private int count = 0;
+
+   public OneBitPackingWriter(OutputStream out) {
+      this.out = out;
+   }
+
+   public void write(int val) throws IOException {
+      this.buffer <<= 1;
+      this.buffer |= val;
+      ++this.count;
+      if (this.count == 8) {
+         this.out.write(this.buffer);
+         this.buffer = 0;
+         this.count = 0;
+      }
+
+   }
+
+   public void finish() throws IOException {
+      while(this.count != 0) {
+         this.write(0);
+      }
+
+      this.out = null;
+   }
+}

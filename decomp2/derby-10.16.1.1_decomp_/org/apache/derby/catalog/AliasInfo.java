@@ -1,0 +1,28 @@
+package org.apache.derby.catalog;
+
+public interface AliasInfo {
+   char ALIAS_TYPE_UDT_AS_CHAR = 'A';
+   char ALIAS_TYPE_AGGREGATE_AS_CHAR = 'G';
+   char ALIAS_TYPE_PROCEDURE_AS_CHAR = 'P';
+   char ALIAS_TYPE_FUNCTION_AS_CHAR = 'F';
+   char ALIAS_TYPE_SYNONYM_AS_CHAR = 'S';
+   String ALIAS_TYPE_UDT_AS_STRING = "A";
+   String ALIAS_TYPE_AGGREGATE_AS_STRING = "G";
+   String ALIAS_TYPE_PROCEDURE_AS_STRING = "P";
+   String ALIAS_TYPE_FUNCTION_AS_STRING = "F";
+   String ALIAS_TYPE_SYNONYM_AS_STRING = "S";
+   char ALIAS_NAME_SPACE_UDT_AS_CHAR = 'A';
+   char ALIAS_NAME_SPACE_AGGREGATE_AS_CHAR = 'G';
+   char ALIAS_NAME_SPACE_PROCEDURE_AS_CHAR = 'P';
+   char ALIAS_NAME_SPACE_FUNCTION_AS_CHAR = 'F';
+   char ALIAS_NAME_SPACE_SYNONYM_AS_CHAR = 'S';
+   String ALIAS_NAME_SPACE_UDT_AS_STRING = "A";
+   String ALIAS_NAME_SPACE_AGGREGATE_AS_STRING = "G";
+   String ALIAS_NAME_SPACE_PROCEDURE_AS_STRING = "P";
+   String ALIAS_NAME_SPACE_FUNCTION_AS_STRING = "F";
+   String ALIAS_NAME_SPACE_SYNONYM_AS_STRING = "S";
+
+   String getMethodName();
+
+   boolean isTableFunction();
+}

@@ -1,0 +1,10 @@
+package org.json4s.reflect;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005]1\u0001BA\u0002\u0011\u0002G\u00051!\u0003\u0005\u0006!\u00011\tA\u0005\u0002\u000b'>,(oY3UsB,'B\u0001\u0003\u0006\u0003\u001d\u0011XM\u001a7fGRT!AB\u0004\u0002\r)\u001cxN\u001c\u001bt\u0015\u0005A\u0011aA8sON\u0011\u0001A\u0003\t\u0003\u00179i\u0011\u0001\u0004\u0006\u0002\u001b\u0005)1oY1mC&\u0011q\u0002\u0004\u0002\u0007\u0003:L(+\u001a4\u0002\u0013M\u001c\u0017\r\\1UsB,7\u0001A\u000b\u0002'A\u0011A#F\u0007\u0002\u0007%\u0011ac\u0001\u0002\n'\u000e\fG.\u0019+za\u0016\u0004"
+)
+public interface SourceType {
+   ScalaType scalaType();
+}

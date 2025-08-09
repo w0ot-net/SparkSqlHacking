@@ -1,0 +1,51 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 11
+Bundle-Description: Java client for Kubernetes and OpenShift
+Bundle-DocURL: https://redhat.com
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Fabric8 :: Kubernetes Model :: Resource
+Bundle-SymbolicName: io.fabric8.kubernetes-model-resource
+Bundle-Vendor: Red Hat
+Bundle-Version: 7.1.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Export-Package: io.fabric8.kubernetes.api.model.resource.v1alpha2;uses:=
+ "com.fasterxml.jackson.annotation,com.fasterxml.jackson.databind,com.fa
+ sterxml.jackson.databind.annotation,io.fabric8.kubernetes.api.builder,i
+ o.fabric8.kubernetes.api.model,io.fabric8.kubernetes.internal,io.fabric
+ 8.kubernetes.model.annotation";version="7.1.0",io.fabric8.kubernetes.ap
+ i.model.resource.v1alpha3;uses:="com.fasterxml.jackson.annotation,com.f
+ asterxml.jackson.databind,com.fasterxml.jackson.databind.annotation,io.
+ fabric8.kubernetes.api.builder,io.fabric8.kubernetes.api.model,io.fabri
+ c8.kubernetes.internal,io.fabric8.kubernetes.model.annotation";version=
+ "7.1.0",io.fabric8.kubernetes.api.model.resource.v1beta1;uses:="com.fas
+ terxml.jackson.annotation,com.fasterxml.jackson.databind,com.fasterxml.
+ jackson.databind.annotation,io.fabric8.kubernetes.api.builder,io.fabric
+ 8.kubernetes.api.model,io.fabric8.kubernetes.internal,io.fabric8.kubern
+ etes.model.annotation";version="7.1.0"
+Implementation-URL: https://github.com/fabric8io/kubernetes-client/kuber
+ netes-model-generator/kubernetes-model-resource
+Import-Package: com.fasterxml.jackson.annotation;version="[2.18,3)",com.
+ fasterxml.jackson.databind;version="[2.18,3)",com.fasterxml.jackson.dat
+ abind.annotation;version="[2.18,3)",io.fabric8.kubernetes.api.builder;v
+ ersion="[7.1,8)",io.fabric8.kubernetes.api.model;version="[7.1,8)",io.f
+ abric8.kubernetes.internal,io.fabric8.kubernetes.model.annotation;versi
+ on="[7.1,8)",java.lang,java.lang.invoke,java.util,java.util.function
+Include-Resource: META-INF/services/io.fabric8.kubernetes.api.model.Kube
+ rnetesResource=target/classes/META-INF/services/io.fabric8.kubernetes.a
+ pi.model.KubernetesResource,/META-INF/jandex.idx=target/classes/META-IN
+ F/jandex.idx
+Provide-Capability: osgi.serviceloader;osgi.serviceloader="io.fabric8.ku
+ bernetes.api.model.KubernetesResource"
+Require-Capability: osgi.extender;filter:="(osgi.extender=osgi.servicelo
+ ader.registrar)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Scm-Connection: scm:git:git@github.com:fabric8io/kubernetes-client.git/k
+ ubernetes-model-generator/kubernetes-model-resource
+Scm-Revision: ${buildNumber}
+Scm-Url: https://github.com/fabric8io/kubernetes-client/kubernetes-model
+ -generator/kubernetes-model-resource/
+Specification-Title: Fabric8 :: Kubernetes Model :: Resource
+Specification-Vendor: Red Hat
+Specification-Version: 7.1
+Tool: Bnd-6.3.1.202206071316
+

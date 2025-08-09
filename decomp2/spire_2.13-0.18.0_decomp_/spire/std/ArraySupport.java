@@ -1,0 +1,60 @@
+package spire.std;
+
+import algebra.ring.AdditiveGroup;
+import algebra.ring.AdditiveMonoid;
+import algebra.ring.MultiplicativeSemigroup;
+import algebra.ring.Rig;
+import algebra.ring.Ring;
+import cats.kernel.Eq;
+import cats.kernel.Order;
+import scala.reflect.ClassTag;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\t\u001dt!\u0002\b\u0010\u0011\u0003!b!\u0002\f\u0010\u0011\u00039\u0002\"\u0002\u0010\u0002\t\u0003y\u0002\"\u0002\u0011\u0002\t\u0003\t\u0003\"B(\u0002\t\u0003\u0001\u0006\"B1\u0002\t\u0003\u0011\u0007\"B:\u0002\t\u0003!\bbBA\u0002\u0003\u0011\u0005\u0011Q\u0001\u0005\b\u0003S\tA\u0011AA\u0016\u0011\u001d\t9(\u0001C\u0001\u0003sBq!a*\u0002\t\u0003\tI\u000bC\u0004\u0002\\\u0006!\t!!8\t\u000f\tE\u0011\u0001\"\u0001\u0003\u0014!9!QH\u0001\u0005\u0002\t}\u0012\u0001D!se\u0006L8+\u001e9q_J$(B\u0001\t\u0012\u0003\r\u0019H\u000f\u001a\u0006\u0002%\u0005)1\u000f]5sK\u000e\u0001\u0001CA\u000b\u0002\u001b\u0005y!\u0001D!se\u0006L8+\u001e9q_J$8CA\u0001\u0019!\tIB$D\u0001\u001b\u0015\u0005Y\u0012!B:dC2\f\u0017BA\u000f\u001b\u0005\u0019\te.\u001f*fM\u00061A(\u001b8jiz\"\u0012\u0001F\u0001\u0004KF4XC\u0001\u0012<)\r\u0019\u0003*\u0014\u000b\u0003I\u001d\u0002\"!G\u0013\n\u0005\u0019R\"a\u0002\"p_2,\u0017M\u001c\u0005\bQ\r\t\t\u0011q\u0001*\u0003))g/\u001b3f]\u000e,G%\r\t\u0004UYJdBA\u00164\u001d\ta\u0013G\u0004\u0002.a5\taF\u0003\u00020'\u00051AH]8pizJ\u0011AE\u0005\u0003eE\tq!\u00197hK\n\u0014\u0018-\u0003\u00025k\u00059\u0001/Y2lC\u001e,'B\u0001\u001a\u0012\u0013\t9\u0004H\u0001\u0002Fc*\u0011A'\u000e\t\u0003umb\u0001\u0001B\u0005=\u0007\u0001\u0006\t\u0011!b\u0001{\t\t\u0011)\u0005\u0002?\u0003B\u0011\u0011dP\u0005\u0003\u0001j\u0011qAT8uQ&tw\r\u0005\u0002\u001a\u0005&\u00111I\u0007\u0002\u0004\u0003:L\bFA\u001eF!\tIb)\u0003\u0002H5\tY1\u000f]3dS\u0006d\u0017N_3e\u0011\u0015I5\u00011\u0001K\u0003\u0005A\bcA\rLs%\u0011AJ\u0007\u0002\u0006\u0003J\u0014\u0018-\u001f\u0005\u0006\u001d\u000e\u0001\rAS\u0001\u0002s\u0006Ia/Z2u_J,\u0015O^\u000b\u0003#^#2A\u00150a)\r!3+\u0017\u0005\u0006)\u0012\u0001\u001d!V\u0001\u0003KZ\u00042A\u000b\u001cW!\tQt\u000bB\u0005=\t\u0001\u0006\t\u0011!b\u0001{!\u0012q+\u0012\u0005\u00065\u0012\u0001\u001daW\u0001\u0003g\u000e\u00042A\u000b/W\u0013\ti\u0006H\u0001\bBI\u0012LG/\u001b<f\u001b>tw.\u001b3\t\u000b%#\u0001\u0019A0\u0011\u0007eYe\u000bC\u0003O\t\u0001\u0007q,A\u0004d_6\u0004\u0018M]3\u0016\u0005\rtGc\u00013qeR\u0011Q\r\u001b\t\u00033\u0019L!a\u001a\u000e\u0003\u0007%sG\u000fC\u0004j\u000b\u0005\u0005\t9\u00016\u0002\u0015\u00154\u0018\u000eZ3oG\u0016$#\u0007E\u0002+W6L!\u0001\u001c\u001d\u0003\u000b=\u0013H-\u001a:\u0011\u0005irG!\u0003\u001f\u0006A\u0003\u0005\tQ1\u0001>Q\tqW\tC\u0003J\u000b\u0001\u0007\u0011\u000fE\u0002\u001a\u00176DQAT\u0003A\u0002E\fQB^3di>\u00148i\\7qCJ,WCA;{)\u00111h0!\u0001\u0015\u0007\u0015<H\u0010C\u0003U\r\u0001\u000f\u0001\u0010E\u0002+Wf\u0004\"A\u000f>\u0005\u0013q2\u0001\u0015!A\u0001\u0006\u0004i\u0004F\u0001>F\u0011\u0015Qf\u0001q\u0001~!\rQC,\u001f\u0005\u0006\u0013\u001a\u0001\ra \t\u00043-K\b\"\u0002(\u0007\u0001\u0004y\u0018AB2p]\u000e\fG/\u0006\u0003\u0002\b\u0005=ACBA\u0005\u0003K\t9\u0003\u0006\u0003\u0002\f\u0005M\u0001\u0003B\rL\u0003\u001b\u00012AOA\b\t%at\u0001)A\u0001\u0002\u000b\u0007Q\bK\u0002\u0002\u0010\u0015C\u0011\"!\u0006\b\u0003\u0003\u0005\u001d!a\u0006\u0002\u0015\u00154\u0018\u000eZ3oG\u0016$3\u0007\u0005\u0004\u0002\u001a\u0005}\u0011Q\u0002\b\u0005\u00037\ti\"D\u0001\u0012\u0013\t!\u0014#\u0003\u0003\u0002\"\u0005\r\"\u0001C\"mCN\u001cH+Y4\u000b\u0005Q\n\u0002BB%\b\u0001\u0004\tY\u0001\u0003\u0004O\u000f\u0001\u0007\u00111B\u0001\u0007]\u0016<\u0017\r^3\u0016\t\u00055\u0012Q\u0007\u000b\u0005\u0003_\t)\b\u0006\u0004\u00022\u0005\u0015\u00141\u000e\t\u00053-\u000b\u0019\u0004E\u0002;\u0003k!\u0011\u0002\u0010\u0005!\u0002\u0003\u0005)\u0019A\u001f)\u0017\u0005UR)!\u000f\u0002H\u0005E\u00131L\u0019\nG\u0005m\u0012QHA!\u0003\u007fq1!GA\u001f\u0013\r\tyDG\u0001\u0004\u0013:$\u0018G\u0002\u0013\u0002D\u0005\u00153DD\u0002.\u0003\u000bJ\u0011aG\u0019\nG\u0005%\u00131JA(\u0003\u001br1!GA&\u0013\r\tiEG\u0001\u0005\u0019>tw-\r\u0004%\u0003\u0007\n)eG\u0019\nG\u0005M\u0013QKA-\u0003/r1!GA+\u0013\r\t9FG\u0001\u0006\r2|\u0017\r^\u0019\u0007I\u0005\r\u0013QI\u000e2\u0013\r\ni&a\u0018\u0002d\u0005\u0005dbA\r\u0002`%\u0019\u0011\u0011\r\u000e\u0002\r\u0011{WO\u00197fc\u0019!\u00131IA#7!I\u0011q\r\u0005\u0002\u0002\u0003\u000f\u0011\u0011N\u0001\u000bKZLG-\u001a8dK\u0012\"\u0004CBA\r\u0003?\t\u0019\u0004C\u0005\u0002n!\t\t\u0011q\u0001\u0002p\u0005QQM^5eK:\u001cW\rJ\u001b\u0011\u000b)\n\t(a\r\n\u0007\u0005M\u0004H\u0001\u0003SS:<\u0007BB%\t\u0001\u0004\t\t$\u0001\u0003qYV\u001cX\u0003BA>\u0003\u0007#b!! \u0002$\u0006\u0015FCBA@\u0003/\u000bi\n\u0005\u0003\u001a\u0017\u0006\u0005\u0005c\u0001\u001e\u0002\u0004\u0012IA(\u0003Q\u0001\u0002\u0003\u0015\r!\u0010\u0015\f\u0003\u0007+\u0015qQAF\u0003\u001f\u000b\u0019*M\u0005$\u0003w\ti$!#\u0002@E2A%a\u0011\u0002Fm\t\u0014bIA%\u0003\u0017\ni)!\u00142\r\u0011\n\u0019%!\u0012\u001cc%\u0019\u00131KA+\u0003#\u000b9&\r\u0004%\u0003\u0007\n)eG\u0019\nG\u0005u\u0013qLAK\u0003C\nd\u0001JA\"\u0003\u000bZ\u0002\"CAM\u0013\u0005\u0005\t9AAN\u0003))g/\u001b3f]\u000e,GE\u000e\t\u0007\u00033\ty\"!!\t\u0013\u0005}\u0015\"!AA\u0004\u0005\u0005\u0016AC3wS\u0012,gnY3%oA!!\u0006XAA\u0011\u0019I\u0015\u00021\u0001\u0002\u0000!1a*\u0003a\u0001\u0003\u007f\nQ!\\5okN,B!a+\u00024R1\u0011QVAl\u00033$b!a,\u0002H\u00065\u0007\u0003B\rL\u0003c\u00032AOAZ\t%a$\u0002)A\u0001\u0002\u000b\u0007Q\bK\u0006\u00024\u0016\u000b9,a/\u0002@\u0006\r\u0017'C\u0012\u0002<\u0005u\u0012\u0011XA c\u0019!\u00131IA#7EJ1%!\u0013\u0002L\u0005u\u0016QJ\u0019\u0007I\u0005\r\u0013QI\u000e2\u0013\r\n\u0019&!\u0016\u0002B\u0006]\u0013G\u0002\u0013\u0002D\u0005\u00153$M\u0005$\u0003;\ny&!2\u0002bE2A%a\u0011\u0002FmA\u0011\"!3\u000b\u0003\u0003\u0005\u001d!a3\u0002\u0015\u00154\u0018\u000eZ3oG\u0016$\u0003\b\u0005\u0004\u0002\u001a\u0005}\u0011\u0011\u0017\u0005\n\u0003\u001fT\u0011\u0011!a\u0002\u0003#\f!\"\u001a<jI\u0016t7-\u001a\u0013:!\u0015Q\u00131[AY\u0013\r\t)\u000e\u000f\u0002\u000e\u0003\u0012$\u0017\u000e^5wK\u001e\u0013x.\u001e9\t\r%S\u0001\u0019AAX\u0011\u0019q%\u00021\u0001\u00020\u00061A/[7fg2,B!a8\u0002hR1\u0011\u0011\u001dB\u0006\u0005\u001f!b!a9\u0002|\n\u0005\u0001\u0003B\rL\u0003K\u00042AOAt\t%a4\u0002)A\u0001\u0002\u000b\u0007Q\bK\u0006\u0002h\u0016\u000bY/a<\u0002t\u0006]\u0018'C\u0012\u0002<\u0005u\u0012Q^A c\u0019!\u00131IA#7EJ1%!\u0013\u0002L\u0005E\u0018QJ\u0019\u0007I\u0005\r\u0013QI\u000e2\u0013\r\n\u0019&!\u0016\u0002v\u0006]\u0013G\u0002\u0013\u0002D\u0005\u00153$M\u0005$\u0003;\ny&!?\u0002bE2A%a\u0011\u0002FmA\u0011\"!@\f\u0003\u0003\u0005\u001d!a@\u0002\u0017\u00154\u0018\u000eZ3oG\u0016$\u0013\u0007\r\t\u0007\u00033\ty\"!:\t\u0013\t\r1\"!AA\u0004\t\u0015\u0011aC3wS\u0012,gnY3%cE\u0002RA\u000bB\u0004\u0003KL1A!\u00039\u0005]iU\u000f\u001c;ja2L7-\u0019;jm\u0016\u001cV-\\5he>,\b\u000fC\u0004\u0003\u000e-\u0001\r!!:\u0002\u0003IDa!S\u0006A\u0002\u0005\r\u0018a\u00013piV!!Q\u0003B\u000e)\u0019\u00119Ba\u000e\u0003<Q!!\u0011\u0004B\u0018!\rQ$1\u0004\u0003\ny1\u0001\u000b\u0011!AC\u0002uB3Ba\u0007F\u0005?\u0011\u0019Ca\n\u0003,EJ1%a\u000f\u0002>\t\u0005\u0012qH\u0019\u0007I\u0005\r\u0013QI\u000e2\u0013\r\nI%a\u0013\u0003&\u00055\u0013G\u0002\u0013\u0002D\u0005\u00153$M\u0005$\u0003'\n)F!\u000b\u0002XE2A%a\u0011\u0002Fm\t\u0014bIA/\u0003?\u0012i#!\u00192\r\u0011\n\u0019%!\u0012\u001c\u0011\u0019QF\u0002q\u0001\u00032A)!Fa\r\u0003\u001a%\u0019!Q\u0007\u001d\u0003\u0007IKw\r\u0003\u0004J\u0019\u0001\u0007!\u0011\b\t\u00053-\u0013I\u0002\u0003\u0004O\u0019\u0001\u0007!\u0011H\u0001\u0005CbL7/\u0006\u0003\u0003B\t%CC\u0002B\"\u0005?\u0012\u0019\u0007\u0006\u0004\u0003F\tU#1\f\t\u00053-\u00139\u0005E\u0002;\u0005\u0013\"\u0011\u0002P\u0007!\u0002\u0003\u0005)\u0019A\u001f)\u000f\t%SI!\u0014\u0003REJ1%a\u0015\u0002V\t=\u0013qK\u0019\u0007I\u0005\r\u0013QI\u000e2\u0013\r\ni&a\u0018\u0003T\u0005\u0005\u0014G\u0002\u0013\u0002D\u0005\u00153\u0004C\u0004\u0003X5\u0001\u001dA!\u0017\u0002\u0005\r$\bCBA\r\u0003?\u00119\u0005\u0003\u0004[\u001b\u0001\u000f!Q\f\t\u0006U\tM\"q\t\u0005\u0007\u0005Cj\u0001\u0019A3\u0002\u0015\u0011LW.\u001a8tS>t7\u000f\u0003\u0004\u0003f5\u0001\r!Z\u0001\u0002S\u0002"
+)
+public final class ArraySupport {
+   public static Object axis(final int dimensions, final int i, final ClassTag ct, final Rig sc) {
+      return ArraySupport$.MODULE$.axis(dimensions, i, ct, sc);
+   }
+
+   public static Object dot(final Object x, final Object y, final Rig sc) {
+      return ArraySupport$.MODULE$.dot(x, y, sc);
+   }
+
+   public static Object timesl(final Object r, final Object x, final ClassTag evidence$10, final MultiplicativeSemigroup evidence$11) {
+      return ArraySupport$.MODULE$.timesl(r, x, evidence$10, evidence$11);
+   }
+
+   public static Object minus(final Object x, final Object y, final ClassTag evidence$8, final AdditiveGroup evidence$9) {
+      return ArraySupport$.MODULE$.minus(x, y, evidence$8, evidence$9);
+   }
+
+   public static Object plus(final Object x, final Object y, final ClassTag evidence$6, final AdditiveMonoid evidence$7) {
+      return ArraySupport$.MODULE$.plus(x, y, evidence$6, evidence$7);
+   }
+
+   public static Object negate(final Object x, final ClassTag evidence$4, final Ring evidence$5) {
+      return ArraySupport$.MODULE$.negate(x, evidence$4, evidence$5);
+   }
+
+   public static Object concat(final Object x, final Object y, final ClassTag evidence$3) {
+      return ArraySupport$.MODULE$.concat(x, y, evidence$3);
+   }
+
+   public static int vectorCompare(final Object x, final Object y, final Order ev, final AdditiveMonoid sc) {
+      return ArraySupport$.MODULE$.vectorCompare(x, y, ev, sc);
+   }
+
+   public static int compare(final Object x, final Object y, final Order evidence$2) {
+      return ArraySupport$.MODULE$.compare(x, y, evidence$2);
+   }
+
+   public static boolean vectorEqv(final Object x, final Object y, final Eq ev, final AdditiveMonoid sc) {
+      return ArraySupport$.MODULE$.vectorEqv(x, y, ev, sc);
+   }
+
+   public static boolean eqv(final Object x, final Object y, final Eq evidence$1) {
+      return ArraySupport$.MODULE$.eqv(x, y, evidence$1);
+   }
+}

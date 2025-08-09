@@ -1,0 +1,85 @@
+package org.apache.hive.service.cli.thrift;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import org.apache.thrift.TException;
+import org.apache.thrift.TProcessor;
+import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.protocol.TProtocolFactory;
+import org.apache.thrift.transport.TIOStreamTransport;
+import org.apache.thrift.transport.TTransport;
+
+public class TServlet extends HttpServlet {
+   private final TProcessor processor;
+   private final TProtocolFactory inProtocolFactory;
+   private final TProtocolFactory outProtocolFactory;
+   private final Collection customHeaders;
+
+   public TServlet(TProcessor processor, TProtocolFactory inProtocolFactory, TProtocolFactory outProtocolFactory) {
+      this.processor = processor;
+      this.inProtocolFactory = inProtocolFactory;
+      this.outProtocolFactory = outProtocolFactory;
+      this.customHeaders = new ArrayList();
+   }
+
+   public TServlet(TProcessor processor, TProtocolFactory protocolFactory) {
+      this(processor, protocolFactory, protocolFactory);
+   }
+
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      TTransport inTransport = null;
+      TTransport outTransport = null;
+
+      try {
+         response.setContentType("application/x-thrift");
+         if (null != this.customHeaders) {
+            for(Map.Entry header : this.customHeaders) {
+               response.addHeader((String)header.getKey(), (String)header.getValue());
+            }
+         }
+
+         InputStream in = request.getInputStream();
+         OutputStream out = response.getOutputStream();
+         TTransport transport = new TIOStreamTransport(in, out);
+         TProtocol inProtocol = this.inProtocolFactory.getProtocol(transport);
+         TProtocol outProtocol = this.outProtocolFactory.getProtocol(transport);
+         this.processor.process(inProtocol, outProtocol);
+         out.flush();
+      } catch (TException te) {
+         throw new ServletException(te);
+      }
+   }
+
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      this.doPost(request, response);
+   }
+
+   public void addCustomHeader(final String key, final String value) {
+      this.customHeaders.add(new Map.Entry() {
+         public String getKey() {
+            return key;
+         }
+
+         public String getValue() {
+            return value;
+         }
+
+         public String setValue(String valuex) {
+            return null;
+         }
+      });
+   }
+
+   public void setCustomHeaders(Collection headers) {
+      this.customHeaders.clear();
+      this.customHeaders.addAll(headers);
+   }
+}

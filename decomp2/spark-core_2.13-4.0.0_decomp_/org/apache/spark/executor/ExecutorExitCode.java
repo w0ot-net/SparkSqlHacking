@@ -1,0 +1,36 @@
+package org.apache.spark.executor;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0015;a\u0001E\t\t\u0002MIbAB\u000e\u0012\u0011\u0003\u0019B\u0004C\u0003$\u0003\u0011\u0005Q\u0005C\u0004'\u0003\t\u0007I\u0011A\u0014\t\r-\n\u0001\u0015!\u0003)\u0011\u001da\u0013A1A\u0005\u0002\u001dBa!L\u0001!\u0002\u0013A\u0003b\u0002\u0018\u0002\u0005\u0004%\ta\n\u0005\u0007_\u0005\u0001\u000b\u0011\u0002\u0015\t\u000fA\n!\u0019!C\u0001O!1\u0011'\u0001Q\u0001\n!BqAM\u0001C\u0002\u0013\u0005q\u0005\u0003\u00044\u0003\u0001\u0006I\u0001\u000b\u0005\bi\u0005\u0011\r\u0011\"\u0001(\u0011\u0019)\u0014\u0001)A\u0005Q!)a'\u0001C\u0001o\u0005\u0001R\t_3dkR|'/\u0012=ji\u000e{G-\u001a\u0006\u0003%M\t\u0001\"\u001a=fGV$xN\u001d\u0006\u0003)U\tQa\u001d9be.T!AF\f\u0002\r\u0005\u0004\u0018m\u00195f\u0015\u0005A\u0012aA8sOB\u0011!$A\u0007\u0002#\t\u0001R\t_3dkR|'/\u0012=ji\u000e{G-Z\n\u0003\u0003u\u0001\"AH\u0011\u000e\u0003}Q\u0011\u0001I\u0001\u0006g\u000e\fG.Y\u0005\u0003E}\u0011a!\u00118z%\u00164\u0017A\u0002\u001fj]&$hh\u0001\u0001\u0015\u0003e\tq\u0004R%T\u0017~\u001bFk\u0014*F?\u001a\u000b\u0015\nT#E?R{ul\u0011*F\u0003R+u\fR%S+\u0005A\u0003C\u0001\u0010*\u0013\tQsDA\u0002J]R\f\u0001\u0005R%T\u0017~\u001bFk\u0014*F?\u001a\u000b\u0015\nT#E?R{ul\u0011*F\u0003R+u\fR%SA\u0005IS\t\u0017+F%:\u000bEj\u0018\"M\u001f\u000e[ul\u0015+P%\u0016{f)Q%M\u000b\u0012{FkT0J\u001d&#\u0016*\u0011'J5\u0016\u000b!&\u0012-U\u000bJs\u0015\tT0C\u0019>\u001b5jX*U\u001fJ+uLR!J\u0019\u0016#u\fV(`\u0013:KE+S!M\u0013j+\u0005%A\u0015F1R+%KT!M?\ncujQ&`'R{%+R0G\u0003&cU\tR0U\u001f~\u001b%+R!U\u000b~#\u0015JU\u0001+\u000bb#VI\u0015(B\u0019~\u0013EjT\"L?N#vJU#`\r\u0006KE*\u0012#`)>{6IU#B)\u0016{F)\u0013*!\u0003EAU)\u0011*U\u0005\u0016\u000bEk\u0018$B\u00132+&+R\u0001\u0013\u0011\u0016\u000b%\u000b\u0016\"F\u0003R{f)Q%M+J+\u0005%A\u000bL\u00132cU\tR0C3~#\u0016iU&`%\u0016\u000b\u0005+\u0012*\u0002--KE\nT#E?\nKv\fV!T\u0017~\u0013V)\u0011)F%\u0002\n1E\u0011'P\u0007.{V*\u0011(B\u000f\u0016\u0013vLU#S\u000b\u001eK5\u000b\u0016*B)&{ej\u0018$B\u00132+E)\u0001\u0013C\u0019>\u001b5jX'B\u001d\u0006;UIU0S\u000bJ+u)S*U%\u0006#\u0016j\u0014(`\r\u0006KE*\u0012#!\u0003=)\u0007\u0010\u001d7bS:,\u00050\u001b;D_\u0012,GC\u0001\u001dD!\tI\u0004I\u0004\u0002;}A\u00111hH\u0007\u0002y)\u0011Q\bJ\u0001\u0007yI|w\u000e\u001e \n\u0005}z\u0012A\u0002)sK\u0012,g-\u0003\u0002B\u0005\n11\u000b\u001e:j]\u001eT!aP\u0010\t\u000b\u0011{\u0001\u0019\u0001\u0015\u0002\u0011\u0015D\u0018\u000e^\"pI\u0016\u0004"
+)
+public final class ExecutorExitCode {
+   public static String explainExitCode(final int exitCode) {
+      return ExecutorExitCode$.MODULE$.explainExitCode(exitCode);
+   }
+
+   public static int BLOCK_MANAGER_REREGISTRATION_FAILED() {
+      return ExecutorExitCode$.MODULE$.BLOCK_MANAGER_REREGISTRATION_FAILED();
+   }
+
+   public static int KILLED_BY_TASK_REAPER() {
+      return ExecutorExitCode$.MODULE$.KILLED_BY_TASK_REAPER();
+   }
+
+   public static int HEARTBEAT_FAILURE() {
+      return ExecutorExitCode$.MODULE$.HEARTBEAT_FAILURE();
+   }
+
+   public static int EXTERNAL_BLOCK_STORE_FAILED_TO_CREATE_DIR() {
+      return ExecutorExitCode$.MODULE$.EXTERNAL_BLOCK_STORE_FAILED_TO_CREATE_DIR();
+   }
+
+   public static int EXTERNAL_BLOCK_STORE_FAILED_TO_INITIALIZE() {
+      return ExecutorExitCode$.MODULE$.EXTERNAL_BLOCK_STORE_FAILED_TO_INITIALIZE();
+   }
+
+   public static int DISK_STORE_FAILED_TO_CREATE_DIR() {
+      return ExecutorExitCode$.MODULE$.DISK_STORE_FAILED_TO_CREATE_DIR();
+   }
+}

@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.apache.avro
+Build-Jdk-Spec: 22
+Bundle-Description: Avro core components
+Bundle-DocURL: https://www.apache.org/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Avro
+Bundle-SymbolicName: avro
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.12.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Export-Package: org.apache.avro;version="1.12.0";uses:="com.fasterxml.ja
+ ckson.databind,org.apache.avro.generic,org.apache.avro.util",org.apache
+ .avro.data;version="1.12.0";uses:="org.apache.avro,org.apache.avro.gene
+ ric,org.apache.avro.io",org.apache.avro.file;version="1.12.0";uses:="or
+ g.apache.avro,org.apache.avro.io",org.apache.avro.generic;version="1.12
+ .0";uses:="org.apache.avro,org.apache.avro.data,org.apache.avro.io",org
+ .apache.avro.io;version="1.12.0";uses:="org.apache.avro,org.apache.avro
+ .generic,org.apache.avro.io.parsing,org.apache.avro.util",org.apache.av
+ ro.io.parsing;version="1.12.0";uses:="com.fasterxml.jackson.databind,or
+ g.apache.avro,org.apache.avro.io",org.apache.avro.message;version="1.12
+ .0";uses:="org.apache.avro,org.apache.avro.generic",org.apache.avro.pat
+ h;version="1.12.0";uses:="org.apache.avro",org.apache.avro.reflect;vers
+ ion="1.12.0";uses:="org.apache.avro,org.apache.avro.io,org.apache.avro.
+ specific",org.apache.avro.specific;version="1.12.0";uses:="org.apache.a
+ vro,org.apache.avro.data,org.apache.avro.generic,org.apache.avro.io",or
+ g.apache.avro.util;version="1.12.0";uses:="org.apache.avro,org.apache.a
+ vro.generic",org.apache.avro.util.internal;version="1.12.0";uses:="com.
+ fasterxml.jackson.core,com.fasterxml.jackson.databind,org.apache.avro,o
+ rg.apache.avro.io",org.apache.avro.util.springframework;version="1.12.0
+ ";uses:="org.apache.avro.reflect"
+Implementation-Title: Apache Avro
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Version: 1.12.0
+Import-Package: com.fasterxml.jackson.annotation;version="[2.17,3)",com.
+ fasterxml.jackson.core;version="[2.17,3)",com.fasterxml.jackson.core.io
+ ;version="[2.17,3)",com.fasterxml.jackson.core.util;version="[2.17,3)",
+ com.fasterxml.jackson.databind;version="[2.17,3)",com.fasterxml.jackson
+ .databind.node;version="[2.17,3)",com.fasterxml.jackson.databind.util;v
+ ersion="[2.17,3)",org.xerial.snappy;resolution:=optional;version="[1.1,
+ 2)",com.github.luben.zstd;version="[1.5,2)";resolution:=optional,java.i
+ o,java.lang,java.lang.annotation,java.lang.invoke,java.lang.ref,java.la
+ ng.reflect,java.math,java.net,java.nio,java.nio.channels,java.nio.chars
+ et,java.nio.file,java.nio.file.attribute,java.security,java.time,java.t
+ ime.chrono,java.time.temporal,java.util,java.util.concurrent,java.util.
+ concurrent.atomic,java.util.concurrent.locks,java.util.function,java.ut
+ il.regex,java.util.stream,java.util.zip,org.apache.commons.compress.com
+ pressors.bzip2;version="[1.26,2)",org.apache.commons.compress.compresso
+ rs.xz;version="[1.26,2)",org.apache.commons.compress.utils;version="[1.
+ 26,2)",org.apache.commons.io;version="[1.4,2)",org.slf4j;version="[2.0,
+ 3)",sun.misc;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Specification-Title: Apache Avro
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 1.12
+Tool: Bnd-6.3.1.202206071316
+

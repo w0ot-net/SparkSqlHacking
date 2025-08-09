@@ -1,0 +1,51 @@
+Manifest-Version: 1.0
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: com.fasterxml.jackson.dataformat.jackson-dataformat
+ -yaml
+Implementation-Vendor-Id: com.fasterxml.jackson.dataformat
+Specification-Title: Jackson-dataformat-YAML
+Bundle-DocURL: https://github.com/FasterXML/jackson-dataformats-text
+Import-Package: com.fasterxml.jackson.core;version="[2.18,3)",com.faster
+ xml.jackson.core.base;version="[2.18,3)",com.fasterxml.jackson.core.for
+ mat;version="[2.18,3)",com.fasterxml.jackson.core.io;version="[2.18,3)"
+ ,com.fasterxml.jackson.core.json;version="[2.18,3)",com.fasterxml.jacks
+ on.core.util;version="[2.18,3)",com.fasterxml.jackson.databind;version=
+ "[2.18,3)",com.fasterxml.jackson.databind.cfg;version="[2.18,3)",com.fa
+ sterxml.jackson.dataformat.yaml;version="[2.18,3)",com.fasterxml.jackso
+ n.dataformat.yaml.snakeyaml.error;version="[2.18,3)",com.fasterxml.jack
+ son.dataformat.yaml.util;version="[2.18,3)",org.yaml.snakeyaml;version=
+ "[2.3,3)",org.yaml.snakeyaml.emitter;version="[2.3,3)",org.yaml.snakeya
+ ml.error;version="[2.3,3)",org.yaml.snakeyaml.events;version="[2.3,3)",
+ org.yaml.snakeyaml.nodes;version="[2.3,3)",org.yaml.snakeyaml.parser;ve
+ rsion="[2.3,3)",org.yaml.snakeyaml.reader;version="[2.3,3)",org.yaml.sn
+ akeyaml.resolver;version="[2.3,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Export-Package: com.fasterxml.jackson.dataformat.yaml;version="2.18.2";u
+ ses:="com.fasterxml.jackson.core,com.fasterxml.jackson.core.base,com.fa
+ sterxml.jackson.core.format,com.fasterxml.jackson.core.io,com.fasterxml
+ .jackson.core.util,com.fasterxml.jackson.databind,com.fasterxml.jackson
+ .databind.cfg,com.fasterxml.jackson.dataformat.yaml.util,org.yaml.snake
+ yaml,org.yaml.snakeyaml.emitter,org.yaml.snakeyaml.error,org.yaml.snake
+ yaml.events,org.yaml.snakeyaml.parser,org.yaml.snakeyaml.resolver",com.
+ fasterxml.jackson.dataformat.yaml.snakeyaml.error;version="2.18.2";uses
+ :="com.fasterxml.jackson.core,com.fasterxml.jackson.dataformat.yaml,org
+ .yaml.snakeyaml.error",com.fasterxml.jackson.dataformat.yaml.util;versi
+ on="2.18.2"
+Bundle-Name: Jackson-dataformat-YAML
+Multi-Release: true
+Build-Jdk-Spec: 1.8
+Bundle-Description: Support for reading and writing YAML-encoded data vi
+ a Jackson abstractions.
+Implementation-Title: Jackson-dataformat-YAML
+Implementation-Version: 2.18.2
+Bundle-ManifestVersion: 2
+Specification-Vendor: FasterXML
+Bundle-Vendor: FasterXML
+Tool: Bnd-6.3.1.202206071316
+Implementation-Vendor: FasterXML
+Bundle-Version: 2.18.2
+X-Compile-Target-JDK: 1.8
+X-Compile-Source-JDK: 1.8
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Specification-Version: 2.18.2
+

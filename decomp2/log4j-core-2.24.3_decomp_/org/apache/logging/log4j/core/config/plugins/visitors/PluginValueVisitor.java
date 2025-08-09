@@ -1,0 +1,34 @@
+package org.apache.logging.log4j.core.config.plugins.visitors;
+
+import org.apache.logging.log4j.core.LogEvent;
+import org.apache.logging.log4j.core.config.Configuration;
+import org.apache.logging.log4j.core.config.Node;
+import org.apache.logging.log4j.core.config.plugins.PluginValue;
+import org.apache.logging.log4j.util.StringBuilders;
+import org.apache.logging.log4j.util.Strings;
+
+public class PluginValueVisitor extends AbstractPluginVisitor {
+   public PluginValueVisitor() {
+      super(PluginValue.class);
+   }
+
+   public Object visit(final Configuration configuration, final Node node, final LogEvent event, final StringBuilder log) {
+      String name = ((PluginValue)this.annotation).value();
+      String elementValue = node.getValue();
+      String attributeValue = (String)node.getAttributes().get(name);
+      String rawValue = null;
+      if (Strings.isNotEmpty(elementValue)) {
+         if (Strings.isNotEmpty(attributeValue)) {
+            LOGGER.error("Configuration contains {} with both attribute value ({}) AND element value ({}). Please specify only one value. Using the element value.", node.getName(), attributeValue, elementValue);
+         }
+
+         rawValue = elementValue;
+      } else {
+         rawValue = removeAttributeValue(node.getAttributes(), name, new String[0]);
+      }
+
+      String value = ((PluginValue)this.annotation).substitute() ? this.substitutor.replace(event, rawValue) : rawValue;
+      StringBuilders.appendKeyDqValue(log, name, value);
+      return value;
+   }
+}

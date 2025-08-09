@@ -1,0 +1,12 @@
+package breeze.util;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005-:Q\u0001B\u0003\t\u0002)1Q\u0001D\u0003\t\u00025AQ\u0001F\u0001\u0005\u0002UAQAF\u0001\u0005\u0002]\tq#\u00169eCR,7+\u001a:jC2L'0\u001a3PE*,7\r^:\u000b\u0005\u00199\u0011\u0001B;uS2T\u0011\u0001C\u0001\u0007EJ,WM_3\u0004\u0001A\u00111\"A\u0007\u0002\u000b\t9R\u000b\u001d3bi\u0016\u001cVM]5bY&TX\rZ(cU\u0016\u001cGo]\n\u0003\u00039\u0001\"a\u0004\n\u000e\u0003AQ\u0011!E\u0001\u0006g\u000e\fG.Y\u0005\u0003'A\u0011a!\u00118z%\u00164\u0017A\u0002\u001fj]&$h\bF\u0001\u000b\u0003\u0011i\u0017-\u001b8\u0015\u0005aY\u0002CA\b\u001a\u0013\tQ\u0002C\u0001\u0003V]&$\b\"\u0002\u000f\u0004\u0001\u0004i\u0012\u0001B1sON\u00042a\u0004\u0010!\u0013\ty\u0002CA\u0003BeJ\f\u0017\u0010\u0005\u0002\"Q9\u0011!E\n\t\u0003GAi\u0011\u0001\n\u0006\u0003K%\ta\u0001\u0010:p_Rt\u0014BA\u0014\u0011\u0003\u0019\u0001&/\u001a3fM&\u0011\u0011F\u000b\u0002\u0007'R\u0014\u0018N\\4\u000b\u0005\u001d\u0002\u0002"
+)
+public final class UpdateSerializedObjects {
+   public static void main(final String[] args) {
+      UpdateSerializedObjects$.MODULE$.main(args);
+   }
+}

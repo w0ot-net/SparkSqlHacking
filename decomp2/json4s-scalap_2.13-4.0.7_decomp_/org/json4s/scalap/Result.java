@@ -1,0 +1,30 @@
+package org.json4s.scalap;
+
+import scala.Function0;
+import scala.Function1;
+import scala.Function2;
+import scala.Option;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005y4Qa\u0003\u0007\u0002\"MAQa\u0007\u0001\u0005\u0002qAQ\u0001\r\u0001\u0007\u0002EBQA\r\u0001\u0007\u0002MBQ\u0001\u000e\u0001\u0007\u0002UBQA\u000e\u0001\u0007\u0004]BQa\u000f\u0001\u0007\u0002qBQa\u0012\u0001\u0007\u0002!CQa\u000f\u0001\u0007\u0002ACQA\u0018\u0001\u0007\u0002}CQ!\u001b\u0001\u0007\u0002)\u0014aAU3tk2$(BA\u0007\u000f\u0003\u0019\u00198-\u00197ba*\u0011q\u0002E\u0001\u0007UN|g\u000eN:\u000b\u0003E\t1a\u001c:h\u0007\u0001)B\u0001F\u0011,]M\u0011\u0001!\u0006\t\u0003-ei\u0011a\u0006\u0006\u00021\u0005)1oY1mC&\u0011!d\u0006\u0002\u0007\u0003:L(+\u001a4\u0002\rqJg.\u001b;?)\u0005i\u0002#\u0002\u0010\u0001?)jS\"\u0001\u0007\u0011\u0005\u0001\nC\u0002\u0001\u0003\u0007E\u0001!)\u0019A\u0012\u0003\u0007=+H/\u0005\u0002%OA\u0011a#J\u0005\u0003M]\u0011qAT8uQ&tw\r\u0005\u0002\u0017Q%\u0011\u0011f\u0006\u0002\u0004\u0003:L\bC\u0001\u0011,\t\u0019a\u0003\u0001\"b\u0001G\t\t\u0011\t\u0005\u0002!]\u00111q\u0006\u0001CC\u0002\r\u0012\u0011\u0001W\u0001\u0004_V$X#A\u0010\u0002\u000bY\fG.^3\u0016\u0003)\nQ!\u001a:s_J,\u0012!L\u0001\ti>|\u0005\u000f^5p]V\t\u0001\bE\u0002\u0017s)J!AO\f\u0003\r=\u0003H/[8o\u0003\ri\u0017\r]\u000b\u0003{\u0001#\"A\u0010\"\u0011\u000by\u0001qdP\u0017\u0011\u0005\u0001\u0002E!B!\u0007\u0005\u0004\u0019#!\u0001\"\t\u000b\r3\u0001\u0019\u0001#\u0002\u0003\u0019\u0004BAF#+\u007f%\u0011ai\u0006\u0002\n\rVt7\r^5p]F\na!\\1q\u001fV$XCA%M)\tQe\nE\u0003\u001f\u0001-SS\u0006\u0005\u0002!\u0019\u0012)Qj\u0002b\u0001G\t!q*\u001e;3\u0011\u0015\u0019u\u00011\u0001P!\u00111RiH&\u0016\u0007E#f\u000b\u0006\u0002S/B)a\u0004A*V[A\u0011\u0001\u0005\u0016\u0003\u0006\u001b\"\u0011\ra\t\t\u0003AY#Q!\u0011\u0005C\u0002\rBQa\u0011\u0005A\u0002a\u0003RAF- UmK!AW\f\u0003\u0013\u0019+hn\u0019;j_:\u0014\u0004\u0003\u0002\f]'VK!!X\f\u0003\rQ+\b\u000f\\33\u0003\u001d1G.\u0019;NCB,2\u0001Y2f)\t\tg\rE\u0003\u001f\u0001\t$W\u0006\u0005\u0002!G\u0012)Q*\u0003b\u0001GA\u0011\u0001%\u001a\u0003\u0006\u0003&\u0011\ra\t\u0005\u0006\u0007&\u0001\ra\u001a\t\u0006-e{\"\u0006\u001b\t\u0006=\u0001\u0011G\rJ\u0001\u0007_J,En]3\u0016\u0007-t\u0017\u000f\u0006\u0002mgB)a\u0004A7q[A\u0011\u0001E\u001c\u0003\u0006\u001b*\u0011\ra\\\t\u0003?\u001d\u0002\"\u0001I9\u0005\u000b\u0005S!\u0019\u0001:\u0012\u0005):\u0003B\u0002;\u000b\t\u0003\u0007Q/A\u0003pi\",'\u000fE\u0002\u0017mbL!a^\f\u0003\u0011q\u0012\u0017P\\1nKz\u0002RA\b\u0001na\u0012J3\u0001\u0001>}\u0013\tYHBA\u0005O_N+8mY3tg&\u0011Q\u0010\u0004\u0002\b'V\u001c7-Z:t\u0001"
+)
+public abstract class Result {
+   public abstract Object out();
+
+   public abstract Object value();
+
+   public abstract Object error();
+
+   public abstract Option toOption();
+
+   public abstract Result map(final Function1 f);
+
+   public abstract Result mapOut(final Function1 f);
+
+   public abstract Result map(final Function2 f);
+
+   public abstract Result flatMap(final Function2 f);
+
+   public abstract Result orElse(final Function0 other);
+}

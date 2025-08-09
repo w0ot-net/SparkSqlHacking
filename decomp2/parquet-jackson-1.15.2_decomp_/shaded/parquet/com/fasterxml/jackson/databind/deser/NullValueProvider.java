@@ -1,0 +1,15 @@
+package shaded.parquet.com.fasterxml.jackson.databind.deser;
+
+import shaded.parquet.com.fasterxml.jackson.databind.DeserializationContext;
+import shaded.parquet.com.fasterxml.jackson.databind.JsonMappingException;
+import shaded.parquet.com.fasterxml.jackson.databind.util.AccessPattern;
+
+public interface NullValueProvider {
+   Object getNullValue(DeserializationContext var1) throws JsonMappingException;
+
+   AccessPattern getNullAccessPattern();
+
+   default Object getAbsentValue(DeserializationContext ctxt) throws JsonMappingException {
+      return this.getNullValue(ctxt);
+   }
+}

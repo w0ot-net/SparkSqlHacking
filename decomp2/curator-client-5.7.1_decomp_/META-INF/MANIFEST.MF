@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 1.8
+Bundle-Description: Low-level API
+Bundle-DocURL: https://www.apache.org/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Curator Client
+Bundle-SymbolicName: curator-client
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 5.7.1
+Created-By: Apache Maven Bundle Plugin 5.1.4
+Export-Package: org.apache.curator;version="5.7.1";uses:="org.apache.cur
+ ator.drivers,org.apache.curator.ensemble,org.apache.curator.utils,org.a
+ pache.zookeeper",org.apache.curator.connection;version="5.7.1";uses:="o
+ rg.apache.curator",org.apache.curator.drivers;version="5.7.1";uses:="or
+ g.apache.zookeeper.data",org.apache.curator.ensemble;version="5.7.1",or
+ g.apache.curator.ensemble.fixed;version="5.7.1";uses:="org.apache.curat
+ or.ensemble",org.apache.curator.retry;version="5.7.1";uses:="org.apache
+ .curator",org.apache.curator.utils;version="5.7.1";uses:="org.apache.cu
+ rator,org.apache.curator.drivers,org.apache.zookeeper,org.apache.zookee
+ per.client,org.apache.zookeeper.data,org.apache.zookeeper.server.quorum
+ "
+Implementation-Title: Curator Client
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Version: 5.7.1
+Import-Package: org.apache.zookeeper;version="[3.4,4.0)",org.apache.zook
+ eeper.admin;version="[3.4,4.0)",org.apache.zookeeper.client;version="[3
+ .4,4.0)",org.apache.zookeeper.data;version="[3.4,4.0)",org.apache.zooke
+ eper.server.quorum;version="[3.4,4.0)",com.google.common.base;version="
+ [32.0,33)",com.google.common.collect;version="[32.0,33)",com.google.com
+ mon.io;version="[32.0,33)",com.google.common.util.concurrent;version="[
+ 32.0,33)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Specification-Title: Curator Client
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 5.7
+Tool: Bnd-5.1.1.202006162103
+

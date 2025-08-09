@@ -1,0 +1,37 @@
+package io.vertx.core;
+
+import io.vertx.core.impl.launcher.VertxCommandLauncher;
+import io.vertx.core.impl.launcher.VertxLifecycleHooks;
+import io.vertx.core.json.JsonObject;
+
+public class Launcher extends VertxCommandLauncher implements VertxLifecycleHooks {
+   public static void main(String[] args) {
+      (new Launcher()).dispatch(args);
+   }
+
+   public static void executeCommand(String cmd, String... args) {
+      (new Launcher()).execute(cmd, args);
+   }
+
+   public void afterConfigParsed(JsonObject config) {
+   }
+
+   public void beforeStartingVertx(VertxOptions options) {
+   }
+
+   public void afterStartingVertx(Vertx vertx) {
+   }
+
+   public void beforeDeployingVerticle(DeploymentOptions deploymentOptions) {
+   }
+
+   public void beforeStoppingVertx(Vertx vertx) {
+   }
+
+   public void afterStoppingVertx() {
+   }
+
+   public void handleDeployFailed(Vertx vertx, String mainVerticle, DeploymentOptions deploymentOptions, Throwable cause) {
+      vertx.close();
+   }
+}

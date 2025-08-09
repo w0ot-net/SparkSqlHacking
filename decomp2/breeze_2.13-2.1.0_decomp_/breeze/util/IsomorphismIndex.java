@@ -1,0 +1,744 @@
+package breeze.util;
+
+import java.lang.invoke.SerializedLambda;
+import scala.;
+import scala.Function0;
+import scala.Function1;
+import scala.Function2;
+import scala.Option;
+import scala.PartialFunction;
+import scala.Tuple2;
+import scala.Tuple3;
+import scala.collection.Factory;
+import scala.collection.Iterable;
+import scala.collection.IterableFactory;
+import scala.collection.IterableFactoryDefaults;
+import scala.collection.IterableOnce;
+import scala.collection.IterableOnceOps;
+import scala.collection.IterableOps;
+import scala.collection.Iterator;
+import scala.collection.LazyZip2;
+import scala.collection.Stepper;
+import scala.collection.StepperShape;
+import scala.collection.View;
+import scala.collection.WithFilter;
+import scala.collection.immutable.IndexedSeq;
+import scala.collection.immutable.List;
+import scala.collection.immutable.Map;
+import scala.collection.immutable.Seq;
+import scala.collection.immutable.Set;
+import scala.collection.immutable.Stream;
+import scala.collection.immutable.Vector;
+import scala.collection.mutable.Buffer;
+import scala.collection.mutable.Builder;
+import scala.collection.mutable.StringBuilder;
+import scala.math.Numeric;
+import scala.math.Ordering;
+import scala.reflect.ClassTag;
+import scala.reflect.ScalaSignature;
+import scala.runtime.BoxesRunTime;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005A4A\u0001D\u0007\u0001%!AQ\u0007\u0001BC\u0002\u0013\u0005a\u0007\u0003\u0005<\u0001\t\u0005\t\u0015!\u00038\u0011!a\u0004A!A!\u0002\u0017i\u0004\"\u0002!\u0001\t\u0003\t\u0005\"\u0002$\u0001\t\u00039\u0005\"B'\u0001\t\u0003q\u0005\"\u0002+\u0001\t\u0003)\u0006\"\u0002/\u0001\t\u0003i\u0006\"B0\u0001\t\u0003\u0002\u0007\"B1\u0001\t\u0003\u0012\u0007\"B4\u0001\t\u0003B'\u0001E%t_6|'\u000f\u001d5jg6Le\u000eZ3y\u0015\tqq\"\u0001\u0003vi&d'\"\u0001\t\u0002\r\t\u0014X-\u001a>f\u0007\u0001)2aE\u001d!'\u0011\u0001ACG\u0015\u0011\u0005UAR\"\u0001\f\u000b\u0003]\tQa]2bY\u0006L!!\u0007\f\u0003\r\u0005s\u0017PU3g!\rYBDH\u0007\u0002\u001b%\u0011Q$\u0004\u0002\u0006\u0013:$W\r\u001f\t\u0003?\u0001b\u0001\u0001B\u0003\"\u0001\t\u0007!EA\u0001V#\t\u0019c\u0005\u0005\u0002\u0016I%\u0011QE\u0006\u0002\b\u001d>$\b.\u001b8h!\t)r%\u0003\u0002)-\t\u0019\u0011I\\=\u0011\u0005)\u0012dBA\u00161\u001d\tas&D\u0001.\u0015\tq\u0013#\u0001\u0004=e>|GOP\u0005\u0002/%\u0011\u0011GF\u0001\ba\u0006\u001c7.Y4f\u0013\t\u0019DG\u0001\u0007TKJL\u0017\r\\5{C\ndWM\u0003\u00022-\u0005Q\u0011N\u001c8fe&sG-\u001a=\u0016\u0003]\u00022a\u0007\u000f9!\ty\u0012\bB\u0003;\u0001\t\u0007!EA\u0001U\u0003-IgN\\3s\u0013:$W\r\u001f\u0011\u0002\u0007%\u001cx\u000e\u0005\u0003\u001c}ar\u0012BA \u000e\u0005-I5o\\7peBD\u0017n]7\u0002\rqJg.\u001b;?)\t\u0011U\t\u0006\u0002D\tB!1\u0004\u0001\u001d\u001f\u0011\u0015aD\u0001q\u0001>\u0011\u0015)D\u00011\u00018\u0003\u0015\t\u0007\u000f\u001d7z)\tA5\n\u0005\u0002\u0016\u0013&\u0011!J\u0006\u0002\u0004\u0013:$\b\"\u0002'\u0006\u0001\u0004q\u0012!A;\u0002\u000fUt\u0017\r\u001d9msR\u0011qJ\u0015\t\u0004+As\u0012BA)\u0017\u0005\u0019y\u0005\u000f^5p]\")1K\u0002a\u0001\u0011\u0006\t\u0011.A\u0003qC&\u00148/F\u0001W!\rQs+W\u0005\u00031R\u0012\u0001\"\u0013;fe\u0006$xN\u001d\t\u0005+is\u0002*\u0003\u0002\\-\t1A+\u001e9mKJ\n\u0001\"\u001b;fe\u0006$xN]\u000b\u0002=B\u0019!f\u0016\u0010\u0002\tML'0Z\u000b\u0002\u0011\u0006A1m\u001c8uC&t7\u000f\u0006\u0002dMB\u0011Q\u0003Z\u0005\u0003KZ\u0011qAQ8pY\u0016\fg\u000eC\u0003M\u0015\u0001\u0007a$A\u0002hKR$\"AH5\t\u000bM[\u0001\u0019\u0001%)\t\u0001Ygn\u001c\t\u0003+1L!!\u001c\f\u0003!M+'/[1m-\u0016\u00148/[8o+&#\u0015!\u0002<bYV,g$A\u0001"
+)
+public class IsomorphismIndex implements Index {
+   private static final long serialVersionUID = 1L;
+   private final Index innerIndex;
+   private final Isomorphism iso;
+   private int defaultHashCode;
+   private volatile boolean bitmap$0;
+
+   public Option indexOpt(final Object t) {
+      return Index.indexOpt$(this, t);
+   }
+
+   public int indexOf(final Object t) {
+      return Index.indexOf$(this, t);
+   }
+
+   public boolean equals(final Object other) {
+      return Index.equals$(this, other);
+   }
+
+   public int hashCode() {
+      return Index.hashCode$(this);
+   }
+
+   public String toString() {
+      return Index.toString$(this);
+   }
+
+   public EitherIndex $bar(final Index right) {
+      return Index.$bar$(this, right);
+   }
+
+   public boolean apply$mcZD$sp(final double v1) {
+      return Function1.apply$mcZD$sp$(this, v1);
+   }
+
+   public double apply$mcDD$sp(final double v1) {
+      return Function1.apply$mcDD$sp$(this, v1);
+   }
+
+   public float apply$mcFD$sp(final double v1) {
+      return Function1.apply$mcFD$sp$(this, v1);
+   }
+
+   public int apply$mcID$sp(final double v1) {
+      return Function1.apply$mcID$sp$(this, v1);
+   }
+
+   public long apply$mcJD$sp(final double v1) {
+      return Function1.apply$mcJD$sp$(this, v1);
+   }
+
+   public void apply$mcVD$sp(final double v1) {
+      Function1.apply$mcVD$sp$(this, v1);
+   }
+
+   public boolean apply$mcZF$sp(final float v1) {
+      return Function1.apply$mcZF$sp$(this, v1);
+   }
+
+   public double apply$mcDF$sp(final float v1) {
+      return Function1.apply$mcDF$sp$(this, v1);
+   }
+
+   public float apply$mcFF$sp(final float v1) {
+      return Function1.apply$mcFF$sp$(this, v1);
+   }
+
+   public int apply$mcIF$sp(final float v1) {
+      return Function1.apply$mcIF$sp$(this, v1);
+   }
+
+   public long apply$mcJF$sp(final float v1) {
+      return Function1.apply$mcJF$sp$(this, v1);
+   }
+
+   public void apply$mcVF$sp(final float v1) {
+      Function1.apply$mcVF$sp$(this, v1);
+   }
+
+   public boolean apply$mcZI$sp(final int v1) {
+      return Function1.apply$mcZI$sp$(this, v1);
+   }
+
+   public double apply$mcDI$sp(final int v1) {
+      return Function1.apply$mcDI$sp$(this, v1);
+   }
+
+   public float apply$mcFI$sp(final int v1) {
+      return Function1.apply$mcFI$sp$(this, v1);
+   }
+
+   public int apply$mcII$sp(final int v1) {
+      return Function1.apply$mcII$sp$(this, v1);
+   }
+
+   public long apply$mcJI$sp(final int v1) {
+      return Function1.apply$mcJI$sp$(this, v1);
+   }
+
+   public void apply$mcVI$sp(final int v1) {
+      Function1.apply$mcVI$sp$(this, v1);
+   }
+
+   public boolean apply$mcZJ$sp(final long v1) {
+      return Function1.apply$mcZJ$sp$(this, v1);
+   }
+
+   public double apply$mcDJ$sp(final long v1) {
+      return Function1.apply$mcDJ$sp$(this, v1);
+   }
+
+   public float apply$mcFJ$sp(final long v1) {
+      return Function1.apply$mcFJ$sp$(this, v1);
+   }
+
+   public int apply$mcIJ$sp(final long v1) {
+      return Function1.apply$mcIJ$sp$(this, v1);
+   }
+
+   public long apply$mcJJ$sp(final long v1) {
+      return Function1.apply$mcJJ$sp$(this, v1);
+   }
+
+   public void apply$mcVJ$sp(final long v1) {
+      Function1.apply$mcVJ$sp$(this, v1);
+   }
+
+   public Function1 compose(final Function1 g) {
+      return Function1.compose$(this, g);
+   }
+
+   public Function1 andThen(final Function1 g) {
+      return Function1.andThen$(this, g);
+   }
+
+   /** @deprecated */
+   public final Iterable toIterable() {
+      return Iterable.toIterable$(this);
+   }
+
+   public final Iterable coll() {
+      return Iterable.coll$(this);
+   }
+
+   public IterableFactory iterableFactory() {
+      return Iterable.iterableFactory$(this);
+   }
+
+   /** @deprecated */
+   public Iterable seq() {
+      return Iterable.seq$(this);
+   }
+
+   public String className() {
+      return Iterable.className$(this);
+   }
+
+   public final String collectionClassName() {
+      return Iterable.collectionClassName$(this);
+   }
+
+   public String stringPrefix() {
+      return Iterable.stringPrefix$(this);
+   }
+
+   public LazyZip2 lazyZip(final Iterable that) {
+      return Iterable.lazyZip$(this, that);
+   }
+
+   public IterableOps fromSpecific(final IterableOnce coll) {
+      return IterableFactoryDefaults.fromSpecific$(this, coll);
+   }
+
+   public Builder newSpecificBuilder() {
+      return IterableFactoryDefaults.newSpecificBuilder$(this);
+   }
+
+   public IterableOps empty() {
+      return IterableFactoryDefaults.empty$(this);
+   }
+
+   /** @deprecated */
+   public final Iterable toTraversable() {
+      return IterableOps.toTraversable$(this);
+   }
+
+   public boolean isTraversableAgain() {
+      return IterableOps.isTraversableAgain$(this);
+   }
+
+   /** @deprecated */
+   public final Object repr() {
+      return IterableOps.repr$(this);
+   }
+
+   /** @deprecated */
+   public IterableFactory companion() {
+      return IterableOps.companion$(this);
+   }
+
+   public Object head() {
+      return IterableOps.head$(this);
+   }
+
+   public Option headOption() {
+      return IterableOps.headOption$(this);
+   }
+
+   public Object last() {
+      return IterableOps.last$(this);
+   }
+
+   public Option lastOption() {
+      return IterableOps.lastOption$(this);
+   }
+
+   public View view() {
+      return IterableOps.view$(this);
+   }
+
+   public int sizeCompare(final int otherSize) {
+      return IterableOps.sizeCompare$(this, otherSize);
+   }
+
+   public final IterableOps sizeIs() {
+      return IterableOps.sizeIs$(this);
+   }
+
+   public int sizeCompare(final Iterable that) {
+      return IterableOps.sizeCompare$(this, that);
+   }
+
+   /** @deprecated */
+   public View view(final int from, final int until) {
+      return IterableOps.view$(this, from, until);
+   }
+
+   public Object transpose(final Function1 asIterable) {
+      return IterableOps.transpose$(this, asIterable);
+   }
+
+   public Object filter(final Function1 pred) {
+      return IterableOps.filter$(this, pred);
+   }
+
+   public Object filterNot(final Function1 pred) {
+      return IterableOps.filterNot$(this, pred);
+   }
+
+   public WithFilter withFilter(final Function1 p) {
+      return IterableOps.withFilter$(this, p);
+   }
+
+   public Tuple2 partition(final Function1 p) {
+      return IterableOps.partition$(this, p);
+   }
+
+   public Tuple2 splitAt(final int n) {
+      return IterableOps.splitAt$(this, n);
+   }
+
+   public Object take(final int n) {
+      return IterableOps.take$(this, n);
+   }
+
+   public Object takeRight(final int n) {
+      return IterableOps.takeRight$(this, n);
+   }
+
+   public Object takeWhile(final Function1 p) {
+      return IterableOps.takeWhile$(this, p);
+   }
+
+   public Tuple2 span(final Function1 p) {
+      return IterableOps.span$(this, p);
+   }
+
+   public Object drop(final int n) {
+      return IterableOps.drop$(this, n);
+   }
+
+   public Object dropRight(final int n) {
+      return IterableOps.dropRight$(this, n);
+   }
+
+   public Object dropWhile(final Function1 p) {
+      return IterableOps.dropWhile$(this, p);
+   }
+
+   public Iterator grouped(final int size) {
+      return IterableOps.grouped$(this, size);
+   }
+
+   public Iterator sliding(final int size) {
+      return IterableOps.sliding$(this, size);
+   }
+
+   public Iterator sliding(final int size, final int step) {
+      return IterableOps.sliding$(this, size, step);
+   }
+
+   public Object tail() {
+      return IterableOps.tail$(this);
+   }
+
+   public Object init() {
+      return IterableOps.init$(this);
+   }
+
+   public Object slice(final int from, final int until) {
+      return IterableOps.slice$(this, from, until);
+   }
+
+   public Map groupBy(final Function1 f) {
+      return IterableOps.groupBy$(this, f);
+   }
+
+   public Map groupMap(final Function1 key, final Function1 f) {
+      return IterableOps.groupMap$(this, key, f);
+   }
+
+   public Map groupMapReduce(final Function1 key, final Function1 f, final Function2 reduce) {
+      return IterableOps.groupMapReduce$(this, key, f, reduce);
+   }
+
+   public Object scan(final Object z, final Function2 op) {
+      return IterableOps.scan$(this, z, op);
+   }
+
+   public Object scanLeft(final Object z, final Function2 op) {
+      return IterableOps.scanLeft$(this, z, op);
+   }
+
+   public Object scanRight(final Object z, final Function2 op) {
+      return IterableOps.scanRight$(this, z, op);
+   }
+
+   public Object map(final Function1 f) {
+      return IterableOps.map$(this, f);
+   }
+
+   public Object flatMap(final Function1 f) {
+      return IterableOps.flatMap$(this, f);
+   }
+
+   public Object flatten(final Function1 asIterable) {
+      return IterableOps.flatten$(this, asIterable);
+   }
+
+   public Object collect(final PartialFunction pf) {
+      return IterableOps.collect$(this, pf);
+   }
+
+   public Tuple2 partitionMap(final Function1 f) {
+      return IterableOps.partitionMap$(this, f);
+   }
+
+   public Object concat(final IterableOnce suffix) {
+      return IterableOps.concat$(this, suffix);
+   }
+
+   public final Object $plus$plus(final IterableOnce suffix) {
+      return IterableOps.$plus$plus$(this, suffix);
+   }
+
+   public Object zip(final IterableOnce that) {
+      return IterableOps.zip$(this, that);
+   }
+
+   public Object zipWithIndex() {
+      return IterableOps.zipWithIndex$(this);
+   }
+
+   public Object zipAll(final Iterable that, final Object thisElem, final Object thatElem) {
+      return IterableOps.zipAll$(this, that, thisElem, thatElem);
+   }
+
+   public Tuple2 unzip(final Function1 asPair) {
+      return IterableOps.unzip$(this, asPair);
+   }
+
+   public Tuple3 unzip3(final Function1 asTriple) {
+      return IterableOps.unzip3$(this, asTriple);
+   }
+
+   public Iterator tails() {
+      return IterableOps.tails$(this);
+   }
+
+   public Iterator inits() {
+      return IterableOps.inits$(this);
+   }
+
+   public Object tapEach(final Function1 f) {
+      return IterableOps.tapEach$(this, f);
+   }
+
+   /** @deprecated */
+   public Object $plus$plus$colon(final IterableOnce that) {
+      return IterableOps.$plus$plus$colon$(this, that);
+   }
+
+   /** @deprecated */
+   public boolean hasDefiniteSize() {
+      return IterableOnceOps.hasDefiniteSize$(this);
+   }
+
+   public void foreach(final Function1 f) {
+      IterableOnceOps.foreach$(this, f);
+   }
+
+   public boolean forall(final Function1 p) {
+      return IterableOnceOps.forall$(this, p);
+   }
+
+   public boolean exists(final Function1 p) {
+      return IterableOnceOps.exists$(this, p);
+   }
+
+   public int count(final Function1 p) {
+      return IterableOnceOps.count$(this, p);
+   }
+
+   public Option find(final Function1 p) {
+      return IterableOnceOps.find$(this, p);
+   }
+
+   public Object foldLeft(final Object z, final Function2 op) {
+      return IterableOnceOps.foldLeft$(this, z, op);
+   }
+
+   public Object foldRight(final Object z, final Function2 op) {
+      return IterableOnceOps.foldRight$(this, z, op);
+   }
+
+   /** @deprecated */
+   public final Object $div$colon(final Object z, final Function2 op) {
+      return IterableOnceOps.$div$colon$(this, z, op);
+   }
+
+   /** @deprecated */
+   public final Object $colon$bslash(final Object z, final Function2 op) {
+      return IterableOnceOps.$colon$bslash$(this, z, op);
+   }
+
+   public Object fold(final Object z, final Function2 op) {
+      return IterableOnceOps.fold$(this, z, op);
+   }
+
+   public Object reduce(final Function2 op) {
+      return IterableOnceOps.reduce$(this, op);
+   }
+
+   public Option reduceOption(final Function2 op) {
+      return IterableOnceOps.reduceOption$(this, op);
+   }
+
+   public Object reduceLeft(final Function2 op) {
+      return IterableOnceOps.reduceLeft$(this, op);
+   }
+
+   public Object reduceRight(final Function2 op) {
+      return IterableOnceOps.reduceRight$(this, op);
+   }
+
+   public Option reduceLeftOption(final Function2 op) {
+      return IterableOnceOps.reduceLeftOption$(this, op);
+   }
+
+   public Option reduceRightOption(final Function2 op) {
+      return IterableOnceOps.reduceRightOption$(this, op);
+   }
+
+   public boolean isEmpty() {
+      return IterableOnceOps.isEmpty$(this);
+   }
+
+   public boolean nonEmpty() {
+      return IterableOnceOps.nonEmpty$(this);
+   }
+
+   /** @deprecated */
+   public final void copyToBuffer(final Buffer dest) {
+      IterableOnceOps.copyToBuffer$(this, dest);
+   }
+
+   public int copyToArray(final Object xs) {
+      return IterableOnceOps.copyToArray$(this, xs);
+   }
+
+   public int copyToArray(final Object xs, final int start) {
+      return IterableOnceOps.copyToArray$(this, xs, start);
+   }
+
+   public int copyToArray(final Object xs, final int start, final int len) {
+      return IterableOnceOps.copyToArray$(this, xs, start, len);
+   }
+
+   public Object sum(final Numeric num) {
+      return IterableOnceOps.sum$(this, num);
+   }
+
+   public Object product(final Numeric num) {
+      return IterableOnceOps.product$(this, num);
+   }
+
+   public Object min(final Ordering ord) {
+      return IterableOnceOps.min$(this, ord);
+   }
+
+   public Option minOption(final Ordering ord) {
+      return IterableOnceOps.minOption$(this, ord);
+   }
+
+   public Object max(final Ordering ord) {
+      return IterableOnceOps.max$(this, ord);
+   }
+
+   public Option maxOption(final Ordering ord) {
+      return IterableOnceOps.maxOption$(this, ord);
+   }
+
+   public Object maxBy(final Function1 f, final Ordering cmp) {
+      return IterableOnceOps.maxBy$(this, f, cmp);
+   }
+
+   public Option maxByOption(final Function1 f, final Ordering cmp) {
+      return IterableOnceOps.maxByOption$(this, f, cmp);
+   }
+
+   public Object minBy(final Function1 f, final Ordering cmp) {
+      return IterableOnceOps.minBy$(this, f, cmp);
+   }
+
+   public Option minByOption(final Function1 f, final Ordering cmp) {
+      return IterableOnceOps.minByOption$(this, f, cmp);
+   }
+
+   public Option collectFirst(final PartialFunction pf) {
+      return IterableOnceOps.collectFirst$(this, pf);
+   }
+
+   /** @deprecated */
+   public Object aggregate(final Function0 z, final Function2 seqop, final Function2 combop) {
+      return IterableOnceOps.aggregate$(this, z, seqop, combop);
+   }
+
+   public boolean corresponds(final IterableOnce that, final Function2 p) {
+      return IterableOnceOps.corresponds$(this, that, p);
+   }
+
+   public final String mkString(final String start, final String sep, final String end) {
+      return IterableOnceOps.mkString$(this, start, sep, end);
+   }
+
+   public final String mkString(final String sep) {
+      return IterableOnceOps.mkString$(this, sep);
+   }
+
+   public final String mkString() {
+      return IterableOnceOps.mkString$(this);
+   }
+
+   public StringBuilder addString(final StringBuilder b, final String start, final String sep, final String end) {
+      return IterableOnceOps.addString$(this, b, start, sep, end);
+   }
+
+   public final StringBuilder addString(final StringBuilder b, final String sep) {
+      return IterableOnceOps.addString$(this, b, sep);
+   }
+
+   public final StringBuilder addString(final StringBuilder b) {
+      return IterableOnceOps.addString$(this, b);
+   }
+
+   public Object to(final Factory factory) {
+      return IterableOnceOps.to$(this, factory);
+   }
+
+   /** @deprecated */
+   public final Iterator toIterator() {
+      return IterableOnceOps.toIterator$(this);
+   }
+
+   public List toList() {
+      return IterableOnceOps.toList$(this);
+   }
+
+   public Vector toVector() {
+      return IterableOnceOps.toVector$(this);
+   }
+
+   public Map toMap(final .less.colon.less ev) {
+      return IterableOnceOps.toMap$(this, ev);
+   }
+
+   public Set toSet() {
+      return IterableOnceOps.toSet$(this);
+   }
+
+   public Seq toSeq() {
+      return IterableOnceOps.toSeq$(this);
+   }
+
+   public IndexedSeq toIndexedSeq() {
+      return IterableOnceOps.toIndexedSeq$(this);
+   }
+
+   /** @deprecated */
+   public final Stream toStream() {
+      return IterableOnceOps.toStream$(this);
+   }
+
+   public final Buffer toBuffer() {
+      return IterableOnceOps.toBuffer$(this);
+   }
+
+   public Object toArray(final ClassTag evidence$2) {
+      return IterableOnceOps.toArray$(this, evidence$2);
+   }
+
+   public Iterable reversed() {
+      return IterableOnceOps.reversed$(this);
+   }
+
+   public Stepper stepper(final StepperShape shape) {
+      return IterableOnce.stepper$(this, shape);
+   }
+
+   public int knownSize() {
+      return IterableOnce.knownSize$(this);
+   }
+
+   private int defaultHashCode$lzycompute() {
+      synchronized(this){}
+
+      try {
+         if (!this.bitmap$0) {
+            this.defaultHashCode = Index.defaultHashCode$(this);
+            this.bitmap$0 = true;
+         }
+      } catch (Throwable var3) {
+         throw var3;
+      }
+
+      return this.defaultHashCode;
+   }
+
+   public int defaultHashCode() {
+      return !this.bitmap$0 ? this.defaultHashCode$lzycompute() : this.defaultHashCode;
+   }
+
+   public Index innerIndex() {
+      return this.innerIndex;
+   }
+
+   public int apply(final Object u) {
+      return this.innerIndex().apply(this.iso.backward(u));
+   }
+
+   public Option unapply(final int i) {
+      return this.innerIndex().unapply(i).map((t) -> this.iso.forward(t));
+   }
+
+   public Iterator pairs() {
+      return this.innerIndex().pairs().map((pair) -> new Tuple2(this.iso.forward(pair._1()), BoxesRunTime.boxToInteger(pair._2$mcI$sp())));
+   }
+
+   public Iterator iterator() {
+      return this.innerIndex().iterator().map((t) -> this.iso.forward(t));
+   }
+
+   public int size() {
+      return this.innerIndex().size();
+   }
+
+   public boolean contains(final Object u) {
+      return this.innerIndex().contains(this.iso.backward(u));
+   }
+
+   public Object get(final int i) {
+      return this.iso.forward(this.innerIndex().get(i));
+   }
+
+   public IsomorphismIndex(final Index innerIndex, final Isomorphism iso) {
+      this.innerIndex = innerIndex;
+      this.iso = iso;
+      IterableOnce.$init$(this);
+      IterableOnceOps.$init$(this);
+      IterableOps.$init$(this);
+      IterableFactoryDefaults.$init$(this);
+      Iterable.$init$(this);
+      Function1.$init$(this);
+      Index.$init$(this);
+   }
+
+   // $FF: synthetic method
+   private static Object $deserializeLambda$(SerializedLambda var0) {
+      return Class.lambdaDeserialize<invokedynamic>(var0);
+   }
+}

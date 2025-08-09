@@ -1,0 +1,10 @@
+package io.vertx.core.dns;
+
+import io.vertx.codegen.annotations.VertxGen;
+
+@VertxGen
+public interface MxRecord {
+   int priority();
+
+   String name();
+}

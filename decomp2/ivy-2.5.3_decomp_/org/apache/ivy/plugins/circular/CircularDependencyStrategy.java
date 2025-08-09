@@ -1,0 +1,9 @@
+package org.apache.ivy.plugins.circular;
+
+import org.apache.ivy.core.module.id.ModuleRevisionId;
+
+public interface CircularDependencyStrategy {
+   String getName();
+
+   void handleCircularDependency(ModuleRevisionId[] var1) throws CircularDependencyException;
+}

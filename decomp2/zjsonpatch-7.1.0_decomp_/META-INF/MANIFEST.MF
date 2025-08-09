@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 11
+Bundle-Description: Java client for Kubernetes and OpenShift
+Bundle-DocURL: https://redhat.com
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Fabric8 :: zjsonpatch
+Bundle-SymbolicName: io.fabric8.zjsonpatch
+Bundle-Vendor: Red Hat
+Bundle-Version: 7.1.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Export-Package: io.fabric8.zjsonpatch;version="7.1.0";uses:="com.fasterx
+ ml.jackson.databind",io.fabric8.zjsonpatch.internal.collections4;versio
+ n="7.1.0"
+Import-Package: com.fasterxml.jackson.core;version="[2.18,3)",com.faster
+ xml.jackson.databind;version="[2.18,3)",com.fasterxml.jackson.databind.
+ node;version="[2.18,3)",io.fabric8.zjsonpatch.internal.collections4;ver
+ sion="[7.1,8)"
+Include-Resource: ,/META-INF/jandex.idx=target/classes/META-INF/jandex.i
+ dx
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Tool: Bnd-6.3.1.202206071316
+

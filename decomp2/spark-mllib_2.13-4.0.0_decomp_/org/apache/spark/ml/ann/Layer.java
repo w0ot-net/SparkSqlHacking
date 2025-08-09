@@ -1,0 +1,21 @@
+package org.apache.spark.ml.ann;
+
+import breeze.linalg.DenseVector;
+import java.io.Serializable;
+import java.util.Random;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Q3\u0001BB\u0004\u0011\u0002G\u0005q!\u0005\u0005\bK\u0001\u0011\rQ\"\u0001'\u0011\u0015Q\u0003A\"\u0001,\u0011\u001dq\u0003A1A\u0007\u0002=BQa\r\u0001\u0007\u0002QBQA\u0012\u0001\u0007\u0002\u001d\u0013Q\u0001T1zKJT!\u0001C\u0005\u0002\u0007\u0005tgN\u0003\u0002\u000b\u0017\u0005\u0011Q\u000e\u001c\u0006\u0003\u00195\tQa\u001d9be.T!AD\b\u0002\r\u0005\u0004\u0018m\u00195f\u0015\u0005\u0001\u0012aA8sON\u0019\u0001A\u0005\r\u0011\u0005M1R\"\u0001\u000b\u000b\u0003U\tQa]2bY\u0006L!a\u0006\u000b\u0003\r\u0005s\u0017PU3g!\tI\"E\u0004\u0002\u001bA9\u00111dH\u0007\u00029)\u0011QDH\u0001\u0007yI|w\u000e\u001e \u0004\u0001%\tQ#\u0003\u0002\")\u00059\u0001/Y2lC\u001e,\u0017BA\u0012%\u00051\u0019VM]5bY&T\u0018M\u00197f\u0015\t\tC#\u0001\u0006xK&<\u0007\u000e^*ju\u0016,\u0012a\n\t\u0003'!J!!\u000b\u000b\u0003\u0007%sG/A\u0007hKR|U\u000f\u001e9viNK'0\u001a\u000b\u0003O1BQ!\f\u0002A\u0002\u001d\n\u0011\"\u001b8qkR\u001c\u0016N_3\u0002\u000f%t\u0007\u000b\\1dKV\t\u0001\u0007\u0005\u0002\u0014c%\u0011!\u0007\u0006\u0002\b\u0005>|G.Z1o\u0003-\u0019'/Z1uK6{G-\u001a7\u0015\u0005UJ\u0004C\u0001\u001c8\u001b\u00059\u0011B\u0001\u001d\b\u0005)a\u0015-_3s\u001b>$W\r\u001c\u0005\u0006u\u0011\u0001\raO\u0001\u000fS:LG/[1m/\u0016Lw\r\u001b;t!\ra\u0014iQ\u0007\u0002{)\u0011ahP\u0001\u0007Y&t\u0017\r\\4\u000b\u0003\u0001\u000baA\u0019:fKj,\u0017B\u0001\">\u0005-!UM\\:f-\u0016\u001cGo\u001c:\u0011\u0005M!\u0015BA#\u0015\u0005\u0019!u.\u001e2mK\u0006I\u0011N\\5u\u001b>$W\r\u001c\u000b\u0004k!S\u0005\"B%\u0006\u0001\u0004Y\u0014aB<fS\u001eDGo\u001d\u0005\u0006\u0017\u0016\u0001\r\u0001T\u0001\u0007e\u0006tGm\\7\u0011\u00055\u0013V\"\u0001(\u000b\u0005=\u0003\u0016\u0001B;uS2T\u0011!U\u0001\u0005U\u00064\u0018-\u0003\u0002T\u001d\n1!+\u00198e_6\u0004"
+)
+public interface Layer extends Serializable {
+   int weightSize();
+
+   int getOutputSize(final int inputSize);
+
+   boolean inPlace();
+
+   LayerModel createModel(final DenseVector initialWeights);
+
+   LayerModel initModel(final DenseVector weights, final Random random);
+}

@@ -1,0 +1,17 @@
+package org.json4s;
+
+import java.util.Date;
+import java.util.TimeZone;
+import scala.Option;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Q2q\u0001B\u0003\u0011\u0002G\u0005!\u0002C\u0003\u0012\u0001\u0019\u0005!\u0003C\u0003,\u0001\u0019\u0005A\u0006C\u00030\u0001\u0019\u0005\u0001G\u0001\u0006ECR,gi\u001c:nCRT!AB\u0004\u0002\r)\u001cxN\u001c\u001bt\u0015\u0005A\u0011aA8sO\u000e\u00011C\u0001\u0001\f!\taq\"D\u0001\u000e\u0015\u0005q\u0011!B:dC2\f\u0017B\u0001\t\u000e\u0005\u0019\te.\u001f*fM\u0006)\u0001/\u0019:tKR\u00111C\b\t\u0004\u0019Q1\u0012BA\u000b\u000e\u0005\u0019y\u0005\u000f^5p]B\u0011q\u0003H\u0007\u00021)\u0011\u0011DG\u0001\u0005kRLGNC\u0001\u001c\u0003\u0011Q\u0017M^1\n\u0005uA\"\u0001\u0002#bi\u0016DQaH\u0001A\u0002\u0001\n\u0011a\u001d\t\u0003C!r!A\t\u0014\u0011\u0005\rjQ\"\u0001\u0013\u000b\u0005\u0015J\u0011A\u0002\u001fs_>$h(\u0003\u0002(\u001b\u00051\u0001K]3eK\u001aL!!\u000b\u0016\u0003\rM#(/\u001b8h\u0015\t9S\"\u0001\u0004g_Jl\u0017\r\u001e\u000b\u0003A5BQA\f\u0002A\u0002Y\t\u0011\u0001Z\u0001\ti&lWM_8oKV\t\u0011\u0007\u0005\u0002\u0018e%\u00111\u0007\u0007\u0002\t)&lWMW8oK\u0002"
+)
+public interface DateFormat {
+   Option parse(final String s);
+
+   String format(final Date d);
+
+   TimeZone timezone();
+}

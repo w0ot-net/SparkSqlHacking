@@ -1,0 +1,32 @@
+package org.apache.spark.sql.hive.thriftserver.ui;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u0001;aa\u0004\t\t\u0002AqbA\u0002\u0011\u0011\u0011\u0003\u0001\u0012\u0005C\u0003)\u0003\u0011\u0005!\u0006C\u0004,\u0003\t\u0007I\u0011\u0001\u0017\t\rU\n\u0001\u0015!\u0003.\u0011\u001d1\u0014A1A\u0005\u00021BaaN\u0001!\u0002\u0013i\u0003b\u0002\u001d\u0002\u0005\u0004%\t\u0001\f\u0005\u0007s\u0005\u0001\u000b\u0011B\u0017\t\u000fi\n!\u0019!C\u0001Y!11(\u0001Q\u0001\n5Bq\u0001P\u0001C\u0002\u0013\u0005A\u0006\u0003\u0004>\u0003\u0001\u0006I!\f\u0005\b}\u0005\u0011\r\u0011\"\u0001-\u0011\u0019y\u0014\u0001)A\u0005[\u0005AAk\\8m)&\u00048O\u0003\u0002\u0012%\u0005\u0011Q/\u001b\u0006\u0003'Q\tA\u0002\u001e5sS\u001a$8/\u001a:wKJT!!\u0006\f\u0002\t!Lg/\u001a\u0006\u0003/a\t1a]9m\u0015\tI\"$A\u0003ta\u0006\u00148N\u0003\u0002\u001c9\u00051\u0011\r]1dQ\u0016T\u0011!H\u0001\u0004_J<\u0007CA\u0010\u0002\u001b\u0005\u0001\"\u0001\u0003+p_2$\u0016\u000e]:\u0014\u0005\u0005\u0011\u0003CA\u0012'\u001b\u0005!#\"A\u0013\u0002\u000bM\u001c\u0017\r\\1\n\u0005\u001d\"#AB!osJ+g-\u0001\u0004=S:LGOP\u0002\u0001)\u0005q\u0012!\u0007+I%&3EkX*F%Z+%k\u0018$J\u001d&\u001b\u0006j\u0018+J\u001b\u0016+\u0012!\f\t\u0003]Mj\u0011a\f\u0006\u0003aE\nA\u0001\\1oO*\t!'\u0001\u0003kCZ\f\u0017B\u0001\u001b0\u0005\u0019\u0019FO]5oO\u0006QB\u000b\u0013*J\rR{6+\u0012*W\u000bJ{f)\u0013(J'\"{F+S'FA\u0005AB\u000b\u0013*J\rR{6+\u0012*W\u000bJ{6\tT(T\u000b~#\u0016*T#\u00023QC%+\u0013$U?N+%KV#S?\u000ecujU#`)&kU\tI\u0001\u0018)\"\u0013\u0016J\u0012+`'\u0016\u0013f+\u0012*`\u000bb+5)\u0016+J\u001f:\u000b\u0001\u0004\u0016%S\u0013\u001a#vlU#S-\u0016\u0013v,\u0012-F\u0007V#\u0016j\u0014(!\u0003Y!\u0006JU%G)~\u001bVI\u0015,F%~#UKU!U\u0013>s\u0015a\u0006+I%&3EkX*F%Z+%k\u0018#V%\u0006#\u0016j\u0014(!\u0003q!\u0006JU%G)~\u001bViU*J\u001f:{Fk\u0014+B\u0019~+\u0005,R\"V)\u0016\u000bQ\u0004\u0016%S\u0013\u001a#vlU#T'&{ej\u0018+P)\u0006cu,\u0012-F\u0007V#V\tI\u0001\u0018)\"\u0013\u0016J\u0012+`'\u0016\u001b6+S(O?\u0012+&+\u0011+J\u001f:\u000b\u0001\u0004\u0016%S\u0013\u001a#vlU#T'&{ej\u0018#V%\u0006#\u0016j\u0014(!\u0001"
+)
+public final class ToolTips {
+   public static String THRIFT_SESSION_DURATION() {
+      return ToolTips$.MODULE$.THRIFT_SESSION_DURATION();
+   }
+
+   public static String THRIFT_SESSION_TOTAL_EXECUTE() {
+      return ToolTips$.MODULE$.THRIFT_SESSION_TOTAL_EXECUTE();
+   }
+
+   public static String THRIFT_SERVER_DURATION() {
+      return ToolTips$.MODULE$.THRIFT_SERVER_DURATION();
+   }
+
+   public static String THRIFT_SERVER_EXECUTION() {
+      return ToolTips$.MODULE$.THRIFT_SERVER_EXECUTION();
+   }
+
+   public static String THRIFT_SERVER_CLOSE_TIME() {
+      return ToolTips$.MODULE$.THRIFT_SERVER_CLOSE_TIME();
+   }
+
+   public static String THRIFT_SERVER_FINISH_TIME() {
+      return ToolTips$.MODULE$.THRIFT_SERVER_FINISH_TIME();
+   }
+}

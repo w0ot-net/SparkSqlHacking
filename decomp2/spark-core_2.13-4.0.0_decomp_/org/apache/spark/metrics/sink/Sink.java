@@ -1,0 +1,14 @@
+package org.apache.spark.metrics.sink;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005y1\u0001\u0002B\u0003\u0011\u0002G\u0005\u0011b\u0004\u0005\u0006-\u00011\t\u0001\u0007\u0005\u00069\u00011\t\u0001\u0007\u0005\u0006;\u00011\t\u0001\u0007\u0002\u0005'&t7N\u0003\u0002\u0007\u000f\u0005!1/\u001b8l\u0015\tA\u0011\"A\u0004nKR\u0014\u0018nY:\u000b\u0005)Y\u0011!B:qCJ\\'B\u0001\u0007\u000e\u0003\u0019\t\u0007/Y2iK*\ta\"A\u0002pe\u001e\u001c\"\u0001\u0001\t\u0011\u0005E!R\"\u0001\n\u000b\u0003M\tQa]2bY\u0006L!!\u0006\n\u0003\r\u0005s\u0017PU3g\u0003\u0015\u0019H/\u0019:u\u0007\u0001!\u0012!\u0007\t\u0003#iI!a\u0007\n\u0003\tUs\u0017\u000e^\u0001\u0005gR|\u0007/\u0001\u0004sKB|'\u000f\u001e"
+)
+public interface Sink {
+   void start();
+
+   void stop();
+
+   void report();
+}

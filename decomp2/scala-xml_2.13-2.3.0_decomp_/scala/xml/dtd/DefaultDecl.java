@@ -1,0 +1,13 @@
+package scala.xml.dtd;
+
+import scala.collection.mutable.StringBuilder;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005Q2Q\u0001B\u0003\u0002\"1AQ!\u0005\u0001\u0005\u0002IAQ!\u0006\u0001\u0007\u0002YAQA\t\u0001\u0007\u0002\r\u00121\u0002R3gCVdG\u000fR3dY*\u0011aaB\u0001\u0004IR$'B\u0001\u0005\n\u0003\rAX\u000e\u001c\u0006\u0002\u0015\u0005)1oY1mC\u000e\u00011C\u0001\u0001\u000e!\tqq\"D\u0001\n\u0013\t\u0001\u0012B\u0001\u0004B]f\u0014VMZ\u0001\u0007y%t\u0017\u000e\u001e \u0015\u0003M\u0001\"\u0001\u0006\u0001\u000e\u0003\u0015\t\u0001\u0002^8TiJLgnZ\u000b\u0002/A\u0011\u0001d\b\b\u00033u\u0001\"AG\u0005\u000e\u0003mQ!\u0001H\u0006\u0002\rq\u0012xn\u001c;?\u0013\tq\u0012\"\u0001\u0004Qe\u0016$WMZ\u0005\u0003A\u0005\u0012aa\u0015;sS:<'B\u0001\u0010\n\u0003-\u0011W/\u001b7e'R\u0014\u0018N\\4\u0015\u0005\u0011Z\u0003CA\u0013)\u001d\tqa%\u0003\u0002(\u0013\u00059\u0001/Y2lC\u001e,\u0017BA\u0015+\u00055\u0019FO]5oO\n+\u0018\u000e\u001c3fe*\u0011q%\u0003\u0005\u0006Y\r\u0001\r\u0001J\u0001\u0003g\nLC\u0001\u0001\u00181e%\u0011q&\u0002\u0002\b\t\u00163\u0015)\u0016'U\u0015\t\tT!A\u0004J\u001bBc\u0015*\u0012#\u000b\u0005M*\u0011\u0001\u0003*F#VK%+\u0012#"
+)
+public abstract class DefaultDecl {
+   public abstract String toString();
+
+   public abstract StringBuilder buildString(final StringBuilder sb);
+}

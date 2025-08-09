@@ -1,0 +1,9 @@
+package breeze.math;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00112q!\u0001\u0002\u0011\u0002G\u0005qA\u0001\bNkR\f'\r\\3M!N\u0003\u0018mY3\u000b\u0005\r!\u0011\u0001B7bi\"T\u0011!B\u0001\u0007EJ,WM_3\u0004\u0001U\u0019\u0001\"F\u0010\u0014\t\u0001Iq\"\t\t\u0003\u00155i\u0011a\u0003\u0006\u0002\u0019\u0005)1oY1mC&\u0011ab\u0003\u0002\u0007\u0003:L(+\u001a4\u0011\tA\t2CH\u0007\u0002\u0005%\u0011!C\u0001\u0002\u0013\u001bV$\u0018M\u00197f-\u0016\u001cGo\u001c:Ta\u0006\u001cW\r\u0005\u0002\u0015+1\u0001A!\u0002\f\u0001\u0005\u00049\"!\u0001,\u0012\u0005aY\u0002C\u0001\u0006\u001a\u0013\tQ2BA\u0004O_RD\u0017N\\4\u0011\u0005)a\u0012BA\u000f\f\u0005\r\te.\u001f\t\u0003)}!Q\u0001\t\u0001C\u0002]\u0011\u0011a\u0015\t\u0005!\t\u001ab$\u0003\u0002$\u0005\tyQ*\u001e;bE2,G\nU'pIVdW\r"
+)
+public interface MutableLPSpace extends MutableVectorSpace, MutableLPModule {
+}

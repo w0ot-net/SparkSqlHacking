@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.4.0
+Build-Jdk-Spec: 17
+Specification-Title: Spark Project Hive
+Specification-Version: 4.0
+Specification-Vendor: Apache Software Foundation
+Implementation-Title: Spark Project Hive
+Implementation-Version: 4.0.0
+Implementation-Vendor: Apache Software Foundation
+

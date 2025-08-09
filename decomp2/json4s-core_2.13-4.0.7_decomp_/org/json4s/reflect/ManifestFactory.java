@@ -1,0 +1,23 @@
+package org.json4s.reflect;
+
+import java.lang.reflect.Type;
+import scala.collection.immutable.Seq;
+import scala.reflect.Manifest;
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005e<Qa\u0002\u0005\t\u0002=1Q!\u0005\u0005\t\u0002IAQ!G\u0001\u0005\u0002iAQaG\u0001\u0005\u0002qAQaG\u0001\u0005\u0002eBQaG\u0001\u0005\u0002\u0001DQa[\u0001\u0005\n1\fq\"T1oS\u001a,7\u000f\u001e$bGR|'/\u001f\u0006\u0003\u0013)\tqA]3gY\u0016\u001cGO\u0003\u0002\f\u0019\u00051!n]8oiMT\u0011!D\u0001\u0004_J<7\u0001\u0001\t\u0003!\u0005i\u0011\u0001\u0003\u0002\u0010\u001b\u0006t\u0017NZ3ti\u001a\u000b7\r^8ssN\u0011\u0011a\u0005\t\u0003)]i\u0011!\u0006\u0006\u0002-\u0005)1oY1mC&\u0011\u0001$\u0006\u0002\u0007\u0003:L(+\u001a4\u0002\rqJg.\u001b;?)\u0005y\u0011AC7b]&4Wm\u001d;PMR\u0011QD\f\u0019\u0003=\u0015\u00022aH\u0011$\u001b\u0005\u0001#BA\u0005\u0016\u0013\t\u0011\u0003E\u0001\u0005NC:Lg-Z:u!\t!S\u0005\u0004\u0001\u0005\u0013\u0019\u001a\u0011\u0011!A\u0001\u0006\u00039#aA0%cE\u0011\u0001f\u000b\t\u0003)%J!AK\u000b\u0003\u000f9{G\u000f[5oOB\u0011A\u0003L\u0005\u0003[U\u00111!\u00118z\u0011\u0015y3\u00011\u00011\u0003\u0005!\bCA\u00198\u001b\u0005\u0011$BA\u00054\u0015\t!T'\u0001\u0003mC:<'\"\u0001\u001c\u0002\t)\fg/Y\u0005\u0003qI\u0012A\u0001V=qKR\u0019!h\u0010)1\u0005mj\u0004cA\u0010\"yA\u0011A%\u0010\u0003\n}\u0011\t\t\u0011!A\u0003\u0002\u001d\u00121a\u0018\u00135\u0011\u0015\u0001E\u00011\u0001B\u0003\u001d)'/Y:ve\u0016\u0004$A\u0011(\u0011\u0007\rSUJ\u0004\u0002E\u0011B\u0011Q)F\u0007\u0002\r*\u0011qID\u0001\u0007yI|w\u000e\u001e \n\u0005%+\u0012A\u0002)sK\u0012,g-\u0003\u0002L\u0019\n)1\t\\1tg*\u0011\u0011*\u0006\t\u0003I9#\u0011bT \u0002\u0002\u0003\u0005)\u0011A\u0014\u0003\u0007}##\u0007C\u0003R\t\u0001\u0007!+\u0001\u0005usB,\u0017I]4t!\r\u0019\u0006l\u0017\b\u0003)Zs!!R+\n\u0003YI!aV\u000b\u0002\u000fA\f7m[1hK&\u0011\u0011L\u0017\u0002\u0004'\u0016\f(BA,\u0016a\taf\fE\u0002 Cu\u0003\"\u0001\n0\u0005\u0013}\u0003\u0016\u0011!A\u0001\u0006\u00039#aA0%gQ\u0011\u0011M\u001a\u0019\u0003E\u0012\u00042aH\u0011d!\t!C\rB\u0005f\u000b\u0005\u0005\t\u0011!B\u0001O\t\u0019q\fJ\u001b\t\u000b\u001d,\u0001\u0019\u00015\u0002\u0005M$\bC\u0001\tj\u0013\tQ\u0007BA\u0005TG\u0006d\u0017\rV=qK\u0006IaM]8n\u00072\f7o\u001d\u000b\u0003[J\u0004$A\u001c9\u0011\u0007}\ts\u000e\u0005\u0002%a\u0012I\u0011OBA\u0001\u0002\u0003\u0015\ta\n\u0002\u0004?\u0012:\u0004\"B:\u0007\u0001\u0004!\u0018!B2mCjT\bGA;x!\r\u0019%J\u001e\t\u0003I]$\u0011\u0002\u001f:\u0002\u0002\u0003\u0005)\u0011A\u0014\u0003\u0007}#c\u0007"
+)
+public final class ManifestFactory {
+   public static Manifest manifestOf(final ScalaType st) {
+      return ManifestFactory$.MODULE$.manifestOf(st);
+   }
+
+   public static Manifest manifestOf(final Class erasure, final Seq typeArgs) {
+      return ManifestFactory$.MODULE$.manifestOf(erasure, typeArgs);
+   }
+
+   public static Manifest manifestOf(final Type t) {
+      return ManifestFactory$.MODULE$.manifestOf(t);
+   }
+}

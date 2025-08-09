@@ -1,0 +1,20 @@
+package breeze.linalg.support;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u0005\u00153q!\u0003\u0006\u0011\u0002G\u0005\u0012cB\u0003E\u0015!\u0005\u0011FB\u0003\n\u0015!\u0005a\u0005C\u0003(\u0005\u0011\u0005\u0001fB\u0003,\u0005!\u0005AFB\u0003&\u0005!\u0005\u0011\tC\u0003(\u000b\u0011\u00051\tC\u0003/\u0005\u0011\u0005q\u0006C\u00038\u0005\u0011\r\u0001H\u0001\u0005TG\u0006d\u0017M](g\u0015\tYA\"A\u0004tkB\u0004xN\u001d;\u000b\u00055q\u0011A\u00027j]\u0006dwMC\u0001\u0010\u0003\u0019\u0011'/Z3{K\u000e\u0001Qc\u0001\n\u001aEM\u0011\u0001a\u0005\t\u0003)]i\u0011!\u0006\u0006\u0002-\u0005)1oY1mC&\u0011\u0001$\u0006\u0002\u0007\u0003:L(+\u001a4\u0005\u000bi\u0001!\u0019A\u000e\u0003\u0003Y\u000b\"\u0001H\u0010\u0011\u0005Qi\u0012B\u0001\u0010\u0016\u0005\u001dqu\u000e\u001e5j]\u001e\u0004\"\u0001\u0006\u0011\n\u0005\u0005*\"aA!os\u0012)1\u0005\u0001b\u00017\t\t1+\u000b\u0002\u0001\u000b\tiA)^7ns&s7\u000f^1oG\u0016\u001c\"AA\n\u0002\rqJg.\u001b;?)\u0005I\u0003C\u0001\u0016\u0003\u001b\u0005Q\u0011!\u0004#v[6L\u0018J\\:uC:\u001cW\r\u0005\u0002.\u000b5\t!!A\u0003ek6l\u00170F\u00021iY*\u0012!\r\t\u0005U\u0001\u0011T\u0007\u0005\u00024i1\u0001A!\u0002\u000e\b\u0005\u0004Y\u0002CA\u001a7\t\u0015\u0019sA1\u0001\u001c\u00035\u00198-\u00197be>3\u0017I\u001d:bsV\u0011\u0011hP\u000b\u0002uA!!\u0006A\u001e?!\r!BHP\u0005\u0003{U\u0011Q!\u0011:sCf\u0004\"aM \u0005\u000b\u0001C!\u0019A\u000e\u0003\u0003Q\u001b2!B\nC!\u0011Q\u0003aH\u0010\u0015\u00031\n\u0001bU2bY\u0006\u0014xJ\u001a"
+)
+public interface ScalarOf {
+   static ScalarOf scalarOfArray() {
+      return ScalarOf$.MODULE$.scalarOfArray();
+   }
+
+   static ScalarOf dummy() {
+      return ScalarOf$.MODULE$.dummy();
+   }
+
+   public static class DummyInstance$ implements ScalarOf {
+      public static final DummyInstance$ MODULE$ = new DummyInstance$();
+   }
+}

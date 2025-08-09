@@ -1,0 +1,48 @@
+package org.apache.spark.internal.config;
+
+import scala.reflect.ScalaSignature;
+
+@ScalaSignature(
+   bytes = "\u0006\u00051<a!\u0007\u000e\t\u0002y!cA\u0002\u0014\u001b\u0011\u0003qr\u0005C\u0003/\u0003\u0011\u0005\u0001\u0007C\u00042\u0003\t\u0007I\u0011\u0001\u001a\t\re\n\u0001\u0015!\u00034\u0011\u001dQ\u0014A1A\u0005\u0002mBa\u0001Q\u0001!\u0002\u0013a\u0004bB!\u0002\u0005\u0004%\tA\r\u0005\u0007\u0005\u0006\u0001\u000b\u0011B\u001a\t\u000f\r\u000b!\u0019!C\u0001e!1A)\u0001Q\u0001\nMBq!R\u0001C\u0002\u0013\u0005a\t\u0003\u0004V\u0003\u0001\u0006Ia\u0012\u0005\b-\u0006\u0011\r\u0011\"\u0001G\u0011\u00199\u0016\u0001)A\u0005\u000f\"9\u0001,\u0001b\u0001\n\u0003I\u0006BB.\u0002A\u0003%!\fC\u0004]\u0003\t\u0007I\u0011A\u001e\t\ru\u000b\u0001\u0015!\u0003=\u0011\u001dq\u0016A1A\u0005\u0002IBaaX\u0001!\u0002\u0013\u0019\u0004b\u00021\u0002\u0005\u0004%I!\u0019\u0005\u0007S\u0006\u0001\u000b\u0011\u00022\t\u000f)\f!\u0019!C\u0001w!11.\u0001Q\u0001\nq\na\u0001U=uQ>t'BA\u000e\u001d\u0003\u0019\u0019wN\u001c4jO*\u0011QDH\u0001\tS:$XM\u001d8bY*\u0011q\u0004I\u0001\u0006gB\f'o\u001b\u0006\u0003C\t\na!\u00199bG\",'\"A\u0012\u0002\u0007=\u0014x\r\u0005\u0002&\u00035\t!D\u0001\u0004QsRDwN\\\n\u0003\u0003!\u0002\"!\u000b\u0017\u000e\u0003)R\u0011aK\u0001\u0006g\u000e\fG.Y\u0005\u0003[)\u0012a!\u00118z%\u00164\u0017A\u0002\u001fj]&$hh\u0001\u0001\u0015\u0003\u0011\n1\u0003U-U\u0011>sulV(S\u0017\u0016\u0013vLU#V'\u0016+\u0012a\r\t\u0004KQ2\u0014BA\u001b\u001b\u0005-\u0019uN\u001c4jO\u0016sGO]=\u0011\u0005%:\u0014B\u0001\u001d+\u0005\u001d\u0011un\u001c7fC:\fA\u0003U-U\u0011>sulV(S\u0017\u0016\u0013vLU#V'\u0016\u0003\u0013\u0001\u0007)Z)\"{ej\u0018+B'.{6*\u0013'M?RKU*R(V)V\tA\bE\u0002&iu\u0002\"!\u000b \n\u0005}R#\u0001\u0002'p]\u001e\f\u0011\u0004U-U\u0011>su\fV!T\u0017~[\u0015\n\u0014'`)&kUiT+UA\u0005\t\u0002+\u0017+I\u001f:{VkU#`\t\u0006+Uj\u0014(\u0002%AKF\u000bS(O?V\u001bVi\u0018#B\u000b6{e\nI\u0001\u0010!f#\u0006j\u0014(`\u0019>;u,\u0013(G\u001f\u0006\u0001\u0002+\u0017+I\u001f:{FjT$`\u0013:3u\nI\u0001\u0015!f#\u0006j\u0014(`\t\u0006+Uj\u0014(`\u001b>#U\u000bT#\u0016\u0003\u001d\u00032!\n%K\u0013\tI%DA\nPaRLwN\\1m\u0007>tg-[4F]R\u0014\u0018\u0010\u0005\u0002L%:\u0011A\n\u0015\t\u0003\u001b*j\u0011A\u0014\u0006\u0003\u001f>\na\u0001\u0010:p_Rt\u0014BA)+\u0003\u0019\u0001&/\u001a3fM&\u00111\u000b\u0016\u0002\u0007'R\u0014\u0018N\\4\u000b\u0005ES\u0013!\u0006)Z)\"{ej\u0018#B\u000b6{ejX'P\tVcU\tI\u0001\u0015!f#\u0006j\u0014(`/>\u00136*\u0012*`\u001b>#U\u000bT#\u0002+AKF\u000bS(O?^{%kS#S?6{E)\u0016'FA\u00059\u0002+W*Q\u0003J[u,\u0012-F\u0007V#vJU0N\u000b6{%+W\u000b\u00025B\u0019Q\u0005S\u001f\u00021AK6\u000bU!S\u0017~+\u0005,R\"V)>\u0013v,T#N\u001fJK\u0006%\u0001\u000eQ3RCuJT0B+RCulU(D\u0017\u0016#v\fV%N\u000b>+F+A\u000eQ3RCuJT0B+RCulU(D\u0017\u0016#v\fV%N\u000b>+F\u000bI\u0001#!f#\u0006j\u0014(`/>\u00136*\u0012*`\r\u0006+F\n\u0016%B\u001d2#UIU0F\u001d\u0006\u0013E*\u0012#\u0002GAKF\u000bS(O?^{%kS#S?\u001a\u000bU\u000b\u0014+I\u0003:cE)\u0012*`\u000b:\u000b%\tT#EA\u00051\u0003+\u0017+I\u001f:{vk\u0014*L\u000bJ{\u0016\n\u0012'F?RKU*R(V)~\u001bViQ(O\tN{6*R-\u0016\u0003\t\u0004\"a\u00195\u000e\u0003\u0011T!!\u001a4\u0002\t1\fgn\u001a\u0006\u0002O\u0006!!.\u0019<b\u0013\t\u0019F-A\u0014Q3RCuJT0X\u001fJ[UIU0J\t2+u\fV%N\u000b>+FkX*F\u0007>sEiU0L\u000bf\u0003\u0013A\t)Z)\"{ejX,P%.+%kX%E\u0019\u0016{F+S'F\u001fV#vlU#D\u001f:#5+A\u0012Q3RCuJT0X\u001fJ[UIU0J\t2+u\fV%N\u000b>+FkX*F\u0007>sEi\u0015\u0011"
+)
+public final class Python {
+   public static ConfigEntry PYTHON_WORKER_IDLE_TIMEOUT_SECONDS() {
+      return Python$.MODULE$.PYTHON_WORKER_IDLE_TIMEOUT_SECONDS();
+   }
+
+   public static ConfigEntry PYTHON_WORKER_FAULTHANLDER_ENABLED() {
+      return Python$.MODULE$.PYTHON_WORKER_FAULTHANLDER_ENABLED();
+   }
+
+   public static ConfigEntry PYTHON_AUTH_SOCKET_TIMEOUT() {
+      return Python$.MODULE$.PYTHON_AUTH_SOCKET_TIMEOUT();
+   }
+
+   public static OptionalConfigEntry PYSPARK_EXECUTOR_MEMORY() {
+      return Python$.MODULE$.PYSPARK_EXECUTOR_MEMORY();
+   }
+
+   public static OptionalConfigEntry PYTHON_WORKER_MODULE() {
+      return Python$.MODULE$.PYTHON_WORKER_MODULE();
+   }
+
+   public static OptionalConfigEntry PYTHON_DAEMON_MODULE() {
+      return Python$.MODULE$.PYTHON_DAEMON_MODULE();
+   }
+
+   public static ConfigEntry PYTHON_LOG_INFO() {
+      return Python$.MODULE$.PYTHON_LOG_INFO();
+   }
+
+   public static ConfigEntry PYTHON_USE_DAEMON() {
+      return Python$.MODULE$.PYTHON_USE_DAEMON();
+   }
+
+   public static ConfigEntry PYTHON_TASK_KILL_TIMEOUT() {
+      return Python$.MODULE$.PYTHON_TASK_KILL_TIMEOUT();
+   }
+
+   public static ConfigEntry PYTHON_WORKER_REUSE() {
+      return Python$.MODULE$.PYTHON_WORKER_REUSE();
+   }
+}
