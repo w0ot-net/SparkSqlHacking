@@ -16,12 +16,12 @@ The script outputs Spark SQL statements that can:
 1. Write the JAR to the Spark host using `java.nio.file.Files.write` with `unbase64`.
 2. Load the JAR into Spark via `ADD JAR`.
 3. Invoke the `pwn.Pwn.exec` method to run a specified command.  
-It is compatible with Python 2.7 and Python 3.1+, and produces a unique JAR filename per execution to avoid file conflicts.
 
 ### install_fernflower.sh
 Automates the installation of JetBrains' Fernflower Java decompiler.  
 It clones the IntelliJ Community Edition repository, builds the Fernflower engine with Gradle, copies the resulting JAR to `/usr/bin/fernflower.jar`, and installs a wrapper script `/usr/bin/fernflower` to simplify usage.  
 Requires root privileges, Java, and Git. Once installed, `fernflower` can be used to decompile `.jar` files.
+Deletes the repo when completed and only leaves fernflower.jar behind
 
 ### mass_decompile.sh
 Performs bulk decompilation of `.jar` files using Fernflower with parallel processing.  
