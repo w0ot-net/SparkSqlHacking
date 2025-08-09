@@ -32,7 +32,7 @@ Includes timeout handling, file locking, and cleans up temporary directories aut
 
 ## Regexes
 
-Helper command to search for potential Java static methods that accept `String` parameters (useful for RCE or file write vectors):
+Helper command to search for potential Java static methods that accept `String` parameters:
 
 ```
 grep -hrP 'public\s+static\s+.*\([^)]*\bString(?!\s*\[)' . | grep command
