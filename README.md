@@ -3,6 +3,33 @@
 This repository contains quick notes, proof-of-concept queries, and snippets for exploiting Spark SQL environments.  
 These examples leverage the `reflect` and `java_method` functions, as well as custom JAR loading, to perform file writes, remote code execution (RCE), and other behaviors.
 
+
+## Script Descriptions
+
+### build_class.sh
+Generates and compiles a Java class (`exploit.ExecOnLoad`) whose static initializer executes an operating system command (`touch /tmp/pwned_by_class`) upon class loading.  
+The script packages the compiled class into `./output_classes/exploit.jar` without specifying a `Main-Class` attribute, making it suitable for classpath-based loading in Spark SQL or other JVM contexts to trigger code execution when the class is referenced.
+
+### build_custom_jar.py
+Creates, compiles, and packages a Java class (`pwn.Pwn`) that executes arbitrary operating system commands on both Windows and Unix-like platforms.  
+The script outputs Spark SQL statements that can:
+1. Write the JAR to the Spark host using `java.nio.file.Files.write` with `unbase64`.
+2. Load the JAR into Spark via `ADD JAR`.
+3. Invoke the `pwn.Pwn.exec` method to run a specified command.  
+It is compatible with Python 2.7 and Python 3.1+, and produces a unique JAR filename per execution to avoid file conflicts.
+
+### install_fernflower.sh
+Automates the installation of JetBrains' Fernflower Java decompiler.  
+It clones the IntelliJ Community Edition repository, builds the Fernflower engine with Gradle, copies the resulting JAR to `/usr/bin/fernflower.jar`, and installs a wrapper script `/usr/bin/fernflower` to simplify usage.  
+Requires root privileges, Java, and Git. Once installed, `fernflower` can be used to decompile `.jar` files.
+
+### mass_decompile.sh
+Performs bulk decompilation of `.jar` files using Fernflower with parallel processing.  
+Logs the status of each decompilation to `/tmp/decompilation_results.txt` with reasons for failures (e.g., `TIMEOUT`, `EXIT_CODE`, `NO_OUTPUT`, `EXTRACT_FAILED`, `KILLED_OR_OOM`).  
+Supports worker mode for decompiling individual files and main mode for batch processing.  
+Includes timeout handling, file locking, and cleans up temporary directories automatically.
+
+
 ## Regexes
 
 Helper command to search for potential Java static methods that accept `String` parameters (useful for RCE or file write vectors):
@@ -19,7 +46,7 @@ Example using `org.antlr.v4.runtime.misc.Utils.writeFile` to write arbitrary con
 SELECT reflect('org.antlr.v4.runtime.misc.Utils', 'writeFile', '/tmp/urmum3', 'i <3 2 hack');
 ```
 
-## RCE Queries
+## Code Execution
 
 Methods to trigger OS command execution:
 
